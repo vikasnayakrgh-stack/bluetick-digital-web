@@ -3,13 +3,43 @@ import { motion } from 'framer-motion';
 import { Send, CheckCircle2 } from 'lucide-react';
 import styles from './ContactForm.module.css';
 
-const ContactForm = () => {
-    const [status, setStatus] = useState('idle'); // idle, loading, success
+import { supabase } from '../../supabaseClient';
 
-    const handleSubmit = (e) => {
+const ContactForm = () => {
+    const [status, setStatus] = useState('idle'); // idle, loading, success, error
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setStatus('loading');
-        setTimeout(() => setStatus('success'), 1500);
+
+        const formData = {
+            name: e.target.name.value,
+            phone: e.target.whatsapp.value,
+            business_type: e.target.business.value,
+            source: 'web_form',
+            created_at: new Date().toISOString()
+        };
+
+        try {
+            console.log('Attempting to submit form data:', formData);
+            const { data, error } = await supabase
+                .from('leads')
+                .insert([formData])
+                .select();
+
+            if (error) {
+                console.error('Supabase Insert Error:', error);
+                throw error;
+            }
+
+            console.log('Supabase Insert Success:', data);
+            e.target.reset(); // Reset form after successful submission
+            setStatus('success');
+        } catch (error) {
+            console.error('Full Error Object:', error);
+            setStatus('error');
+            setTimeout(() => setStatus('idle'), 3000);
+        }
     };
 
     if (status === 'success') {
@@ -47,6 +77,7 @@ const ContactForm = () => {
                             <input
                                 type="text"
                                 id="name"
+                                name="name"
                                 placeholder="John Doe"
                                 required
                                 className={styles.input}
@@ -58,6 +89,7 @@ const ContactForm = () => {
                             <input
                                 type="tel"
                                 id="whatsapp"
+                                name="whatsapp"
                                 placeholder="+91 98765 43210"
                                 required
                                 className={styles.input}
@@ -66,7 +98,7 @@ const ContactForm = () => {
 
                         <div className={styles.inputGroup}>
                             <label htmlFor="business">Business Type</label>
-                            <select id="business" className={styles.select} required>
+                            <select id="business" name="business" className={styles.select} required>
                                 <option value="">Select your industry</option>
                                 <option value="ecommerce">E-commerce</option>
                                 <option value="edtech">EdTech</option>

@@ -43,21 +43,29 @@ const Hero = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.3 }}
                     >
-                        <motion.button
+                        <motion.a
+                            href="https://wa.me/918770440636?text=Hi,%20I%20am%20interested%20in%20AI%20Priya%20for%20my%20business."
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className={styles.ctaBtn}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >
                             Get Started Free <ArrowRight size={20} />
-                        </motion.button>
+                        </motion.a>
 
-                        <motion.button
+                        <motion.a
+                            href="#demo"
                             className={styles.secondaryBtn}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+                            }}
                         >
                             <Play size={18} /> Watch Demo
-                        </motion.button>
+                        </motion.a>
                     </motion.div>
 
                     <motion.div

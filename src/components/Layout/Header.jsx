@@ -38,7 +38,15 @@ const Header = () => {
                         <a href="/#pricing" className={styles.navLink} onClick={closeMenu}>Pricing</a>
                     </div>
                     <div className={styles.actions}>
-                        <a href="#login" className={styles.loginBtn} onClick={closeMenu}>Book a Demo</a>
+                        <a
+                            href="https://wa.me/918770440636?text=Hi,%20I%20want%20to%20book%20a%20demo%20for%20AI%20Priya."
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.loginBtn}
+                            onClick={closeMenu}
+                        >
+                            Book a Demo
+                        </a>
                         <a href="#signup" className={styles.signupBtn} onClick={closeMenu}>Try for Free</a>
                     </div>
                 </nav>

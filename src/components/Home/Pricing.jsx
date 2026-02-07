@@ -51,9 +51,14 @@ const Pricing = () => {
                                 </div>
                             </div>
 
-                            <button className={`${styles.ctaBtn} ${plan.featured ? styles.featuredBtn : ''}`}>
+                            <a
+                                href={`https://wa.me/918770440636?text=Hi,%20I%20am%20interested%20in%20the%20${encodeURIComponent(plan.name)}%20plan.`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={`${styles.ctaBtn} ${plan.featured ? styles.featuredBtn : ''}`}
+                            >
                                 {plan.cta}
-                            </button>
+                            </a>
                         </motion.div>
                     ))}
                 </div>
