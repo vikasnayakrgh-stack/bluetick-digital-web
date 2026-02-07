@@ -3,9 +3,12 @@ import { HelmetProvider } from 'react-helmet-async'
 import AnnouncementBar from './components/Layout/AnnouncementBar'
 import Header from './components/Layout/Header'
 import Hero from './components/Home/Hero'
+import WhyChoose from './components/Home/WhyChoose'
 import TrustBar from './components/Home/TrustBar'
 import Workflows from './components/Home/Workflows'
 import CaseStudies from './components/Home/CaseStudies'
+import IndustrySolutions from './components/Home/IndustrySolutions'
+import ClientSuccess from './components/Home/ClientSuccess'
 import Pricing from './components/Home/Pricing'
 import FAQ from './components/Home/FAQ'
 import LeadIntelligence from './components/Home/LeadIntelligence'
@@ -30,14 +33,17 @@ const Home = () => (
       keywords="WhatsApp API, Sales Automation, AI Chatbot, WhatsApp CRM, AI Priya"
     />
     <Hero />
+    <WhyChoose />
     <TrustBar />
     <BroadcastFeature />
     <AdIntelligence />
     <NativeForms />
     <Workflows />
     <LeadIntelligence />
+    <IndustrySolutions />
     <CaseStudies />
     <Testimonials />
+    <ClientSuccess />
     <Pricing />
     <ContactForm />
     <FAQ />
