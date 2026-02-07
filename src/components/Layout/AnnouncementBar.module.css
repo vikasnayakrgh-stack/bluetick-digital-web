@@ -1,0 +1,31 @@
+.bar {
+    background-color: var(--bg-announcement);
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #856404;
+    text-align: center;
+    position: relative;
+    z-index: 1010;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.link {
+    text-decoration: underline;
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+@media (max-width: 768px) {
+    .bar {
+        font-size: 0.75rem;
+        padding: 8px 12px;
+    }
+}

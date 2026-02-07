@@ -1,0 +1,199 @@
+.section {
+    padding: 120px 0;
+    background: #fff;
+    color: var(--color-slate-900);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.title {
+    font-size: 48px;
+    line-height: 1.2;
+    margin-bottom: 24px;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: var(--color-slate-600);
+    margin-bottom: 48px;
+    line-height: 1.6;
+}
+
+.featureList {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.featureItem {
+    display: flex;
+    gap: 20px;
+}
+
+.iconBox {
+    width: 48px;
+    height: 48px;
+    background: rgba(37, 211, 102, 0.1);
+    color: var(--color-action-primary);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.featureInfo {
+    flex: 1;
+}
+
+.headerRow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 4px;
+}
+
+.headerRow h3 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.badge {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: var(--color-slate-100);
+    padding: 2px 8px;
+    border-radius: 4px;
+    color: var(--color-slate-500);
+}
+
+.featureInfo p {
+    font-size: 14px;
+    color: var(--color-slate-600);
+    line-height: 1.5;
+}
+
+.visual {
+    position: relative;
+}
+
+.codeCanvas {
+    background: var(--color-slate-900);
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+.codeSnippet {
+    margin: 0;
+    color: #4ade80;
+    font-family: 'Fira Code', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.intelligenceCard {
+    position: absolute;
+    bottom: -40px;
+    right: -20px;
+    width: 240px;
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--color-slate-100);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.cardHeader {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-slate-500);
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: var(--color-action-primary);
+    border-radius: 50%;
+}
+
+.circularChart {
+    display: block;
+    margin: 10px auto;
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.circleBg {
+    fill: none;
+    stroke: #eee;
+    stroke-width: 3.8;
+}
+
+.circle {
+    fill: none;
+    stroke-width: 2.8;
+    stroke-linecap: round;
+    stroke: var(--color-action-primary);
+    animation: progress 1s ease-out forwards;
+}
+
+@keyframes progress {
+    0% {
+        stroke-dasharray: 0 100;
+    }
+}
+
+.percentage {
+    fill: var(--color-slate-900);
+    font-size: 8px;
+    font-weight: 700;
+    text-anchor: middle;
+}
+
+.cardFooter {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 11px;
+}
+
+.status {
+    color: var(--color-action-primary);
+    font-weight: 700;
+}
+
+.action {
+    color: var(--color-slate-400);
+}
+
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .intelligenceCard {
+        position: relative;
+        bottom: 0;
+        right: 0;
+        margin: 40px auto 0;
+    }
+}
