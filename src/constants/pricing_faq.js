@@ -2,16 +2,19 @@ export const PRICING_PLANS = [
     {
         id: 'api',
         name: 'WhatsApp API',
+        tagline: 'Base Plan',
         price: '₹1,199',
-        priceAnnual: '₹999',
+        priceAnnual: '₹11,999',
+        upfront: '₹3,597',
         period: '/month',
         features: [
-            'API Key Setup',
+            'WABA Setup & Panel Access',
             'Unlimited Broadcasts',
             'Template Approvals',
             'Multi-Agent Login',
-            'Basic ROI Tracker',
-            'Green Tick Assistance'
+            'Basic Chatbot Builder',
+            'Green Tick Assistance',
+            'Customer Support'
         ],
         cta: 'Get Started',
         featured: false
@@ -19,38 +22,69 @@ export const PRICING_PLANS = [
     {
         id: 'automation',
         name: 'AI Automation',
+        tagline: 'Add-On Only (Req. API)',
         price: '₹1,999',
-        priceAnnual: '₹1,699',
+        priceAnnual: '₹14,999',
+        upfront: '₹5,997',
         period: '/month',
         features: [
-            'AI Priya Bot',
+            'AI WhatsApp Reply Bot',
             'Lead Qualification',
-            'CRM Integration',
-            'Auto-Followups',
-            'EXCEL/JS Extensions',
-            'Everything in API'
+            'Auto Follow-ups & Memory',
+            'Supabase / CRM Integration',
+            '10,000 AI Replies / Month',
+            'Add-on: 10k extra replies (₹499)'
         ],
-        cta: 'Get Started',
+        cta: 'Add to Plan',
         featured: false
     },
     {
         id: 'combo',
         name: 'Power Combo',
+        tagline: 'Ultimate Sales Engine',
         price: '₹2,999',
-        priceAnnual: '₹2,499',
+        priceAnnual: '₹25,000',
+        upfront: '₹8,997',
         period: '/month',
         features: [
-            'Best of Both Worlds',
-            '10,000+ Broadcasts/mo',
-            'Priority Support',
-            'Advanced Analytics',
-            'Custom AI Training',
-            'Dedicated Manager'
+            'Full WhatsApp API Access',
+            'Complete AI Automation',
+            'Lead Qual. & Follow-ups',
+            'Supabase / CRM Sync',
+            '15,000 AI Replies / Month',
+            'Extra 10k replies (₹499)',
+            'Extra No. (₹6,999 / year)'
         ],
-        cta: 'Get Started on WhatsApp',
-        featured: true
+        cta: 'Go Pro Now',
+        featured: true,
+        featuredLabel: 'Most Recommended'
     }
 ];
+
+export const DURATION_FEATURES = {
+    monthly: [
+        { name: 'Chat', available: true },
+        { name: 'Contacts', available: true },
+        { name: 'Broadcast', available: true },
+        { name: 'Media', available: true },
+        { name: 'Users', available: true },
+        { name: 'Calls', available: false },
+        { name: 'Sync App', available: false },
+        { name: 'CRM / Bots / Orders', available: false },
+        { name: 'Shopify / WooCommerce', available: false }
+    ],
+    annual: [
+        { name: 'Chat', available: true },
+        { name: 'Contacts', available: true },
+        { name: 'Broadcast', available: true },
+        { name: 'Media', available: true },
+        { name: 'Users', available: true },
+        { name: 'Calls', available: true },
+        { name: 'Sync App', available: true },
+        { name: 'CRM / Bots / Orders', available: true },
+        { name: 'Shopify / WooCommerce', available: true }
+    ]
+};
 
 export const FAQ_DATA = [
     {
