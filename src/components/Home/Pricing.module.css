@@ -200,7 +200,7 @@
     position: relative;
 }
 
-.toggle ball {
+.toggleBall {
     width: 24px;
     height: 24px;
     background: #fff;
@@ -214,14 +214,6 @@
 
 .toggleOn .toggleBall {
     transform: translateX(32px);
-}
-
-.toggleBall {
-    width: 24px;
-    height: 24px;
-    background: #fff;
-    border-radius: 50%;
-    transition: var(--transition-base);
 }
 
 .durationContent {
