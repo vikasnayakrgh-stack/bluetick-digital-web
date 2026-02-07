@@ -12,7 +12,7 @@ export const PRICING_PLANS = [
             'Unlimited Broadcasts',
             'Template Approvals',
             'Multi-Agent Login',
-            'Basic Chatbot Builder',
+            { text: 'Basic Chatbot Builder', annualOnly: true },
             'Green Tick Assistance',
             'Customer Support'
         ],

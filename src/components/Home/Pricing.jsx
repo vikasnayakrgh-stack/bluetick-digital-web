@@ -56,11 +56,19 @@ const Pricing = () => {
                             </div>
 
                             <ul className={styles.featureList}>
-                                {plan.features.map((feature, i) => (
-                                    <li key={i} className={styles.featureItem}>
-                                        <Check size={16} className={styles.check} /> {feature}
-                                    </li>
-                                ))}
+                                {plan.features
+                                    .filter(feature => {
+                                        if (typeof feature === 'object' && feature.annualOnly) {
+                                            return isAnnual;
+                                        }
+                                        return true;
+                                    })
+                                    .map((feature, i) => (
+                                        <li key={i} className={styles.featureItem}>
+                                            <Check size={16} className={styles.check} />
+                                            {typeof feature === 'object' ? feature.text : feature}
+                                        </li>
+                                    ))}
                             </ul>
 
                             <button
