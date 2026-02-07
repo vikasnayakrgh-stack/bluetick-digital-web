@@ -6,16 +6,7 @@ export const PRICING_PLANS = [
         price: '₹1,199',
         priceAnnual: '₹11,999',
         upfront: '₹3,597',
-        period: '/month',
-        features: [
-            'WABA Setup & Panel Access',
-            'Unlimited Broadcasts',
-            'Template Approvals',
-            'Multi-Agent Login',
-            { text: 'Basic Chatbot Builder', annualOnly: true },
-            'Green Tick Assistance',
-            'Customer Support'
-        ],
+        savings: 'Save ~20% with Annual',
         cta: 'Get Started',
         featured: false
     },
@@ -26,35 +17,18 @@ export const PRICING_PLANS = [
         price: '₹1,999',
         priceAnnual: '₹14,999',
         upfront: '₹5,997',
-        period: '/month',
-        features: [
-            'AI WhatsApp Reply Bot',
-            'Lead Qualification',
-            'Auto Follow-ups & Memory',
-            'Supabase / CRM Integration',
-            '10,000 AI Replies / Month',
-            'Add-on: 10k extra replies (₹499)'
-        ],
+        savings: 'Save ~37% with Annual',
         cta: 'Add to Plan',
         featured: false
     },
     {
         id: 'combo',
         name: 'Power Combo',
-        tagline: 'Ultimate Sales Engine',
+        tagline: 'WhatsApp API + AI Automation',
         price: '₹2,999',
         priceAnnual: '₹25,000',
         upfront: '₹8,997',
-        period: '/month',
-        features: [
-            'Full WhatsApp API Access',
-            'Complete AI Automation',
-            'Lead Qual. & Follow-ups',
-            'Supabase / CRM Sync',
-            '15,000 AI Replies / Month',
-            'Extra 10k replies (₹499)',
-            'Extra No. (₹6,999 / year)'
-        ],
+        savings: 'Save ~40% with Annual',
         cta: 'Go Pro Now',
         featured: true,
         featuredLabel: 'Most Recommended'
@@ -62,28 +36,20 @@ export const PRICING_PLANS = [
 ];
 
 export const DURATION_FEATURES = {
-    monthly: [
-        { name: 'Chat', available: true },
-        { name: 'Contacts', available: true },
-        { name: 'Broadcast', available: true },
-        { name: 'Media', available: true },
-        { name: 'Users', available: true },
-        { name: 'Calls', available: false },
-        { name: 'Sync App', available: false },
-        { name: 'CRM / Bots / Orders', available: false },
-        { name: 'Shopify / WooCommerce', available: false }
-    ],
-    annual: [
-        { name: 'Chat', available: true },
-        { name: 'Contacts', available: true },
-        { name: 'Broadcast', available: true },
-        { name: 'Media', available: true },
-        { name: 'Users', available: true },
-        { name: 'Calls', available: true },
-        { name: 'Sync App', available: true },
-        { name: 'CRM / Bots / Orders', available: true },
-        { name: 'Shopify / WooCommerce', available: true }
-    ]
+    shortTerm: {
+        title: 'Short-Term Plans',
+        duration: '3–6–9 Months',
+        subtext: 'Best for basic chat & broadcast usage',
+        included: ['Chat', 'Contacts', 'Broadcast', 'Media', 'Users'],
+        notIncluded: ['Calls', 'Sync App', 'CRM / Bots / Orders', 'Shopify / WooCommerce']
+    },
+    annual: {
+        title: 'Annual Plan',
+        duration: '12 Months',
+        subtext: 'Best for automation-first & scaling businesses',
+        included: ['Chat', 'Calls', 'Contacts', 'Broadcast', 'Media', 'Users', 'Sync App', 'CRM', 'Bots', 'Orders', 'Shopify / WooCommerce'],
+        notIncluded: []
+    }
 };
 
 export const FAQ_DATA = [
