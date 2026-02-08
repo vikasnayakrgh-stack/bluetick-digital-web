@@ -25,6 +25,7 @@ import BackToTop from './components/Layout/BackToTop'
 import BlogListing from './components/Blog/BlogListing'
 import BlogPost from './components/Blog/BlogPost'
 import SEO from './components/Common/SEO'
+import FacebookPixel from './components/Common/FacebookPixel'
 import './App.css'
 
 const Home = () => (
@@ -80,6 +81,7 @@ function App() {
             <Footer />
           </main>
 
+          <FacebookPixel />
           <WhatsAppBtn />
           <BackToTop />
         </div>
