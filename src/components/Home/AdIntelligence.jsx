@@ -38,7 +38,12 @@ const AdIntelligence = () => {
                             </div>
                         </div>
 
-                        <button className={styles.ctaBtn}>Explore CTWA →</button>
+                        <button
+                            className={styles.ctaBtn}
+                            onClick={() => window.open('https://wa.me/918770440636?text=Hi,%20I%20want%20to%20learn%20more%20about%20Click%20to%20WhatsApp%20Ads%20(CTWA)%20for%20my%20business.', '_blank')}
+                        >
+                            Explore CTWA →
+                        </button>
                     </div>
 
                     <div className={styles.visual}>

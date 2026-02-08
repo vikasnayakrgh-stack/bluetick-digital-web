@@ -1,210 +1,215 @@
 :root {
-   /* ============================================
+  /* ============================================
      PRIMITIVE TOKENS (Base Values)
      ============================================ */
 
-   /* Colors - Green Palette */
-   --color-green-400: #34d399;
-   --color-green-500: #25D366;
-   --color-green-600: #1ebd59;
-   --color-green-700: #16a34a;
+  /* Colors - Green Palette */
+  --color-green-400: #34d399;
+  --color-green-500: #25D366;
+  --color-green-600: #1ebd59;
+  --color-green-700: #16a34a;
 
-   /* Colors - Neutral Palette */
-   --color-white: #ffffff;
-   --color-gray-50: #f8f9fa;
-   --color-gray-100: #f1f3f5;
-   --color-gray-200: #eef0f2;
-   --color-gray-300: #dee2e6;
-   --color-gray-400: #ced4da;
-   --color-gray-500: #adb5bd;
-   --color-gray-600: #868e96;
-   --color-gray-700: #495057;
-   --color-gray-800: #343a40;
-   --color-gray-900: #212529;
+  /* Colors - Neutral Palette */
+  --color-white: #ffffff;
+  --color-gray-50: #f8f9fa;
+  --color-gray-100: #f1f3f5;
+  --color-gray-200: #eef0f2;
+  --color-gray-300: #dee2e6;
+  --color-gray-400: #ced4da;
+  --color-gray-500: #adb5bd;
+  --color-gray-600: #868e96;
+  --color-gray-700: #495057;
+  --color-gray-800: #343a40;
+  --color-gray-900: #212529;
 
-   /* Colors - Slate Palette (Better contrast) */
-   --color-slate-50: #f8fafc;
-   --color-slate-100: #f1f5f9;
-   --color-slate-200: #e2e8f0;
-   --color-slate-300: #cbd5e1;
-   --color-slate-400: #94a3b8;
-   --color-slate-500: #64748b;
-   --color-slate-600: #475569;
-   --color-slate-700: #334155;
-   --color-slate-800: #1e293b;
-   --color-slate-900: #0f172a;
+  /* Brand Colors - WhatsApp */
+  --color-whatsapp: #25D366;
+  --color-whatsapp-dark: #075E54;
+  --color-whatsapp-light: #DCF8C6;
 
-   /* Colors - Announcement */
-   --color-yellow-50: #FFFEE0;
+  /* Colors - Slate Palette (Better contrast) */
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-300: #cbd5e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
 
-   /* ============================================
+  /* Colors - Announcement */
+  --color-yellow-50: #FFFEE0;
+
+  /* ============================================
      SEMANTIC TOKENS (Purpose-Based)
      ============================================ */
 
-   /* Action Colors */
-   --color-action-primary: var(--color-green-500);
-   --color-action-primary-hover: var(--color-green-600);
-   --color-action-primary-active: var(--color-green-700);
+  /* Action Colors */
+  --color-action-primary: var(--color-green-500);
+  --color-action-primary-hover: var(--color-green-600);
+  --color-action-primary-active: var(--color-green-700);
 
-   /* Surface Colors */
-   --color-surface-base: var(--color-white);
-   --color-surface-elevated: var(--color-gray-50);
-   --color-surface-announcement: var(--color-yellow-50);
+  /* Surface Colors */
+  --color-surface-base: var(--color-white);
+  --color-surface-elevated: var(--color-gray-50);
+  --color-surface-announcement: var(--color-yellow-50);
 
-   /* Border Colors */
-   --color-border-light: var(--color-gray-200);
-   --color-border-medium: var(--color-gray-300);
-   --color-border-focus: var(--color-action-primary);
+  /* Border Colors */
+  --color-border-light: var(--color-gray-200);
+  --color-border-medium: var(--color-gray-300);
+  --color-border-focus: var(--color-action-primary);
 
-   /* Text Colors (WCAG AA Compliant) */
-   --color-text-primary: var(--color-slate-900);
-   /* 15.52:1 contrast */
-   --color-text-secondary: var(--color-slate-600);
-   /* 7.07:1 contrast */
-   --color-text-muted: var(--color-slate-500);
-   /* 4.66:1 contrast */
-   --color-text-inverse: var(--color-white);
+  /* Text Colors (WCAG AA Compliant) */
+  --color-text-primary: var(--color-slate-900);
+  /* 15.52:1 contrast */
+  --color-text-secondary: var(--color-slate-600);
+  /* 7.07:1 contrast */
+  --color-text-muted: var(--color-slate-500);
+  /* 4.66:1 contrast */
+  --color-text-inverse: var(--color-white);
 
-   /* Shadow Colors */
-   --color-shadow-sm: rgba(0, 0, 0, 0.05);
-   --color-shadow-md: rgba(0, 0, 0, 0.08);
-   --color-shadow-lg: rgba(0, 0, 0, 0.12);
+  /* Shadow Colors */
+  --color-shadow-sm: rgba(0, 0, 0, 0.05);
+  --color-shadow-md: rgba(0, 0, 0, 0.08);
+  --color-shadow-lg: rgba(0, 0, 0, 0.12);
 
-   /* ============================================
+  /* ============================================
      COMPONENT TOKENS (Context-Specific)
      ============================================ */
 
-   /* Buttons */
-   --button-primary-bg: var(--color-action-primary);
-   --button-primary-bg-hover: var(--color-action-primary-hover);
-   --button-primary-text: var(--color-text-inverse);
-   --button-secondary-bg: var(--color-surface-base);
-   --button-secondary-border: var(--color-text-primary);
-   --button-secondary-text: var(--color-text-primary);
+  /* Buttons */
+  --button-primary-bg: var(--color-action-primary);
+  --button-primary-bg-hover: var(--color-action-primary-hover);
+  --button-primary-text: var(--color-text-inverse);
+  --button-secondary-bg: var(--color-surface-base);
+  --button-secondary-border: var(--color-text-primary);
+  --button-secondary-text: var(--color-text-primary);
 
-   /* Cards */
-   --card-bg: var(--color-surface-base);
-   --card-border: var(--color-border-light);
-   --card-border-hover: var(--color-action-primary);
+  /* Cards */
+  --card-bg: var(--color-surface-base);
+  --card-border: var(--color-border-light);
+  --card-border-hover: var(--color-action-primary);
 
-   /* Header */
-   --header-bg: var(--color-surface-base);
-   --header-border: var(--color-border-light);
+  /* Header */
+  --header-bg: var(--color-surface-base);
+  --header-border: var(--color-border-light);
 
-   /* ============================================
+  /* ============================================
      SPACING SCALE (4px/8px Grid)
      ============================================ */
 
-   --space-1: 0.25rem;
-   /* 4px */
-   --space-2: 0.5rem;
-   /* 8px */
-   --space-3: 0.75rem;
-   /* 12px */
-   --space-4: 1rem;
-   /* 16px */
-   --space-5: 1.25rem;
-   /* 20px */
-   --space-6: 1.5rem;
-   /* 24px */
-   --space-8: 2rem;
-   /* 32px */
-   --space-10: 2.5rem;
-   /* 40px */
-   --space-12: 3rem;
-   /* 48px */
-   --space-16: 4rem;
-   /* 64px */
-   --space-20: 5rem;
-   /* 80px */
+  --space-1: 0.25rem;
+  /* 4px */
+  --space-2: 0.5rem;
+  /* 8px */
+  --space-3: 0.75rem;
+  /* 12px */
+  --space-4: 1rem;
+  /* 16px */
+  --space-5: 1.25rem;
+  /* 20px */
+  --space-6: 1.5rem;
+  /* 24px */
+  --space-8: 2rem;
+  /* 32px */
+  --space-10: 2.5rem;
+  /* 40px */
+  --space-12: 3rem;
+  /* 48px */
+  --space-16: 4rem;
+  /* 64px */
+  --space-20: 5rem;
+  /* 80px */
 
-   /* ============================================
+  /* ============================================
      Z-INDEX SCALE
      ============================================ */
 
-   --z-base: 1;
-   --z-dropdown: 10;
-   --z-sticky: 20;
-   --z-fixed: 30;
-   --z-modal: 40;
-   --z-toast: 50;
-   --z-skip-link: 100;
+  --z-base: 1;
+  --z-dropdown: 10;
+  --z-sticky: 20;
+  --z-fixed: 30;
+  --z-modal: 40;
+  --z-toast: 50;
+  --z-skip-link: 100;
 
-   /* ============================================
+  /* ============================================
      SHADOWS
      ============================================ */
 
-   --shadow-sm: 0 2px 4px var(--color-shadow-sm);
-   --shadow-md: 0 10px 30px var(--color-shadow-md);
-   --shadow-lg: 0 20px 50px var(--color-shadow-lg);
+  --shadow-sm: 0 2px 4px var(--color-shadow-sm);
+  --shadow-md: 0 10px 30px var(--color-shadow-md);
+  --shadow-lg: 0 20px 50px var(--color-shadow-lg);
 
-   /* ============================================
+  /* ============================================
      GLASSMORPHISM & GLOWS
      ============================================ */
 
-   /* Glassmorphism */
-   --glass-bg: rgba(255, 255, 255, 0.7);
-   --glass-bg-hover: rgba(255, 255, 255, 0.85);
-   --glass-border: rgba(255, 255, 255, 0.8);
-   --glass-blur: blur(12px) saturate(180%);
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-bg-hover: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.8);
+  --glass-blur: blur(12px) saturate(180%);
 
-   /* Modern Gradients */
-   --grad-whatsapp: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-   --grad-premium: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-   --grad-surface: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
-   --grad-glow: radial-gradient(circle at center, rgba(37, 211, 102, 0.15) 0%, rgba(37, 211, 102, 0) 70%);
+  /* Modern Gradients */
+  --grad-whatsapp: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  --grad-premium: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  --grad-surface: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+  --grad-glow: radial-gradient(circle at center, rgba(37, 211, 102, 0.15) 0%, rgba(37, 211, 102, 0) 70%);
 
-   /* Glows */
-   --glow-primary: 0 0 20px rgba(37, 211, 102, 0.3);
-   --glow-secondary: 0 0 40px rgba(37, 211, 102, 0.1);
-   --glow-premium: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  /* Glows */
+  --glow-primary: 0 0 20px rgba(37, 211, 102, 0.3);
+  --glow-secondary: 0 0 40px rgba(37, 211, 102, 0.1);
+  --glow-premium: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 
-   /* ============================================
+  /* ============================================
      TRANSITIONS
      ============================================ */
 
-   --transition-fast: 150ms ease;
-   --transition-base: 200ms ease;
-   --transition-slow: 300ms ease;
-   --transition-spring: 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --transition-fast: 150ms ease;
+  --transition-base: 200ms ease;
+  --transition-slow: 300ms ease;
+  --transition-spring: 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
-   /* ============================================
+  /* ============================================
      LAYOUT
      ============================================ */
 
-   --container-max-width: 1200px;
-   --section-padding-desktop: 120px 20px;
-   --section-padding-tablet: 80px 20px;
-   --section-padding-mobile: 60px 16px;
-   --section-padding: var(--section-padding-desktop);
+  --container-max-width: 1200px;
+  --section-padding-desktop: 120px 20px;
+  --section-padding-tablet: 80px 20px;
+  --section-padding-mobile: 60px 16px;
+  --section-padding: var(--section-padding-desktop);
 
-   /* Typography Sizing */
-   --font-size-h1-desktop: 64px;
-   --font-size-h1-tablet: 48px;
-   --font-size-h1-mobile: 36px;
+  /* Typography Sizing */
+  --font-size-h1-desktop: 64px;
+  --font-size-h1-tablet: 48px;
+  --font-size-h1-mobile: 36px;
 
-   --font-size-h2-desktop: 48px;
-   --font-size-h2-tablet: 36px;
-   --font-size-h2-mobile: 28px;
+  --font-size-h2-desktop: 48px;
+  --font-size-h2-tablet: 36px;
+  --font-size-h2-mobile: 28px;
 
-   --font-size-body-desktop: 18px;
-   --font-size-body-mobile: 16px;
+  --font-size-body-desktop: 18px;
+  --font-size-body-mobile: 16px;
 
-   /* ============================================
+  /* ============================================
      LEGACY COMPATIBILITY (Deprecated)
      ============================================ */
 
-   /* Keep for backward compatibility, migrate to semantic tokens */
-   --primary-accent: var(--color-action-primary);
-   --primary-accent-hover: var(--color-action-primary-hover);
-   --bg-white: var(--color-surface-base);
-   --bg-off-white: var(--color-surface-elevated);
-   --bg-announcement: var(--color-surface-announcement);
-   --border-light: var(--color-border-light);
-   --text-primary: var(--color-text-primary);
-   --text-secondary: var(--color-text-secondary);
-   --text-muted: var(--color-text-muted);
-   --transition-smooth: var(--transition-base);
+  /* Keep for backward compatibility, migrate to semantic tokens */
+  --primary-accent: var(--color-action-primary);
+  --primary-accent-hover: var(--color-action-primary-hover);
+  --bg-white: var(--color-surface-base);
+  --bg-off-white: var(--color-surface-elevated);
+  --bg-announcement: var(--color-surface-announcement);
+  --border-light: var(--color-border-light);
+  --text-primary: var(--color-text-primary);
+  --text-secondary: var(--color-text-secondary);
+  --text-muted: var(--color-text-muted);
+  --transition-smooth: var(--transition-base);
 }
 
 /* ============================================
@@ -212,22 +217,22 @@
    ============================================ */
 
 .clean-card {
-   background: var(--card-bg);
-   border: 1px solid var(--card-border);
-   box-shadow: var(--shadow-sm);
-   border-radius: 12px;
-   transition: var(--transition-base);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-sm);
+  border-radius: 12px;
+  transition: var(--transition-base);
 }
 
 .clean-card:hover {
-   box-shadow: var(--shadow-md);
-   border-color: var(--card-border-hover);
+  box-shadow: var(--shadow-md);
+  border-color: var(--card-border-hover);
 }
 
 .highlight-box {
-   background: rgba(37, 211, 102, 0.1);
-   color: var(--color-action-primary);
-   padding: 2px 8px;
-   border-radius: 4px;
-   font-weight: 600;
+  background: rgba(37, 211, 102, 0.1);
+  color: var(--color-action-primary);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 600;
 }

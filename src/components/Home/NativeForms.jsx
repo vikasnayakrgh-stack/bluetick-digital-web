@@ -38,7 +38,12 @@ const NativeForms = () => {
                             </div>
                         </div>
 
-                        <button className={styles.ctaBtn}>Build My First Form →</button>
+                        <button
+                            className={styles.ctaBtn}
+                            onClick={() => window.open('https://wa.me/918770440636?text=Hi,%20I%20want%20to%20build%20WhatsApp%20Native%20Forms%20for%20lead%20capture.', '_blank')}
+                        >
+                            Build My First Form →
+                        </button>
                     </div>
 
                     <div className={styles.visual}>

@@ -48,7 +48,12 @@ const BroadcastFeature = () => {
                             </div>
                         </div>
 
-                        <button className={styles.ctaBtn}>Start for FREE →</button>
+                        <button
+                            className={styles.ctaBtn}
+                            onClick={() => window.open('https://wa.me/918770440636?text=Hi,%20I%20want%20to%20get%20started%20with%20WhatsApp%20Business%20API%20for%20my%20broadcasts.', '_blank')}
+                        >
+                            Start for FREE →
+                        </button>
                     </div>
 
                     <div className={styles.visual}>
