@@ -1,7 +1,6 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { FileText, Database, Send, Zap } from 'lucide-react';
-import styles from './FeatureShowcase.module.css';
+import { FileText, Database, Check } from 'lucide-react';
+import styles from './NativeForms.module.css';
 
 const NativeForms = () => {
     return (
@@ -48,38 +47,102 @@ const NativeForms = () => {
 
                     <div className={styles.visual}>
                         <div className={styles.mockupWrapper}>
-                            <div className={styles.formMockup}>
-                                <div className={styles.formHeader}>
-                                    <span>Lead Information</span>
-                                </div>
-                                <div className={styles.formBody}>
-                                    <div className={styles.formField}>
-                                        <label>Name</label>
-                                        <div className={styles.fakeInput}>John Doe</div>
+                            {/* iPhone Frame */}
+                            <div className={styles.phoneFrame}>
+
+                                {/* Notch / Buttons */}
+                                <div className={styles.buttonLeft1}></div>
+                                <div className={styles.buttonLeft2}></div>
+                                <div className={styles.buttonLeft3}></div>
+                                <div className={styles.buttonRight}></div>
+
+                                {/* Screen Content */}
+                                <div className={styles.screenContent}>
+
+                                    {/* WhatsApp Header */}
+                                    <div className={styles.whatsappHeader}>
+                                        <div className={styles.avatar}>B</div>
+                                        <div className={styles.headerInfo}>
+                                            <h3>Bluetick Bot</h3>
+                                            <p>Online</p>
+                                        </div>
                                     </div>
-                                    <div className={styles.formField}>
-                                        <label>Email</label>
-                                        <div className={styles.fakeInput}>john@example.com</div>
+
+                                    {/* Chat Area */}
+                                    <div className={styles.chatArea}>
+                                        <div className={styles.chatPattern}></div>
+
+                                        {/* Bot Message */}
+                                        <div className={styles.botMessage}>
+                                            <p>Hi there! 👋 ready to book your demo? Please fill out this quick form.</p>
+                                            <span className={styles.messageTime}>10:00 AM</span>
+                                        </div>
+
+                                        {/* THE FORM CARD (WhatsApp Flow UI) */}
+                                        <div className={styles.formCard}>
+
+                                            {/* Form Header */}
+                                            <div className={styles.formCardHeader}>
+                                                <span className={styles.formTitle}>Demo Request</span>
+                                                <div className={styles.headerDot}></div>
+                                            </div>
+
+                                            {/* Form Fields */}
+                                            <div className={styles.formBody}>
+
+                                                {/* Name Input */}
+                                                <div className={styles.inputGroup}>
+                                                    <label>Name</label>
+                                                    <input type="text" defaultValue="Rahul Sharma" className={styles.inputField} />
+                                                </div>
+
+                                                {/* Dropdown */}
+                                                <div className={styles.inputGroup}>
+                                                    <label>Service</label>
+                                                    <div className={styles.selectWrapper}>
+                                                        <select className={styles.selectField}>
+                                                            <option>WhatsApp API</option>
+                                                            <option>Chatbots</option>
+                                                        </select>
+                                                        <div className={styles.selectArrow}>▼</div>
+                                                    </div>
+                                                </div>
+
+                                                {/* Chips */}
+                                                <div className={styles.inputGroup}>
+                                                    <label>Team Size</label>
+                                                    <div className={styles.chipGroup}>
+                                                        <button className={`${styles.chip} ${styles.chipActive}`}>1-10</button>
+                                                        <button className={styles.chip}>11-50</button>
+                                                    </div>
+                                                </div>
+
+                                                {/* Submit Button */}
+                                                <button className={styles.submitBtn}>
+                                                    Send Request
+                                                </button>
+
+                                            </div>
+                                        </div>
+
+                                        {/* Success Toast (Floating) */}
+                                        <div className={styles.successToast}>
+                                            <div className={styles.toastIcon}>
+                                                <Check size={12} strokeWidth={3} />
+                                            </div>
+                                            <div className={styles.toastContent}>
+                                                <p>Captured! 🚀</p>
+                                                <p>Sent to CRM</p>
+                                            </div>
+                                        </div>
+
                                     </div>
-                                    <button className={styles.innerBtn}>Submit</button>
+
+                                    {/* Bottom Bar (iOS Home Indicator) */}
+                                    <div className={styles.homeIndicator}></div>
+
                                 </div>
                             </div>
-
-                            <motion.div
-                                initial={{ y: 50, opacity: 0 }}
-                                whileInView={{ y: 0, opacity: 1 }}
-                                className={styles.floatingCard}
-                                style={{ bottom: '-40px', right: '20px' }}
-                            >
-                                <div className={styles.cardHeader}>
-                                    <Zap size={14} className="text-gradient" />
-                                    <span>Success State</span>
-                                </div>
-                                <div className={styles.cardBody}>
-                                    <p>Lead Captured! 🚀</p>
-                                    <p className={styles.small}>Automatic follow-up scheduled in 2 mins.</p>
-                                </div>
-                            </motion.div>
                         </div>
                     </div>
                 </div>

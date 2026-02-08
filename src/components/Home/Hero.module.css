@@ -160,124 +160,6 @@
     align-items: center;
 }
 
-.heroImg {
-    width: 100%;
-    max-width: 450px;
-    border-radius: 32px;
-    /* Squircle appearance */
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    position: relative;
-    z-index: 2;
-    transform: rotate(2deg);
-    /* Subtle angle */
-    transition: transform 0.3s ease;
-}
-
-.heroImg:hover {
-    transform: rotate(0deg);
-}
-
-.glow {
-    position: absolute;
-    width: 150%;
-    height: 150%;
-    background: var(--grad-glow);
-    animation: pulse 4s infinite alternate;
-    pointer-events: none;
-    z-index: 0;
-}
-
-/* Floating Card Styles */
-.floatingCard {
-    position: absolute;
-    bottom: -20px;
-    right: -20px;
-    /* Overlap right edge */
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    padding: 20px;
-    border-radius: 16px;
-    width: 280px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    z-index: 10;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    animation: float 4s ease-in-out infinite;
-}
-
-.cardHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
-}
-
-.cardTitle {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--color-slate-500);
-    text-transform: uppercase;
-}
-
-.cardIcon {
-    color: var(--color-action-primary);
-}
-
-.time {
-    font-size: 10px;
-    color: var(--color-slate-400);
-}
-
-.cardText {
-    font-size: 14px;
-    color: var(--color-slate-800);
-    margin-bottom: 16px;
-    line-height: 1.4;
-}
-
-.trackBtn {
-    background: var(--color-action-primary);
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 8px;
-    font-size: 13px;
-    font-weight: 600;
-    width: 100%;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-.trackBtn:hover {
-    background: var(--color-action-primary-hover);
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-        opacity: 0.5;
-    }
-
-    100% {
-        transform: scale(1.1);
-        opacity: 0.8;
-    }
-}
-
-@keyframes float {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
 @media (max-width: 1024px) {
     .hero {
         padding: var(--section-padding-tablet);
@@ -304,16 +186,6 @@
         margin-top: 40px;
         transform: scale(0.9);
     }
-
-    .heroImg {
-        max-width: 350px;
-    }
-
-    .floatingCard {
-        right: 0;
-        /* Center overlap on mobile if needed, or stick to right */
-        bottom: -10px;
-    }
 }
 
 @media (max-width: 640px) {
@@ -329,10 +201,5 @@
     .visualStage {
         transform: scale(0.85);
         margin-top: 20px;
-    }
-
-    .floatingCard {
-        width: 240px;
-        right: -10px;
     }
 }

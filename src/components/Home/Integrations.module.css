@@ -9,7 +9,7 @@
     grid-template-columns: 1fr 1.2fr;
     gap: 80px;
     align-items: center;
-    margin-bottom: 80px;
+    margin-bottom: 20px;
 }
 
 /* Left Content */
@@ -18,11 +18,15 @@
 }
 
 .headline {
-    font-size: 48px;
+    font-size: 56px;
     font-weight: 800;
     color: var(--color-slate-900);
     margin-bottom: 24px;
-    line-height: 1.2;
+    line-height: 1.1;
+}
+
+.headline span {
+    color: var(--color-green-500);
 }
 
 .subheadline {
@@ -60,7 +64,7 @@
 .hubWrapper {
     position: relative;
     width: 500px;
-    height: 300px;
+    height: 350px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -74,26 +78,75 @@
     width: 100%;
     height: 100%;
     z-index: 1;
+    /* Behind nodes */
     pointer-events: none;
+    overflow: visible;
+}
+
+.dashedLine {
+    stroke-dasharray: 4 4;
+    animation: dashFlow 1s linear infinite;
+    opacity: 0.6;
+}
+
+@keyframes dashFlow {
+    to {
+        stroke-dashoffset: -8;
+    }
 }
 
 /* Center Node (Bluetick Cube) */
 .centerNode {
     position: absolute;
-    left: 50%;
+    left: 210px;
     top: 50%;
     transform: translate(-50%, -50%);
+    /* Start X 210. Center X 210? No. Left 210. */
+    /* Wait. In JSX I used 258 as Center X for lines. */
+    /* If left is 210 and width is 96. Center is 210 + 48 = 258. Correct. */
     z-index: 10;
-    width: 80px;
-    /* Reduced from 90px */
-    height: 80px;
+    width: 96px;
+    height: 96px;
     background: linear-gradient(135deg, #3b82f6, #2563eb);
-    border-radius: 20px;
+    border-radius: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.2);
+    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.3);
     color: white;
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    animation: pulseNode 3s infinite ease-in-out;
+}
+
+/* Fix Center Node Centering Logic */
+/* transform: translate(-50%, -50%) centers it on the 'left' point. */
+/* If left: 210px, the center of the node is at 210px. */
+/* But I need the Left Edge to be 210px? No. */
+/* Previous logic: `left: 210px; top: 50%; transform: translate(-50%, -50%);` */
+/* This puts the CENTER of the node at (210, 175). */
+/* If Center is 210, then Right Edge is 210 + 48 = 258. */
+/* My SVG starts at 306. Gap = 48px. */
+/* I need Center to be 258. */
+/* So left should be 258px. */
+
+/* Let's adjust .centerNode to be centered at 258 */
+/* left: 258px; transform: translate(-50%, -50%); */
+
+@keyframes pulseNode {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 0 20px 40px rgba(37, 99, 235, 0.3);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.05);
+        box-shadow: 0 30px 60px rgba(37, 99, 235, 0.5);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 0 20px 40px rgba(37, 99, 235, 0.3);
+    }
 }
 
 .cubeIcon {
@@ -111,47 +164,55 @@
 }
 
 .iconCircle {
-    width: 64px;
-    /* Balanced size */
-    height: 64px;
-    background: white;
+    width: 72px;
+    height: 72px;
+    background: #DCF8C6;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-    /* Static shadow */
-    border: 1px solid var(--color-slate-100);
+    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.6);
     margin-bottom: 8px;
+    transition: transform 0.3s ease;
+}
+
+.iconCircle:hover {
+    transform: scale(1.1);
 }
 
 .nodeLabel {
     font-size: 14px;
-    /* Increased font size */
     font-weight: 600;
     color: var(--color-slate-600);
 }
 
 /* Output Nodes */
 .outputNodes {
-    z-index: 5;
+    z-index: 10;
+    /* Above lines */
 }
 
 .outputNode {
     position: absolute;
-    width: 64px;
-    /* Increased from 56px */
-    height: 64px;
-    background: white;
-    border-radius: 16px;
-    /* Slightly more rounded */
-    padding: 12px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-    /* Static shadow */
-    border: 1px solid var(--color-slate-100);
+    width: 72px;
+    height: 72px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 14px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.8);
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.outputNode:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    border-color: var(--color-action-primary);
 }
 
 .outputNode img {
@@ -160,56 +221,93 @@
     object-fit: contain;
 }
 
-/* Positioning Output Nodes explicitly mathcing SVG lines */
-.node1 {
-    top: 38px;
-    right: 0;
+/* Precise Positioning for Output Nodes */
+.nodeHubspot {
+    right: 10px;
+    top: 35px;
+    /* Center 71 */
+    animation: floatNode 4s ease-in-out infinite;
 }
 
-/* Hubspot */
-.node2 {
-    top: 118px;
-    right: 0;
+.nodeZoho {
+    right: 10px;
+    top: 139px;
+    /* Center 175 */
+    animation: floatNode 4s ease-in-out infinite 1s;
 }
 
-/* Zoho */
-.node3 {
-    top: 198px;
-    right: 0;
+.nodeCalendly {
+    right: 10px;
+    top: 243px;
+    /* Center 279 */
+    animation: floatNode 4s ease-in-out infinite 2s;
 }
 
-/* Calendly */
+@keyframes floatNode {
 
-/* Partner Bar */
-.partnerRow {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+/* Partner Bar - Infinite Marquee */
+.marqueeContainer {
+    position: relative;
+    width: 100vw;
+    max-width: 100%;
+    overflow: hidden;
+    margin-top: 96px;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    padding: 20px 0;
+}
+
+.marqueeWrapper {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 40px;
-    border-top: 1px solid var(--color-slate-100);
-    padding-top: 60px;
+    width: max-content;
+    animation: marquee 30s linear infinite;
+}
+
+.marqueeWrapper:hover {
+    animation-play-state: paused;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 .partnerLogo {
-    opacity: 0.9;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    height: 35px;
+    opacity: 1;
+    transition: all 0.3s ease;
+    height: 40px;
     display: flex;
     align-items: center;
+    justify-content: center;
+    margin-right: 80px;
+    filter: grayscale(0%);
 }
 
 .partnerLogo img {
     height: 100%;
     width: auto;
     object-fit: contain;
-    max-width: 140px;
+    max-width: 150px;
 }
 
 .partnerLogo:hover {
-    opacity: 1;
-    transform: scale(1.1) translateY(-5px);
-    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
+    transform: scale(1.05);
 }
 
 /* Mobile Responsiveness */
@@ -218,6 +316,7 @@
         grid-template-columns: 1fr;
         text-align: center;
         gap: 60px;
+        margin-bottom: 60px;
     }
 
     .content {
@@ -226,28 +325,30 @@
     }
 
     .headline {
-        font-size: 36px;
+        font-size: 42px;
     }
 
     .visualContainer {
-        height: 320px;
+        height: 350px;
     }
 
     .hubWrapper {
-        width: 320px;
+        width: 100%;
+        max-width: 400px;
         transform: scale(0.9);
     }
 
-    .connectorSvg {
-        /* Adjust SVG viewbox or scaling if needed via CSS or leave responsive */
+    .centerNode {
+        left: 50%;
     }
 
-    .partnerRow {
-        justify-content: center;
-        gap: 24px;
+    .marqueeContainer {
+        margin-top: 60px;
+        mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
     }
 
     .partnerLogo {
-        height: 28px;
+        height: 32px;
+        margin-right: 40px;
     }
 }

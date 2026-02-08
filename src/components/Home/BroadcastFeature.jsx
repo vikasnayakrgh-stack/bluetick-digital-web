@@ -59,7 +59,7 @@ const BroadcastFeature = () => {
                     <div className={styles.visual}>
                         <div className={styles.mockupWrapper}>
                             <img
-                                src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=800"
+                                src="/src/assets/broadcast-woman.png"
                                 alt="Broadcast Feature"
                                 className={styles.mainImg}
                             />

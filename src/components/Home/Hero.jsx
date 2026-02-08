@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowRight, Package, Sparkles, Zap } from 'lucide-react';
-import heroImage from '../../assets/hero-woman-green.png';
 import styles from './Hero.module.css';
+import HeroVisual from './HeroVisual';
 
 const Hero = () => {
     return (
@@ -43,24 +43,9 @@ const Hero = () => {
 
                 <div className={styles.visualStage}>
                     <div className={styles.glow} />
-                    <img src={heroImage} alt="WhatsApp Automation AI" className={styles.heroImg} loading="eager" fetchpriority="high" />
+                    <HeroVisual />
 
-                    {/* Floating Notification Card */}
-                    <div className={styles.floatingCard}>
-                        <div className={styles.cardHeader}>
-                            <div className={styles.cardTitle}>
-                                <Package size={16} className={styles.cardIcon} />
-                                <span>Order Update</span>
-                            </div>
-                            <span className={styles.time}>Now</span>
-                        </div>
-                        <p className={styles.cardText}>
-                            Your New <strong>NovaBuds Pro</strong> will be delivered Wednesday 27th Oct
-                        </p>
-                        <button className={styles.trackBtn}>
-                            Track Order
-                        </button>
-                    </div>
+
                 </div>
             </div>
         </section>

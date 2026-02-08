@@ -1,0 +1,281 @@
+.wrapper {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    /* Adjust height as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+}
+
+.phoneMockup {
+    width: 320px;
+    height: 580px;
+    background: #fff;
+    border-radius: 40px;
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.15),
+        0 0 0 12px #1e293b;
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
+    transform-style: preserve-3d;
+    transform: rotateY(-10deg) rotateX(5deg);
+    transition: transform 0.5s ease;
+}
+
+.wrapper:hover .phoneMockup {
+    transform: rotateY(0deg) rotateX(0deg);
+}
+
+.screenHeader {
+    background: #f0f2f5;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.userAvatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.headerInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.contactName {
+    font-weight: 700;
+    font-size: 14px;
+    color: #1e293b;
+}
+
+.status {
+    font-size: 12px;
+    color: #25d366;
+    font-weight: 500;
+}
+
+.screenBody {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    height: calc(100% - 80px);
+    background: #e5ddd5;
+    /* WhatsApp default bg color approximation */
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%239ca3af' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+.message {
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-size: 13px;
+    line-height: 1.4;
+    max-width: 80%;
+    position: relative;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.received {
+    background: #fff;
+    align-self: flex-start;
+    border-top-left-radius: 2px;
+}
+
+.sent {
+    background: #dcf8c6;
+    align-self: flex-end;
+    border-top-right-radius: 2px;
+}
+
+.typingIndicator {
+    background: #fff;
+    padding: 10px 16px;
+    border-radius: 20px;
+    width: fit-content;
+    display: flex;
+    gap: 4px;
+    align-self: flex-start;
+    border-top-left-radius: 2px;
+}
+
+.typingIndicator span {
+    width: 6px;
+    height: 6px;
+    background: #cbd5e1;
+    border-radius: 50%;
+    animation: typing 1s infinite;
+}
+
+.typingIndicator span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typingIndicator span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typing {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+.successOverlay {
+    position: absolute;
+    bottom: 32px;
+    right: 16px;
+    left: auto;
+    transform: none;
+    background: #25d366;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+    font-weight: 600;
+    font-size: 14px;
+    white-space: nowrap;
+    z-index: 20;
+    max-width: calc(100% - 32px);
+}
+
+/* Floating Stats Cards */
+.statCard {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(12px);
+    padding: 12px 16px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    z-index: 20;
+    animation: float 6s ease-in-out infinite;
+}
+
+.statRevenue {
+    top: 100px;
+    right: 20px;
+    animation-delay: 0s;
+}
+
+.statLeads {
+    bottom: 120px;
+    left: -40px;
+    animation-delay: 2s;
+}
+
+.statResponse {
+    top: 50%;
+    right: -50px;
+    animation-delay: 4s;
+}
+
+.iconBox {
+    background: #f1f5f9;
+    padding: 8px;
+    border-radius: 8px;
+    color: #0f172a;
+}
+
+.statRevenue .iconBox {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.statLeads .iconBox {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.statResponse .iconBox {
+    background: #fff7ed;
+    color: #9a3412;
+}
+
+.statLabel {
+    display: block;
+    font-size: 11px;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.statValue {
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.glowEffect {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(37, 211, 102, 0.15) 0%, rgba(37, 211, 102, 0) 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@media (max-width: 1024px) {
+    .phoneMockup {
+        width: 280px;
+        height: 500px;
+    }
+
+    .statRevenue {
+        right: 0;
+    }
+
+    .statResponse {
+        right: -20px;
+    }
+
+    .statLeads {
+        left: -20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        height: 500px;
+        transform: scale(0.9);
+    }
+
+    .statCard {
+        display: none;
+    }
+
+    /* Hide floating cards on mobile to prevent overflow */
+}
