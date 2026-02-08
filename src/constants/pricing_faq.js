@@ -67,6 +67,6 @@ export const FAQ_DATA = [
     },
     {
         question: 'Do you offer a free trial?',
-        answer: 'Absolutely! You can explore all features for 14 days before committing to a plan.'
+        answer: 'Absolutely! You can explore all features for 7 days before committing to a plan.'
     }
 ];
