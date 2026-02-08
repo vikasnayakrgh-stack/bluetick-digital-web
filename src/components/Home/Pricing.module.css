@@ -18,6 +18,112 @@
     font-size: 16px;
     color: var(--color-slate-600);
     line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+/* Toggle Switch */
+.toggleWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-slate-500);
+}
+
+.activeToggle {
+    color: var(--color-slate-900);
+}
+
+.savingsHint {
+    font-size: 12px;
+    color: var(--color-whatsapp);
+    font-weight: 700;
+}
+
+.toggleBtn {
+    position: relative;
+    width: 52px;
+    height: 28px;
+    background: var(--color-slate-200);
+    border-radius: 100px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.toggleBtn:hover {
+    background: var(--color-slate-300);
+}
+
+.toggleThumb {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 22px;
+    height: 22px;
+    background: white;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.toggleOn {
+    transform: translateX(24px);
+}
+
+/* Plan Icon */
+.planIcon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--color-whatsapp-light), #e0fae5);
+    border-radius: 12px;
+    margin-bottom: 12px;
+    color: var(--color-whatsapp);
+}
+
+/* Savings Badge */
+.savingsBadge {
+    display: inline-block;
+    background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+    color: #15803d;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 100px;
+    margin-top: 8px;
+}
+
+.monthlyEquiv {
+    font-size: 13px;
+    color: var(--color-slate-500);
+    margin-top: 4px;
+}
+
+.billedAnnually {
+    font-size: 14px;
+    color: var(--color-slate-500);
+    margin-top: 6px;
+    margin-bottom: 8px;
+}
+
+/* Add-On Section */
+.addOnSection {
+    background: var(--color-slate-50);
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+}
+
+.addOnItem {
+    font-size: 13px;
+    color: var(--color-slate-600);
+    margin: 0;
+    padding: 4px 0;
 }
 
 /* Grid Layout */
@@ -38,25 +144,70 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    transition: var(--transition-base);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+/* Card Glow Effect */
+.card::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgba(37, 211, 102, 0.4), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+    border-color: transparent;
+}
+
+.card:hover::before {
+    opacity: 1;
 }
 
 .featured {
     border-color: var(--color-action-primary);
-    background: #fff;
-    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.1);
+    background: linear-gradient(135deg, #fff 0%, #f0fdf4 100%);
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.15);
     z-index: 2;
     transform: scale(1.02);
 }
 
+/* Shine Effect on Featured Card */
+.featured::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.4),
+            transparent);
+    animation: shine 4s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes shine {
+    0% {
+        left: -100%;
+    }
+
+    50%,
+    100% {
+        left: 150%;
+    }
+}
+
 .featured:hover {
-    transform: scale(1.02) translateY(-5px);
-    box-shadow: 0 20px 50px rgba(37, 211, 102, 0.15);
+    transform: scale(1.02) translateY(-8px);
+    box-shadow: 0 25px 60px rgba(37, 211, 102, 0.2);
 }
 
 .featuredBadge {
@@ -64,15 +215,42 @@
     top: -14px;
     left: 50%;
     transform: translateX(-50%);
-    background: var(--color-whatsapp);
+    background: linear-gradient(90deg, var(--color-whatsapp), #20b858);
     color: white;
-    padding: 6px 16px;
+    padding: 8px 20px;
     border-radius: 100px;
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    overflow: hidden;
+}
+
+/* Badge Shimmer Effect */
+.featuredBadge::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.5),
+            transparent);
+    animation: badge-shimmer 2.5s ease-in-out infinite;
+}
+
+@keyframes badge-shimmer {
+    0% {
+        left: -100%;
+    }
+
+    50%,
+    100% {
+        left: 150%;
+    }
 }
 
 .cardHeader {

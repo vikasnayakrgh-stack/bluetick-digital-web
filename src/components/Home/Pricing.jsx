@@ -1,131 +1,167 @@
-import React from 'react';
-import { Check } from 'lucide-react';
+import React, { useState } from 'react';
+import { Check, Zap, Star, Sparkles } from 'lucide-react';
 import styles from './Pricing.module.css';
 
 const Pricing = () => {
+    const [isAnnual, setIsAnnual] = useState(true);
+
+    const plans = {
+        growth: {
+            name: 'Growth',
+            icon: <Zap size={24} />,
+            tagline: 'Complete WhatsApp API Platform for Growing Businesses',
+            monthly: { price: '₹1,199', period: '/mo', billing: '' },
+            annual: { price: '₹11,999', period: '/year', billing: '~17% OFF', monthlyEquiv: '₹999/mo' },
+            features: [
+                'WABA Setup & Panel Access',
+                'Unlimited Broadcasts',
+                'Template Approvals',
+                'Multi-Agent Login',
+                'Chatbot Builder (Basic)',
+                'Green Tick Assistance',
+                'Priority Support',
+            ],
+            cta: 'Get Started',
+            ctaLink: 'https://wa.me/918770440636?text=Hi,%20I%20am%20interested%20in%20Growth%20Plan',
+        },
+        ai: {
+            name: 'AI Growth Engine',
+            icon: <Sparkles size={24} />,
+            tagline: 'AI-Powered Automation on Top of Your WhatsApp',
+            monthly: { price: '₹1,999', period: '/mo', billing: '' },
+            annual: { price: '₹14,999', period: '/year', billing: '~37% OFF', monthlyEquiv: '₹1,249/mo' },
+            features: [
+                'AI WhatsApp Reply Bot',
+                'Lead Qualification',
+                'Supabase / CRM Integration',
+                'Auto Follow-ups & Memory',
+                '10,000 AI Replies/month Included',
+            ],
+            note: '*Requires active Growth plan',
+            addOn: 'Extra 10,000 AI replies → ₹499',
+            cta: 'Add to Plan',
+            ctaLink: 'https://wa.me/918770440636?text=Hi,%20I%20want%20to%20add%20AI%20Growth%20Engine',
+        },
+        combo: {
+            name: 'Power Combo',
+            icon: <Star size={24} />,
+            tagline: 'Best Value: WhatsApp API + AI Engine Combined',
+            badge: 'Most Businesses Choose This',
+            monthly: { price: '₹2,999', period: '/mo', billing: '' },
+            annual: { price: '₹25,000', period: '/year', billing: '~40% OFF', monthlyEquiv: '₹2,083/mo' },
+            features: [
+                'Everything in Growth Plan',
+                'Everything in AI Growth Engine',
+                '10,000 AI Replies/month Included',
+                'Priority Onboarding',
+            ],
+            addOns: [
+                'Extra 10k AI replies → ₹499',
+                'Extra WhatsApp Number → ₹6,999/year',
+            ],
+            cta: 'Go Pro Now',
+            ctaLink: 'https://wa.me/918770440636?text=Hi,%20I%20want%20the%20Power%20Combo%20Plan',
+            featured: true,
+        },
+    };
+
+    const renderPlan = (plan, key) => {
+        const pricing = isAnnual ? plan.annual : plan.monthly;
+        const isFeatured = plan.featured;
+
+        return (
+            <div className={`${styles.card} ${isFeatured ? styles.featured : ''}`} key={key}>
+                {plan.badge && <div className={styles.featuredBadge}>{plan.badge}</div>}
+                <div className={styles.cardHeader}>
+                    <div className={styles.planIcon}>{plan.icon}</div>
+                    <h3 className={styles.planName}>{plan.name}</h3>
+                    <p className={styles.tagline}>{plan.tagline}</p>
+                </div>
+
+                <div className={styles.priceBox}>
+                    {isAnnual ? (
+                        <>
+                            <div className={styles.priceValue}>
+                                {pricing.monthlyEquiv?.replace('/mo', '')}<span className={styles.period}>/mo</span>
+                            </div>
+                            <p className={styles.billedAnnually}>Billed annually at {pricing.price}</p>
+                            {pricing.billing && (
+                                <span className={styles.savingsBadge}>{pricing.billing}</span>
+                            )}
+                        </>
+                    ) : (
+                        <div className={styles.priceValue}>
+                            {pricing.price}<span className={styles.period}>{pricing.period}</span>
+                        </div>
+                    )}
+                    {plan.note && <p className={styles.note}>{plan.note}</p>}
+                </div>
+
+                <div className={styles.featureListWrapper}>
+                    <ul className={styles.featureList}>
+                        {plan.features.map((feature, i) => (
+                            <li className={styles.featureItem} key={i}>
+                                <Check size={18} className={styles.checkIcon} />
+                                {feature}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
+                {plan.addOn && (
+                    <div className={styles.addOnSection}>
+                        <p className={styles.addOnItem}>➕ {plan.addOn}</p>
+                    </div>
+                )}
+                {plan.addOns && (
+                    <div className={styles.addOnSection}>
+                        {plan.addOns.map((addOn, i) => (
+                            <p className={styles.addOnItem} key={i}>➕ {addOn}</p>
+                        ))}
+                    </div>
+                )}
+
+                <button
+                    className={`${styles.ctaBtn} ${isFeatured ? styles.featuredBtn : ''}`}
+                    onClick={() => window.open(plan.ctaLink, '_blank')}
+                >
+                    {plan.cta}
+                </button>
+            </div>
+        );
+    };
+
     return (
         <section className={styles.section} id="pricing">
             <div className="container">
                 <div className={styles.header}>
                     <h2 className={styles.title}>Simple, Transparent Pricing</h2>
                     <p className={styles.subtitle}>
-                        Prices are shown as monthly equivalents for easy understanding. <br />
-                        All plans are billed annually (upfront).
+                        Choose the plan that fits your business. Save more with annual billing.
                     </p>
+
+                    <div className={styles.toggleWrapper}>
+                        <span className={!isAnnual ? styles.activeToggle : ''}>Monthly</span>
+                        <button
+                            className={styles.toggleBtn}
+                            onClick={() => setIsAnnual(!isAnnual)}
+                            aria-label="Toggle billing period"
+                        >
+                            <span className={`${styles.toggleThumb} ${isAnnual ? styles.toggleOn : ''}`}></span>
+                        </button>
+                        <span className={isAnnual ? styles.activeToggle : ''}>Annual <span className={styles.savingsHint}>(Save up to 40%)</span></span>
+                    </div>
                 </div>
 
                 <div className={styles.grid}>
-                    {/* CARD 1: Growth */}
-                    <div className={styles.card}>
-                        <div className={styles.cardHeader}>
-                            <h3 className={styles.planName}>Growth</h3>
-                            <p className={styles.tagline}>The foundation that powers business growth</p>
-                        </div>
-
-                        <div className={styles.priceBox}>
-                            <div className={styles.priceValue}>
-                                ₹1,199<span className={styles.period}>/mo</span>
-                            </div>
-                            <p className={styles.billingText}>Billed annually ₹11,999</p>
-                        </div>
-
-                        <div className={styles.featureListWrapper}>
-                            <ul className={styles.featureList}>
-                                <li className={styles.featureItem}><Check size={18} className={styles.checkIcon} />Chat</li>
-                                <li className={styles.featureItem}><Check size={18} className={styles.checkIcon} />Calls</li>
-                                <li className={styles.featureItem}><Check size={18} className={styles.checkIcon} />Contacts</li>
-                                <li className={styles.featureItem}><Check size={18} className={styles.checkIcon} />Broadcast</li>
-                                <li className={styles.featureItem}><Check size={18} className={styles.checkIcon} />Media</li>
-                                <li className={styles.featureItem}><Check size={18} className={styles.checkIcon} />Multi-user access</li>
-                                <li className={styles.featureItem}><Check size={18} className={styles.checkIcon} />Sync App</li>
-                            </ul>
-                        </div>
-
-                        <button
-                            className={styles.ctaBtn}
-                            onClick={() => window.open('https://wa.me/918770440636?text=Hi,%20I%20am%20interested%20in%20Growth%20Plan', '_blank')}
-                        >
-                            Get Started
-                        </button>
-                    </div>
-
-                    {/* CARD 2: AI Growth Engine (Add-On) */}
-                    <div className={styles.card}>
-                        <div className={styles.cardHeader}>
-                            <h3 className={styles.planName}>AI Growth Engine</h3>
-                            <p className={styles.tagline}>AI-powered replies, follow-ups & lead qualification on WhatsApp</p>
-                        </div>
-
-                        <div className={styles.priceBox}>
-                            <div className={styles.priceValue}>
-                                ₹1,999<span className={styles.period}>/mo</span>
-                            </div>
-                            <p className={styles.billingText}>Billed annually ₹14,999</p>
-                            <p className={styles.note}>*Requires active WhatsApp API</p>
-                        </div>
-
-                        <div className={styles.featureListWrapper}>
-                            <ul className={styles.featureList}>
-                                <li className={styles.featureItem}><Check size={18} className={styles.checkIcon} />AI WhatsApp Reply Bot</li>
-                                <li className={styles.featureItem}><Check size={18} className={styles.checkIcon} />Lead Qualification</li>
-                                <li className={styles.featureItem}><Check size={18} className={styles.checkIcon} />Auto Follow-ups & Memory</li>
-                                <li className={styles.featureItem}><Check size={18} className={styles.checkIcon} />Supabase / CRM Integration</li>
-                                <li className={styles.featureItem}><Check size={18} className={styles.checkIcon} />10,000 AI replies per month</li>
-                            </ul>
-                        </div>
-
-                        <button
-                            className={styles.ctaBtn}
-                            onClick={() => window.open('https://wa.me/918770440636?text=Hi,%20I%20want%20to%20add%20AI%20Growth%20Engine', '_blank')}
-                        >
-                            Add to Plan
-                        </button>
-                    </div>
-
-                    {/* CARD 3: Power Combo */}
-                    <div className={`${styles.card} ${styles.featured}`}>
-                        <div className={styles.featuredBadge}>Most Businesses Choose This</div>
-                        <div className={styles.cardHeader}>
-                            <h3 className={styles.planName}>Power Combo</h3>
-                            <p className={styles.tagline}>Best value for automation-first businesses</p>
-                        </div>
-
-                        <div className={styles.priceBox}>
-                            <div className={styles.priceValue}>
-                                ₹2,999<span className={styles.period}>/mo</span>
-                            </div>
-                            <p className={styles.billingText}>Billed annually ₹25,000</p>
-                        </div>
-
-                        <div className={styles.featureListWrapper}>
-                            <h4 className={styles.everythingIncluded}>Everything Included:</h4>
-                            <ul className={styles.featureList}>
-                                <li className={styles.featureItem}><Check size={18} className={styles.checkIcon} />Chat & Calls</li>
-                                <li className={styles.featureItem}><Check size={18} className={styles.checkIcon} />Contacts & Multi-user access</li>
-                                <li className={styles.featureItem}><Check size={18} className={styles.checkIcon} />Broadcast & Media</li>
-                                <li className={styles.featureItem}><Check size={18} className={styles.checkIcon} />Sync App</li>
-                                <li className={styles.featureItem}><Check size={18} className={styles.checkIcon} />CRM</li>
-                                <li className={styles.featureItem}><Check size={18} className={styles.checkIcon} />Bots & AI Automation</li>
-                                <li className={styles.featureItem}><Check size={18} className={styles.checkIcon} />Orders Management</li>
-                                <li className={styles.featureItem}><Check size={18} className={styles.checkIcon} />Shopify / WooCommerce Integration</li>
-                                <li className={styles.featureItem}><Check size={18} className={styles.checkIcon} />Connectors & APIs</li>
-                                <li className={styles.featureItem}><Check size={18} className={styles.checkIcon} />15,000 AI replies per month</li>
-                            </ul>
-                        </div>
-
-                        <button
-                            className={`${styles.ctaBtn} ${styles.featuredBtn}`}
-                            onClick={() => window.open('https://wa.me/918770440636?text=Hi,%20I%20want%20the%20Power%20Combo%20Plan', '_blank')}
-                        >
-                            Go Pro Now
-                        </button>
-                    </div>
+                    {renderPlan(plans.growth, 'growth')}
+                    {renderPlan(plans.ai, 'ai')}
+                    {renderPlan(plans.combo, 'combo')}
                 </div>
 
                 <div className={styles.footnote}>
-                    <p>Monthly or short-term plans are not available.</p>
-                    <p>All subscriptions are billed annually.</p>
-                    <p>Prices shown are monthly equivalents for clarity.</p>
+                    <p>All prices are exclusive of applicable taxes.</p>
+                    <p>WhatsApp conversation charges are billed separately by Meta.</p>
                 </div>
             </div>
         </section>

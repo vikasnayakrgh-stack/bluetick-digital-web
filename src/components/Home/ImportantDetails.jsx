@@ -67,7 +67,7 @@ const ImportantDetails = () => {
                             </li>
                             <li>
                                 <ShieldAlert size={18} className={styles.alertIcon} />
-                                <span>If a WhatsApp number is blocked or reported spam, Bytepaper has no control over it and Meta and its policies decide to reactivate or permanently block the linked WhatsApp number.</span>
+                                <span>If a WhatsApp number is blocked or reported spam, Bluetick digital has no control over it and Meta and its policies decide to reactivate or permanently block the linked WhatsApp number.</span>
                             </li>
                             <li>
                                 <MessageSquare size={18} className={styles.checkIcon} />

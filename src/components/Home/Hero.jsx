@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, CheckCircle, Package } from 'lucide-react';
+import { ArrowRight, Package, Sparkles, Zap } from 'lucide-react';
 import heroImage from '../../assets/hero-woman-green.png';
 import styles from './Hero.module.css';
 
@@ -9,7 +9,8 @@ const Hero = () => {
             <div className={`${styles.container} container`}>
                 <div className={styles.content}>
                     <div className={styles.aiBadge}>
-                        <span className={styles.badgeText}>✨ Powering 500+ Businesses</span>
+                        <Sparkles size={14} className={styles.badgeIcon} />
+                        <span className={styles.badgeText}>Powering 500+ Businesses</span>
                     </div>
 
                     <h1 className={styles.title}>
@@ -21,7 +22,7 @@ const Hero = () => {
                         Transform WhatsApp into a 24/7 revenue channel. Auto-qualify leads, book meetings, and close deals while you sleep.
                         <br />
                         <span className={styles.apiBadge}>
-                            <span className={styles.zapIcon}>⚡</span> Official Meta Business Partner
+                            <Zap size={14} className={styles.zapIcon} /> Official Meta Business Partner
                         </span>
                     </p>
 
@@ -42,7 +43,7 @@ const Hero = () => {
 
                 <div className={styles.visualStage}>
                     <div className={styles.glow} />
-                    <img src={heroImage} alt="WhatsApp Automation AI" className={styles.heroImg} />
+                    <img src={heroImage} alt="WhatsApp Automation AI" className={styles.heroImg} loading="eager" fetchpriority="high" />
 
                     {/* Floating Notification Card */}
                     <div className={styles.floatingCard}>
