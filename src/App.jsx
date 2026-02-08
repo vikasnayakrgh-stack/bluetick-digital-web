@@ -10,8 +10,10 @@ import CaseStudies from './components/Home/CaseStudies'
 import IndustrySolutions from './components/Home/IndustrySolutions'
 import ClientSuccess from './components/Home/ClientSuccess'
 import Pricing from './components/Home/Pricing'
+import ImportantDetails from './components/Home/ImportantDetails'
 import FAQ from './components/Home/FAQ'
 import LeadIntelligence from './components/Home/LeadIntelligence'
+import Integrations from './components/Home/Integrations'
 import BroadcastFeature from './components/Home/BroadcastFeature'
 import AdIntelligence from './components/Home/AdIntelligence'
 import NativeForms from './components/Home/NativeForms'
@@ -40,11 +42,13 @@ const Home = () => (
     <NativeForms />
     <Workflows />
     <LeadIntelligence />
+    <Integrations />
     <IndustrySolutions />
     <CaseStudies />
     <Testimonials />
     <ClientSuccess />
     <Pricing />
+    <ImportantDetails />
     <ContactForm />
     <FAQ />
   </>

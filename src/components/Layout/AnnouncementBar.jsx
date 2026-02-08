@@ -3,12 +3,13 @@ import styles from './AnnouncementBar.module.css';
 
 const AnnouncementBar = () => {
     return (
-        <div className={styles.bar}>
+        <a href="https://www.bluetickdigital.in/#demo" className={styles.bar}>
             <div className={styles.container}>
-                <span>🚀 WhatsApp AI is here - The Conversational Intelligence Layer for Modern Businesses</span>
-                <a href="#demo" className={styles.link}>Book a Demo →</a>
+                <span className={styles.rocket}>🚀</span>
+                <span className={styles.text}>WhatsApp AI is here - The Conversational Intelligence Layer for Modern Businesses</span>
+                <span className={styles.cta}>Book a Demo <span className={styles.arrow}>→</span></span>
             </div>
-        </div>
+        </a>
     );
 };
 

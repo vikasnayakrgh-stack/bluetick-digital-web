@@ -1,0 +1,141 @@
+.section {
+    padding: 100px 0;
+    background: var(--color-surface-elevated);
+    /* Off-white background */
+    position: relative;
+    overflow: hidden;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.title {
+    font-size: 42px;
+    margin-bottom: 16px;
+    font-weight: 800;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: var(--color-slate-600);
+    font-weight: 500;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--color-slate-100);
+    transition: var(--transition-base);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--color-slate-100);
+}
+
+.cardHeader h3 {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.icon {
+    color: var(--color-action-primary);
+    background: rgba(37, 211, 102, 0.1);
+    padding: 8px;
+    border-radius: 12px;
+    box-sizing: content-box;
+}
+
+.list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 16px;
+    color: var(--color-slate-600);
+    line-height: 1.6;
+}
+
+.checkIcon {
+    color: var(--color-action-primary);
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
+.alertIcon {
+    color: #eab308;
+    /* Warning Yellow */
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
+.ctaWrapper {
+    text-align: center;
+}
+
+.ctaBtn {
+    background: var(--color-action-primary);
+    color: #fff;
+    padding: 16px 32px;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition-base);
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.ctaBtn:hover {
+    background: var(--color-action-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+}
+
+.note {
+    margin-top: 16px;
+    font-size: 14px;
+    color: var(--color-slate-500);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .title {
+        font-size: 32px;
+    }
+
+    .card {
+        padding: 24px;
+    }
+}

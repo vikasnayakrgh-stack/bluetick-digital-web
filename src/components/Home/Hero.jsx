@@ -1,94 +1,65 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight, Zap, Play } from 'lucide-react';
-import ChatSimulator from './ChatSimulator';
+import { ArrowRight, CheckCircle, Package } from 'lucide-react';
+import heroImage from '../../assets/hero-woman-green.png';
 import styles from './Hero.module.css';
 
 const Hero = () => {
     return (
         <section className={styles.hero}>
             <div className={`${styles.container} container`}>
-                {/* Left Column: Content */}
                 <div className={styles.content}>
-                    <motion.div
-                        className={styles.aiBadge}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                    >
-                        <span className={styles.badgeText}>Meet AI Priya — Your New Sales Expert 💎</span>
-                    </motion.div>
+                    <div className={styles.aiBadge}>
+                        <span className={styles.badgeText}>✨ Powering 500+ Businesses</span>
+                    </div>
 
-                    <motion.h1
-                        className={styles.title}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.1 }}
-                    >
-                        Official WhatsApp Business API <br />
-                        Partner for <span className={styles.highlight}>AI Sales Automation</span>
-                    </motion.h1>
+                    <h1 className={styles.title}>
+                        Automate Sales with
+                        <span className={styles.highlight}>WhatsApp AI Agents</span>
+                    </h1>
 
-                    <motion.p
-                        className={styles.subtitle}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2 }}
-                    >
-                        AI Priya doesn't just reply—she sells. From intent detection to demo booking, automate your entire sales funnel on the world's most popular messaging app.
-                    </motion.p>
+                    <p className={styles.subtitle}>
+                        Transform WhatsApp into a 24/7 revenue channel. Auto-qualify leads, book meetings, and close deals while you sleep.
+                        <br />
+                        <span className={styles.apiBadge}>
+                            <span className={styles.zapIcon}>⚡</span> Official Meta Business Partner
+                        </span>
+                    </p>
 
-                    <motion.div
-                        className={styles.ctaGroup}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.3 }}
-                    >
-                        <motion.a
-                            href="https://wa.me/918770440636?text=Hi,%20I%20am%20interested%20in%20AI%20Priya%20for%20my%20business."
+                    <div className={styles.ctaGroup}>
+                        <a
+                            href="https://wa.me/918770440636?text=Hi,%20I%20want%20to%20book%20a%20demo%20for%20AI%20Priya."
                             target="_blank"
                             rel="noopener noreferrer"
                             className={styles.ctaBtn}
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
                         >
-                            Get Started Free <ArrowRight size={20} />
-                        </motion.a>
-
-                        <motion.a
-                            href="#demo"
-                            className={styles.secondaryBtn}
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            onClick={(e) => {
-                                e.preventDefault();
-                                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-                            }}
-                        >
-                            <Play size={18} /> Watch Demo
-                        </motion.a>
-                    </motion.div>
-
-                    <motion.div
-                        className={styles.apiBadge}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.4 }}
-                    >
-                        <Zap size={16} className={styles.zapIcon} />
-                        <span>Official **WhatsApp Business API** Partner</span>
-                    </motion.div>
+                            Book a Demo <ArrowRight size={20} />
+                        </a>
+                        <a href="#pricing" className={styles.secondaryBtn}>
+                            View Pricing
+                        </a>
+                    </div>
                 </div>
 
-                {/* Right Column: Interactive Simulator */}
                 <div className={styles.visualStage}>
                     <div className={styles.glow} />
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 1, ease: "easeOut" }}
-                    >
-                        <ChatSimulator />
-                    </motion.div>
+                    <img src={heroImage} alt="WhatsApp Automation AI" className={styles.heroImg} />
+
+                    {/* Floating Notification Card */}
+                    <div className={styles.floatingCard}>
+                        <div className={styles.cardHeader}>
+                            <div className={styles.cardTitle}>
+                                <Package size={16} className={styles.cardIcon} />
+                                <span>Order Update</span>
+                            </div>
+                            <span className={styles.time}>Now</span>
+                        </div>
+                        <p className={styles.cardText}>
+                            Your New <strong>NovaBuds Pro</strong> will be delivered Wednesday 27th Oct
+                        </p>
+                        <button className={styles.trackBtn}>
+                            Track Order
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
