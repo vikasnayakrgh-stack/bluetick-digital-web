@@ -26,6 +26,7 @@ import BlogListing from './components/Blog/BlogListing'
 import BlogPost from './components/Blog/BlogPost'
 import SEO from './components/Common/SEO'
 import FacebookPixel from './components/Common/FacebookPixel'
+import GoogleAnalytics from './components/Common/GoogleAnalytics'
 import './App.css'
 
 const Home = () => (
@@ -82,6 +83,7 @@ function App() {
           </main>
 
           <FacebookPixel />
+          <GoogleAnalytics />
           <WhatsAppBtn />
           <BackToTop />
         </div>
