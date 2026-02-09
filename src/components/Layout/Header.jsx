@@ -33,6 +33,13 @@ const Header = () => {
 
                 <nav className={`${styles.nav} ${isMenuOpen ? styles.navOpen : ''}`}>
                     <div className={styles.navLinks}>
+                        <div className={styles.dropdown}>
+                            <span className={`${styles.navLink} ${styles.dropdownTrigger}`} style={{ cursor: 'pointer' }}>Free Tools</span>
+                            <div className={styles.dropdownContent}>
+                                <Link to="/whatsapp-api-cost-calculator" className={styles.dropdownItem} onClick={closeMenu}>WhatsApp Cost Calculator</Link>
+                                <Link to="/whatsapp-green-tick-checker" className={styles.dropdownItem} onClick={closeMenu}>Green Tick Checker</Link>
+                            </div>
+                        </div>
                         <a href="/#features" className={styles.navLink} onClick={closeMenu}>Solutions</a>
                         <Link to="/blog" className={styles.navLink} onClick={closeMenu}>Blog</Link>
                         <a href="/#pricing" className={styles.navLink} onClick={closeMenu}>Pricing</a>

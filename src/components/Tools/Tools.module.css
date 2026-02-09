@@ -1,0 +1,245 @@
+.toolsContainer {
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 2rem;
+    font-family: 'Inter', sans-serif;
+    color: #1e293b;
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    padding: 2.5rem;
+    margin-bottom: 3rem;
+    border: 1px solid #e2e8f0;
+}
+
+.title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #1e3a8a;
+    /* Corporate Blue */
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.subtitle {
+    text-align: center;
+    color: #64748b;
+    margin-bottom: 2.5rem;
+    font-size: 1.1rem;
+}
+
+.inputGroup {
+    margin-bottom: 2rem;
+}
+
+.label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #334155;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.valueDisplay {
+    background: #eff6ff;
+    color: #2563eb;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.rangeInput {
+    width: 100%;
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 4px;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.rangeInput::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 24px;
+    height: 24px;
+    background: #2563eb;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+.rangeInput::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 6px rgba(37, 99, 235, 0.2);
+}
+
+.resultBox {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    margin-top: 3rem;
+    border: 1px solid #e2e8f0;
+}
+
+.resultTitle {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #64748b;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.resultValue {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #1e3a8a;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+}
+
+.ctaButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #2563eb;
+    color: white;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s;
+    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.3);
+    animation: glow 2s infinite;
+    font-size: 1.1rem;
+}
+
+.ctaButton:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.4);
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(37, 99, 235, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+    }
+}
+
+.faqSection {
+    margin-top: 4rem;
+}
+
+.faqTitle {
+    font-size: 1.8rem;
+    color: #1e293b;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.faqItem {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 1.5rem;
+}
+
+.faqQuestion {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 0.75rem;
+}
+
+.faqAnswer {
+    color: #64748b;
+    line-height: 1.6;
+}
+
+/* Green Tick Specific */
+.resultCard {
+    text-align: center;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-top: 2rem;
+}
+
+.highChance {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+}
+
+.mediumChance {
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+}
+
+.lowChance {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+}
+
+.resultBadge {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    border-radius: 9999px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.highBadge {
+    background: #16a34a;
+    color: white;
+}
+
+.mediumBadge {
+    background: #d97706;
+    color: white;
+}
+
+.lowBadge {
+    background: #dc2626;
+    color: white;
+}
+
+.stepList {
+    text-align: left;
+    margin-top: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.stepList li {
+    margin-bottom: 0.5rem;
+    color: #475569;
+}
+
+@media (max-width: 640px) {
+    .toolsContainer {
+        padding: 1rem;
+        margin: 2rem auto;
+    }
+
+    .card {
+        padding: 1.5rem;
+    }
+
+    .title {
+        font-size: 1.75rem;
+    }
+}

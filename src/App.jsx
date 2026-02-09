@@ -27,6 +27,8 @@ import BlogPost from './components/Blog/BlogPost'
 import SEO from './components/Common/SEO'
 import FacebookPixel from './components/Common/FacebookPixel'
 import GoogleAnalytics from './components/Common/GoogleAnalytics'
+import WhatsAppCalculator from './components/Tools/WhatsAppCalculator'
+import GreenTickChecker from './components/Tools/GreenTickChecker'
 import './App.css'
 
 const Home = () => (
@@ -74,6 +76,8 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/blog" element={<BlogListing />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
+              <Route path="/whatsapp-api-cost-calculator" element={<WhatsAppCalculator />} />
+              <Route path="/whatsapp-green-tick-checker" element={<GreenTickChecker />} />
               {/* Compatibility for old link */}
               <Route path="/guide/whatsapp-chatbot-automation" element={<BlogPost />} />
               {/* Fallback to home */}
