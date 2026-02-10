@@ -13,6 +13,7 @@
 
 .scrolled {
     height: 70px;
+    top: 0;
     background: var(--glass-bg);
     backdrop-filter: var(--glass-blur);
     border-bottom: 1px solid var(--glass-border);
