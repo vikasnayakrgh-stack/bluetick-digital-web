@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
-import logo from '../../assets/logo.png';
 import styles from './Header.module.css';
 
 const Header = () => {
@@ -23,7 +22,7 @@ const Header = () => {
         <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''} ${isMenuOpen ? styles.menuOpen : ''}`}>
             <div className={`${styles.container} container`}>
                 <Link to="/" className={styles.logo} onClick={closeMenu}>
-                    <img src={logo} alt="Bluetick Digital Logo" className={styles.logoImage} />
+                    <img src="/assets/favicon.png" alt="Bluetick Digital Logo" className={styles.logoImage} />
                     <span className={styles.logoText}>Bluetick</span>
                 </Link>
 
