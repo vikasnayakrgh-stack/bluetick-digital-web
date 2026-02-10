@@ -1,23 +1,31 @@
 .header {
     position: fixed;
-    top: 48px;
-    left: 0;
-    right: 0;
-    height: 80px;
+    top: 64px;
+    /* 48px bar + 16px spacing */
+    left: 20px;
+    right: 20px;
+    height: 70px;
+    /* Reduced specific height for cleaner look */
     display: flex;
     align-items: center;
     z-index: var(--z-fixed);
-    transition: var(--transition-base);
-    background: transparent;
+    transition: all var(--transition-base);
+    /* Animate all props including top/width */
+    background: rgba(255, 255, 255, 0.5);
+    /* Semi-transparent default */
+    backdrop-filter: blur(8px);
+    border-radius: 16px;
+    /* Floating rounded look */
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .scrolled {
     height: 70px;
-    top: 0;
     background: var(--glass-bg);
     backdrop-filter: var(--glass-blur);
-    border-bottom: 1px solid var(--glass-border);
-    box-shadow: var(--shadow-sm);
+    border-color: var(--glass-border);
+    box-shadow: var(--shadow-md);
+    /* Enhanced shadow for floating state */
 }
 
 .container {
