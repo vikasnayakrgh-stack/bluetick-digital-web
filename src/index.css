@@ -21,8 +21,7 @@ body {
   background: var(--bg-white);
   color: var(--text-primary);
   line-height: 1.6;
-  padding-top: 100px;
-  /* Account for floating header */
+  /* padding-top: 100px; Remove global padding, handled by components */
 }
 
 /* Remove the dark radial gradients */
