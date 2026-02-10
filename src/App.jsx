@@ -76,6 +76,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/blog" element={<BlogListing />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
+              <Route path="/whatsapp-api-pricing-india" element={<WhatsAppCalculator />} />
               <Route path="/whatsapp-api-cost-calculator" element={<WhatsAppCalculator />} />
               <Route path="/whatsapp-green-tick-checker" element={<GreenTickChecker />} />
               {/* Compatibility for old link */}

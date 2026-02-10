@@ -243,3 +243,80 @@
         font-size: 1.75rem;
     }
 }
+
+/* New Styles for Pricing Page */
+.directAnswer {
+    background-color: #f0fdf4;
+    border-left: 5px solid #16a34a;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    color: #166534;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.howItWorks {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    padding: 2.5rem;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+}
+
+.sectionTitle {
+    font-size: 2rem;
+    color: #1e293b;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+.stepGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.stepCard {
+    padding: 1.5rem;
+    background: #f8fafc;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    transition: transform 0.2s;
+}
+
+.stepCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.stepNumber {
+    background: #2563eb;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.stepTitle {
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+}
+
+.stepDesc {
+    color: #64748b;
+    line-height: 1.6;
+}

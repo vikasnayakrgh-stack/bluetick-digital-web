@@ -36,6 +36,16 @@ const Footer = () => {
                     </div>
 
                     <div className={styles.links}>
+                        <h4>Serving Locations</h4>
+                        <ul>
+                            <li>Raipur (HQ)</li>
+                            <li>Bhilai & Durg</li>
+                            <li>Bilaspur</li>
+                            <li>Pan-India (Remote)</li>
+                        </ul>
+                    </div>
+
+                    <div className={styles.links}>
                         <h4>Company</h4>
                         <ul>
                             <li><Link to="/about">About Us</Link></li>
