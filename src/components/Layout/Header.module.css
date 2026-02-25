@@ -1,44 +1,39 @@
+/* =============================================
+   HEADER - Exergy3-inspired full width transparent nav
+   ============================================= */
+
 .header {
     position: fixed;
-    top: 64px;
-    /* 48px bar + 16px spacing */
-    left: 20px;
-    right: 20px;
-    height: 70px;
-    /* Reduced specific height for cleaner look */
-    display: flex;
-    align-items: center;
-    z-index: var(--z-fixed);
-    transition: all var(--transition-base);
-    /* Animate all props including top/width */
-    background: rgba(255, 255, 255, 0.5);
-    /* Semi-transparent default */
-    backdrop-filter: blur(8px);
-    border-radius: 16px;
-    /* Floating rounded look */
-    border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.scrolled {
-    height: 70px;
-    background: var(--glass-bg);
-    backdrop-filter: var(--glass-blur);
-    border-color: var(--glass-border);
-    box-shadow: var(--shadow-md);
-    /* Enhanced shadow for floating state */
-}
-
-.container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    top: 48px;
+    /* sits immediately below the 48px announcement bar */
+    left: 0;
     width: 100%;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: var(--z-fixed);
+    transition: all 0.3s ease;
+    background-color: transparent;
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+/* Scrolled state removed to keep it completely transparent */
+
+/* ===== LOGO ===== */
+.logoContainer {
+    display: flex;
+    flex: 1;
+    /* evenly pushes the center nav to true center */
+    justify-content: flex-start;
 }
 
 .logo {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
+    text-decoration: none;
 }
 
 .logoImage {
@@ -46,184 +41,256 @@
 }
 
 .logoText {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 800;
-    color: var(--color-slate-900);
+    color: white;
+    /* Header is mostly over dark hero natively in redesign */
+    letter-spacing: -0.02em;
+    transition: color 0.3s ease;
 }
 
-.nav {
+.scrolled .logoText {
+    color: #1a2f2f;
+}
+
+.logoAccent {
+    color: var(--color-whatsapp);
+}
+
+/* ===== CENTER PILL NAV ===== */
+.pillNav {
     display: flex;
     align-items: center;
-    gap: 40px;
+    background: rgba(255, 255, 255, 0.6);
+    /* frosted greyish pill */
+    backdrop-filter: blur(10px);
+    border-radius: 100px;
+    padding: 6px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-.navLinks {
-    display: flex;
-    gap: 32px;
-}
+
 
 .navLink {
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--color-slate-600);
-    transition: var(--transition-base);
+    font-size: 14px;
+    font-weight: 500;
+    color: #1a2f2f;
+    /* dark text inside pill */
+    padding: 10px 24px;
+    border-radius: 100px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.navLink:hover {
-    color: var(--color-action-primary);
+
+
+.navLinkActive {
+    background: white;
+    /* active state gets white pill */
+    color: #0f1a1a;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
+
+
+.navLink:hover:not(.navLinkActive) {
+    background: rgba(255, 255, 255, 0.5);
+    color: #0f1a1a;
+}
+
+
+
+/* ===== DROPDOWN ===== */
 .dropdown {
     position: relative;
-    display: inline-block;
+    display: inline-flex;
+}
+
+.dropdownTrigger {
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
 
 .dropdownContent {
     display: none;
     position: absolute;
-    background-color: white;
-    min-width: 240px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    z-index: 1000;
-    top: 100%;
+    top: calc(100% + 12px);
     left: 50%;
     transform: translateX(-50%);
-    padding: 8px 0;
-    border: 1px solid #e2e8f0;
+    background: white;
+    min-width: 240px;
+    border-radius: 14px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    padding: 6px;
+    z-index: 100;
+    flex-direction: column;
 }
 
 .dropdown:hover .dropdownContent {
-    display: block;
+    display: flex;
 }
 
 .dropdownItem {
-    color: var(--color-slate-700);
     padding: 12px 16px;
-    text-decoration: none;
-    display: block;
     font-size: 14px;
     font-weight: 500;
-    transition: background-color 0.2s;
+    color: var(--color-slate-700);
+    border-radius: 8px;
+    transition: background 0.15s ease;
+    text-decoration: none;
 }
 
 .dropdownItem:hover {
-    background-color: #f1f5f9;
-    color: var(--color-action-primary);
+    background: var(--color-slate-50);
+    color: var(--color-whatsapp);
 }
 
+/* ===== RIGHT ACTIONS ===== */
 .actions {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+}
+
+.contactBtn {
     display: flex;
     align-items: center;
     gap: 16px;
+    background: white;
+    font-size: 15px;
+    font-weight: 500;
+    color: #1a2f2f;
+    padding: 8px 12px 8px 18px;
+    /* Extra padding on left, less on right for the dot */
+    border-radius: 100px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
-.loginBtn {
-    font-size: 14px;
-    font-weight: 600;
+.contactBtn:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+}
+
+.contactDot {
+    width: 14px;
+    height: 14px;
+    background: #ff6b00;
+    /* exact orange from requested design */
+    border-radius: 50%;
+    display: block;
+}
+
+.hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: white;
+    color: #1a2f2f;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.hamburger:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== MOBILE DRAWER ===== */
+.mobileMenu {
+    position: fixed;
+    top: 100px;
+    left: 20px;
+    right: 20px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    padding: 16px;
+    z-index: calc(var(--z-fixed) - 1);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mobileLink {
+    font-size: 15px;
+    font-weight: 500;
     color: var(--color-slate-700);
-    padding: 10px 16px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    transition: background 0.15s ease;
+    text-decoration: none;
 }
 
-.signupBtn {
-    background: var(--grad-whatsapp);
+.mobileLink:hover {
+    background: var(--color-slate-50);
+    color: var(--color-whatsapp);
+}
+
+.mobileCta {
+    margin-top: 8px;
+    background: linear-gradient(135deg, #25D366, #128C7E);
     color: white;
-    padding: 12px 24px;
-    border-radius: 10px;
-    font-size: 14px;
+    padding: 14px 20px;
+    border-radius: 12px;
+    font-size: 15px;
     font-weight: 700;
-    box-shadow: var(--glow-primary);
-    transition: var(--transition-base);
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    text-decoration: none;
 }
 
-.signupBtn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
-}
-
-@media (max-width: 1024px) {
-    .container {
-        padding: 0 16px;
-    }
-
-    .mobileToggle {
-        display: block;
-        color: var(--color-slate-900);
-        z-index: 100;
-        cursor: pointer;
-    }
-
-    .nav {
-        position: fixed;
+/* Responsive Hide */
+@media (max-width: 992px) {
+    .header {
         top: 48px;
-        right: -100%;
-        width: 100%;
-        height: calc(100vh - 48px);
-        background: white;
-        flex-direction: column;
-        justify-content: center;
-        gap: 48px;
-        transition: 0.3s ease-in-out;
-        z-index: 99;
+        padding: 0 20px;
     }
 
-    .navOpen {
-        right: 0;
-    }
-
-    .navLinks {
-        flex-direction: column;
-        align-items: center;
-        gap: 32px;
-        width: 100%;
-    }
-
-    .dropdown {
-        width: 100%;
-        text-align: center;
-    }
-
-    .dropdownContent {
+    .pillNav {
         display: none;
-        /* Keep hidden by default on mobile, use state or simple list */
-        position: static;
-        box-shadow: none;
-        transform: none;
-        border: none;
-        padding-left: 0;
-        min-width: auto;
-        background: transparent;
     }
 
-    .dropdown:hover .dropdownContent {
-        display: block;
-        /* Verify functionality on touch, might need click handler */
-    }
-
-    .dropdownItem {
-        padding: 8px 0;
-        font-size: 16px;
-        color: var(--color-slate-500);
-    }
-
-    .navLink {
-        font-size: 20px;
-    }
-
-    .actions {
-        flex-direction: column;
-        width: 100%;
-        padding: 0 32px;
-    }
-
-    .signupBtn {
-        width: 100%;
-        text-align: center;
+    .contactBtn {
+        display: none;
     }
 }
 
-@media (min-width: 1025px) {
-    .mobileToggle {
+@media (min-width: 993px) {
+    .mobileMenu {
         display: none;
     }
 }
