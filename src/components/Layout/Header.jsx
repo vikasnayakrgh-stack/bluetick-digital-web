@@ -39,13 +39,12 @@ const Header = () => {
                                 <Link to="/whatsapp-green-tick-checker" className={styles.dropdownItem} onClick={closeMenu}>Green Tick Checker</Link>
                             </div>
                         </div>
-                        <a href="/#features" className={styles.navLink} onClick={closeMenu}>Solutions</a>
                         <Link to="/blog" className={styles.navLink} onClick={closeMenu}>Blog</Link>
                         <a href="/#pricing" className={styles.navLink} onClick={closeMenu}>Pricing</a>
                     </div>
                     <div className={styles.actions}>
                         <a
-                            href="https://wa.me/918770440636?text=Hi,%20I%20want%20to%20book%20a%20demo%20for%20AI%20Priya."
+                            href="https://wa.me/916261003050?text=Hi,%20I%20want%20to%20book%20a%20demo%20for%20AI%20Priya."
                             target="_blank"
                             rel="noopener noreferrer"
                             className={styles.loginBtn}

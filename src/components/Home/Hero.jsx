@@ -28,7 +28,7 @@ const Hero = () => {
 
                     <div className={styles.ctaGroup}>
                         <a
-                            href="https://wa.me/918770440636?text=Hi,%20I%20want%20to%20book%20a%20demo%20for%20AI%20Priya."
+                            href="https://wa.me/916261003050?text=Hi,%20I%20want%20to%20book%20a%20demo%20for%20AI%20Priya."
                             target="_blank"
                             rel="noopener noreferrer"
                             className={styles.ctaBtn}

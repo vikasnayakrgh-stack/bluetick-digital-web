@@ -22,7 +22,7 @@ const Pricing = () => {
                 'Priority Support',
             ],
             cta: 'Get Started',
-            ctaLink: 'https://wa.me/918770440636?text=Hi,%20I%20am%20interested%20in%20Growth%20Plan',
+            ctaLink: 'https://wa.me/916261003050?text=Hi,%20I%20am%20interested%20in%20Growth%20Plan',
         },
         ai: {
             name: 'AI Growth Engine',
@@ -40,7 +40,7 @@ const Pricing = () => {
             note: '*Requires active Growth plan',
             addOn: 'Extra 10,000 AI replies → ₹499',
             cta: 'Add to Plan',
-            ctaLink: 'https://wa.me/918770440636?text=Hi,%20I%20want%20to%20add%20AI%20Growth%20Engine',
+            ctaLink: 'https://wa.me/916261003050?text=Hi,%20I%20want%20to%20add%20AI%20Growth%20Engine',
         },
         combo: {
             name: 'Power Combo',
@@ -60,7 +60,7 @@ const Pricing = () => {
                 'Extra WhatsApp Number → ₹6,999/year',
             ],
             cta: 'Go Pro Now',
-            ctaLink: 'https://wa.me/918770440636?text=Hi,%20I%20want%20the%20Power%20Combo%20Plan',
+            ctaLink: 'https://wa.me/916261003050?text=Hi,%20I%20want%20the%20Power%20Combo%20Plan',
             featured: true,
         },
     };

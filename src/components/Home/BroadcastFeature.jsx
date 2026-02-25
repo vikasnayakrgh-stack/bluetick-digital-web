@@ -50,7 +50,7 @@ const BroadcastFeature = () => {
 
                         <button
                             className={styles.ctaBtn}
-                            onClick={() => window.open('https://wa.me/918770440636?text=Hi,%20I%20want%20to%20get%20started%20with%20WhatsApp%20Business%20API%20for%20my%20broadcasts.', '_blank')}
+                            onClick={() => window.open('https://wa.me/916261003050?text=Hi,%20I%20want%20to%20get%20started%20with%20WhatsApp%20Business%20API%20for%20my%20broadcasts.', '_blank')}
                         >
                             Start for FREE →
                         </button>
