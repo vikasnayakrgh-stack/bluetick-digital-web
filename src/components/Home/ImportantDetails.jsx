@@ -80,7 +80,7 @@ const ImportantDetails = () => {
                 <div className={styles.ctaWrapper}>
                     <button
                         className={styles.ctaBtn}
-                        onClick={() => window.open('https://wa.me/918770440636?text=Hi,%20I%20have%20read%20the%20important%20details%20and%20want%20to%20connect%20my%20WhatsApp.', '_blank')}
+                        onClick={() => window.open('https://wa.me/916261003050?text=Hi,%20I%20have%20read%20the%20important%20details%20and%20want%20to%20connect%20my%20WhatsApp.', '_blank')}
                     >
                         Connect your WhatsApp →
                     </button>

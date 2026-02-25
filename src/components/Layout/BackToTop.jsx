@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUp } from 'lucide-react';
+// Removed lucide-react import
 import styles from './BackToTop.module.css';
 
 const BackToTop = () => {
@@ -39,7 +39,7 @@ const BackToTop = () => {
                     whileTap={{ scale: 0.9 }}
                     aria-label="Back to top"
                 >
-                    <ArrowUp size={24} />
+                    <img src="/assets/rocket-top.png" alt="Rocket to top" className={styles.rocketIcon} />
                 </motion.button>
             )}
         </AnimatePresence>

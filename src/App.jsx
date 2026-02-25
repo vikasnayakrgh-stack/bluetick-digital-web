@@ -29,6 +29,7 @@ import FacebookPixel from './components/Common/FacebookPixel'
 import GoogleAnalytics from './components/Common/GoogleAnalytics'
 import WhatsAppCalculator from './components/Tools/WhatsAppCalculator'
 import GreenTickChecker from './components/Tools/GreenTickChecker'
+import WebsiteDesign from './components/WebsiteDesign/WebsiteDesign'
 import './App.css'
 
 const Home = () => (
@@ -79,6 +80,7 @@ function App() {
               <Route path="/whatsapp-api-pricing-india" element={<WhatsAppCalculator />} />
               <Route path="/whatsapp-api-cost-calculator" element={<WhatsAppCalculator />} />
               <Route path="/whatsapp-green-tick-checker" element={<GreenTickChecker />} />
+              <Route path="/website-design-automation" element={<WebsiteDesign />} />
               {/* Compatibility for old link */}
               <Route path="/guide/whatsapp-chatbot-automation" element={<BlogPost />} />
               {/* Fallback to home */}
