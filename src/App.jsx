@@ -27,6 +27,7 @@ import BlogPost from './components/Blog/BlogPost'
 import SEO from './components/Common/SEO'
 import FacebookPixel from './components/Common/FacebookPixel'
 import GoogleAnalytics from './components/Common/GoogleAnalytics'
+import MagneticCursor from './components/Common/MagneticCursor'
 import WhatsAppCalculator from './components/Tools/WhatsAppCalculator'
 import GreenTickChecker from './components/Tools/GreenTickChecker'
 import WebsiteDesign from './components/WebsiteDesign/WebsiteDesign'
@@ -91,6 +92,7 @@ function App() {
 
           <FacebookPixel />
           <GoogleAnalytics />
+          <MagneticCursor />
           <WhatsAppBtn />
           <BackToTop />
         </div>
