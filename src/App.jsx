@@ -25,6 +25,7 @@ import BackToTop from './components/Layout/BackToTop'
 import BlogListing from './components/Blog/BlogListing'
 import BlogPost from './components/Blog/BlogPost'
 import SEO from './components/Common/SEO'
+import Cursor from './components/Common/Cursor'
 import FacebookPixel from './components/Common/FacebookPixel'
 import GoogleAnalytics from './components/Common/GoogleAnalytics'
 import WhatsAppCalculator from './components/Tools/WhatsAppCalculator'
@@ -63,6 +64,7 @@ function App() {
   return (
     <HelmetProvider>
       <Router>
+        <Cursor />
         <div className="App">
           {/* Skip to main content for keyboard users */}
           <a href="#main-content" className="skip-link">
