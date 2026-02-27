@@ -80,6 +80,7 @@ const ContactForm = () => {
                                 name="name"
                                 placeholder="John Doe"
                                 required
+                                autoComplete="name"
                                 className={styles.input}
                             />
                         </div>
@@ -92,6 +93,8 @@ const ContactForm = () => {
                                 name="whatsapp"
                                 placeholder="+91 98765 43210"
                                 required
+                                autoComplete="tel"
+                                inputMode="tel"
                                 className={styles.input}
                             />
                         </div>

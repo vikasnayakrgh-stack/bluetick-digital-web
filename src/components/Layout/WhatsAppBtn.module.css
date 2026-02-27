@@ -47,12 +47,12 @@
     .button {
         bottom: 16px;
         right: 16px;
-        width: 50px;
-        height: 50px;
+        width: 44px;
+        height: 44px;
     }
 
     .icon {
-        width: 28px;
-        height: 28px;
+        width: 24px;
+        height: 24px;
     }
 }

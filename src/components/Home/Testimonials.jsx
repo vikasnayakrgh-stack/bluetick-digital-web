@@ -45,7 +45,7 @@ const Testimonials = () => {
                             </div>
                             <p className={styles.content}>"{review.content}"</p>
                             <div className={styles.author}>
-                                <img src={review.avatar} alt={review.name} className={styles.avatar} />
+                                <img src={review.avatar} alt={review.name} className={styles.avatar} loading="lazy" decoding="async" />
                                 <div className={styles.info}>
                                     <h4 className={styles.name}>{review.name}</h4>
                                     <p className={styles.role}>{review.role}</p>

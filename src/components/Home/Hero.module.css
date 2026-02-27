@@ -79,7 +79,7 @@
 }
 
 .title {
-    font-size: 64px;
+    font-size: clamp(36px, 5vw, 64px);
     line-height: 1.1;
     margin-bottom: 24px;
     color: white;
@@ -94,7 +94,7 @@
 }
 
 .subtitle {
-    font-size: 20px;
+    font-size: clamp(16px, 2vw, 20px);
     color: var(--color-slate-300);
     margin-bottom: 40px;
     line-height: 1.6;
@@ -121,9 +121,15 @@
     transition: var(--transition-base);
 }
 
-.ctaBtn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+@media (hover: hover) and (pointer: fine) {
+    .ctaBtn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+    }
+
+    .secondaryBtn:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
 }
 
 .secondaryBtn {
@@ -137,9 +143,7 @@
     transition: var(--transition-base);
 }
 
-.secondaryBtn:hover {
-    background: rgba(255, 255, 255, 0.1);
-}
+
 
 .apiBadge {
     display: flex;
@@ -162,7 +166,7 @@
 
 @media (max-width: 1024px) {
     .hero {
-        padding: var(--section-padding-tablet);
+        padding: 140px 20px 60px;
     }
 
     .container {
@@ -190,12 +194,19 @@
 
 @media (max-width: 640px) {
     .hero {
-        padding: var(--section-padding-mobile);
+        padding: 130px 16px 48px;
     }
 
     .ctaGroup {
         flex-direction: column;
         width: 100%;
+    }
+
+    .ctaBtn,
+    .secondaryBtn {
+        min-height: 48px;
+        justify-content: center;
+        text-align: center;
     }
 
     .visualStage {

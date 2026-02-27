@@ -1,38 +1,44 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
+import React, { Suspense } from 'react'
 import AnnouncementBar from './components/Layout/AnnouncementBar'
 import Header from './components/Layout/Header'
 import Hero from './components/Home/Hero'
-import WhyChoose from './components/Home/WhyChoose'
-import TrustBar from './components/Home/TrustBar'
-import Workflows from './components/Home/Workflows'
-import CaseStudies from './components/Home/CaseStudies'
-import IndustrySolutions from './components/Home/IndustrySolutions'
-import ClientSuccess from './components/Home/ClientSuccess'
-import Pricing from './components/Home/Pricing'
-import ImportantDetails from './components/Home/ImportantDetails'
-import FAQ from './components/Home/FAQ'
-import LeadIntelligence from './components/Home/LeadIntelligence'
-import Integrations from './components/Home/Integrations'
-import BroadcastFeature from './components/Home/BroadcastFeature'
-import AdIntelligence from './components/Home/AdIntelligence'
-import NativeForms from './components/Home/NativeForms'
-import Testimonials from './components/Home/Testimonials'
-import ContactForm from './components/Home/ContactForm'
 import Footer from './components/Layout/Footer'
 import WhatsAppBtn from './components/Layout/WhatsAppBtn'
 import BackToTop from './components/Layout/BackToTop'
-import BlogListing from './components/Blog/BlogListing'
-import BlogPost from './components/Blog/BlogPost'
 import SEO from './components/Common/SEO'
 import Cursor from './components/Common/Cursor'
 import FacebookPixel from './components/Common/FacebookPixel'
 import GoogleAnalytics from './components/Common/GoogleAnalytics'
 import MagneticCursor from './components/Common/MagneticCursor'
-import WhatsAppCalculator from './components/Tools/WhatsAppCalculator'
-import GreenTickChecker from './components/Tools/GreenTickChecker'
-import WebsiteDesign from './components/WebsiteDesign/WebsiteDesign'
 import './App.css'
+
+// Lazy load below-fold components for faster mobile initial load
+const WhyChoose = React.lazy(() => import('./components/Home/WhyChoose'))
+const TrustBar = React.lazy(() => import('./components/Home/TrustBar'))
+const BroadcastFeature = React.lazy(() => import('./components/Home/BroadcastFeature'))
+const AdIntelligence = React.lazy(() => import('./components/Home/AdIntelligence'))
+const NativeForms = React.lazy(() => import('./components/Home/NativeForms'))
+const Workflows = React.lazy(() => import('./components/Home/Workflows'))
+const LeadIntelligence = React.lazy(() => import('./components/Home/LeadIntelligence'))
+const Integrations = React.lazy(() => import('./components/Home/Integrations'))
+const IndustrySolutions = React.lazy(() => import('./components/Home/IndustrySolutions'))
+const CaseStudies = React.lazy(() => import('./components/Home/CaseStudies'))
+const Testimonials = React.lazy(() => import('./components/Home/Testimonials'))
+const ClientSuccess = React.lazy(() => import('./components/Home/ClientSuccess'))
+const Pricing = React.lazy(() => import('./components/Home/Pricing'))
+const ImportantDetails = React.lazy(() => import('./components/Home/ImportantDetails'))
+const ContactForm = React.lazy(() => import('./components/Home/ContactForm'))
+const FAQ = React.lazy(() => import('./components/Home/FAQ'))
+const ChatSimulator = React.lazy(() => import('./components/Home/ChatSimulator'))
+
+// Lazy load route-level pages
+const BlogListing = React.lazy(() => import('./components/Blog/BlogListing'))
+const BlogPost = React.lazy(() => import('./components/Blog/BlogPost'))
+const WhatsAppCalculator = React.lazy(() => import('./components/Tools/WhatsAppCalculator'))
+const GreenTickChecker = React.lazy(() => import('./components/Tools/GreenTickChecker'))
+const WebsiteDesign = React.lazy(() => import('./components/WebsiteDesign/WebsiteDesign'))
 
 const Home = () => (
   <>
@@ -42,22 +48,24 @@ const Home = () => (
       keywords="WhatsApp API, Sales Automation, AI Chatbot, WhatsApp CRM, AI Priya"
     />
     <Hero />
-    <WhyChoose />
-    <TrustBar />
-    <BroadcastFeature />
-    <AdIntelligence />
-    <NativeForms />
-    <Workflows />
-    <LeadIntelligence />
-    <Integrations />
-    <IndustrySolutions />
-    <CaseStudies />
-    <Testimonials />
-    <ClientSuccess />
-    <Pricing />
-    <ImportantDetails />
-    <ContactForm />
-    <FAQ />
+    <Suspense fallback={null}>
+      <WhyChoose />
+      <TrustBar />
+      <BroadcastFeature />
+      <AdIntelligence />
+      <NativeForms />
+      <Workflows />
+      <LeadIntelligence />
+      <Integrations />
+      <IndustrySolutions />
+      <CaseStudies />
+      <Testimonials />
+      <ClientSuccess />
+      <Pricing />
+      <ImportantDetails />
+      <ContactForm />
+      <FAQ />
+    </Suspense>
   </>
 );
 
@@ -78,14 +86,14 @@ function App() {
           <main id="main-content">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/blog" element={<BlogListing />} />
-              <Route path="/blog/:slug" element={<BlogPost />} />
-              <Route path="/whatsapp-api-pricing-india" element={<WhatsAppCalculator />} />
-              <Route path="/whatsapp-api-cost-calculator" element={<WhatsAppCalculator />} />
-              <Route path="/whatsapp-green-tick-checker" element={<GreenTickChecker />} />
-              <Route path="/website-design-automation" element={<WebsiteDesign />} />
+              <Route path="/blog" element={<Suspense fallback={null}><BlogListing /></Suspense>} />
+              <Route path="/blog/:slug" element={<Suspense fallback={null}><BlogPost /></Suspense>} />
+              <Route path="/whatsapp-api-pricing-india" element={<Suspense fallback={null}><WhatsAppCalculator /></Suspense>} />
+              <Route path="/whatsapp-api-cost-calculator" element={<Suspense fallback={null}><WhatsAppCalculator /></Suspense>} />
+              <Route path="/whatsapp-green-tick-checker" element={<Suspense fallback={null}><GreenTickChecker /></Suspense>} />
+              <Route path="/website-design-automation" element={<Suspense fallback={null}><WebsiteDesign /></Suspense>} />
               {/* Compatibility for old link */}
-              <Route path="/guide/whatsapp-chatbot-automation" element={<BlogPost />} />
+              <Route path="/guide/whatsapp-chatbot-automation" element={<Suspense fallback={null}><BlogPost /></Suspense>} />
               {/* Fallback to home */}
               <Route path="*" element={<Home />} />
             </Routes>
