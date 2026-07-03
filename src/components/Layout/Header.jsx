@@ -46,7 +46,7 @@ const Header = () => {
                     </div>
                 </div>
 
-                <Link to="/blog" className={`${styles.navLink} ${isBlog ? styles.navLinkActive : ''}`} onClick={closeMenu}>Blog</Link>
+                <Link to="/blog" className={`${styles.navLink} ${isBlog ? styles.navLinkActive : ''}`} onClick={closeMenu}>Resources</Link>
 
                 <a href="/#pricing" className={`${styles.navLink} ${isPricing ? styles.navLinkActive : ''}`} onClick={closeMenu}>Pricing</a>
             </nav>
@@ -75,7 +75,7 @@ const Header = () => {
                     <Link to="/" className={styles.mobileLink} onClick={closeMenu}>Home</Link>
                     <Link to="/whatsapp-api-cost-calculator" className={styles.mobileLink} onClick={closeMenu}>Cost Calculator</Link>
                     <Link to="/whatsapp-green-tick-checker" className={styles.mobileLink} onClick={closeMenu}>Green Tick Checker</Link>
-                    <Link to="/blog" className={styles.mobileLink} onClick={closeMenu}>Blog</Link>
+                    <Link to="/blog" className={styles.mobileLink} onClick={closeMenu}>Resources</Link>
                     <a href="/#pricing" className={styles.mobileLink} onClick={closeMenu}>Pricing</a>
 
                     <a

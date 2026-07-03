@@ -2,21 +2,18 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
 const SEO = ({
-    title,
-    description,
-    keywords,
-    canonical,
-    ogTitle,
-    ogDescription,
-    ogImage,
-    twitterTitle,
-    twitterDescription,
-    twitterImage,
+    title = "WhatsApp Business API & AI Chatbots India | ₹1,200/mo | Bluetick Digital",
+    description = "WhatsApp Business API & AI Automation for Indian businesses. Lead qualification, booking, broadcasting from ₹1,200/mo. Official Meta Partner. Book free demo →",
+    keywords = "WhatsApp Business API, AI Chatbot, WhatsApp Automation, Sales AI, Lead Generation, WhatsApp Marketing, Business Automation, AI Priya, Bluetick Digital, WhatsApp API India",
+    canonical = "https://www.bluetickdigital.in/",
+    ogTitle = title,
+    ogDescription = description,
+    ogImage = "https://www.bluetickdigital.in/og-image.jpg",
+    twitterTitle = ogTitle,
+    twitterDescription = ogDescription,
+    twitterImage = "https://www.bluetickdigital.in/twitter-image.jpg",
     structuredData
 }) => {
-    const siteTitle = "Bluetick Digital";
-    const fullTitle = title ? `${title} | ${siteTitle}` : `${siteTitle} | WhatsApp Business API Partner`;
-    const defaultDescription = "Scale your sales with AI Priya, the intelligent WhatsApp Sales Assistant. Automate intent detection and demo booking.";
 
     return (
         <Helmet>
