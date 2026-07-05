@@ -38,7 +38,7 @@
   "rewrites": [
     {
       "source": "/blog",
-      "destination": "/blog"
+      "destination": "/"
     },
     {
       "source": "/pricing",
