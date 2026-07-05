@@ -1,0 +1,318 @@
+.guide {
+    padding: 140px 0 80px;
+    background-color: var(--bg-white);
+    line-height: 1.8;
+    color: var(--text-main);
+}
+
+.guideContainer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.guideHero {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.guideBadge {
+    display: inline-block;
+    padding: 6px 16px;
+    background: var(--color-whatsapp-light);
+    color: var(--color-whatsapp-dark);
+    border-radius: 100px;
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 24px;
+}
+
+.guideTitle {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    margin-bottom: 24px;
+    line-height: 1.1;
+    color: var(--text-dark);
+}
+
+.guideSubtitle {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.guideMeta {
+    margin-top: 24px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* Sections */
+.guideSection {
+    margin-bottom: 60px;
+}
+
+.guideSection h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 32px;
+    color: var(--text-dark);
+    border-left: 4px solid var(--color-whatsapp);
+    padding-left: 20px;
+}
+
+.sectionIntro {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    font-style: italic;
+}
+
+/* Metrics Grid */
+.metricsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 24px;
+    margin-top: 32px;
+}
+
+.metricCard {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+    border: 1px solid var(--border-light);
+    transition: transform 0.3s ease;
+}
+
+.metricCard:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.metricValue {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--color-whatsapp);
+    margin-bottom: 8px;
+}
+
+.metricLabel {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* Feature Grid */
+.featureGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+}
+
+.featureCard {
+    background: white;
+    padding: 32px;
+    border-radius: 24px;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+}
+
+.featureCard h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--text-dark);
+}
+
+.featureCard ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 16px;
+}
+
+.featureCard li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.featureCard li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--color-whatsapp);
+    font-weight: 900;
+}
+
+/* Table Style */
+.tableWrapper {
+    overflow-x: auto;
+    margin-top: 32px;
+    border-radius: 16px;
+    border: 1px solid var(--border-light);
+}
+
+.guideTable {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    background: white;
+}
+
+.guideTable th {
+    background: var(--bg-light);
+    padding: 20px;
+    font-weight: 700;
+    color: var(--text-dark);
+    border-bottom: 2px solid var(--border-light);
+}
+
+.guideTable td {
+    padding: 20px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.guideTable tr:last-child td {
+    border-bottom: none;
+}
+
+/* Steps Container */
+.stepsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-top: 24px;
+}
+
+.stepCard {
+    display: flex;
+    gap: 24px;
+    padding: 24px;
+    background: white;
+    border-radius: 16px;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+}
+
+.stepNumber {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: var(--color-whatsapp);
+    color: white;
+    border-radius: 50%;
+    font-weight: 800;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.stepCard h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+}
+
+.stepCard p {
+    color: var(--text-muted);
+    margin: 0;
+}
+
+/* Lists */
+.postList {
+    margin-top: 16px;
+    padding-left: 24px;
+}
+
+.postList li {
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+/* FAQ */
+.faqSection {
+    margin-top: 80px;
+}
+
+.faqItem {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.faqItem h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--text-dark);
+}
+
+.faqItem p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* CTA Banner */
+.ctaBanner {
+    margin-top: 80px;
+    padding: 48px;
+    background: linear-gradient(135deg, var(--color-whatsapp) 0%, #128C7E 100%);
+    border-radius: 24px;
+    text-align: center;
+}
+
+.ctaContent h3 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 16px;
+}
+
+.ctaContent p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 24px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.guidePrimaryBtn {
+    display: inline-block;
+    padding: 16px 32px;
+    background: white;
+    color: var(--color-whatsapp);
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-radius: 100px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.guidePrimaryBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .guideTitle {
+        font-size: 2.2rem;
+    }
+
+    .stepCard {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .ctaBanner {
+        padding: 32px 24px;
+    }
+}
