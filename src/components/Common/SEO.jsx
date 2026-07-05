@@ -14,6 +14,9 @@ const SEO = ({
     twitterImage = "https://www.bluetickdigital.in/twitter-image.jpg",
     structuredData
 }) => {
+    const siteTitle = "Bluetick Digital";
+    const fullTitle = title ? `${title} | ${siteTitle}` : title;
+    const defaultDescription = description;
 
     return (
         <Helmet>
