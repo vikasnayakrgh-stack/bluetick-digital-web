@@ -7,7 +7,10 @@ import styles from './BlogPost.module.css';
 
 const BlogPost = () => {
     const { slug } = useParams();
-    const post = blogPosts.find(p => p.slug === slug);
+    const rawSlug = slug || '';
+    const decodedSlug = decodeURIComponent(rawSlug).trim().toLowerCase();
+    const normalizedSlug = decodedSlug.replace(/[\s_]+/g, '-');
+    const post = blogPosts.find(p => p.slug === rawSlug || p.slug === decodedSlug || p.slug === normalizedSlug || p.id === rawSlug);
 
     useEffect(() => {
         if (post) {
