@@ -1,75 +1,79 @@
-.section {
-    padding: var(--section-padding);
-    background-color: var(--bg-white);
+.sectionHeader {
+  margin-bottom: var(--space-12);
+  max-width: 900px;
+  position: relative;
 }
 
-.header {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.title {
-    font-size: 3rem;
-    margin-bottom: 16px;
-    color: var(--text-primary);
+.watermarkNumber {
+  display: block;
+  font-family: var(--font-mono, monospace);
+  font-size: clamp(4rem, 8vw, 7rem);
+  font-weight: 700;
+  color: rgba(17, 20, 29, 0.05);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.04em;
+  user-select: none;
 }
 
 .accordionList {
-    max-width: 850px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 .item {
-    border-radius: 12px;
-    background: var(--bg-off-white);
-    border: 1px solid var(--border-light);
-    overflow: hidden;
-    transition: var(--transition-smooth);
+  background: #ffffff;
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: none;
+  transition: border-color 0.2s ease;
 }
 
 .item:hover {
-    border-color: var(--primary-accent);
+  border-color: rgba(29, 78, 216, 0.35);
 }
 
 .questionBtn {
-    width: 100%;
-    padding: 24px 32px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: left;
-    background: none;
-    color: var(--text-primary);
-    cursor: pointer;
-    transition: background-color 200ms ease;
-    min-height: 60px;
-}
-
-.questionBtn:hover {
-    background-color: rgba(37, 211, 102, 0.05);
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  gap: 1rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 .question {
-    font-size: 1.15rem;
-    font-weight: 700;
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  line-height: 1.35;
 }
 
-.icon {
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: var(--primary-accent);
+.iconBox {
+  color: var(--color-brand);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .answerWrapper {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .answer {
-    padding: 0 32px 32px;
-    color: var(--text-secondary);
-    line-height: 1.7;
-    font-size: 1rem;
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  line-height: 1.65;
 }

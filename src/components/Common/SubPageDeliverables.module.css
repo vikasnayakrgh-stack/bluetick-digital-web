@@ -1,0 +1,122 @@
+.categoriesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (max-width: 992px) {
+  .categoriesGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.categoryCard {
+  background: var(--color-white);
+  border: 1px solid var(--color-border-light);
+  border-radius: 18px;
+  padding: 1.85rem;
+  box-shadow: var(--shadow-sm);
+  height: 100%;
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.categoryIconBox {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(29, 78, 216, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.categoryIcon {
+  color: var(--color-brand);
+}
+
+.categoryTitle {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-slate-900);
+  margin: 0;
+}
+
+.featureList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.featureItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.875rem;
+  color: var(--color-slate-700);
+  line-height: 1.45;
+}
+
+.checkIcon {
+  color: #16a34a;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Tech Stack Bar */
+.techStackContainer {
+  background: var(--color-white);
+  border: 1px solid var(--color-border-light);
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.techStackHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.techIcon {
+  color: var(--color-brand);
+}
+
+.techStackLabel {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-slate-900);
+}
+
+.techChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.techChip {
+  font-size: 0.775rem;
+  font-weight: 600;
+  color: var(--color-slate-700);
+  background: var(--color-slate-100);
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  border: 1px solid rgba(15, 23, 42, 0.05);
+}

@@ -5,7 +5,8 @@ export const blogPosts = [
         title: 'The Ultimate Guide to WhatsApp Chatbot Automation (2026)',
         description: 'Scale your business 10x with AI-powered WhatsApp automation. Learn how to capture leads, book demos, and provide 24/7 support.',
         date: 'February 7, 2026',
-        author: 'Bluetick Team',
+        isoDate: '2026-02-07T00:00:00+05:30',
+        author: 'Vikas Nayak',
         category: 'Automation',
         image: 'https://images.unsplash.com/photo-1611746872915-64382b5c76da?auto=format&fit=crop&q=80&w=800',
         content: {

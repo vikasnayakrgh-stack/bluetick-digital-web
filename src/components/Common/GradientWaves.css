@@ -1,0 +1,19 @@
+.gradient-waves-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.gradient-waves-container.gradient-waves-fallback {
+  background: radial-gradient(ellipse 80% 60% at 50% 20%, rgba(29, 78, 216, 0.35) 0%, rgba(4, 8, 18, 0.95) 80%);
+}
+
+.gradient-waves-container canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+

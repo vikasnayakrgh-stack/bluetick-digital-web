@@ -1,0 +1,134 @@
+.sectionHeader {
+  margin-bottom: var(--space-12);
+  max-width: 900px;
+  position: relative;
+}
+
+.watermarkNumber {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: clamp(4rem, 8vw, 7rem);
+  font-weight: 800;
+  color: var(--color-slate-200);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.04em;
+  user-select: none;
+}
+
+.systemSteps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+}
+
+@media (min-width: 768px) {
+  .systemSteps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .systemSteps {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.systemStep {
+  position: relative;
+  padding: 2rem;
+  background: #ffffff;
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-sm);
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: border-color 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .systemStep:hover,
+  .systemStep.isActive {
+    border-color: var(--color-brand);
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+.systemStep:active {
+  transform: scale(0.99);
+}
+
+@media (max-width: 640px) {
+  .systemStep {
+    padding: 1.5rem 1.25rem;
+  }
+  
+  .stepTitle {
+    font-size: 1.15rem;
+  }
+  
+  .stepDescription {
+    font-size: 0.9rem;
+    margin-bottom: 1.15rem;
+  }
+}
+
+.stepNumber {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: var(--color-brand);
+  background: var(--color-brand-light);
+  border: 1px solid rgba(29, 78, 216, 0.15);
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-full);
+  display: inline-block;
+  margin-bottom: 1.15rem;
+  width: fit-content;
+}
+
+.stepTitle {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  margin-bottom: 0.65rem;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.stepDescription {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.stepDetailBox {
+  margin-top: auto;
+  padding: 0.75rem 0.85rem;
+  background: rgba(29, 78, 216, 0.03);
+  border: 1px solid rgba(29, 78, 216, 0.08);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.checkIcon {
+  color: #10b981;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.stepDetail {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-slate-700);
+  line-height: 1.45;
+}
+

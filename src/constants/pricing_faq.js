@@ -1,72 +1,26 @@
-export const PRICING_PLANS = [
-    {
-        id: 'api',
-        name: 'WhatsApp API',
-        tagline: 'Base Plan',
-        price: '₹1,199',
-        priceAnnual: '₹11,999',
-        upfront: '₹3,597',
-        savings: 'Save ~20% with Annual',
-        cta: 'Get Started',
-        featured: false
-    },
-    {
-        id: 'automation',
-        name: 'AI Automation',
-        tagline: 'Add-On Only (Req. API)',
-        price: '₹1,999',
-        priceAnnual: '₹14,999',
-        upfront: '₹5,997',
-        savings: 'Save ~37% with Annual',
-        cta: 'Add to Plan',
-        featured: false
-    },
-    {
-        id: 'combo',
-        name: 'Power Combo',
-        tagline: 'WhatsApp API + AI Automation',
-        price: '₹2,999',
-        priceAnnual: '₹25,000',
-        upfront: '₹8,997',
-        savings: 'Save ~40% with Annual',
-        cta: 'Go Pro Now',
-        featured: true,
-        featuredLabel: 'Most Recommended'
-    }
-];
-
-export const DURATION_FEATURES = {
-    shortTerm: {
-        title: 'Short-Term Plans',
-        duration: '3–6–9 Months',
-        subtext: 'Best for basic chat & broadcast usage',
-        included: ['Chat', 'Contacts', 'Broadcast', 'Media', 'Users'],
-        notIncluded: ['Calls', 'Sync App', 'CRM / Bots / Orders', 'Shopify / WooCommerce']
-    },
-    annual: {
-        title: 'Annual Plan',
-        duration: '12 Months',
-        subtext: 'Best for automation-first & scaling businesses',
-        included: ['Chat', 'Calls', 'Contacts', 'Broadcast', 'Media', 'Users', 'Sync App', 'CRM', 'Bots', 'Orders', 'Shopify / WooCommerce'],
-        notIncluded: []
-    }
-};
-
 export const FAQ_DATA = [
     {
-        question: 'How does the WhatsApp API work?',
-        answer: 'We integrate with official WhatsApp Business APIs to ensure your account remains safe and verified while sending mass communications.'
+        question: "Are you a web agency, a software studio, or an AI partner?",
+        answer: "Yes, when the work needs all three. The strongest modern business engines require high-speed web code, official Meta WhatsApp infrastructure, and intelligent AI automation working in complete harmony. We engineer all three layers."
     },
     {
-        question: 'Is there a setup fee?',
-        answer: 'No, we believe in transparent pricing. You only pay for the annual subscription and any additional meta message charges.'
+        question: "We have a messy existing digital setup. Is that too early to partner?",
+        answer: "That is exactly where we start. We specialize in auditing fragmented tools, messy spreadsheets, and slow communication channels to bring structured order, clean APIs, and automation without disrupting your live operations."
     },
     {
-        question: 'Can I use my existing WhatsApp number?',
-        answer: 'Yes, but we recommend using a fresh number to build a dedicated business presence without interruptions.'
+        question: "Why work with a 2-person senior team instead of a large agency?",
+        answer: "Large agencies pitch with senior partners and hand off delivery to junior interns. At Bluetick, the senior engineers who architect your system write the code and ship to production. We limit our capacity to 4 client engagements per quarter."
     },
     {
-        question: 'Do you offer a free trial?',
-        answer: 'Absolutely! You can explore all features for 7 days before committing to a plan.'
+        question: "Can you build a scalable system without making us look like everyone else?",
+        answer: "Yes. We build bespoke React 18 web platforms and custom AI prompts tailored strictly to your brand voice. We write clean, production-grade code with zero template bloat or generic AI responses."
+    },
+    {
+        question: "How does AI automation hand off to our human sales team?",
+        answer: "AI qualifies buyer intent in sub-30 seconds, answers complex FAQs from your documents, and books meetings. When a prospect is ready to purchase or requests human assistance, the AI instantly notifies your manager with a full chat summary."
+    },
+    {
+        question: "What happens after the initial system is launched?",
+        answer: "We transition from initial deployment to long-term engineering partner. We monitor server uptime, tune AI conversation accuracy, update Meta WhatsApp templates, and scale your workflows as your inquiry volume grows."
     }
 ];

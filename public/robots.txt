@@ -1,8 +1,17 @@
 User-agent: *
 Allow: /
-Disallow: /api/
-Disallow: /admin/
-Disallow: /_next/
-Disallow: /static/
 
-Sitemap: https://www.bluetickdigital.in/sitemap.xml
+# Explicit AI & Search Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://bluetickdigital.in/sitemap.xml

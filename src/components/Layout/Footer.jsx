@@ -1,65 +1,77 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook, Twitter, Instagram, Linkedin, MessageCircle } from 'lucide-react';
-import logo from '../../assets/logo.png';
+import { Facebook, Twitter, Instagram, Linkedin, ArrowRight, ShieldCheck } from 'lucide-react';
+import logo from '../../assets/logo-icon.png';
 import styles from './Footer.module.css';
 
 const Footer = () => {
     return (
         <footer className={styles.footer}>
             <div className="container">
-                <div className={styles.grid}>
-                    <div className={styles.brand}>
+                <div className={styles.topGrid}>
+                    <div className={styles.brandCol}>
                         <Link to="/" className={styles.logo}>
-                            <img src={logo} alt="Bluetick Digital" />
-                            <span>Bluetick Digital</span>
+                            <img src={logo} alt="Bluetick Digital" className={styles.logoImg} />
+                            <span className={styles.logoText}>Bluetick<span>Digital</span></span>
                         </Link>
                         <p className={styles.tagline}>
-                            Leading WhatsApp Automation Agency for Indian SMBs. Official Meta Business Partner & AI-first solution provider.
+                            AI-powered Digital Transformation Partner. We build high-performance websites and connected AI automation systems that scale your business.
                         </p>
-                        <div className={styles.socials}>
-                            <a href="#" aria-label="Facebook"><Facebook size={20} /></a>
-                            <a href="#" aria-label="Twitter"><Twitter size={20} /></a>
-                            <a href="#" aria-label="Instagram"><Instagram size={20} /></a>
-                            <a href="#" aria-label="Linkedin"><Linkedin size={20} /></a>
+                        <div className={styles.trustBadge}>
+                            <ShieldCheck size={18} className={styles.shieldIcon} />
+                            <span>Enterprise Security & Data Isolation</span>
                         </div>
                     </div>
 
-                    <div className={styles.links}>
-                        <h4>Platform</h4>
-                        <ul>
-                            <li><a href="/#api">WhatsApp API</a></li>
-                            <li><a href="/#automation">AI Chatbots</a></li>
-                            <li><a href="/#broadcast">Broadcast Services</a></li>
-                            <li><a href="/#forms">Smart Forms</a></li>
+                    <div className={styles.linkCol}>
+                        <h4 className={styles.colTitle}>Solutions</h4>
+                        <ul className={styles.linkList}>
+                            <li><Link to="/solutions/websites">Business Websites</Link></li>
+                            <li><Link to="/solutions/ecommerce">E-commerce Stores</Link></li>
+                            <li><Link to="/solutions/ai-automation">AI Automation Systems</Link></li>
+                            <li><Link to="/solutions/whatsapp-automation">WhatsApp API Workflows</Link></li>
                         </ul>
                     </div>
 
-                    <div className={styles.links}>
-                        <h4>Serving Locations</h4>
-                        <ul>
-                            <li>Raipur (HQ)</li>
-                            <li>Bhilai & Durg</li>
-                            <li>Bilaspur</li>
-                            <li>Pan-India (Remote)</li>
+                    <div className={styles.linkCol}>
+                        <h4 className={styles.colTitle}>Industries</h4>
+                        <ul className={styles.linkList}>
+                            <li><Link to="/industries/ecommerce">E-commerce Brands</Link></li>
+                            <li><Link to="/industries/manufacturing">Manufacturers</Link></li>
+                            <li><Link to="/industries/startups">Startups & Tech</Link></li>
+                            <li><Link to="/industries/local-business">Real Estate & Services</Link></li>
                         </ul>
                     </div>
 
-                    <div className={styles.links}>
-                        <h4>Company</h4>
-                        <ul>
-                            <li><Link to="/about">About Us</Link></li>
-                            <li><a href="/#pricing">Pricing</a></li>
-                            <li><a href="/#cases">Case Studies</a></li>
-                            <li><Link to="/contact">Contact</Link></li>
+                    <div className={styles.linkCol}>
+                        <h4 className={styles.colTitle}>Company</h4>
+                        <ul className={styles.linkList}>
+                            <li><Link to="/about">About Bluetick</Link></li>
+                            <li><a href="/#projects">Projects & Showcase</a></li>
+                            <li><a href="/#how-it-works">How It Works</a></li>
+                            <li><a href="#audit">Get Free Audit</a></li>
                         </ul>
                     </div>
                 </div>
 
-                <div className={styles.bottom}>
-                    <p>© {new Date().getFullYear()} Bluetick Digital. All rights reserved. Built with AI Priya.</p>
-                    <div className={styles.legal}>
+                <div className={styles.middleBar}>
+                    <div className={styles.hqBox}>
+                        <span className={styles.hqLabel}>Headquarters:</span>
+                        <span className={styles.hqAddress}>Raipur, Chhattisgarh | Serving Pan-India & Remote Clients</span>
+                    </div>
+                    <div className={styles.socials}>
+                        <a href="#" aria-label="Facebook"><Facebook size={18} /></a>
+                        <a href="#" aria-label="Twitter"><Twitter size={18} /></a>
+                        <a href="#" aria-label="Instagram"><Instagram size={18} /></a>
+                        <a href="#" aria-label="Linkedin"><Linkedin size={18} /></a>
+                    </div>
+                </div>
+
+                <div className={styles.bottomBar}>
+                    <p>© {new Date().getFullYear()} Bluetick Digital. All rights reserved.</p>
+                    <div className={styles.legalLinks}>
                         <Link to="/privacy">Privacy Policy</Link>
+                        <span className={styles.dot}>•</span>
                         <Link to="/terms">Terms of Service</Link>
                     </div>
                 </div>

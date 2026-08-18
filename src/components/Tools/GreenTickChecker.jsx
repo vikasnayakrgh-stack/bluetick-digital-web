@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../Common/SEO';
 import styles from './Tools.module.css';
 import { Link } from 'react-router-dom';
 
@@ -10,11 +10,6 @@ const GreenTickChecker = () => {
     const [result, setResult] = useState(null);
 
     const checkEligibility = () => {
-        // Logic:
-        // Eligible (High): Volume > 100k OR (Volume > 10k AND Press Coverage)
-        // Eligible (Moderate): Volume > 10k OR Specific Categories (Edu/Gov/Finance)
-        // Not Yet: Volume < 1k AND No Press
-
         let score = 0;
         
         // Volume score
@@ -50,10 +45,12 @@ const GreenTickChecker = () => {
 
     return (
         <div className={styles.toolsContainer}>
-            <Helmet>
-                <title>WhatsApp Green Tick Eligibility Checker | Bluetick Digital</title>
-                <meta name="description" content="Check if your business is eligible for the verified WhatsApp Green Tick. Simple tool by Bluetick Digital." />
-            </Helmet>
+            <SEO
+                title="WhatsApp Green Tick Eligibility Checker"
+                description="Check if your business qualifies for the verified Meta WhatsApp Green Tick badge. Free assessment tool by Bluetick Digital."
+                keywords="WhatsApp Green Tick Checker, Meta Verified Badge, WhatsApp Business Verification, Bluetick Digital"
+                canonical="https://bluetickdigital.in/whatsapp-green-tick-checker"
+            />
 
             <div className={styles.card}>
                 <h1 className={styles.title}>Green Tick Eligibility Checker</h1>

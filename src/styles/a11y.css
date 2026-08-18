@@ -20,7 +20,7 @@
     position: absolute;
     top: -40px;
     left: 0;
-    background: var(--primary-accent);
+    background: var(--color-brand, #1d4ed8);
     color: white;
     padding: 8px 16px;
     text-decoration: none;
@@ -38,7 +38,7 @@
 
 /* Visible focus ring for keyboard navigation */
 *:focus-visible {
-    outline: 2px solid var(--primary-accent);
+    outline: 2px solid var(--color-brand, #1d4ed8);
     outline-offset: 2px;
     border-radius: 4px;
 }
@@ -51,7 +51,7 @@
 /* Enhanced focus for buttons and links */
 button:focus-visible,
 a:focus-visible {
-    outline: 3px solid var(--primary-accent);
+    outline: 3px solid var(--color-brand, #1d4ed8);
     outline-offset: 3px;
 }
 
@@ -68,6 +68,16 @@ a:focus-visible {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
+    }
+
+    .reveal-on-scroll,
+    .reveal-slide-left,
+    .reveal-slide-right,
+    .reveal-scale-up,
+    .reveal-fade {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
     }
 }
 
@@ -107,15 +117,6 @@ a:focus-visible {
    ============================================ */
 
 .live-region {
-    position: absolute;
-    left: -10000px;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-}
-
-[aria-live="polite"],
-[aria-live="assertive"] {
     position: absolute;
     left: -10000px;
     width: 1px;

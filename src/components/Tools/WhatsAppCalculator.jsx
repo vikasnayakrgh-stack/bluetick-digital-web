@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../Common/SEO';
 import styles from './Tools.module.css';
 import { Link } from 'react-router-dom';
 
@@ -29,33 +29,34 @@ const WhatsAppCalculator = () => {
 
     return (
         <div className={styles.toolsContainer}>
-            <Helmet>
-                <title>WhatsApp API Pricing India 2026 | Calculator & Meta Rates</title>
-                <meta name="description" content="Check the latest Meta WhatsApp API rates for India (Feb 2026). Calculate Marketing (~₹0.86), Utility (~₹0.115), and Service message costs instantly." />
-                <script type="application/ld+json">
-                    {`
-                {
+            <SEO
+                title="WhatsApp API Pricing India (2026) | Calculator & Rates"
+                description="Check latest Meta WhatsApp API conversation rates for India (2026). Calculate Marketing, Utility, Authentication, and Service message costs instantly."
+                keywords="WhatsApp API Pricing India, Meta Conversation Rates, WhatsApp Marketing Cost, WhatsApp Business API Rates 2026"
+                canonical="https://bluetickdigital.in/whatsapp-api-pricing-india"
+                structuredData={{
                   "@context": "https://schema.org",
                   "@type": "FAQPage",
-                  "mainEntity": [{
-                    "@type": "Question",
-                    "name": "What is the cost of 1 WhatsApp Marketing message in India in 2026?",
-                    "acceptedAnswer": {
-                      "@type": "Answer",
-                      "text": "The Meta rate for marketing messages in India is approximately ₹0.863 per delivered message as of February 2026."
+                  "mainEntity": [
+                    {
+                      "@type": "Question",
+                      "name": "What is the cost of 1 WhatsApp Marketing message in India in 2026?",
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "The Meta rate for marketing messages in India is approximately ₹0.863 per delivered message as of 2026."
+                      }
+                    },
+                    {
+                      "@type": "Question",
+                      "name": "Is the WhatsApp Business API free?",
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "While standard service conversations have tier allowances, businesses pay per delivered conversation for Marketing (~₹0.863), Utility (~₹0.115), and Authentication (~₹0.115) categories."
+                      }
                     }
-                  }, {
-                    "@type": "Question",
-                    "name": "Is the WhatsApp Business API free?",
-                    "acceptedAnswer": {
-                      "@type": "Answer",
-                      "text": "No, while the first 1,000 service conversations per month are often free, businesses pay per conversation for Marketing (~₹0.863), Utility (~₹0.115), and Authentication (~₹0.115) categories."
-                    }
-                  }]
-                }
-                `}
-                </script>
-            </Helmet>
+                  ]
+                }}
+            />
 
             <div className={styles.card}>
                 <h1 className={styles.title}>WhatsApp Business API Pricing India (2026 Updated)</h1>

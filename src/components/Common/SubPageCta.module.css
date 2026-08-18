@@ -1,0 +1,123 @@
+.ctaSection {
+  position: relative;
+  padding: calc(var(--section-padding-y) + 1rem) 1.5rem var(--section-padding-y);
+  background: var(--color-bg-body);
+  overflow: hidden;
+}
+
+.ambientAura {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 900px;
+  height: 450px;
+  background: radial-gradient(ellipse 60% 45% at 50% 50%, rgba(29, 78, 216, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ctaCard {
+  position: relative;
+  z-index: 1;
+  background: #050b18;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 28px;
+  padding: 3.5rem 2.5rem;
+  text-align: center;
+  color: #ffffff;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  max-width: 960px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.ctaBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(29, 78, 216, 0.2);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  color: #38bdf8;
+  padding: 0.35rem 0.95rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-heading);
+  font-size: 0.775rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 1.25rem;
+}
+
+.ctaTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.5vw, 2.85rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin: 0 auto 1rem auto;
+  max-width: 22ch;
+}
+
+.ctaSubtitle {
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  line-height: 1.6;
+  color: #cbd5e1;
+  max-width: 58ch;
+  margin: 0 auto 2rem auto;
+}
+
+.ctaActionRow {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.ctaPrimaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--color-brand);
+  color: #ffffff;
+  padding: 1rem 2.25rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 6px 25px rgba(29, 78, 216, 0.45);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  transition: all 0.2s ease;
+}
+
+.ctaPrimaryBtn:hover {
+  background: #2563eb;
+  box-shadow: 0 8px 30px rgba(29, 78, 216, 0.6);
+}
+
+.trustFooterRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.trustItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+.trustIcon {
+  color: #38bdf8;
+}
+
+.trustIconYellow {
+  color: #f59e0b;
+}

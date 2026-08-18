@@ -1,0 +1,308 @@
+.whySectionWrapper {
+  padding: 2rem 0;
+  background: var(--color-bg-body);
+}
+
+/* Full-Width Notched & Rounded Deck Cinematic Dark Banner Container */
+.notchedBannerContainer {
+  background: linear-gradient(180deg, #091322 0%, #040c17 100%), url('/images/cinematic-tech-bg.jpg') center/cover no-repeat;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 5.5rem 1rem 6rem 1rem;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+  border-radius: 28px;
+  margin: 1.5rem 0;
+
+  /* Top & Bottom Inverted Notched Cut Silhouette (User Reference Connector) */
+  clip-path: polygon(
+    0% 28px, 
+    16% 28px, 
+    19% 0%, 
+    81% 0%, 
+    84% 28px, 
+    100% 28px, 
+    100% calc(100% - 28px), 
+    84% calc(100% - 28px), 
+    81% 100%, 
+    19% 100%, 
+    16% calc(100% - 28px), 
+    0% calc(100% - 28px)
+  );
+}
+
+.bgOverlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 30%, rgba(29, 78, 216, 0.18), transparent 70%),
+              linear-gradient(180deg, rgba(3, 10, 20, 0.82) 0%, rgba(2, 6, 14, 0.92) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.sectionHeader {
+  margin-bottom: 2.5rem;
+  max-width: 900px;
+  position: relative;
+}
+
+.watermarkNumber {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: clamp(4rem, 8vw, 7rem);
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.08);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.04em;
+  user-select: none;
+}
+
+.sectionTitleDark {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.5vw, 2.85rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.85rem;
+}
+
+.sectionSubtitleDark {
+  font-size: 1.1rem;
+  color: #94a3b8;
+  line-height: 1.6;
+}
+
+/* Centered High-Impact Quote Block */
+.quoteBlock {
+  max-width: 860px;
+  margin: 0 auto 3.5rem auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.quoteIcon {
+  color: #38bdf8;
+  opacity: 0.8;
+  margin-bottom: 1.25rem;
+}
+
+.quoteText {
+  font-family: var(--font-heading);
+  font-size: clamp(1.25rem, 2.5vw, 1.85rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.45;
+  letter-spacing: -0.015em;
+  margin: 0 0 1.5rem 0;
+  quotes: none;
+}
+
+.quoteAuthorMeta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.authorName {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.authorRole {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+/* Comparison Grid */
+.colWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.comparisonGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+@media (min-width: 992px) {
+  .comparisonGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Traditional Column */
+.traditionalCol {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(8px);
+}
+
+.colHeader {
+  margin-bottom: 1.75rem;
+}
+
+.colBadgeMuted {
+  font-family: var(--font-heading);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #f87171;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  display: inline-block;
+  margin-bottom: 0.65rem;
+}
+
+.colTitleMuted {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+}
+
+.colSubMuted {
+  font-size: 0.825rem;
+  color: #94a3b8;
+}
+
+.comparisonList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.tradCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.15rem;
+}
+
+.xIcon {
+  color: #ef4444;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.aspectLabel {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #94a3b8;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.15rem;
+}
+
+.tradText {
+  font-size: 0.875rem;
+  color: #cbd5e1;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Bluetick Column */
+.bluetickCol {
+  background: rgba(29, 78, 216, 0.12);
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px);
+}
+
+.colBadgeActive {
+  font-family: var(--font-heading);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #4ade80;
+  background: rgba(74, 222, 128, 0.12);
+  border: 1px solid rgba(74, 222, 128, 0.25);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  display: inline-block;
+  margin-bottom: 0.65rem;
+}
+
+.colTitleActive {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+}
+
+.colSubActive {
+  font-size: 0.825rem;
+  color: #93c5fd;
+}
+
+.blueCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.15rem;
+}
+
+.checkIcon {
+  color: #4ade80;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.aspectLabelActive {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #93c5fd;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.15rem;
+}
+
+.blueText {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .notchedBannerContainer {
+    clip-path: none;
+    padding: 3rem 1rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .quoteBlock {
+    margin-bottom: 2.5rem;
+  }
+}

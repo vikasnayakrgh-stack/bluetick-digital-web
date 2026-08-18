@@ -19,5 +19,6 @@ VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 ## Database Tables
 - `leads` - Website contact form submissions
 
-## WhatsApp Number
-- `918770440636` - Used for all CTA redirects
+## Contact Endpoints
+- Primary Sales / WhatsApp: `916261003050` (`+91 6261003050`)
+- Secondary / Support Desk: `918770440636` (`+91 8770440636`)

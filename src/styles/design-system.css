@@ -1,0 +1,1063 @@
+/* ============================================
+   BLUETICK DIGITAL 2.0 — DESIGN SYSTEM UTILITIES
+   Editorial Engineering Aesthetic
+   ============================================ */
+
+/* ============================================
+   TYPOGRAPHY UTILITIES
+   ============================================ */
+
+.type-h1 {
+  font-family: var(--font-heading);
+  font-size: var(--h1-size);
+  line-height: var(--h1-line-height);
+  letter-spacing: var(--h1-tracking);
+  font-weight: var(--font-weight-extrabold);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.type-h2 {
+  font-family: var(--font-heading);
+  font-size: var(--h2-size);
+  line-height: var(--h2-line-height);
+  letter-spacing: var(--h2-tracking);
+  font-weight: var(--font-weight-extrabold);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.type-h3 {
+  font-family: var(--font-heading);
+  font-size: var(--h3-size);
+  line-height: var(--h3-line-height);
+  letter-spacing: var(--h3-tracking);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.type-h4 {
+  font-family: var(--font-heading);
+  font-size: var(--h4-size);
+  line-height: var(--h4-line-height);
+  letter-spacing: 0;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.type-body-lead {
+  font-family: var(--font-sans);
+  font-size: var(--body-lead-size);
+  line-height: var(--body-lead-line-height);
+  letter-spacing: var(--body-tracking);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-secondary);
+  max-width: 65ch;
+}
+
+.type-body {
+  font-family: var(--font-sans);
+  font-size: var(--body-size);
+  line-height: var(--body-line-height);
+  letter-spacing: var(--body-tracking);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-secondary);
+}
+
+.type-eyebrow {
+  font-family: var(--font-heading);
+  font-size: var(--eyebrow-size);
+  line-height: 1.4;
+  letter-spacing: var(--eyebrow-tracking);
+  text-transform: uppercase;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-brand);
+  display: inline-block;
+  margin-bottom: var(--space-3);
+}
+
+.type-caption {
+  font-family: var(--font-sans);
+  font-size: var(--caption-size);
+  line-height: 1.5;
+  letter-spacing: 0;
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-tertiary);
+}
+
+/* ============================================
+   EDITORIAL LAYOUT UTILITIES
+   ============================================ */
+
+.editorial-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .editorial-split {
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+  }
+}
+
+.editorial-split-60-40 {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: var(--space-16);
+  align-items: flex-start;
+}
+
+@media (max-width: 1024px) {
+  .editorial-split-60-40 {
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+  }
+}
+
+/* ============================================
+   SWISS SECTION NUMBERS & MARKERS
+   ============================================ */
+
+.section-number {
+  font-family: var(--font-heading);
+  font-size: var(--eyebrow-size);
+  line-height: 1.4;
+  letter-spacing: var(--eyebrow-tracking);
+  text-transform: uppercase;
+  font-weight: var(--font-weight-extrabold);
+  color: var(--color-brand);
+  display: inline-block;
+  margin-bottom: var(--space-3);
+}
+
+.section-dark .section-number {
+  color: #60a5fa;
+}
+
+/* ============================================
+   HAIRLINE BORDER LISTS (Replace Cards)
+   ============================================ */
+
+.border-list {
+  border-top: 1px solid var(--color-border-hairline);
+  margin: var(--space-8) 0;
+}
+
+.border-list-item {
+  padding: var(--space-6) 0;
+  border-bottom: 1px solid var(--color-border-hairline);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-6);
+  transition: background var(--transition-base), padding var(--transition-base);
+}
+
+.border-list-item:hover {
+  background: var(--color-bg-subtle);
+}
+
+@media (max-width: 768px) {
+  .border-list-item {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+}
+
+/* ============================================
+   SECTION HEADERS — Left-Aligned Editorial
+   ============================================ */
+
+.section-header {
+  max-width: 800px;
+  margin-bottom: var(--space-12);
+}
+
+/* ============================================
+   CARD DECK SECTION CONNECTOR (User Reference Style)
+   Light or dark container with rounded bottom corners
+   layering smoothly over the subsequent section.
+   ============================================ */
+
+.sectionCardDeck {
+  background: var(--color-bg-subtle);
+  border-bottom-left-radius: 28px;
+  border-bottom-right-radius: 28px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-border-hairline);
+}
+
+.sectionCardDeckDark {
+  background: #0b1321;
+  border-bottom-left-radius: 28px;
+  border-bottom-right-radius: 28px;
+  color: #ffffff;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sectionCardDeckTopRounded {
+  border-top-left-radius: 28px;
+  border-top-right-radius: 28px;
+}
+
+.section-header--centered {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-header--left {
+  text-align: left;
+}
+
+.section-badge {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: var(--eyebrow-size);
+  letter-spacing: var(--eyebrow-tracking);
+  text-transform: uppercase;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-brand);
+  margin-bottom: var(--space-4);
+}
+
+.section-badge-dark {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--color-slate-300);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: var(--h2-size);
+  line-height: var(--h2-line-height);
+  letter-spacing: var(--h2-tracking);
+  font-weight: var(--font-weight-extrabold);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-4) 0;
+}
+
+.section-subtitle {
+  font-family: var(--font-sans);
+  font-size: var(--body-lead-size);
+  line-height: var(--body-lead-line-height);
+  color: var(--color-text-secondary);
+  margin: 0;
+  max-width: 65ch;
+}
+
+/* ============================================
+   CARDS — Minimal Editorial Style
+   ============================================ */
+
+.card {
+  background: var(--color-bg-body);
+  border: 1px solid var(--color-border-hairline);
+  border-radius: var(--radius-md);
+  padding: var(--space-8);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.card:hover {
+  border-color: var(--color-border-subtle);
+  box-shadow: var(--shadow-card);
+}
+
+.card-editorial {
+  background: var(--color-bg-body);
+  border: 1px solid var(--color-border-hairline);
+  border-radius: 0; /* Sharp corners for editorial feel */
+  padding: var(--space-8);
+  transition: border-color var(--transition-base);
+}
+
+.card-editorial:hover {
+  border-color: var(--color-border-strong);
+}
+
+/* ============================================
+   BUTTONS — High Contrast CTAs
+   ============================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-8);
+  font-family: var(--font-heading);
+  font-size: var(--body-size);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.25);
+}
+
+.btn:active {
+  transform: scale(0.97) !important;
+  transition-duration: 0.08s;
+}
+
+.btn-primary {
+  background: var(--color-brand);
+  color: var(--color-text-inverse);
+  border-color: var(--color-brand);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .btn-primary:hover {
+    background: var(--color-brand-hover);
+    border-color: var(--color-brand-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .btn-secondary:hover {
+    background: var(--color-bg-subtle);
+    border-color: var(--color-text-primary);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline:hover {
+    background: var(--color-bg-subtle);
+    transform: translateY(-2px);
+  }
+
+  .btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+  }
+}
+
+@media (hover: none) {
+  .btn:hover {
+    transform: none;
+  }
+}
+
+.btn-secondary {
+  background: var(--color-bg-body);
+  color: var(--color-text-primary);
+  border-color: var(--color-border-strong);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-text-primary);
+  border-color: var(--color-border-strong);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-text-primary);
+  border-color: transparent;
+}
+
+.btn-lg {
+  padding: 0.95rem 2rem;
+  font-size: 1rem;
+}
+
+.btn-sm {
+  padding: 0.45rem 1rem;
+  font-size: 0.85rem;
+}
+
+
+/* ============================================
+   GRID SYSTEMS
+   ============================================ */
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-8);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-8);
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+}
+
+@media (max-width: 1024px) {
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   SECTION UTILITIES
+   ============================================ */
+
+.section {
+  padding: var(--section-padding-y) 0;
+  position: relative;
+}
+
+.section-subtle {
+  background: var(--color-bg-subtle);
+  border-top: 1px solid var(--color-border-hairline);
+  border-bottom: 1px solid var(--color-border-hairline);
+}
+
+.section-dark {
+  background: var(--color-bg-dark);
+  color: var(--color-text-inverse);
+}
+
+.section-dark .section-title {
+  color: var(--color-text-inverse);
+}
+
+.section-dark .section-subtitle {
+  color: var(--color-text-tertiary);
+}
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--section-padding-x);
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.max-width-narrow { max-width: var(--container-narrow); }
+.max-width-standard { max-width: var(--container-max); }
+
+/* ============================================
+   ANIMATION & MICRO-INTERACTIONS
+   Editorial Engineering Aesthetic
+   ============================================ */
+
+/* ============================================
+   SCROLL-TRIGGERED REVEAL ANIMATIONS
+   ============================================ */
+
+/* Base Reveal Class */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(24px) scale(0.98);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Staggered Delays for Lists/Grids */
+.reveal-on-scroll.stagger-1 { transition-delay: 0.05s; }
+.reveal-on-scroll.stagger-2 { transition-delay: 0.1s; }
+.reveal-on-scroll.stagger-3 { transition-delay: 0.15s; }
+.reveal-on-scroll.stagger-4 { transition-delay: 0.2s; }
+.reveal-on-scroll.stagger-5 { transition-delay: 0.25s; }
+.reveal-on-scroll.stagger-6 { transition-delay: 0.3s; }
+
+/* Slide from Left Variant */
+.reveal-slide-left {
+  opacity: 0;
+  transform: translateX(-30px) scale(0.98);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-slide-left.is-visible {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+/* Slide from Right Variant */
+.reveal-slide-right {
+  opacity: 0;
+  transform: translateX(30px) scale(0.98);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-slide-right.is-visible {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+/* Scale Up Variant */
+.reveal-scale-up {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-scale-up.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Fade In Only (Subtle) */
+.reveal-fade {
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-fade.is-visible {
+  opacity: 1;
+}
+
+/* ============================================
+   BUTTON MICRO-INTERACTIONS
+   ============================================ */
+
+/* Primary Button — Directional Hover */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary:hover {
+  transform: translateX(4px);
+  box-shadow: 0 8px 24px rgba(29, 78, 216, 0.24);
+}
+
+.btn-primary:active {
+  transform: translateX(2px) scale(0.98);
+}
+
+/* Arrow icon inside primary button */
+.btn-primary svg {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary:hover svg {
+  transform: translateX(2px);
+}
+
+/* Secondary Button — Border Emphasis */
+.btn-secondary {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-secondary:hover {
+  background: var(--color-bg-subtle);
+  border-color: var(--color-text-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-elevated);
+}
+
+.btn-secondary:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Outline Button */
+.btn-outline {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-outline:hover {
+  background: var(--color-bg-subtle);
+  border-color: var(--color-text-primary);
+}
+
+/* Disabled State */
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* ============================================
+   CARD MICRO-INTERACTIONS
+   ============================================ */
+
+/* Standard Card Hover */
+.card {
+  transition: border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+  border-color: var(--color-border-subtle);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-elevated);
+}
+
+/* Editorial Card — Sharp Corners */
+.card-editorial {
+  border-radius: 0;
+  transition: border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-editorial:hover {
+  border-color: var(--color-border-strong);
+  background: var(--color-bg-subtle);
+}
+
+/* Dark Card (for Pillar 02) */
+.card-dark {
+  background: var(--color-bg-dark);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-text-inverse);
+}
+
+.card-dark:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(15, 23, 42, 0.95);
+}
+
+/* ============================================
+   BORDER LIST INTERACTIONS
+   ============================================ */
+
+.border-list-item {
+  transition: background 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              padding-left 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              padding-right 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.border-list-item:hover {
+  background: var(--color-bg-subtle);
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+
+/* ============================================
+   PROJECT SHOWCASE CARDS
+   ============================================ */
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--color-border-hairline);
+  padding: var(--space-8);
+  background: var(--color-bg-body);
+  transition: border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card:hover {
+  border-color: var(--color-border-strong);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-elevated);
+}
+
+/* Featured Project Card */
+.project-featured {
+  border: 1px solid var(--color-border-hairline);
+  padding: var(--space-12);
+  background: var(--color-bg-subtle);
+  transition: border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-featured:hover {
+  border-color: var(--color-border-strong);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-elevated);
+}
+
+/* Project Badge */
+.project-badge {
+  display: inline-block;
+  padding: var(--space-1) var(--space-3);
+  font-family: var(--font-heading);
+  font-size: var(--caption-size);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-tertiary);
+  background: var(--color-bg-muted);
+  border: 1px solid var(--color-border-hairline);
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-4);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card:hover .project-badge {
+  background: var(--color-bg-body);
+  border-color: var(--color-border-subtle);
+}
+
+/* Tech Tags */
+.tech-tags {
+  font-family: var(--font-sans);
+  font-size: var(--caption-size);
+  color: var(--color-text-tertiary);
+  opacity: 0.7;
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card:hover .tech-tags {
+  opacity: 1;
+}
+
+/* ============================================
+   FORM FIELD INTERACTIONS
+   ============================================ */
+
+.form-input {
+  width: 100%;
+  padding: var(--space-4);
+  font-family: var(--font-sans);
+  font-size: var(--body-size);
+  color: var(--color-text-primary);
+  background: var(--color-bg-body);
+  border: 1px solid var(--color-border-hairline);
+  border-radius: var(--radius-md);
+  transition: border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--color-brand);
+  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.12);
+}
+
+.form-input::placeholder {
+  color: var(--color-text-tertiary);
+}
+
+.form-input:disabled {
+  background: var(--color-bg-muted);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Form Field Container */
+.form-field {
+  position: relative;
+  margin-bottom: var(--space-6);
+}
+
+/* Validation Icons */
+.validation-icon {
+  position: absolute;
+  right: var(--space-4);
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  font-weight: 700;
+  animation: fadeIn 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.validation-icon.success {
+  color: var(--color-success);
+}
+
+.validation-icon.error {
+  color: var(--color-error);
+}
+
+/* ============================================
+   SYSTEM TABS (HeroVisual, AutomationDemo)
+   ============================================ */
+
+.system-tabs {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.system-tab {
+  padding: var(--space-2) var(--space-4);
+  font-family: var(--font-heading);
+  font-size: var(--caption-size);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  background: transparent;
+  border: 1px solid var(--color-border-hairline);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.system-tab:hover {
+  background: var(--color-bg-subtle);
+  border-color: var(--color-border-subtle);
+}
+
+.system-tab.is-active {
+  background: var(--color-brand);
+  color: var(--color-text-inverse);
+  border-color: var(--color-brand);
+}
+
+.system-tab:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Tab Content Transition */
+.system-content > * {
+  animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================
+   BUSINESS SYSTEM STEP SPOTLIGHT
+   ============================================ */
+
+.system-step {
+  position: relative;
+  padding: var(--space-6);
+  border: 1px solid var(--color-border-hairline);
+  cursor: pointer;
+  transition: border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.system-step:hover,
+.system-step.is-active {
+  border-color: var(--color-brand);
+  background: var(--color-bg-subtle);
+}
+
+.step-spotlight {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding: var(--space-6);
+  background: var(--color-bg-body);
+  border: 1px solid var(--color-border-hairline);
+  border-top: none;
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10;
+}
+
+.system-step:hover .step-spotlight,
+.system-step.is-active .step-spotlight {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   LOADING SPINNER (Form Submit)
+   ============================================ */
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================
+   KEYFRAME ANIMATIONS
+   ============================================ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY: REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal-on-scroll,
+  .reveal-slide-left,
+  .reveal-slide-right,
+  .reveal-scale-up,
+  .reveal-fade {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .system-step:hover .step-spotlight,
+  .system-step.is-active .step-spotlight {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ============================================
+   UTILITY ANIMATION CLASSES
+   ============================================ */
+
+/* Fade In */
+.animate-fade-in {
+  animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Fade Out */
+.animate-fade-out {
+  animation: fadeOut 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Slide Up */
+.animate-slide-up {
+  animation: slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Scale In */
+.animate-scale-in {
+  animation: scaleIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Pulse (for notifications) */
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* ============================================
+   DIAGRAM LINE DRAWING (Optional Advanced)
+   ============================================ */
+
+.diagram-line {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: drawLine 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-play-state: paused;
+}
+
+.diagram-line.is-visible {
+  animation-play-state: running;
+}
+
+@keyframes drawLine {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Spinner Animation */
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -110,7 +110,8 @@ const BlogPost = () => {
                 title={post.title}
                 description={post.description}
                 ogImage={post.image}
-                canonical={`https://bluetick.digital/blog/${post.slug}`}
+                ogType="article"
+                canonical={`https://bluetickdigital.in/blog/${post.slug}`}
                 structuredData={{
                     "@context": "https://schema.org",
                     "@type": "BlogPosting",
@@ -118,18 +119,24 @@ const BlogPost = () => {
                     "description": post.description,
                     "image": post.image,
                     "author": {
-                        "@type": "Organization",
-                        "name": "Bluetick Digital"
+                        "@type": "Person",
+                        "name": post.author || "Vikas Nayak",
+                        "url": "https://bluetickdigital.in/about"
                     },
                     "publisher": {
                         "@type": "Organization",
                         "name": "Bluetick Digital",
                         "logo": {
                             "@type": "ImageObject",
-                            "url": "https://bluetick.digital/logo.svg"
+                            "url": "https://bluetickdigital.in/assets/logo.png"
                         }
                     },
-                    "datePublished": post.date
+                    "datePublished": post.isoDate || "2026-02-07T00:00:00+05:30",
+                    "dateModified": post.isoDate || "2026-02-07T00:00:00+05:30",
+                    "mainEntityOfPage": {
+                        "@type": "WebPage",
+                        "@id": `https://bluetickdigital.in/blog/${post.slug}`
+                    }
                 }}
             />
             <div className={styles.guideContainer}>

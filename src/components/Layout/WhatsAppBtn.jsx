@@ -1,9 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { SITE_CONFIG } from '../../config/siteConfig';
 import styles from './WhatsAppBtn.module.css';
 
 const WhatsAppBtn = () => {
-    const phoneNumber = '916261003050';
+    const phoneNumber = SITE_CONFIG.contact.whatsappRaw;
     const message = encodeURIComponent('Hi, I am interested in your WhatsApp automation services!');
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 

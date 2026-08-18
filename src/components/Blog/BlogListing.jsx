@@ -9,9 +9,10 @@ const BlogListing = () => {
     return (
         <div className={styles.blogListing}>
             <SEO
-                title="WhatsApp Automation Blog"
-                description="Insights and guides on using WhatsApp Business API and AI to grow your business sales."
-                keywords="WhatsApp Marketing, Automation Blog, AI Sales Strategy"
+                title="Resources & Insights | AI Automation & WhatsApp API"
+                description="Engineering guides, automation blueprints, and technical insights on AI agents, n8n workflows, and WhatsApp Business API."
+                keywords="WhatsApp Marketing, AI Automation Blog, n8n Workflows, Business Transformation, Bluetick Digital"
+                canonical="https://bluetickdigital.in/blog"
             />
             <div className={`${styles.container} container`}>
                 <header className={styles.header}>

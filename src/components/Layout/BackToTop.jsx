@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-// Removed lucide-react import
+import { ArrowUp } from 'lucide-react';
 import styles from './BackToTop.module.css';
 
 const BackToTop = () => {
@@ -8,7 +8,7 @@ const BackToTop = () => {
 
     useEffect(() => {
         const toggleVisibility = () => {
-            if (window.pageYOffset > 300) {
+            if (window.pageYOffset > 400) {
                 setIsVisible(true);
             } else {
                 setIsVisible(false);
@@ -32,14 +32,14 @@ const BackToTop = () => {
                 <motion.button
                     className={styles.backToTop}
                     onClick={scrollToTop}
-                    initial={{ opacity: 0, scale: 0.5, y: 20 }}
+                    initial={{ opacity: 0, scale: 0.8, y: 16 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.5, y: 20 }}
-                    whileHover={{ scale: 1.1, translateY: -5 }}
-                    whileTap={{ scale: 0.9 }}
+                    exit={{ opacity: 0, scale: 0.8, y: 16 }}
+                    whileHover={{ scale: 1.08, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
                     aria-label="Back to top"
                 >
-                    <img src="/assets/rocket-top.png" alt="Rocket to top" className={styles.rocketIcon} />
+                    <ArrowUp size={20} aria-hidden="true" />
                 </motion.button>
             )}
         </AnimatePresence>

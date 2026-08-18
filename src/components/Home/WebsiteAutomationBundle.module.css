@@ -1,0 +1,205 @@
+.sectionHeader {
+  margin-bottom: var(--space-8);
+  max-width: 900px;
+  position: relative;
+}
+
+.bundleCard {
+  background: linear-gradient(135deg, var(--color-slate-900) 0%, #0f172a 100%);
+  border: 1px solid var(--color-slate-800);
+  border-radius: var(--radius-lg);
+  padding: 3.5rem 2rem;
+  color: var(--color-white);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+}
+
+.content {
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  background: rgba(56, 189, 248, 0.15);
+  color: var(--color-accent-400);
+  font-size: 0.775rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+}
+
+.title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 800;
+  color: var(--color-white);
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.desc {
+  font-size: 1.05rem;
+  color: var(--color-slate-300);
+  line-height: 1.65;
+  margin-bottom: 2.5rem;
+  max-width: 680px;
+}
+
+/* 4-Node Pipeline Row */
+.convergencePipeline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.nodeBox {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--color-slate-700);
+  padding: 0.85rem 1.15rem;
+  border-radius: var(--radius-md);
+  text-align: left;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.nodeIconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.nodeTextWrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.nodeSub {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--color-slate-400);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.nodeLabel {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.plusWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.plusSymbol {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-slate-500);
+}
+
+/* Unified State Bar */
+.unifiedResultBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  margin-bottom: 2.5rem;
+  width: 100%;
+  max-width: 640px;
+}
+
+.equalsSymbol {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-brand);
+}
+
+.resultContent {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: rgba(74, 222, 128, 0.1);
+  border: 1px solid rgba(74, 222, 128, 0.25);
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-full);
+}
+
+.resultCheckIcon {
+  color: #4ade80;
+  flex-shrink: 0;
+}
+
+.resultText {
+  font-size: 0.85rem;
+  color: var(--color-slate-200);
+  letter-spacing: 0.02em;
+}
+
+.resultText strong {
+  color: #ffffff;
+}
+
+.iconBlue { color: var(--color-accent-400); }
+.iconCyan { color: #38bdf8; }
+.iconGreen { color: #4ade80; }
+.iconPurple { color: #c084fc; }
+
+.ctaWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.note {
+  font-size: 0.825rem;
+  color: var(--color-slate-400);
+}
+
+@media (max-width: 768px) {
+  .convergencePipeline {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .nodeBox {
+    width: 100%;
+  }
+
+  .plusWrap {
+    margin: -0.25rem 0;
+  }
+
+  .unifiedResultBar {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .bundleCard {
+    padding: 2rem 1rem;
+  }
+}
