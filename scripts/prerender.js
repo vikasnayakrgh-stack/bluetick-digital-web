@@ -61,6 +61,7 @@ const ROUTES = [
           <li><strong>Autonomous AI Agents:</strong> Sub-30s lead qualification, dynamic intent scoring, automated CRM sync.</li>
           <li><strong>WhatsApp Business API:</strong> Official Meta Cloud API onboarding, broadcast workflows, and multi-agent inboxes.</li>
           <li><strong>High-Performance Web Platforms:</strong> Sub-second React 18 platforms built for maximum conversion.</li>
+          <li><strong>Knowledge Hub:</strong> <a href="/blog">Engineering guides, pricing benchmarks, and WhatsApp automation blueprints</a>.</li>
         </ul>
       </section>
     `
