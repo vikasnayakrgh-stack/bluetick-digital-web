@@ -44,10 +44,20 @@ const Footer = () => {
                     </div>
 
                     <div className={styles.linkCol}>
+                        <h4 className={styles.colTitle}>Knowledge Hub</h4>
+                        <ul className={styles.linkList}>
+                            <li><Link to="/blog">All Guides & Insights</Link></li>
+                            <li><Link to="/blog/website-development-cost-in-india-2026">Website Cost Guide 2026</Link></li>
+                            <li><Link to="/blog/whatsapp-chatbot-automation">WhatsApp Chatbot Guide</Link></li>
+                            <li><Link to="/whatsapp-api-pricing-india">WhatsApp Calculator</Link></li>
+                        </ul>
+                    </div>
+
+                    <div className={styles.linkCol}>
                         <h4 className={styles.colTitle}>Company</h4>
                         <ul className={styles.linkList}>
                             <li><Link to="/about">About Bluetick</Link></li>
-                            <li><a href="/#projects">Projects & Showcase</a></li>
+                            <li><a href="/#showcase">Projects & Showcase</a></li>
                             <li><a href="/#how-it-works">How It Works</a></li>
                             <li><a href="#audit">Get Free Audit</a></li>
                         </ul>

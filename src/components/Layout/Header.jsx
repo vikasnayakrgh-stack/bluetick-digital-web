@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Menu, X, ChevronDown, ArrowRight, Sparkles, Globe, Bot, 
   ShoppingBag, Factory, Rocket, Building2, MessageSquare, 
-  CheckCircle2, Calculator, ShieldCheck, Zap, Layers 
+  CheckCircle2, Calculator, ShieldCheck, Zap, Layers, BookOpen, FileText 
 } from 'lucide-react';
 import { MOTION_TOKENS } from '../../constants/motionTokens';
 import styles from './Header.module.css';
@@ -123,6 +123,15 @@ const Header = () => {
                                     <div className={styles.itemDesc}>Instant Meta per-conversation pricing tool</div>
                                 </div>
                             </Link>
+                            <Link to="/blog/whatsapp-chatbot-automation" className={styles.dropdownItem} onClick={closeAll}>
+                                <div className={`${styles.iconBox} ${styles.iconBoxPurple}`}>
+                                    <BookOpen size={18} className={styles.iconPurple} />
+                                </div>
+                                <div className={styles.itemTextWrap}>
+                                    <div className={styles.itemTitle}>Chatbot Automation Guide</div>
+                                    <div className={styles.itemDesc}>24/7 lead qualification & sales blueprint</div>
+                                </div>
+                            </Link>
                         </div>
                     </div>
 
@@ -202,9 +211,18 @@ const Header = () => {
                                     <div className={styles.itemDesc}>D2C stores with COD verification & cart recovery</div>
                                 </div>
                             </Link>
-                            <a href="/#ecosystem" className={styles.dropdownItem} onClick={closeAll}>
+                            <Link to="/blog/website-development-cost-in-india-2026" className={styles.dropdownItem} onClick={closeAll}>
                                 <div className={`${styles.iconBox} ${styles.iconBoxCyan}`}>
-                                    <Layers size={18} className={styles.iconCyan} />
+                                    <FileText size={18} className={styles.iconCyan} />
+                                </div>
+                                <div className={styles.itemTextWrap}>
+                                    <div className={styles.itemTitle}>Website Cost Guide 2026</div>
+                                    <div className={styles.itemDesc}>Transparent pricing guide & breakdown for India</div>
+                                </div>
+                            </Link>
+                            <a href="/#ecosystem" className={styles.dropdownItem} onClick={closeAll}>
+                                <div className={`${styles.iconBox} ${styles.iconBoxPurple}`}>
+                                    <Layers size={18} className={styles.iconPurple} />
                                 </div>
                                 <div className={styles.itemTextWrap}>
                                     <div className={styles.itemTitle}>Connected Ecosystem</div>
@@ -269,6 +287,7 @@ const Header = () => {
 
                     <a href="/#pricing" className={styles.navLink} onClick={closeAll}>Pricing</a>
                     <a href="/#showcase" className={styles.navLink} onClick={closeAll}>Case Studies</a>
+                    <Link to="/blog" className={styles.navLink} onClick={closeAll}>Blog</Link>
                 </nav>
 
                 {/* Right Primary CTA - Desktop */}
@@ -299,6 +318,11 @@ const Header = () => {
                           exit={{ opacity: 0, y: -16 }}
                           transition={{ duration: 0.2, ease: MOTION_TOKENS.ease.outExpo }}
                         >
+                            <div className={styles.mobileGroupTitle}>Knowledge & Guides</div>
+                            <Link to="/blog" className={styles.mobileLink} onClick={closeAll}>Knowledge Hub & Blog</Link>
+                            <Link to="/blog/website-development-cost-in-india-2026" className={styles.mobileLink} onClick={closeAll}>Website Cost Guide (2026)</Link>
+                            <Link to="/blog/whatsapp-chatbot-automation" className={styles.mobileLink} onClick={closeAll}>WhatsApp Chatbot Guide</Link>
+
                             <div className={styles.mobileGroupTitle}>WhatsApp Business API</div>
                             <Link to="/solutions/whatsapp-automation" className={styles.mobileLink} onClick={closeAll}>Official Meta WhatsApp API Setup</Link>
                             <Link to="/whatsapp-green-tick-checker" className={styles.mobileLink} onClick={closeAll}>Green Tick Verification Checker</Link>

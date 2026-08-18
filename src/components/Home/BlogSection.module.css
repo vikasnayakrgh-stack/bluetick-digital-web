@@ -1,0 +1,210 @@
+.section {
+  padding: var(--spacing-4xl) 0;
+  background-color: var(--color-bg-primary);
+  position: relative;
+}
+
+.sectionHeader {
+  position: relative;
+  margin-bottom: var(--spacing-3xl);
+}
+
+.watermarkNumber {
+  position: absolute;
+  top: -1.5rem;
+  left: 0;
+  font-family: var(--font-mono);
+  font-size: 5rem;
+  font-weight: 800;
+  color: rgba(15, 23, 42, 0.03);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+.articlesList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .articlesList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.articleCard {
+  background: var(--color-surface);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: var(--radius-sm);
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.articleCard:hover {
+  border-color: rgba(15, 23, 42, 0.22);
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.04);
+  transform: translateY(-2px);
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.categoryBadge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.65rem;
+  background: rgba(15, 23, 42, 0.04);
+  color: var(--color-slate-700);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: var(--radius-sm);
+}
+
+.readingInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-slate-400);
+}
+
+.metaItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.metaDivider {
+  color: var(--color-slate-300);
+}
+
+.articleTitle {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: 0.85rem;
+  color: var(--color-slate-900);
+}
+
+.articleTitle a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.articleTitle a:hover {
+  color: var(--color-brand-600);
+}
+
+.articleExcerpt {
+  font-size: 0.925rem;
+  line-height: 1.6;
+  color: var(--color-slate-600);
+  margin-bottom: 1.75rem;
+  flex-grow: 1;
+}
+
+.cardFooter {
+  border-top: 1px solid rgba(15, 23, 42, 0.06);
+  padding-top: 1.25rem;
+  margin-top: auto;
+}
+
+.readBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-brand-600);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.readIcon {
+  transition: transform 0.2s ease;
+}
+
+.readBtn:hover {
+  color: var(--color-brand-700);
+}
+
+.readBtn:hover .readIcon {
+  transform: translate(2px, -2px);
+}
+
+.allArticlesBanner {
+  background: rgba(15, 23, 42, 0.02);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: var(--radius-sm);
+  padding: 1.75rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+  .allArticlesBanner {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.bannerText h4 {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-slate-900);
+  margin-bottom: 0.25rem;
+}
+
+.bannerText p {
+  font-size: 0.875rem;
+  color: var(--color-slate-500);
+  margin: 0;
+}
+
+.viewAllBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.35rem;
+  background: var(--color-slate-900);
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 0.825rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.viewAllBtn:hover {
+  background: var(--color-brand-600);
+  color: #ffffff;
+  transform: translateY(-1px);
+}

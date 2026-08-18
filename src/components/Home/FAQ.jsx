@@ -45,7 +45,7 @@ const FAQ = () => {
                 {/* Section Header with Floema Watermark Number */}
                 <FloemaReveal variant="slide-up" delay={0}>
                     <div className={styles.sectionHeader}>
-                        <span className={styles.watermarkNumber}>06</span>
+                        <span className={styles.watermarkNumber}>07</span>
                         <span className="section-badge">
                             <HelpCircle size={14} /> Clear Answers
                         </span>

@@ -22,6 +22,7 @@ import ProjectsShowcase from './components/Home/ProjectsShowcase'
 import IndustrySolutions from './components/Home/IndustrySolutions'
 import HowItWorks from './components/Home/HowItWorks'
 import WhyBluetick from './components/Home/WhyBluetick'
+import BlogSection from './components/Home/BlogSection'
 import FAQ from './components/Home/FAQ'
 import AuditForm from './components/Home/AuditForm'
 
@@ -123,6 +124,7 @@ const Home = () => (
     <IndustrySolutions />
     <HowItWorks />
     <WhyBluetick />
+    <BlogSection />
     <FAQ />
     <AuditForm />
   </>
