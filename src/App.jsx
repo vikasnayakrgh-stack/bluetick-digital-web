@@ -10,6 +10,7 @@ import Header from './components/Layout/Header'
 import Footer from './components/Layout/Footer'
 import FloatingActions from './components/Layout/FloatingActions'
 import SEO from './components/Common/SEO'
+import ScrollToTop from './components/Common/ScrollToTop'
 
 // Home Sections (Critical Path - Statically Loaded)
 import Hero from './components/Home/Hero'
@@ -158,6 +159,7 @@ function App() {
     <HelmetProvider>
       <MotionConfig reducedMotion="user">
         <Router>
+          <ScrollToTop />
           <div className="App">
             <a href="#main-content" className="skip-link">
               Skip to main content
