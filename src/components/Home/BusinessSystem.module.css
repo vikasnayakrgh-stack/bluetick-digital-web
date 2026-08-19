@@ -64,6 +64,7 @@
 @media (max-width: 640px) {
   .systemStep {
     padding: 1.5rem 1.25rem;
+    border-left: 3px solid var(--color-brand);
   }
   
   .stepTitle {

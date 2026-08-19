@@ -102,6 +102,11 @@
   font-size: 0.9rem;
   text-decoration: none;
   transition: color var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0;
+  min-height: 44px;
+  touch-action: manipulation;
 }
 
 .linkList a:hover {
@@ -151,8 +156,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: var(--color-slate-900);
   color: var(--color-slate-400);
@@ -172,7 +177,7 @@
   align-items: center;
   justify-content: space-between;
   font-size: 0.85rem;
-  color: var(--color-slate-500);
+  color: var(--color-slate-400);
 }
 
 @media (min-width: 768px) {
@@ -190,6 +195,11 @@
 .legalLinks a {
   color: var(--color-slate-400);
   text-decoration: none;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 0.5rem;
+  touch-action: manipulation;
 }
 
 .legalLinks a:hover {

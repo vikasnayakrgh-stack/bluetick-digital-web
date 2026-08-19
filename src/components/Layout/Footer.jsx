@@ -59,7 +59,7 @@ const Footer = () => {
                             <li><Link to="/about">About Bluetick</Link></li>
                             <li><a href="/#showcase">Projects & Showcase</a></li>
                             <li><a href="/#how-it-works">How It Works</a></li>
-                            <li><a href="#audit">Get Free Audit</a></li>
+                            <li><a href="/#audit">Get Free Audit</a></li>
                         </ul>
                     </div>
                 </div>

@@ -38,6 +38,8 @@ const PROJECTS = [
 ];
 
 const ProjectsShowcase = () => {
+  const [activeMobileProject, setActiveMobileProject] = React.useState(0);
+
   return (
     <section id="showcase" className={styles.projectsShowcase}>
       <div className={styles.container}>
@@ -57,22 +59,42 @@ const ProjectsShowcase = () => {
           </div>
         </FloemaReveal>
 
+        {/* Mobile Project Switcher (< 768px) */}
+        <div className={styles.mobileProjectSwitcher}>
+          {PROJECTS.map((proj, idx) => (
+            <button
+              key={proj.id}
+              className={`${styles.switcherPill} ${activeMobileProject === idx ? styles.switcherPillActive : ''}`}
+              onClick={() => setActiveMobileProject(idx)}
+              type="button"
+            >
+              <span className={styles.switcherNumber}>0{idx + 1}</span>
+              <span className={styles.switcherName}>{proj.name}</span>
+            </button>
+          ))}
+        </div>
+
         {/* Featured Demonstration Systems Stack */}
         <div className={styles.systemsStack}>
-          {PROJECTS.map((project, index) => (
-            <FloemaReveal 
-              key={project.id} 
-              variant="slide-up" 
-              delay={0.1 + index * 0.1}
-            >
-              <article className={styles.projectArticle}>
-                <div className={styles.projectTopMeta}>
-                  <div className={styles.stepBadgeGroup}>
-                    <span className={styles.projectStepTag}>{project.stepNumber}</span>
-                    <span className={styles.conceptBadge}>{project.badge}</span>
-                  </div>
-                  <span className={styles.categoryPill}>{project.category}</span>
-                </div>
+          {PROJECTS.map((project, index) => {
+            const isHiddenOnMobile = activeMobileProject !== index;
+            return (
+              <div 
+                key={project.id} 
+                className={`${styles.projectWrapper} ${isHiddenOnMobile ? styles.hideOnMobile : ''}`}
+              >
+                <FloemaReveal 
+                  variant="slide-up" 
+                  delay={0.1 + index * 0.1}
+                >
+                  <article className={styles.projectArticle}>
+                    <div className={styles.projectTopMeta}>
+                      <div className={styles.stepBadgeGroup}>
+                        <span className={styles.projectStepTag}>{project.stepNumber}</span>
+                        <span className={styles.conceptBadge}>{project.badge}</span>
+                      </div>
+                      <span className={styles.categoryPill}>{project.category}</span>
+                    </div>
 
                 <div className={styles.projectTitleWrapper}>
                   <h3 className={styles.projectName}>{project.name}</h3>
@@ -132,7 +154,9 @@ const ProjectsShowcase = () => {
                 </div>
               </article>
             </FloemaReveal>
-          ))}
+          </div>
+        );
+      })}
         </div>
       </div>
     </section>

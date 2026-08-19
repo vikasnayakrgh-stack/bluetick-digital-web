@@ -24,29 +24,31 @@
   gap: 0.75rem;
 }
 
-.dotControls {
-  display: flex;
+.systemStatusTag {
+  display: inline-flex;
   align-items: center;
   gap: 6px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   flex-shrink: 0;
 }
 
-.dot {
-  width: 10px;
-  height: 10px;
+.statusDotLive {
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-}
-
-.dotRed {
-  background: #ef4444;
-}
-
-.dotYellow {
-  background: #f59e0b;
-}
-
-.dotGreen {
   background: #10b981;
+  box-shadow: 0 0 6px rgba(16, 185, 129, 0.6);
+}
+
+.statusLabel {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #94a3b8;
 }
 
 .addressBar {

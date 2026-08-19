@@ -5,10 +5,10 @@
 
 .heroRoot {
   position: relative;
-  height: 100vh;
-  min-height: 620px;
+  min-height: 100svh;
+  height: auto;
   width: 100%;
-  overflow: hidden;
+  overflow: visible;
   background-color: #080A0E;
   font-family: var(--font-display, 'Space Grotesk', sans-serif);
   color: #ffffff;
@@ -57,21 +57,24 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: calc(100vh - 72px);
+  min-height: calc(100svh - 72px);
   max-width: 80rem;
   margin: 0 auto;
-  padding: 4rem 1.5rem 3.5rem;
+  padding: calc(72px + 2rem) 1.25rem 3.5rem;
+  gap: 2.5rem;
 }
 
 @media (min-width: 768px) {
   .heroContent {
     padding: 5rem 2.5rem 4rem;
+    gap: 3rem;
   }
 }
 
 @media (min-width: 1024px) {
   .heroContent {
     padding: 6rem 3rem 4.5rem;
+    gap: 3.5rem;
   }
 }
 
@@ -107,12 +110,13 @@
 /* Display Headline h1 */
 .heroHeading {
   font-family: var(--font-display, 'Space Grotesk', sans-serif);
-  font-size: clamp(2.75rem, 6.2vw, 5.25rem);
+  font-size: clamp(2.15rem, 7.5vw, 4.75rem);
   font-weight: 700;
-  line-height: 1.02;
-  letter-spacing: -0.04em;
+  line-height: 1.10;
+  letter-spacing: -0.035em;
   color: #ffffff;
   margin: 0;
+  text-wrap: balance;
   animation: fadeSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
 }
 
@@ -156,7 +160,9 @@
 .exploreBtn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.65rem;
+  min-height: 48px;
   padding: 0.875rem 1.65rem;
   border-radius: 9999px;
   background-color: var(--color-brand, #1d4ed8);
@@ -185,7 +191,9 @@
 .secondaryBtn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
+  min-height: 48px;
   padding: 0.875rem 1.4rem;
   border-radius: 9999px;
   background-color: rgba(255, 255, 255, 0.06);
@@ -203,6 +211,19 @@
   background-color: rgba(255, 255, 255, 0.12);
   border-color: rgba(255, 255, 255, 0.25);
   color: #ffffff;
+}
+
+@media (max-width: 640px) {
+  .actionRow {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 0.75rem;
+  }
+  .exploreBtn, .secondaryBtn {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 /* Micro Telemetry Row */

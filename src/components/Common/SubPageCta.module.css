@@ -121,3 +121,25 @@
 .trustIconYellow {
   color: #f59e0b;
 }
+
+@media (max-width: 640px) {
+  .ctaSection {
+    padding: 2.5rem 1rem;
+  }
+  
+  .ctaCard {
+    padding: 2rem 1.25rem;
+    border-radius: 20px;
+  }
+  
+  .ctaPrimaryBtn {
+    width: 100%;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0.85rem 1.5rem;
+  }
+  
+  .trustFooterRow {
+    gap: 0.75rem 1.25rem;
+  }
+}

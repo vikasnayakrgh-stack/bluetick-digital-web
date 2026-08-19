@@ -45,12 +45,14 @@
   font-size: 0.8rem;
   font-weight: 600;
   color: var(--color-slate-600);
-  padding: 0.5rem 1rem;
+  padding: 0.65rem 1.15rem;
+  min-height: 44px;
   border-radius: var(--radius-full);
   background: transparent;
   border: none;
   cursor: pointer;
   white-space: nowrap;
+  touch-action: manipulation;
   transition: color var(--transition-fast);
 }
 
@@ -140,6 +142,12 @@
   padding: 2.25rem;
   display: flex;
   flex-direction: column;
+}
+
+@media (max-width: 640px) {
+  .pillarCard {
+    padding: 1.5rem 1.25rem;
+  }
 }
 
 .pillarFeatured {

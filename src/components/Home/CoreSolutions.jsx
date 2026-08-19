@@ -41,6 +41,7 @@ const CoreSolutions = () => {
 
     return (
         <section id="solutions" className="section">
+            <div id="pricing" tabIndex="-1" style={{ position: 'relative', top: '-80px' }} />
             <div className="container">
                 {/* Section Header with Floema Watermark Number */}
                 <FloemaReveal variant="slide-up" delay={0}>

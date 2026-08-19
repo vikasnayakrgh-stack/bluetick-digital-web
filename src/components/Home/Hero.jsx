@@ -30,6 +30,7 @@ const Hero = () => {
           muted
           loop
           playsInline
+          preload="metadata"
           className={styles.bgVideo}
           src={VIDEO_URL}
         />

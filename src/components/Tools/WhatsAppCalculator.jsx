@@ -155,9 +155,9 @@ const WhatsAppCalculator = () => {
                         ₹{totalCost.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                     </div>
 
-                    <Link to="/contact" className={styles.ctaButton}>
+                    <a href="/#audit?req=whatsapp_automation" className={styles.ctaButton}>
                         Get This API with Bluetick Digital
-                    </Link>
+                    </a>
                 </div>
             </div>
 

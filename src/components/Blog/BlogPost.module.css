@@ -152,13 +152,15 @@
 /* Table Style */
 .tableWrapper {
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     margin-top: 32px;
-    border-radius: 16px;
+    border-radius: 8px;
     border: 1px solid var(--border-light);
 }
 
 .guideTable {
     width: 100%;
+    min-width: 540px;
     border-collapse: collapse;
     text-align: left;
     background: white;
@@ -166,15 +168,23 @@
 
 .guideTable th {
     background: var(--bg-light);
-    padding: 20px;
+    padding: 16px 20px;
     font-weight: 700;
     color: var(--text-dark);
     border-bottom: 2px solid var(--border-light);
 }
 
 .guideTable td {
-    padding: 20px;
+    padding: 16px 20px;
     border-bottom: 1px solid var(--border-light);
+}
+
+@media (max-width: 640px) {
+    .guideTable th,
+    .guideTable td {
+        padding: 10px 12px;
+        font-size: 0.85rem;
+    }
 }
 
 .guideTable tr:last-child td {

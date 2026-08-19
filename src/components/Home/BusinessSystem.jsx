@@ -47,6 +47,7 @@ const BusinessSystem = () => {
 
   return (
     <section id="business-system" className="section section-subtle">
+      <div id="ecosystem" tabIndex="-1" style={{ position: 'relative', top: '-80px' }} />
       <div className="container">
         {/* Section Header with Floema Watermark Number */}
         <FloemaReveal variant="slide-up" delay={0}>

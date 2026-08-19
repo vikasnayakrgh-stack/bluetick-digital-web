@@ -37,10 +37,30 @@ const Header = () => {
         return () => document.removeEventListener('mousedown', handleClickOutside);
     }, []);
 
+    // Lock body scroll and handle Escape when mobile menu is open
+    useEffect(() => {
+        if (!isMenuOpen) {
+            document.body.style.overflow = '';
+            return;
+        }
+        document.body.style.overflow = 'hidden';
+        const handleKeyDown = (e) => {
+            if (e.key === 'Escape') {
+                setIsMenuOpen(false);
+            }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => {
+            document.body.style.overflow = '';
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [isMenuOpen]);
+
     // Close on route change
     useEffect(() => {
         setActiveDropdown(null);
         setIsMenuOpen(false);
+        document.body.style.overflow = '';
     }, [location.pathname]);
 
     const handleMouseEnter = (menuName) => {
@@ -293,7 +313,7 @@ const Header = () => {
                 {/* Right Primary CTA - Desktop */}
                 <div className={styles.actions}>
                     <motion.a
-                      href="#audit"
+                      href="/#audit"
                       className={styles.auditBtn}
                       onClick={closeAll}
                       whileHover={{ scale: 1.03 }}
@@ -303,55 +323,104 @@ const Header = () => {
                         <ArrowRight size={15} className={styles.auditArrow} />
                     </motion.a>
 
-                    <button className={styles.hamburger} onClick={toggleMenu} aria-label="Toggle Navigation Menu">
+                    <button 
+                        className={styles.hamburger} 
+                        onClick={toggleMenu} 
+                        aria-label={isMenuOpen ? "Close Navigation Menu" : "Open Navigation Menu"}
+                        aria-expanded={isMenuOpen}
+                        aria-controls="mobile-navigation"
+                    >
                         {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
                     </button>
                 </div>
 
-                {/* Mobile Drawer */}
+                {/* Mobile Drawer & Backdrop */}
                 <AnimatePresence>
                     {isMenuOpen && (
-                        <motion.div
-                          className={styles.mobileMenu}
-                          initial={{ opacity: 0, y: -16 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -16 }}
-                          transition={{ duration: 0.2, ease: MOTION_TOKENS.ease.outExpo }}
-                        >
-                            <div className={styles.mobileGroupTitle}>Knowledge & Guides</div>
-                            <Link to="/blog" className={styles.mobileLink} onClick={closeAll}>Knowledge Hub & Blog</Link>
-                            <Link to="/blog/website-development-cost-in-india-2026" className={styles.mobileLink} onClick={closeAll}>Website Cost Guide (2026)</Link>
-                            <Link to="/blog/whatsapp-chatbot-automation" className={styles.mobileLink} onClick={closeAll}>WhatsApp Chatbot Guide</Link>
+                        <>
+                            <motion.div 
+                                className={styles.backdrop} 
+                                onClick={closeAll}
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                aria-hidden="true"
+                            />
+                            <motion.div
+                              id="mobile-navigation"
+                              role="dialog"
+                              aria-modal="true"
+                              aria-label="Mobile Navigation Menu"
+                              className={styles.mobileMenu}
+                              initial={{ opacity: 0, y: -16 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              exit={{ opacity: 0, y: -16 }}
+                              transition={{ duration: 0.2, ease: MOTION_TOKENS.ease.outExpo }}
+                            >
+                                <div className={styles.mobileGroupTitle}>Websites & E-Commerce (Primary Service)</div>
+                                <Link to="/solutions/websites" className={styles.mobileLink} onClick={closeAll}>
+                                    <Globe size={16} className={styles.mobileLinkIcon} />
+                                    <span>High-Speed Business Websites</span>
+                                </Link>
+                                <Link to="/solutions/ecommerce" className={styles.mobileLink} onClick={closeAll}>
+                                    <ShoppingBag size={16} className={styles.mobileLinkIcon} />
+                                    <span>E-Commerce & D2C Stores</span>
+                                </Link>
 
-                            <div className={styles.mobileGroupTitle}>WhatsApp Business API</div>
-                            <Link to="/solutions/whatsapp-automation" className={styles.mobileLink} onClick={closeAll}>Official Meta WhatsApp API Setup</Link>
-                            <Link to="/whatsapp-green-tick-checker" className={styles.mobileLink} onClick={closeAll}>Green Tick Verification Checker</Link>
-                            <Link to="/whatsapp-api-pricing-india" className={styles.mobileLink} onClick={closeAll}>WhatsApp Message Cost Calculator</Link>
+                                <div className={styles.mobileGroupTitle}>AI Automation & Agents</div>
+                                <Link to="/solutions/ai-automation" className={styles.mobileLink} onClick={closeAll}>
+                                    <Bot size={16} className={styles.mobileLinkIcon} />
+                                    <span>24/7 Custom AI Sales & Support Bots</span>
+                                </Link>
+                                <a href="/#demo" className={styles.mobileLink} onClick={closeAll}>
+                                    <Zap size={16} className={styles.mobileLinkIcon} />
+                                    <span>Interactive WhatsApp Simulator Demo</span>
+                                </a>
 
-                            <div className={styles.mobileGroupTitle}>AI Agent Chatbots</div>
-                            <Link to="/solutions/ai-automation" className={styles.mobileLink} onClick={closeAll}>24/7 Custom AI Sales & Support Bots</Link>
-                            <a href="/#business-system" className={styles.mobileLink} onClick={closeAll}>Lead Qualification & Calendar Booking</a>
-                            <a href="/#demo" className={styles.mobileLink} onClick={closeAll}>Live WhatsApp Simulator Demo</a>
+                                <div className={styles.mobileGroupTitle}>WhatsApp Business API</div>
+                                <Link to="/solutions/whatsapp-automation" className={styles.mobileLink} onClick={closeAll}>
+                                    <MessageSquare size={16} className={styles.mobileLinkIcon} />
+                                    <span>Official Meta WhatsApp API Setup</span>
+                                </Link>
+                                <Link to="/whatsapp-api-pricing-india" className={styles.mobileLink} onClick={closeAll}>
+                                    <Calculator size={16} className={styles.mobileLinkIcon} />
+                                    <span>WhatsApp Message Cost Calculator</span>
+                                </Link>
+                                <Link to="/whatsapp-green-tick-checker" className={styles.mobileLink} onClick={closeAll}>
+                                    <CheckCircle2 size={16} className={styles.mobileLinkIcon} />
+                                    <span>Green Tick Verification Checker</span>
+                                </Link>
 
-                            <div className={styles.mobileGroupTitle}>Websites & E-Commerce</div>
-                            <Link to="/solutions/websites" className={styles.mobileLink} onClick={closeAll}>Business Websites & Web Platforms</Link>
-                            <Link to="/solutions/ecommerce" className={styles.mobileLink} onClick={closeAll}>E-Commerce & D2C Stores</Link>
+                                <div className={styles.mobileGroupTitle}>Case Studies & Company</div>
+                                <a href="/#showcase" className={styles.mobileLink} onClick={closeAll}>
+                                    <Layers size={16} className={styles.mobileLinkIcon} />
+                                    <span>Client Proof & Demo Systems</span>
+                                </a>
+                                <Link to="/about" className={styles.mobileLink} onClick={closeAll}>
+                                    <Building2 size={16} className={styles.mobileLinkIcon} />
+                                    <span>About Bluetick Digital</span>
+                                </Link>
 
-                            <div className={styles.mobileGroupTitle}>Industries</div>
-                            <Link to="/industries/ecommerce" className={styles.mobileLink} onClick={closeAll}>E-Commerce Brands</Link>
-                            <Link to="/industries/manufacturing" className={styles.mobileLink} onClick={closeAll}>Manufacturers & B2B</Link>
-                            <Link to="/industries/startups" className={styles.mobileLink} onClick={closeAll}>Startups & Tech</Link>
-                            <Link to="/industries/local-business" className={styles.mobileLink} onClick={closeAll}>Local Businesses & Real Estate</Link>
+                                <div className={styles.mobileGroupTitle}>Knowledge Hub & Pricing</div>
+                                <Link to="/blog" className={styles.mobileLink} onClick={closeAll}>
+                                    <BookOpen size={16} className={styles.mobileLinkIcon} />
+                                    <span>Knowledge Hub & Insights</span>
+                                </Link>
+                                <Link to="/blog/website-development-cost-in-india-2026" className={styles.mobileLink} onClick={closeAll}>
+                                    <FileText size={16} className={styles.mobileLinkIcon} />
+                                    <span>Website Cost Guide (2026)</span>
+                                </Link>
+                                <a href="/#pricing" className={styles.mobileLink} onClick={closeAll}>
+                                    <ShieldCheck size={16} className={styles.mobileLinkIcon} />
+                                    <span>Transparent Pricing Packages</span>
+                                </a>
 
-                            <div className={styles.mobileGroupTitle}>Pricing & Proof</div>
-                            <a href="/#pricing" className={styles.mobileLink} onClick={closeAll}>Transparent Investment Packages</a>
-                            <a href="/#showcase" className={styles.mobileLink} onClick={closeAll}>Client Case Studies & Showcase</a>
-                            <Link to="/about" className={styles.mobileLink} onClick={closeAll}>About Bluetick Digital</Link>
-
-                            <a href="#audit" className={styles.mobileCta} onClick={closeAll}>
-                                Get Free Audit <ArrowRight size={16} />
-                            </a>
-                        </motion.div>
+                                <a href="/#audit" className={styles.mobileCta} onClick={closeAll}>
+                                    <span>Start a Project / Free Audit</span>
+                                    <ArrowRight size={16} />
+                                </a>
+                            </motion.div>
+                        </>
                     )}
                 </AnimatePresence>
             </div>

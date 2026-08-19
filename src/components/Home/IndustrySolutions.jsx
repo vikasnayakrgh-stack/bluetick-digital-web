@@ -1,10 +1,12 @@
 import React from 'react';
 import { ShoppingBag, Factory, Rocket, Building2, Check, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import styles from './IndustrySolutions.module.css';
 
 const INDUSTRIES = [
     {
+        slug: 'ecommerce',
         icon: ShoppingBag,
         name: 'E-commerce Brands',
         type: 'Primary Industry',
@@ -17,6 +19,7 @@ const INDUSTRIES = [
         ]
     },
     {
+        slug: 'manufacturing',
         icon: Factory,
         name: 'Manufacturers',
         type: 'Primary Industry',
@@ -29,6 +32,7 @@ const INDUSTRIES = [
         ]
     },
     {
+        slug: 'startups',
         icon: Rocket,
         name: 'Startups & Tech',
         type: 'Primary Industry',
@@ -41,6 +45,7 @@ const INDUSTRIES = [
         ]
     },
     {
+        slug: 'local-business',
         icon: Building2,
         name: 'Local Businesses & Real Estate',
         type: 'Secondary Industry',
@@ -102,6 +107,24 @@ const IndustrySolutions = () => {
                                         </li>
                                     ))}
                                 </ul>
+
+                                <div style={{ marginTop: 'auto', paddingTop: '1.25rem', borderTop: '1px solid rgba(15, 23, 42, 0.06)' }}>
+                                    <Link 
+                                        to={`/industries/${ind.slug}`} 
+                                        style={{ 
+                                            display: 'inline-flex', 
+                                            alignItems: 'center', 
+                                            gap: '0.45rem', 
+                                            fontSize: '0.85rem', 
+                                            fontWeight: 700, 
+                                            color: 'var(--color-brand)',
+                                            minHeight: '44px' 
+                                        }}
+                                    >
+                                        <span>View Industry Blueprint</span>
+                                        <ArrowRight size={15} />
+                                    </Link>
+                                </div>
                             </motion.div>
                         );
                     })}

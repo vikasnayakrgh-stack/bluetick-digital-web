@@ -213,16 +213,14 @@
 
 @keyframes shine {
     0% {
-        left: -100%;
+        transform: translateX(-100%);
     }
 
     50%,
     100% {
-        left: 150%;
+        transform: translateX(250%);
     }
 }
-
-
 
 .featuredBadge {
     position: absolute;
@@ -247,7 +245,7 @@
     content: '';
     position: absolute;
     top: 0;
-    left: -100%;
+    left: 0;
     width: 50%;
     height: 100%;
     background: linear-gradient(90deg,
@@ -259,12 +257,12 @@
 
 @keyframes badge-shimmer {
     0% {
-        left: -100%;
+        transform: translateX(-100%);
     }
 
     50%,
     100% {
-        left: 150%;
+        transform: translateX(250%);
     }
 }
 

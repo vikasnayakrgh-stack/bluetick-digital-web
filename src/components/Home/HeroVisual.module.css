@@ -84,6 +84,7 @@
   padding: 0.25rem;
   border-radius: var(--radius-sm, 2px);
   border: 1px solid rgba(255, 255, 255, 0.06);
+  flex-wrap: wrap;
 }
 
 .scenarioTab {
@@ -91,12 +92,16 @@
   font-size: 0.75rem;
   font-weight: 600;
   color: #94a3b8;
-  padding: 0.35rem 0.75rem;
+  padding: 0.45rem 0.85rem;
+  min-height: 36px;
   border-radius: var(--radius-sm, 2px);
   background: transparent;
   border: none;
   cursor: pointer;
   transition: color 0.15s ease, background-color 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .scenarioTab:hover {

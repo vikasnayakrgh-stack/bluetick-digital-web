@@ -264,100 +264,119 @@ const AuditForm = () => {
                                         )}
 
                                         <div className={styles.row2}>
-                                            <div className={styles.inputGroup}>
-                                                <label htmlFor="name" className={styles.label}>Your Name *</label>
+                                             <div className={styles.inputGroup}>
+                                                 <label htmlFor="name" className={styles.label}>Your Name *</label>
+                                                 <input
+                                                     ref={nameInputRef}
+                                                     type="text"
+                                                     id="name"
+                                                     name="name"
+                                                     value={formData.name}
+                                                     onChange={handleChange}
+                                                     placeholder="John Doe"
+                                                     autoComplete="name"
+                                                     autoCapitalize="words"
+                                                     required
+                                                     aria-required="true"
+                                                     aria-invalid={!!errors.name}
+                                                     aria-describedby={errors.name ? "name-error" : undefined}
+                                                     className={`${styles.input} ${errors.name ? styles.inputError : ''}`}
+                                                 />
+                                                 {errors.name && (
+                                                     <span id="name-error" role="alert" className={styles.errorText}>
+                                                         <AlertCircle size={12} /> {errors.name}
+                                                     </span>
+                                                 )}
+                                             </div>
+                                             <div className={styles.inputGroup}>
+                                                 <label htmlFor="business_name" className={styles.label}>Business Name *</label>
+                                                 <input
+                                                     ref={businessNameRef}
+                                                     type="text"
+                                                     id="business_name"
+                                                     name="business_name"
+                                                     value={formData.business_name}
+                                                     onChange={handleChange}
+                                                     placeholder="Acme Brands"
+                                                     autoComplete="organization"
+                                                     required
+                                                     aria-required="true"
+                                                     aria-invalid={!!errors.business_name}
+                                                     aria-describedby={errors.business_name ? "business-error" : undefined}
+                                                     className={`${styles.input} ${errors.business_name ? styles.inputError : ''}`}
+                                                 />
+                                                 {errors.business_name && (
+                                                     <span id="business-error" role="alert" className={styles.errorText}>
+                                                         <AlertCircle size={12} /> {errors.business_name}
+                                                     </span>
+                                                 )}
+                                             </div>
+                                         </div>
 
-                                                <input
-                                                    ref={nameInputRef}
-                                                    type="text"
-                                                    id="name"
-                                                    name="name"
-                                                    value={formData.name}
-                                                    onChange={handleChange}
-                                                    placeholder="John Doe"
-                                                    required
-                                                    aria-required="true"
-                                                    aria-invalid={!!errors.name}
-                                                    aria-describedby={errors.name ? "name-error" : undefined}
-                                                    className={`${styles.input} ${errors.name ? styles.inputError : ''}`}
-                                                />
-                                                {errors.name && (
-                                                    <span id="name-error" role="alert" className={styles.errorText}>
-                                                        <AlertCircle size={12} /> {errors.name}
-                                                    </span>
-                                                )}
-                                            </div>
-                                            <div className={styles.inputGroup}>
-                                                <label htmlFor="business_name" className={styles.label}>Business Name *</label>
-                                                <input
-                                                    ref={businessNameRef}
-                                                    type="text"
-                                                    id="business_name"
-                                                    name="business_name"
-                                                    value={formData.business_name}
-                                                    onChange={handleChange}
-                                                    placeholder="Acme Brands"
-                                                    required
-                                                    aria-required="true"
-                                                    aria-invalid={!!errors.business_name}
-                                                    aria-describedby={errors.business_name ? "business-error" : undefined}
-                                                    className={`${styles.input} ${errors.business_name ? styles.inputError : ''}`}
-                                                />
-                                                {errors.business_name && (
-                                                    <span id="business-error" role="alert" className={styles.errorText}>
-                                                        <AlertCircle size={12} /> {errors.business_name}
-                                                    </span>
-                                                )}
-                                            </div>
-                                        </div>
+                                         <div className={styles.row2}>
+                                             <div className={styles.inputGroup}>
+                                                 <label htmlFor="whatsapp" className={styles.label}>WhatsApp Number *</label>
+                                                 <input
+                                                     ref={whatsappRef}
+                                                     type="tel"
+                                                     id="whatsapp"
+                                                     name="whatsapp"
+                                                     value={formData.whatsapp}
+                                                     onChange={handleChange}
+                                                     placeholder="+91 98765 43210"
+                                                     inputMode="tel"
+                                                     autoComplete="tel"
+                                                     required
+                                                     aria-required="true"
+                                                     aria-invalid={!!errors.whatsapp}
+                                                     aria-describedby={errors.whatsapp ? "whatsapp-error" : undefined}
+                                                     className={`${styles.input} ${errors.whatsapp ? styles.inputError : ''}`}
+                                                 />
+                                                 {errors.whatsapp && (
+                                                     <span id="whatsapp-error" role="alert" className={styles.errorText}>
+                                                         <AlertCircle size={12} /> {errors.whatsapp}
+                                                     </span>
+                                                 )}
+                                             </div>
+                                             <div className={styles.inputGroup}>
+                                                 <label htmlFor="website_url" className={styles.label}>Website URL (if existing)</label>
+                                                 <input
+                                                     type="url"
+                                                     id="website_url"
+                                                     name="website_url"
+                                                     value={formData.website_url}
+                                                     onChange={handleChange}
+                                                     placeholder="https://yourbusiness.com"
+                                                     inputMode="url"
+                                                     autoComplete="url"
+                                                     autoCapitalize="none"
+                                                     className={styles.input}
+                                                 />
+                                             </div>
+                                         </div>
 
-                                        <div className={styles.row2}>
-                                            <div className={styles.inputGroup}>
-                                                <label htmlFor="whatsapp" className={styles.label}>WhatsApp Number *</label>
-                                                <input
-                                                    ref={whatsappRef}
-                                                    type="tel"
-                                                    id="whatsapp"
-                                                    name="whatsapp"
-                                                    value={formData.whatsapp}
-                                                    onChange={handleChange}
-                                                    placeholder="+91 98765 43210"
-                                                    required
-                                                    aria-required="true"
-                                                    aria-invalid={!!errors.whatsapp}
-                                                    aria-describedby={errors.whatsapp ? "whatsapp-error" : undefined}
-                                                    className={`${styles.input} ${errors.whatsapp ? styles.inputError : ''}`}
-                                                />
-                                                {errors.whatsapp && (
-                                                    <span id="whatsapp-error" role="alert" className={styles.errorText}>
-                                                        <AlertCircle size={12} /> {errors.whatsapp}
-                                                    </span>
-                                                )}
-                                            </div>
-                                            <div className={styles.inputGroup}>
-                                                <label htmlFor="website_url" className={styles.label}>Website URL (if existing)</label>
-                                                <input
-                                                    type="url"
-                                                    id="website_url"
-                                                    name="website_url"
-                                                    value={formData.website_url}
-                                                    onChange={handleChange}
-                                                    placeholder="https://yourbusiness.com"
-                                                    className={styles.input}
-                                                />
-                                            </div>
-                                        </div>
+                                         <motion.button
+                                             type="button"
+                                             onClick={handleNextStep}
+                                             className="btn btn-primary btn-lg"
+                                             style={{ width: '100%', marginTop: '0.5rem', minHeight: '48px' }}
+                                             whileHover={{ scale: 1.01, y: -2 }}
+                                             whileTap={{ scale: 0.97 }}
+                                         >
+                                             Next: Business Specifications <ArrowRight size={18} />
+                                         </motion.button>
 
-                                        <motion.button
-                                            type="button"
-                                            onClick={handleNextStep}
-                                            className="btn btn-primary btn-lg"
-                                            style={{ width: '100%', marginTop: '0.5rem' }}
-                                            whileHover={{ scale: 1.01, y: -2 }}
-                                            whileTap={{ scale: 0.97 }}
-                                        >
-                                            Next: Business Specifications <ArrowRight size={18} />
-                                        </motion.button>
+                                         <div className={styles.whatsappDirectOption}>
+                                             <span>Prefer direct chat?</span>
+                                             <a 
+                                                 href="https://wa.me/916261003050?text=Hi%20Bluetick%20Digital%2C%20I%20would%20like%20to%20request%20a%20Free%20Website%20%26%20Automation%20Audit."
+                                                 target="_blank"
+                                                 rel="noopener noreferrer"
+                                                 className={styles.waDirectLink}
+                                             >
+                                                 Chat with a Founder on WhatsApp →
+                                             </a>
+                                         </div>
                                     </motion.div>
                                 ) : (
                                     <motion.div
@@ -478,7 +497,7 @@ const AuditForm = () => {
                                                 type="button"
                                                 onClick={() => { setStep(1); setErrors({}); }}
                                                 className="btn btn-outline"
-                                                style={{ flex: '0 0 auto' }}
+                                                style={{ flex: '0 0 auto', minHeight: '48px' }}
                                                 whileHover={{ scale: 1.01, y: -2 }}
                                                 whileTap={{ scale: 0.97 }}
                                             >
@@ -488,7 +507,7 @@ const AuditForm = () => {
                                                 type="submit"
                                                 disabled={status === 'loading'}
                                                 className="btn btn-primary btn-lg"
-                                                style={{ flex: 1 }}
+                                                style={{ flex: 1, minHeight: '48px' }}
                                                 whileHover={{ scale: 1.01, y: -2 }}
                                                 whileTap={{ scale: 0.97 }}
                                             >
@@ -502,6 +521,11 @@ const AuditForm = () => {
                                                     </>
                                                 )}
                                             </motion.button>
+                                        </div>
+
+                                        <div style={{ textAlign: 'center', marginTop: '0.75rem', fontSize: '0.75rem', color: '#64748b', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem' }}>
+                                            <ShieldCheck size={13} style={{ color: '#16a34a' }} />
+                                            <span>256-bit SSL encrypted • Zero spam guarantee</span>
                                         </div>
                                     </motion.div>
                                 )}

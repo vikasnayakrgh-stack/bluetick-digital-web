@@ -53,12 +53,11 @@ const ProjectBrowserPreview = ({ url, title, imageSrc, altText }) => {
             whileHover={!capabilities.allow3dTilt && capabilities.allowComplexMotion ? { y: -3 } : {}}
             transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
-            {/* Browser Chrome Header */}
+            {/* Browser Chrome Header (Swiss Architectural Telemetry) */}
             <div className={styles.browserHeader}>
-                <div className={styles.dotControls}>
-                    <span className={`${styles.dot} ${styles.dotRed}`} />
-                    <span className={`${styles.dot} ${styles.dotYellow}`} />
-                    <span className={`${styles.dot} ${styles.dotGreen}`} />
+                <div className={styles.systemStatusTag}>
+                    <span className={styles.statusDotLive} />
+                    <span className={styles.statusLabel}>SYS_ONLINE</span>
                 </div>
 
                 <div className={styles.addressBar}>
@@ -67,7 +66,7 @@ const ProjectBrowserPreview = ({ url, title, imageSrc, altText }) => {
                 </div>
 
                 <div className={styles.chromeRight}>
-                    <span className={styles.liveTag}>LIVE DEMO</span>
+                    <span className={styles.liveTag}>LIVE SYSTEM</span>
                 </div>
             </div>
 

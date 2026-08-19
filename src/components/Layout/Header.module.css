@@ -225,47 +225,67 @@
 }
 
 .auditBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  background: #2563eb;
-  color: #ffffff !important;
-  padding: 0.6rem 1.4rem;
-  border-radius: var(--radius-full, 9999px);
-  font-size: 0.885rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  text-decoration: none;
-  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: none;
 }
 
-.auditBtn:hover {
-  background: #1d4ed8;
-  transform: scale(1.03);
-  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.45);
+@media (min-width: 992px) {
+  .auditBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: #2563eb;
+    color: #ffffff !important;
+    padding: 0.6rem 1.4rem;
+    border-radius: var(--radius-full, 9999px);
+    font-size: 0.885rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    white-space: nowrap;
+  }
+
+  .auditBtn:hover {
+    background: #1d4ed8;
+    transform: scale(1.03);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.45);
+  }
+
+  .auditBtn:hover .auditArrow {
+    transform: translateX(3px);
+  }
 }
 
 .auditArrow {
   transition: transform 0.2s ease;
 }
 
-.auditBtn:hover .auditArrow {
-  transform: translateX(3px);
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  position: relative;
+  z-index: 1002;
 }
 
-/* Hamburger for Mobile */
 .hamburger {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
   border-radius: var(--radius-md, 8px);
-  background: rgba(241, 245, 249, 0.9);
+  background: rgba(241, 245, 249, 0.95);
   border: 1px solid rgba(15, 23, 42, 0.08);
   color: var(--color-slate-800, #1e293b);
   cursor: pointer;
+  touch-action: manipulation;
+  position: relative;
+  z-index: 1002;
 }
 
 @media (min-width: 992px) {
@@ -274,23 +294,34 @@
   }
 }
 
+/* Backdrop Overlay */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 10, 14, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 998;
+}
+
 /* Mobile Drawer Menu */
 .mobileMenu {
   position: fixed;
-  top: 80px;
+  top: 76px;
   left: 1rem;
   right: 1rem;
   background: #ffffff !important;
-  border-radius: 20px;
+  border-radius: 16px;
   border: 1px solid rgba(15, 23, 42, 0.08);
   box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.25);
-  padding: 1.5rem;
+  padding: 1.5rem 1.25rem 1.75rem;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.25rem;
   z-index: 1000;
-  max-height: calc(100vh - 100px);
+  max-height: calc(100vh - 96px);
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .mobileGroupTitle {
@@ -298,39 +329,52 @@
   font-size: 0.75rem;
   font-weight: 800;
   text-transform: uppercase;
-  color: #94a3b8;
+  color: #475569;
   letter-spacing: 0.08em;
-  margin-top: 0.75rem;
-  margin-bottom: 0.25rem;
+  margin-top: 1rem;
+  margin-bottom: 0.35rem;
+  padding-left: 0.5rem;
 }
 
 .mobileLink {
   font-size: 0.95rem;
   font-weight: 600;
   color: #0f172a;
-  padding: 0.65rem 0.85rem;
-  border-radius: 10px;
+  padding: 0.75rem 0.85rem;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  border-radius: 8px;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
+  touch-action: manipulation;
 }
 
-.mobileLink:hover {
-  background: #f8fafc;
+.mobileLinkIcon {
+  color: var(--color-brand, #1d4ed8);
+  flex-shrink: 0;
+}
+
+.mobileLink:hover, .mobileLink:active {
+  background: #f1f5f9;
   color: #2563eb;
 }
 
 .mobileCta {
-  margin-top: 1rem;
+  margin-top: 1.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   background: #2563eb;
   color: #ffffff !important;
+  min-height: 48px;
   padding: 0.85rem 1.5rem;
   border-radius: var(--radius-full, 9999px);
   font-size: 1rem;
   font-weight: 700;
   text-decoration: none;
   box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+  touch-action: manipulation;
 }

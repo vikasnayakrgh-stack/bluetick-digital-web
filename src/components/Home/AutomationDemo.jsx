@@ -111,7 +111,7 @@ const AutomationDemo = () => {
   }, [selectedTab]);
 
   return (
-    <section id="automation-demo" className="section section-subtle">
+    <section id="demo" className="section section-subtle">
       <div className="container">
         {/* Section Header */}
         <FloemaReveal variant="slide-up" delay={0}>
@@ -130,13 +130,16 @@ const AutomationDemo = () => {
         </FloemaReveal>
 
         {/* Tab Selector */}
-        <div className={styles.tabGrid}>
+        <div className={styles.tabGrid} role="tablist" aria-label="Automation Industry Demos">
           {Object.values(DEMOS).map((demo) => {
             const Icon = demo.icon;
             const isSelected = selectedTab === demo.id;
             return (
               <button
                 key={demo.id}
+                role="tab"
+                aria-selected={isSelected}
+                aria-controls="demo-tabpanel"
                 className={`${styles.tabBtn} ${isSelected ? styles.tabSelected : ''}`}
                 onClick={() => setSelectedTab(demo.id)}
               >
@@ -159,7 +162,10 @@ const AutomationDemo = () => {
         {/* 2-Column Showcase: Strategy Breakdown + Live WhatsApp Simulator */}
         <AnimatePresence mode="wait">
           <motion.div
-            key={selectedTab}
+            key={current.id}
+            id="demo-tabpanel"
+            role="tabpanel"
+            aria-label={`${current.title} Automation Showcase`}
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -16 }}

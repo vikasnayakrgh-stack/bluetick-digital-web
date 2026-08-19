@@ -86,7 +86,7 @@ const AboutPage = () => {
                         </div>
                     </div>
 
-                    <div className="card" style={{ textAlignment: 'center', padding: '3rem', background: 'var(--color-slate-900)', color: 'white' }}>
+                    <div className="card" style={{ textAlign: 'center', padding: '3rem', background: 'var(--color-slate-900)', color: 'white' }}>
                         <h3 style={{ fontSize: '1.75rem', color: 'white', marginBottom: '1rem' }}>Ready to transform your digital presence?</h3>
                         <p style={{ color: 'var(--color-slate-300)', marginBottom: '2rem', maxWidth: '600px', margin: '0 auto 2rem auto' }}>
                             Tell us what you're trying to improve. We'll identify where a better website or AI automation creates the biggest impact.

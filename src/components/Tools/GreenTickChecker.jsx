@@ -126,9 +126,9 @@ const GreenTickChecker = () => {
                         </div>
 
                         <div style={{ marginTop: '2rem' }}>
-                            <Link to="/contact" className={styles.ctaButton}>
+                            <a href="/#audit?req=whatsapp_automation" className={styles.ctaButton}>
                                 Apply for Green Tick Now
-                            </Link>
+                            </a>
                         </div>
                     </div>
                 )}

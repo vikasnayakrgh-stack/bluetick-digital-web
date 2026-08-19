@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, Suspense, lazy } from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import { MotionConfig } from 'framer-motion'
@@ -12,7 +12,7 @@ import WhatsAppBtn from './components/Layout/WhatsAppBtn'
 import BackToTop from './components/Layout/BackToTop'
 import SEO from './components/Common/SEO'
 
-// Home Sections
+// Home Sections (Critical Path - Statically Loaded)
 import Hero from './components/Home/Hero'
 import TrustBar from './components/Home/TrustBar'
 import CoreSolutions from './components/Home/CoreSolutions'
@@ -26,17 +26,19 @@ import BlogSection from './components/Home/BlogSection'
 import FAQ from './components/Home/FAQ'
 import AuditForm from './components/Home/AuditForm'
 
-// Sub-Pages
-import WebsitesPage from './components/Solutions/WebsitesPage'
-import EcommercePage from './components/Solutions/EcommercePage'
-import AIAutomationPage from './components/Solutions/AIAutomationPage'
-import WhatsAppAutomationPage from './components/Solutions/WhatsAppAutomationPage'
-import IndustryPage from './components/Industries/IndustryPage'
-import AboutPage from './components/About/AboutPage'
-import BlogListing from './components/Blog/BlogListing'
-import BlogPost from './components/Blog/BlogPost'
-import WhatsAppCalculator from './components/Tools/WhatsAppCalculator'
-import GreenTickChecker from './components/Tools/GreenTickChecker'
+// Lazy-Loaded Sub-Pages & Tools (Code-Split for Mobile Performance)
+const WebsitesPage = lazy(() => import('./components/Solutions/WebsitesPage'))
+const EcommercePage = lazy(() => import('./components/Solutions/EcommercePage'))
+const AIAutomationPage = lazy(() => import('./components/Solutions/AIAutomationPage'))
+const WhatsAppAutomationPage = lazy(() => import('./components/Solutions/WhatsAppAutomationPage'))
+const IndustryPage = lazy(() => import('./components/Industries/IndustryPage'))
+const AboutPage = lazy(() => import('./components/About/AboutPage'))
+const BlogListing = lazy(() => import('./components/Blog/BlogListing'))
+const BlogPost = lazy(() => import('./components/Blog/BlogPost'))
+const WhatsAppCalculator = lazy(() => import('./components/Tools/WhatsAppCalculator'))
+const GreenTickChecker = lazy(() => import('./components/Tools/GreenTickChecker'))
+const PrivacyPage = lazy(() => import('./components/Legal/LegalPages').then(m => ({ default: m.PrivacyPage })))
+const TermsPage = lazy(() => import('./components/Legal/LegalPages').then(m => ({ default: m.TermsPage })))
 
 import { FAQ_DATA } from './constants/pricing_faq'
 
@@ -107,6 +109,12 @@ const HOME_STRUCTURED_DATA = {
   ]
 };
 
+const PageFallback = () => (
+  <div style={{ minHeight: '70vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <div style={{ width: '32px', height: '32px', border: '3px solid rgba(15, 23, 42, 0.1)', borderTopColor: 'var(--color-brand)', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} />
+  </div>
+);
+
 const Home = () => (
   <>
     <SEO
@@ -159,22 +167,26 @@ function App() {
             {/* <AnnouncementBar /> */}
             <Header />
 
-            <main id="main-content">
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/solutions/websites" element={<WebsitesPage />} />
-                <Route path="/solutions/ecommerce" element={<EcommercePage />} />
-                <Route path="/solutions/ai-automation" element={<AIAutomationPage />} />
-                <Route path="/solutions/whatsapp-automation" element={<WhatsAppAutomationPage />} />
-                <Route path="/industries/:slug" element={<IndustryPage />} />
-                <Route path="/about" element={<AboutPage />} />
-                <Route path="/blog" element={<BlogListing />} />
-                <Route path="/blog/:slug" element={<BlogPost />} />
-                <Route path="/whatsapp-api-pricing-india" element={<WhatsAppCalculator />} />
-                <Route path="/whatsapp-api-cost-calculator" element={<Navigate to="/whatsapp-api-pricing-india" replace />} />
-                <Route path="/whatsapp-green-tick-checker" element={<GreenTickChecker />} />
-                <Route path="*" element={<Home />} />
-              </Routes>
+            <main id="main-content" tabIndex="-1" style={{ outline: 'none' }}>
+              <Suspense fallback={<PageFallback />}>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/solutions/websites" element={<WebsitesPage />} />
+                  <Route path="/solutions/ecommerce" element={<EcommercePage />} />
+                  <Route path="/solutions/ai-automation" element={<AIAutomationPage />} />
+                  <Route path="/solutions/whatsapp-automation" element={<WhatsAppAutomationPage />} />
+                  <Route path="/industries/:slug" element={<IndustryPage />} />
+                  <Route path="/about" element={<AboutPage />} />
+                  <Route path="/blog" element={<BlogListing />} />
+                  <Route path="/blog/:slug" element={<BlogPost />} />
+                  <Route path="/privacy" element={<PrivacyPage />} />
+                  <Route path="/terms" element={<TermsPage />} />
+                  <Route path="/whatsapp-api-pricing-india" element={<WhatsAppCalculator />} />
+                  <Route path="/whatsapp-api-cost-calculator" element={<Navigate to="/whatsapp-api-pricing-india" replace />} />
+                  <Route path="/whatsapp-green-tick-checker" element={<GreenTickChecker />} />
+                  <Route path="*" element={<Home />} />
+                </Routes>
+              </Suspense>
             </main>
 
             <Footer />
@@ -184,7 +196,7 @@ function App() {
         </Router>
       </MotionConfig>
     </HelmetProvider>
-  )
+  );
 }
 
-export default App
+export default App;

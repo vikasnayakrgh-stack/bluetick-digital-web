@@ -298,8 +298,13 @@
 @media (max-width: 768px) {
   .notchedBannerContainer {
     clip-path: none;
-    padding: 3rem 1rem;
+    padding: 2.5rem 0.75rem;
     border-radius: var(--radius-lg);
+  }
+
+  .traditionalCol,
+  .bluetickCol {
+    padding: 1.5rem 1.25rem;
   }
 
   .quoteBlock {

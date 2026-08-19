@@ -1,9 +1,10 @@
 .button {
     position: fixed;
     bottom: 2rem;
-    left: 2rem;
-    width: 50px;
-    height: 50px;
+    right: 2rem;
+    left: auto;
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
     background: #25D366;
     color: #ffffff;
@@ -15,6 +16,7 @@
     z-index: 99;
     border: none;
     transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    touch-action: manipulation;
 }
 
 .button:hover {
@@ -51,14 +53,15 @@
 
 @media (max-width: 768px) {
     .button {
-        bottom: 1.5rem;
-        left: 1.5rem;
-        width: 44px;
-        height: 44px;
+        bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
+        right: 1.25rem;
+        left: auto;
+        width: 48px;
+        height: 48px;
     }
 
     .icon {
-        width: 22px;
-        height: 22px;
+        width: 24px;
+        height: 24px;
     }
 }
