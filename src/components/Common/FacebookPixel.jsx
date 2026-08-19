@@ -1,9 +1,18 @@
 import { useEffect } from 'react';
+import { useCookieConsent } from '../../context/CookieConsentContext';
 
 const PIXEL_ID = '1411505880771110';
 
+/**
+ * FacebookPixel: Loads Meta Pixel only if the user has explicitly consented to Marketing / Advertising cookies.
+ */
 const FacebookPixel = () => {
+    const { consent } = useCookieConsent();
+
     useEffect(() => {
+        // Only load if user granted Marketing consent
+        if (!consent?.marketing) return;
+
         // Prevent duplicate initialization
         if (window.fbq) return;
 
@@ -28,9 +37,11 @@ const FacebookPixel = () => {
         // Initialize and track PageView
         window.fbq('init', PIXEL_ID);
         window.fbq('track', 'PageView');
-    }, []);
+    }, [consent?.marketing]);
 
-    // Render noscript fallback for users with JS disabled
+    if (!consent?.marketing) return null;
+
+    // Render noscript fallback only when marketing consent is granted
     return (
         <noscript>
             <img

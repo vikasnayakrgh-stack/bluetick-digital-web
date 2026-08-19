@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, CheckCircle2, ShieldCheck, Sparkles, ArrowRight, ArrowLeft, Loader2, AlertCircle, Zap } from 'lucide-react';
 import { MOTION_TOKENS } from '../../constants/motionTokens';
+import { Link } from 'react-router-dom';
 import styles from './AuditForm.module.css';
 import { supabase } from '../../supabaseClient';
 
@@ -527,6 +528,10 @@ const AuditForm = () => {
                                             <ShieldCheck size={13} style={{ color: '#16a34a' }} />
                                             <span>256-bit SSL encrypted • Zero spam guarantee</span>
                                         </div>
+
+                                        <p style={{ textAlign: 'center', marginTop: '0.5rem', fontSize: '0.75rem', color: '#94a3b8', lineHeight: 1.5, margin: '0.5rem 0 0 0' }}>
+                                            By submitting this form, you agree to our <Link to="/terms" style={{ color: '#38bdf8', textDecoration: 'underline' }}>Terms of Service</Link> and acknowledge our <Link to="/privacy" style={{ color: '#38bdf8', textDecoration: 'underline' }}>Privacy Policy</Link>.
+                                        </p>
                                     </motion.div>
                                 )}
                             </AnimatePresence>

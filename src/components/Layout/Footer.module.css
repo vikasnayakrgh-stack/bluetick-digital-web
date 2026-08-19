@@ -189,23 +189,40 @@
 .legalLinks {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.legalLinks a {
+.legalLinks a,
+.cookiePrefBtn {
   color: var(--color-slate-400);
   text-decoration: none;
-  min-height: 44px;
+  font-size: 0.825rem;
+  min-height: 38px;
   display: inline-flex;
   align-items: center;
-  padding: 0 0.5rem;
+  padding: 0 0.35rem;
   touch-action: manipulation;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: color var(--transition-fast);
 }
 
-.legalLinks a:hover {
+.legalLinks a:hover,
+.cookiePrefBtn:hover {
   color: var(--color-white);
+  text-decoration: underline;
+}
+
+.cookiePrefBtn:focus-visible {
+  outline: 2px solid var(--color-brand-500);
+  outline-offset: 2px;
 }
 
 .dot {
   color: var(--color-slate-700);
+  font-size: 0.75rem;
 }

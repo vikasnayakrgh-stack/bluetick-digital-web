@@ -11,6 +11,10 @@ import Footer from './components/Layout/Footer'
 import FloatingActions from './components/Layout/FloatingActions'
 import SEO from './components/Common/SEO'
 import ScrollToTop from './components/Common/ScrollToTop'
+import GoogleAnalytics from './components/Common/GoogleAnalytics'
+import FacebookPixel from './components/Common/FacebookPixel'
+import CookieConsentBanner from './components/Common/CookieConsentBanner'
+import { CookieConsentProvider } from './context/CookieConsentContext'
 
 // Home Sections (Critical Path - Statically Loaded)
 import Hero from './components/Home/Hero'
@@ -39,6 +43,9 @@ const WhatsAppCalculator = lazy(() => import('./components/Tools/WhatsAppCalcula
 const GreenTickChecker = lazy(() => import('./components/Tools/GreenTickChecker'))
 const PrivacyPage = lazy(() => import('./components/Legal/LegalPages').then(m => ({ default: m.PrivacyPage })))
 const TermsPage = lazy(() => import('./components/Legal/LegalPages').then(m => ({ default: m.TermsPage })))
+const RefundPage = lazy(() => import('./components/Legal/LegalPages').then(m => ({ default: m.RefundPage })))
+const CookiePolicyPage = lazy(() => import('./components/Legal/LegalPages').then(m => ({ default: m.CookiePolicyPage })))
+const AcceptableUsePage = lazy(() => import('./components/Legal/LegalPages').then(m => ({ default: m.AcceptableUsePage })))
 
 import { FAQ_DATA } from './constants/pricing_faq'
 
@@ -157,44 +164,55 @@ function App() {
 
   return (
     <HelmetProvider>
-      <MotionConfig reducedMotion="user">
-        <Router>
-          <ScrollToTop />
-          <div className="App">
-            <a href="#main-content" className="skip-link">
-              Skip to main content
-            </a>
+      <CookieConsentProvider>
+        <MotionConfig reducedMotion="user">
+          <Router>
+            <ScrollToTop />
+            <GoogleAnalytics />
+            <FacebookPixel />
+            <div className="App">
+              <a href="#main-content" className="skip-link">
+                Skip to main content
+              </a>
 
-            {/* <AnnouncementBar /> */}
-            <Header />
+              {/* <AnnouncementBar /> */}
+              <Header />
 
-            <main id="main-content" tabIndex="-1" style={{ outline: 'none' }}>
-              <Suspense fallback={<PageFallback />}>
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/solutions/websites" element={<WebsitesPage />} />
-                  <Route path="/solutions/ecommerce" element={<EcommercePage />} />
-                  <Route path="/solutions/ai-automation" element={<AIAutomationPage />} />
-                  <Route path="/solutions/whatsapp-automation" element={<WhatsAppAutomationPage />} />
-                  <Route path="/industries/:slug" element={<IndustryPage />} />
-                  <Route path="/about" element={<AboutPage />} />
-                  <Route path="/blog" element={<BlogListing />} />
-                  <Route path="/blog/:slug" element={<BlogPost />} />
-                  <Route path="/privacy" element={<PrivacyPage />} />
-                  <Route path="/terms" element={<TermsPage />} />
-                  <Route path="/whatsapp-api-pricing-india" element={<WhatsAppCalculator />} />
-                  <Route path="/whatsapp-api-cost-calculator" element={<Navigate to="/whatsapp-api-pricing-india" replace />} />
-                  <Route path="/whatsapp-green-tick-checker" element={<GreenTickChecker />} />
-                  <Route path="*" element={<Home />} />
-                </Routes>
-              </Suspense>
-            </main>
+              <main id="main-content" tabIndex="-1" style={{ outline: 'none' }}>
+                <Suspense fallback={<PageFallback />}>
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/solutions/websites" element={<WebsitesPage />} />
+                    <Route path="/solutions/ecommerce" element={<EcommercePage />} />
+                    <Route path="/solutions/ai-automation" element={<AIAutomationPage />} />
+                    <Route path="/solutions/whatsapp-automation" element={<WhatsAppAutomationPage />} />
+                    <Route path="/industries/:slug" element={<IndustryPage />} />
+                    <Route path="/about" element={<AboutPage />} />
+                    <Route path="/blog" element={<BlogListing />} />
+                    <Route path="/blog/:slug" element={<BlogPost />} />
+                    <Route path="/privacy" element={<PrivacyPage />} />
+                    <Route path="/terms" element={<TermsPage />} />
+                    <Route path="/refund" element={<RefundPage />} />
+                    <Route path="/refund-policy" element={<Navigate to="/refund" replace />} />
+                    <Route path="/cookies" element={<CookiePolicyPage />} />
+                    <Route path="/cookie-policy" element={<Navigate to="/cookies" replace />} />
+                    <Route path="/acceptable-use" element={<AcceptableUsePage />} />
+                    <Route path="/whatsapp-policy" element={<Navigate to="/acceptable-use" replace />} />
+                    <Route path="/whatsapp-api-pricing-india" element={<WhatsAppCalculator />} />
+                    <Route path="/whatsapp-api-cost-calculator" element={<Navigate to="/whatsapp-api-pricing-india" replace />} />
+                    <Route path="/whatsapp-green-tick-checker" element={<GreenTickChecker />} />
+                    <Route path="*" element={<Home />} />
+                  </Routes>
+                </Suspense>
+              </main>
 
-            <Footer />
-            <FloatingActions />
-          </div>
-        </Router>
-      </MotionConfig>
+              <Footer />
+              <FloatingActions />
+              <CookieConsentBanner />
+            </div>
+          </Router>
+        </MotionConfig>
+      </CookieConsentProvider>
     </HelmetProvider>
   );
 }

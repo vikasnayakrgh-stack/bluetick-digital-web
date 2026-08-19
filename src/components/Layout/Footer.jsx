@@ -1,10 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook, Twitter, Instagram, Linkedin, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Linkedin, ShieldCheck } from 'lucide-react';
 import logo from '../../assets/logo-icon.png';
+import { useCookieConsent } from '../../context/CookieConsentContext';
 import styles from './Footer.module.css';
 
 const Footer = () => {
+    const { openPreferences } = useCookieConsent();
+
     return (
         <footer className={styles.footer}>
             <div className="container">
@@ -19,7 +22,7 @@ const Footer = () => {
                         </p>
                         <div className={styles.trustBadge}>
                             <ShieldCheck size={18} className={styles.shieldIcon} />
-                            <span>Enterprise Security & Data Isolation</span>
+                            <span>Enterprise Security &amp; Data Isolation</span>
                         </div>
                     </div>
 
@@ -38,15 +41,15 @@ const Footer = () => {
                         <ul className={styles.linkList}>
                             <li><Link to="/industries/ecommerce">E-commerce Brands</Link></li>
                             <li><Link to="/industries/manufacturing">Manufacturers</Link></li>
-                            <li><Link to="/industries/startups">Startups & Tech</Link></li>
-                            <li><Link to="/industries/local-business">Real Estate & Services</Link></li>
+                            <li><Link to="/industries/startups">Startups &amp; Tech</Link></li>
+                            <li><Link to="/industries/local-business">Real Estate &amp; Services</Link></li>
                         </ul>
                     </div>
 
                     <div className={styles.linkCol}>
                         <h4 className={styles.colTitle}>Knowledge Hub</h4>
                         <ul className={styles.linkList}>
-                            <li><Link to="/blog">All Guides & Insights</Link></li>
+                            <li><Link to="/blog">All Guides &amp; Insights</Link></li>
                             <li><Link to="/blog/website-development-cost-in-india-2026">Website Cost Guide 2026</Link></li>
                             <li><Link to="/blog/whatsapp-chatbot-automation">WhatsApp Chatbot Guide</Link></li>
                             <li><Link to="/whatsapp-api-pricing-india">WhatsApp Calculator</Link></li>
@@ -57,7 +60,7 @@ const Footer = () => {
                         <h4 className={styles.colTitle}>Company</h4>
                         <ul className={styles.linkList}>
                             <li><Link to="/about">About Bluetick</Link></li>
-                            <li><a href="/#showcase">Projects & Showcase</a></li>
+                            <li><a href="/#showcase">Projects &amp; Showcase</a></li>
                             <li><a href="/#how-it-works">How It Works</a></li>
                             <li><a href="/#audit">Get Free Audit</a></li>
                         </ul>
@@ -67,7 +70,7 @@ const Footer = () => {
                 <div className={styles.middleBar}>
                     <div className={styles.hqBox}>
                         <span className={styles.hqLabel}>Headquarters:</span>
-                        <span className={styles.hqAddress}>Raipur, Chhattisgarh | Serving Pan-India & Remote Clients</span>
+                        <span className={styles.hqAddress}>Raipur, Chhattisgarh | Serving Pan-India &amp; Remote Clients</span>
                     </div>
                     <div className={styles.socials}>
                         <a href="#" aria-label="Facebook"><Facebook size={18} /></a>
@@ -83,6 +86,21 @@ const Footer = () => {
                         <Link to="/privacy">Privacy Policy</Link>
                         <span className={styles.dot}>•</span>
                         <Link to="/terms">Terms of Service</Link>
+                        <span className={styles.dot}>•</span>
+                        <Link to="/refund">Refund Policy</Link>
+                        <span className={styles.dot}>•</span>
+                        <Link to="/cookies">Cookie Policy</Link>
+                        <span className={styles.dot}>•</span>
+                        <Link to="/acceptable-use">Acceptable Use</Link>
+                        <span className={styles.dot}>•</span>
+                        <button
+                            type="button"
+                            onClick={openPreferences}
+                            className={styles.cookiePrefBtn}
+                            aria-label="Manage cookie preferences"
+                        >
+                            Cookie Preferences
+                        </button>
                     </div>
                 </div>
             </div>

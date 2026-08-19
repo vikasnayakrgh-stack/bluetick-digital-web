@@ -384,6 +384,51 @@ const ROUTES = [
         <p>Email: bluetickdigitalraipur@gmail.com | Registered Address under applicable MSME/Udyam registration.</p>
       </main>
     `
+  },
+  {
+    route: '/refund',
+    title: 'Refund & Cancellation Policy | Bluetick Digital',
+    description: 'Read Bluetick Digital\'s refund, cancellation, subscription and service policy.',
+    keywords: 'Refund Policy, Cancellation Policy, Bluetick Digital Subscription, WhatsApp Automation Refund',
+    canonical: 'https://bluetickdigital.in/refund',
+    ogImage: 'https://bluetickdigital.in/assets/logo.png',
+    bodyHtml: `
+      <main>
+        <h1>Refund &amp; Cancellation Policy</h1>
+        <p>Read Bluetick Digital's annual subscription, service cancellation, and refund guidelines for WhatsApp Business API and AI automation solutions.</p>
+        <p>Email: bluetickdigitalraipur@gmail.com | Owner: Kheerendra Nayak</p>
+      </main>
+    `
+  },
+  {
+    route: '/cookies',
+    title: 'Cookie Policy | Bluetick Digital',
+    description: 'Learn how Bluetick Digital uses cookies, analytics and similar technologies on its website.',
+    keywords: 'Cookie Policy, Website Cookies, Google Analytics Cookies, Meta Pixel Consent, Bluetick Digital',
+    canonical: 'https://bluetickdigital.in/cookies',
+    ogImage: 'https://bluetickdigital.in/assets/logo.png',
+    bodyHtml: `
+      <main>
+        <h1>Cookie Policy</h1>
+        <p>Learn how Bluetick Digital uses essential, analytics, and marketing cookies to operate our website and measure performance.</p>
+        <p>Email: bluetickdigitalraipur@gmail.com | Owner: Kheerendra Nayak</p>
+      </main>
+    `
+  },
+  {
+    route: '/acceptable-use',
+    title: 'Acceptable Use & WhatsApp Messaging Policy | Bluetick Digital',
+    description: 'Learn the rules for responsible WhatsApp messaging, automation, AI and acceptable use of Bluetick Digital services.',
+    keywords: 'Acceptable Use Policy, WhatsApp Messaging Rules, Anti-Spam Policy, AI Automation Policy, Bluetick Digital',
+    canonical: 'https://bluetickdigital.in/acceptable-use',
+    ogImage: 'https://bluetickdigital.in/assets/logo.png',
+    bodyHtml: `
+      <main>
+        <h1>Acceptable Use &amp; WhatsApp Messaging Policy</h1>
+        <p>Rules and compliance guidelines for WhatsApp Business API messaging, promotional broadcasts, AI automation, and customer opt-in requirements.</p>
+        <p>Email: bluetickdigitalraipur@gmail.com | Owner: Kheerendra Nayak</p>
+      </main>
+    `
   }
 ];
 

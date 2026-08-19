@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, CheckCircle2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import styles from './ContactForm.module.css';
-
 import { supabase } from '../../supabaseClient';
 
 const ContactForm = () => {
@@ -122,6 +122,10 @@ const ContactForm = () => {
                                 </>
                             )}
                         </button>
+
+                        <p style={{ textAlign: 'center', margin: '0.65rem 0 0 0', fontSize: '0.75rem', color: '#94a3b8', lineHeight: 1.45 }}>
+                            By submitting this form, you agree to our <Link to="/terms" style={{ color: '#38bdf8', textDecoration: 'underline' }}>Terms of Service</Link> and acknowledge our <Link to="/privacy" style={{ color: '#38bdf8', textDecoration: 'underline' }}>Privacy Policy</Link>.
+                        </p>
 
                         <p className={styles.footerNote}>
                             🛡️ No credit card required. Official WhatsApp API security.
