@@ -358,30 +358,30 @@ const ROUTES = [
   {
     route: '/privacy',
     title: 'Privacy Policy | Bluetick Digital',
-    description: 'Privacy Policy for Bluetick Digital governing data protection, WhatsApp Business API services, AI-powered automation, customer data processing, and user rights.',
+    description: 'Privacy Policy for Bluetick Digital (owned by Kheerendra Nayak) governing data protection, WhatsApp Business API services, AI-powered automation, customer data processing, and user rights.',
     keywords: 'Privacy Policy, Bluetick Digital Privacy, Data Protection, WhatsApp API Privacy, AI Data Security',
     canonical: 'https://bluetickdigital.in/privacy',
     ogImage: 'https://bluetickdigital.in/assets/logo.png',
     bodyHtml: `
       <main>
         <h1>Privacy Policy</h1>
-        <p>Bluetick Digital is committed to protecting personal data handled through our website, WhatsApp Business API solutions, AI automation, and customer communications.</p>
-        <p>Contact: Chandrakar complex, Raipura chawk, Raipur | bluetickdigitalraipur@gmail.com</p>
+        <p>Bluetick Digital (owned by Kheerendra Nayak) is committed to protecting personal data handled through our website, WhatsApp Business API solutions, AI automation, and customer communications.</p>
+        <p>Email: bluetickdigitalraipur@gmail.com | Registered Address under applicable MSME/Udyam registration.</p>
       </main>
     `
   },
   {
     route: '/terms',
     title: 'Terms of Service | Bluetick Digital',
-    description: 'Terms of Service governing access to and use of Bluetick Digital\'s website, software, AI chatbots, and WhatsApp Business API automation services.',
+    description: 'Terms of Service governing access to and use of Bluetick Digital\'s (owned by Kheerendra Nayak) website, software, AI chatbots, and WhatsApp Business API automation services.',
     keywords: 'Terms of Service, Bluetick Digital Terms, WhatsApp API Terms, AI Automation Agreement',
     canonical: 'https://bluetickdigital.in/terms',
     ogImage: 'https://bluetickdigital.in/assets/logo.png',
     bodyHtml: `
       <main>
         <h1>Terms of Service</h1>
-        <p>These Terms of Service govern your access to and use of Bluetick Digital website, WhatsApp Business API workflows, custom AI agents, and digital automation platforms.</p>
-        <p>Contact: Chandrakar complex, Raipura chawk, Raipur | bluetickdigitalraipur@gmail.com</p>
+        <p>These Terms of Service govern your access to and use of Bluetick Digital (owned by Kheerendra Nayak) website, WhatsApp Business API workflows, custom AI agents, and digital automation platforms.</p>
+        <p>Email: bluetickdigitalraipur@gmail.com | Registered Address under applicable MSME/Udyam registration.</p>
       </main>
     `
   }

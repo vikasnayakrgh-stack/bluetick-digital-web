@@ -8,7 +8,7 @@ export const PrivacyPage = () => (
   <>
     <SEO
       title="Privacy Policy | Bluetick Digital"
-      description="Bluetick Digital's Privacy Policy explains what information we collect, how we use it, how we protect personal data, and your rights."
+      description="Bluetick Digital Privacy Policy. Learn how we collect, process, and protect your personal and business data across our website and automation services."
     />
     <section className={styles.legalSection}>
       <div className={styles.container}>
@@ -28,330 +28,366 @@ export const PrivacyPage = () => (
 
         <div className={styles.contentWrapper}>
           <p className={styles.introParagraph}>
-            Bluetick Digital (“Bluetick Digital”, “Bluetick”, “we”, “us” or “our”) respects your privacy and is committed to protecting personal data handled through our website, products, services and business communications.
+            Bluetick Digital (“Bluetick Digital”, “Bluetick”, “we”, “us” or “our”) is a proprietorship/business owned by <strong>Kheerendra Nayak</strong> and provides business technology, WhatsApp automation, AI automation and related digital services.
           </p>
           <p>
-            This Privacy Policy explains what information we collect, how we use it, when we share it, how we protect it, and the choices and rights available to you.
+            We respect your privacy and are committed to handling personal information responsibly.
           </p>
           <p>
-            By using <strong>https://bluetickdigital.in</strong>, contacting us, requesting a demo, purchasing our services, or using our WhatsApp/API/AI automation services, you acknowledge that you have read and understood this Privacy Policy.
+            This Privacy Policy explains how we collect, use, process, disclose and protect information when you visit <strong>bluetickdigital.in</strong>, contact us, request a demo, purchase our services, or use our products and services.
+          </p>
+          <p>
+            By using our website or services, you acknowledge this Privacy Policy.
           </p>
 
           <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>1. Who We Are</h2>
-            <p>
-              Bluetick Digital provides technology and business automation services, including WhatsApp Business API solutions, AI-powered automation, AI agents, chatbots, workflow automation, CRM integrations, lead management, broadcasts, smart forms and related digital services.
-            </p>
-            <div className={styles.contactCard}>
-              <p><strong>Legal/Business Name:</strong> Bluetick digital</p>
-              <p><strong>Registered/Business Address:</strong> Chandrakar complex, Raipura chawk, raipur</p>
-              <p><strong>Email:</strong> <a href="mailto:bluetickdigitalraipur@gmail.com" className={styles.contactLink}>bluetickdigitalraipur@gmail.com</a></p>
-              <p><strong>Website:</strong> <a href="https://bluetickdigital.in" target="_blank" rel="noopener noreferrer" className={styles.contactLink}>https://bluetickdigital.in</a></p>
-            </div>
-            <p>For privacy-related requests, you may contact us using the details above.</p>
-          </div>
-
-          <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>2. Scope of This Privacy Policy</h2>
-            <p>This Privacy Policy applies to information collected through:</p>
+            <h2 className={styles.sectionHeading}>1. About Bluetick Digital</h2>
+            <p>Bluetick Digital provides technology and business automation solutions, which may include:</p>
             <ul className={styles.bulletList}>
-              <li>Our website and web pages;</li>
-              <li>Contact and demo forms;</li>
-              <li>WhatsApp conversations with Bluetick;</li>
-              <li>Sales and customer-support communications;</li>
-              <li>Our software, dashboards and automation services;</li>
-              <li>AI-powered services and agents;</li>
-              <li>Customer onboarding;</li>
-              <li>Business integrations and connected applications;</li>
-              <li>Other services that expressly link to this Privacy Policy.</li>
+              <li>WhatsApp Business API services;</li>
+              <li>WhatsApp automation;</li>
+              <li>AI-powered agents and chatbots;</li>
+              <li>Automated replies;</li>
+              <li>Lead qualification;</li>
+              <li>Automated follow-ups;</li>
+              <li>Appointment booking;</li>
+              <li>CRM integrations;</li>
+              <li>Business workflow automation;</li>
+              <li>Broadcast and messaging functionality;</li>
+              <li>Website and digital services;</li>
+              <li>Related consulting, implementation and support.</li>
             </ul>
-            <p>This Policy does not automatically apply to third-party websites, platforms or services that we do not control.</p>
+            <div className={styles.contactCard}>
+              <p><strong>Business:</strong> Bluetick Digital</p>
+              <p><strong>Owner:</strong> Kheerendra Nayak</p>
+              <p><strong>Email:</strong> <a href="mailto:bluetickdigitalraipur@gmail.com" className={styles.contactLink}>bluetickdigitalraipur@gmail.com</a></p>
+              <p><strong>Address:</strong> Our business address as registered under the applicable MSME/Udyam registration.</p>
+            </div>
           </div>
 
           <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>3. Information We Collect</h2>
-            <p>Depending on how you interact with us, we may collect the following categories of information.</p>
-            <h3 className={styles.subHeading}>3.1 Information You Provide</h3>
-            <p>This may include:</p>
+            <h2 className={styles.sectionHeading}>2. Information We Collect</h2>
+            <p>Depending on how you interact with Bluetick, we may collect information including:</p>
+            <h3 className={styles.subHeading}>Information you provide directly</h3>
             <ul className={styles.bulletList}>
               <li>Name;</li>
-              <li>Business name;</li>
+              <li>Phone number;</li>
+              <li>WhatsApp number;</li>
               <li>Email address;</li>
-              <li>Phone or WhatsApp number;</li>
+              <li>Company/business name;</li>
+              <li>Website address;</li>
               <li>Business type or industry;</li>
-              <li>Company information;</li>
-              <li>Information submitted through demo or enquiry forms;</li>
-              <li>Information provided during onboarding;</li>
-              <li>Support requests;</li>
-              <li>Communications with our team;</li>
-              <li>Information required to provide requested services;</li>
-              <li>Billing and transaction-related information.</li>
+              <li>Business requirements;</li>
+              <li>Monthly lead information;</li>
+              <li>Budget or service requirements;</li>
+              <li>Messages and enquiries;</li>
+              <li>Information submitted through contact, demo, pricing or audit forms;</li>
+              <li>Information provided during customer onboarding;</li>
+              <li>Information required to configure our services.</li>
             </ul>
-            <p>Please do not submit information that is unnecessary for the requested service.</p>
+            <p>You should only provide information that is reasonably necessary for the service or enquiry.</p>
           </div>
 
           <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>4. Information Processed Through Customer Services</h2>
-            <p>
-              When a business customer uses Bluetick's automation services, the customer may choose to connect or process information relating to its own customers, leads, employees, prospects or other individuals.
-            </p>
-            <p>This may include:</p>
+            <h2 className={styles.sectionHeading}>3. Website Forms</h2>
+            <p>Our website may provide forms or contact mechanisms including:</p>
             <ul className={styles.bulletList}>
-              <li>Names;</li>
-              <li>Phone numbers;</li>
-              <li>WhatsApp identifiers;</li>
-              <li>Customer messages;</li>
-              <li>Enquiry details;</li>
-              <li>Lead information;</li>
-              <li>Appointment information;</li>
-              <li>Purchase or order information;</li>
-              <li>CRM records;</li>
-              <li>Conversation history;</li>
-              <li>Information provided by the customer to configure an AI agent or workflow.</li>
+              <li>Contact Us;</li>
+              <li>Book a Demo;</li>
+              <li>Pricing enquiries;</li>
+              <li>Free website audit requests;</li>
+              <li>WhatsApp enquiries;</li>
+              <li>Other business enquiries.</li>
             </ul>
             <p>
-              Where Bluetick processes such information on behalf of a business customer, the business customer is generally responsible for determining the purposes for which that information is collected and used and for ensuring that it has the necessary permissions, notices, consents or other lawful basis required by applicable law.
-            </p>
-            <p>
-              Bluetick processes such information primarily to provide, maintain, secure and improve the services requested by the customer and in accordance with the applicable customer agreement.
+              Information submitted through these mechanisms may be processed and stored in our business systems, including our database infrastructure, for purposes such as responding to enquiries, managing leads, providing services and maintaining business records.
             </p>
           </div>
 
           <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>5. Information Collected Automatically</h2>
-            <p>When you visit our website, certain technical information may be collected automatically, depending on the technologies enabled on the website.</p>
-            <p>This may include:</p>
+            <h2 className={styles.sectionHeading}>4. Information Collected Automatically</h2>
+            <p>When you visit our website, certain information may be collected automatically through cookies, analytics and similar technologies.</p>
+            <p>Depending on the tools enabled on our website, this may include:</p>
             <ul className={styles.bulletList}>
               <li>IP address;</li>
               <li>Browser type;</li>
               <li>Device type;</li>
               <li>Operating system;</li>
-              <li>Pages visited;</li>
-              <li>Approximate location derived from technical information;</li>
-              <li>Referring pages;</li>
-              <li>Date and time of access;</li>
+              <li>Pages viewed;</li>
+              <li>Referring website;</li>
+              <li>Approximate geographic information;</li>
+              <li>Date and time of visits;</li>
               <li>Website interaction information;</li>
+              <li>Marketing attribution information;</li>
               <li>Performance and diagnostic information.</li>
             </ul>
-            <p>We may use this information for security, analytics, troubleshooting, performance improvement and website optimisation.</p>
+            <p>We may use analytics and marketing technologies such as:</p>
+            <ul className={styles.bulletList}>
+              <li>Google Analytics;</li>
+              <li>Google Tag Manager;</li>
+              <li>Meta Pixel;</li>
+              <li>Google Ads conversion tracking;</li>
+              <li>Other analytics or advertising technologies that may be enabled from time to time.</li>
+            </ul>
           </div>
 
           <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>6. Cookies and Similar Technologies</h2>
+            <h2 className={styles.sectionHeading}>5. Cookies</h2>
             <p>We may use cookies and similar technologies to:</p>
             <ul className={styles.bulletList}>
-              <li>Keep the website functioning;</li>
+              <li>Operate the website;</li>
               <li>Remember preferences;</li>
-              <li>Understand website usage;</li>
-              <li>Measure marketing and website performance;</li>
+              <li>Measure website performance;</li>
+              <li>Understand visitor behaviour;</li>
               <li>Improve user experience;</li>
-              <li>Detect security issues;</li>
-              <li>Support analytics and advertising activities where enabled.</li>
+              <li>Analyse marketing performance;</li>
+              <li>Support advertising and remarketing;</li>
+              <li>Detect security or technical issues.</li>
             </ul>
-            <p>
-              Third-party technologies, including analytics, advertising or embedded services, may independently collect information according to their own privacy policies.
-            </p>
-            <p>Where applicable law requires consent for particular cookies or tracking technologies, we will seek the appropriate consent.</p>
+            <p>We intend to provide a cookie consent mechanism where required by applicable law.</p>
+            <p>You may also be able to control cookies through your browser settings. Some website functionality may not operate properly if certain cookies are disabled.</p>
           </div>
 
           <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>7. How We Use Information</h2>
-            <p>We may use information for purposes including:</p>
+            <h2 className={styles.sectionHeading}>6. How We Use Information</h2>
+            <p>We may use information for legitimate business and service-related purposes, including:</p>
             <ol className={styles.orderedList}>
               <li>Responding to enquiries;</li>
-              <li>Scheduling and conducting demonstrations;</li>
-              <li>Providing requested services;</li>
-              <li>Creating and managing customer accounts;</li>
-              <li>Configuring WhatsApp/API and automation services;</li>
-              <li>Operating AI agents, chatbots and workflows;</li>
+              <li>Contacting prospective customers;</li>
+              <li>Scheduling demonstrations;</li>
+              <li>Providing quotations and proposals;</li>
+              <li>Onboarding customers;</li>
+              <li>Configuring services;</li>
               <li>Providing customer support;</li>
-              <li>Processing payments and subscriptions;</li>
-              <li>Sending service-related communications;</li>
-              <li>Sending marketing communications where permitted;</li>
-              <li>Improving products and services;</li>
-              <li>Monitoring service performance;</li>
-              <li>Detecting fraud, abuse and security threats;</li>
-              <li>Maintaining system security;</li>
-              <li>Complying with applicable laws and lawful requests;</li>
-              <li>Enforcing our agreements; and</li>
-              <li>Protecting our rights, users and systems.</li>
+              <li>Operating WhatsApp/API services;</li>
+              <li>Managing subscriptions and accounts;</li>
+              <li>Improving website performance;</li>
+              <li>Measuring marketing campaigns;</li>
+              <li>Preventing fraud, abuse and security incidents;</li>
+              <li>Maintaining business records;</li>
+              <li>Complying with applicable laws;</li>
+              <li>Enforcing contractual rights;</li>
+              <li>Protecting our business, customers and systems.</li>
             </ol>
-            <p><strong>We do not sell your personal information as a commercial data product.</strong></p>
           </div>
 
           <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>8. AI-Powered Services</h2>
-            <p>Bluetick may use artificial intelligence and machine-learning technologies to provide features such as:</p>
+            <h2 className={styles.sectionHeading}>7. Customer Business Data</h2>
+            <p>
+              When a business customer uses Bluetick services, the customer may provide or connect information relating to its own customers, leads, prospects or business operations.
+            </p>
+            <p>The customer generally remains responsible for its business/customer data.</p>
+            <p>
+              Bluetick processes such information only to the extent reasonably necessary to provide the services requested by the customer and to perform legitimate service, security and operational functions.
+            </p>
+            <p>
+              Customers are responsible for ensuring that they have the necessary rights, permissions, notices and lawful basis to collect and provide such information to Bluetick.
+            </p>
+          </div>
+
+          <div className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>8. WhatsApp Data</h2>
+            <p>
+              Bluetick provides WhatsApp Business API and automation services through third-party WhatsApp/BSP infrastructure.
+            </p>
+            <p>
+              <strong>Bluetick does not permanently store WhatsApp conversation history on its own servers/database as part of the standard service</strong>, unless a particular service or written agreement expressly states otherwise.
+            </p>
+            <p>However, information required to configure and operate WhatsApp services may be processed, such as:</p>
             <ul className={styles.bulletList}>
-              <li>AI-powered WhatsApp replies;</li>
+              <li>Business information;</li>
+              <li>WhatsApp configuration information;</li>
+              <li>Account/service identifiers;</li>
+              <li>API-related configuration;</li>
+              <li>Workflow configuration;</li>
+              <li>Service and technical information.</li>
+            </ul>
+            <p>
+              WhatsApp/Meta and the applicable WhatsApp Business Solution Provider may independently process information under their own terms and privacy policies.
+            </p>
+          </div>
+
+          <div className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>9. AI-Powered Services</h2>
+            <p>Bluetick may provide AI-powered features, including:</p>
+            <ul className={styles.bulletList}>
+              <li>Automated replies;</li>
               <li>Lead qualification;</li>
-              <li>Intent detection;</li>
-              <li>Automated follow-ups;</li>
-              <li>Customer support;</li>
-              <li>Information retrieval;</li>
+              <li>Follow-ups;</li>
+              <li>Appointment-related automation;</li>
+              <li>Customer interaction;</li>
               <li>Business workflow automation;</li>
-              <li>AI-assisted content or responses.</li>
+              <li>Human handoff;</li>
+              <li>Other AI-assisted functionality.</li>
             </ul>
-            <p>AI-generated responses may not always be accurate, complete, current or appropriate for every situation.</p>
-            <p>Customers are responsible for reviewing and configuring AI workflows appropriately for their business.</p>
-            <p>Bluetick does not represent that AI-generated content will always be error-free or suitable for making legal, financial, medical or other high-impact decisions.</p>
-            <p>Unless expressly agreed otherwise in writing, customer data is not intentionally used by Bluetick to train general-purpose AI models.</p>
+            <p>AI-generated responses may be automatically sent to users where the customer has configured an automated workflow to do so.</p>
+            <p>AI-generated information may not always be accurate, complete, current or appropriate.</p>
+            <p>Customers are responsible for reviewing and configuring AI workflows appropriately for their business requirements.</p>
+            <p>AI systems should not be relied upon as a substitute for professional legal, medical, financial or other specialised advice.</p>
           </div>
 
           <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>9. WhatsApp, Meta and Other Third-Party Platforms</h2>
-            <p>
-              Our services may integrate with third-party platforms including WhatsApp, Meta services, CRM systems, payment providers, Google services, calendar platforms and other software selected by the customer.
-            </p>
-            <p>These third-party platforms may independently collect, process, store or otherwise handle information under their own terms and privacy policies.</p>
-            <p>For example, use of Meta or WhatsApp services remains subject to the applicable Meta/WhatsApp terms and policies.</p>
-            <p>Customers are responsible for complying with applicable third-party platform policies when using our services.</p>
-            <p>Bluetick does not control the availability, policy decisions, account restrictions, template approvals, messaging limits or enforcement actions of third-party platforms.</p>
+            <h2 className={styles.sectionHeading}>10. AI Model Training</h2>
+            <p><strong>Bluetick does not intentionally use customer business data to train general-purpose AI models.</strong></p>
+            <p>We do not sell customer business data as a commercial data product.</p>
+            <p>Customer data is processed for providing the contracted services and related operational purposes.</p>
           </div>
 
           <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>10. Sharing of Information</h2>
-            <p>We may share information with:</p>
+            <h2 className={styles.sectionHeading}>11. Third-Party Services and Integrations</h2>
+            <p>Our services may interact with third-party platforms and technology providers. Depending on the service, these may include:</p>
             <ul className={styles.bulletList}>
-              <li>Technology and hosting providers;</li>
-              <li>Cloud infrastructure providers;</li>
-              <li>AI/model providers;</li>
-              <li>WhatsApp/Meta and applicable messaging providers;</li>
-              <li>CRM and business software providers;</li>
-              <li>Payment processors;</li>
-              <li>Analytics and security providers;</li>
+              <li>WhatsApp/Meta;</li>
+              <li>WhatsApp Business Solution Providers;</li>
+              <li>Cloud/database infrastructure;</li>
+              <li>AI service providers;</li>
+              <li>CRM platforms;</li>
+              <li>Google services;</li>
+              <li>Analytics and advertising providers;</li>
+              <li>Other third-party technology providers.</li>
+            </ul>
+            <p>Third-party providers may independently process information under their own privacy policies and terms.</p>
+            <p>Bluetick does not control the privacy practices, security practices, availability or policies of third-party services.</p>
+          </div>
+
+          <div className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>12. CRM Integrations</h2>
+            <p>Customers may connect third-party CRM systems or business tools to Bluetick where supported. The customer is responsible for:</p>
+            <ul className={styles.bulletList}>
+              <li>Authorising the connection;</li>
+              <li>Ensuring that the connected data may lawfully be processed;</li>
+              <li>Maintaining appropriate permissions;</li>
+              <li>Complying with the CRM provider's terms;</li>
+              <li>Managing access to its third-party accounts.</li>
+            </ul>
+            <p>Third-party CRM providers may independently process information according to their own policies.</p>
+          </div>
+
+          <div className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>13. Sharing of Information</h2>
+            <p>We may share information with service providers and third parties where reasonably necessary to operate our business or provide requested services. These may include:</p>
+            <ul className={styles.bulletList}>
+              <li>Hosting and infrastructure providers;</li>
+              <li>Database providers;</li>
+              <li>WhatsApp/BSP providers;</li>
+              <li>AI providers;</li>
+              <li>CRM providers;</li>
+              <li>Analytics providers;</li>
+              <li>Advertising platforms;</li>
               <li>Professional advisers;</li>
-              <li>Government authorities or law-enforcement agencies where legally required;</li>
-              <li>Service providers acting on our instructions.</li>
+              <li>Security providers;</li>
+              <li>Government authorities where legally required.</li>
             </ul>
-            <p>We require appropriate service providers to handle information only for legitimate business purposes and, where applicable, under contractual confidentiality and security obligations.</p>
-            <p>We do not sell customer business data as a standalone commercial product.</p>
+            <p><strong>We do not sell personal information as a standalone commercial product.</strong></p>
           </div>
 
           <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>11. Business Customer Data</h2>
-            <p>If you use Bluetick to process information belonging to your customers or leads:</p>
-            <ul className={styles.bulletList}>
-              <li>You remain responsible for the information you provide or connect to our services;</li>
-              <li>You must have the necessary rights, permissions, notices and lawful basis to collect and process such information;</li>
-              <li>You must comply with applicable privacy, marketing, messaging and consumer-protection laws;</li>
-              <li>You must not use Bluetick to send unlawful, deceptive, abusive or unsolicited communications;</li>
-              <li>You must respect opt-out and preference requests;</li>
-              <li>You must ensure that your use of WhatsApp and other third-party platforms complies with their policies.</li>
-            </ul>
-            <p>Bluetick may suspend or restrict workflows that present material legal, security, abuse or platform-policy risks.</p>
+            <h2 className={styles.sectionHeading}>14. Payment Information</h2>
+            <p>Bluetick does not intentionally store customers' card or payment credentials on its own servers.</p>
+            <p>Where payment services are introduced or used through a third-party payment provider, payment information may be processed directly by the applicable payment provider according to its own privacy policy and terms.</p>
           </div>
 
           <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>12. Data Retention</h2>
-            <p>
-              We retain information only for as long as reasonably necessary for the purposes described in this Privacy Policy, to provide services, comply with legal obligations, resolve disputes, enforce agreements and protect our legitimate interests.
-            </p>
-            <p>Retention periods may differ depending on:</p>
-            <ul className={styles.bulletList}>
-              <li>The type of information;</li>
-              <li>The purpose for which it was collected;</li>
-              <li>The customer's contractual requirements;</li>
-              <li>Legal or regulatory requirements;</li>
-              <li>Security and fraud-prevention requirements.</li>
-            </ul>
-            <p>When information is no longer required, we may delete, anonymise or securely dispose of it, subject to applicable legal and contractual requirements.</p>
-          </div>
-
-          <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>13. Data Security</h2>
-            <p>We take reasonable technical and organisational measures designed to protect information against unauthorised access, alteration, disclosure, loss, misuse or destruction.</p>
-            <p>Security measures may include:</p>
-            <ul className={styles.bulletList}>
-              <li>Access controls;</li>
-              <li>Authentication mechanisms;</li>
-              <li>Encryption where appropriate;</li>
-              <li>Secure hosting practices;</li>
-              <li>Monitoring and logging;</li>
-              <li>Backup and recovery controls;</li>
-              <li>Restricted employee/service-provider access;</li>
-              <li>Security reviews and maintenance.</li>
-            </ul>
+            <h2 className={styles.sectionHeading}>15. Data Security</h2>
+            <p>We take reasonable technical and organisational measures designed to protect information against unauthorised access, disclosure, loss, misuse, alteration, or destruction.</p>
+            <p>Security measures may include appropriate access controls, authentication, secure infrastructure, restricted access and monitoring.</p>
             <p>However, no internet-based system can be guaranteed to be completely secure.</p>
           </div>
 
           <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>14. International Processing</h2>
-            <p>Some technology and service providers used by Bluetick may process information outside India.</p>
-            <p>Where personal data is transferred or processed across jurisdictions, we seek to do so in accordance with applicable law and appropriate contractual, technical and organisational safeguards.</p>
+            <h2 className={styles.sectionHeading}>16. Data Retention</h2>
+            <p>
+              We retain information only for as long as reasonably necessary for the purposes for which it was collected, to provide services, maintain business records, comply with legal obligations, resolve disputes, prevent fraud and enforce agreements.
+            </p>
+            <p>WhatsApp conversation history is not permanently stored on Bluetick's servers as part of the standard service.</p>
+            <p>Business records, enquiry information, account information and transaction-related information may be retained for appropriate operational, legal, accounting or security purposes.</p>
           </div>
 
           <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>15. Your Privacy Rights</h2>
-            <p>Subject to applicable law and its commencement/implementation, you may have rights regarding your personal data, which may include:</p>
+            <h2 className={styles.sectionHeading}>17. Data Deletion</h2>
+            <p>Where applicable, you may request deletion of personal information by contacting us.</p>
+            <p>We may delete or anonymise information when it is no longer required, subject to legal obligations, accounting requirements, fraud prevention, security requirements, dispute resolution, or enforcement of contractual rights.</p>
+          </div>
+
+          <div className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>18. Privacy Rights</h2>
+            <p>Subject to applicable law, individuals may have rights relating to their personal information, including rights to:</p>
             <ul className={styles.bulletList}>
-              <li>Requesting access to information;</li>
-              <li>Requesting correction of inaccurate information;</li>
-              <li>Requesting deletion where applicable;</li>
-              <li>Withdrawing consent where processing is based on consent;</li>
-              <li>Requesting information about processing;</li>
-              <li>Raising a grievance;</li>
-              <li>Exercising other rights available under applicable law.</li>
+              <li>Request information about processing;</li>
+              <li>Request correction of inaccurate information;</li>
+              <li>Request deletion where applicable;</li>
+              <li>Withdraw consent where applicable;</li>
+              <li>Raise a grievance;</li>
+              <li>Exercise other rights available under applicable data-protection law.</li>
             </ul>
-            <p>Requests may be submitted using the contact details provided in this Privacy Policy. We may need to verify your identity before processing certain requests.</p>
+            <p>Requests may be sent to: <a href="mailto:bluetickdigitalraipur@gmail.com" className={styles.contactLink}>bluetickdigitalraipur@gmail.com</a></p>
+            <p>We may request reasonable information to verify your identity before processing certain requests.</p>
           </div>
 
           <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>16. Marketing Communications</h2>
-            <p>We may send service-related communications that are necessary for providing our services.</p>
-            <p>Where permitted and where you have provided the required permission or other lawful basis, we may also send promotional communications.</p>
-            <p>You may request to stop receiving promotional communications by using the available unsubscribe mechanism or contacting us. Service and transactional communications may continue where necessary.</p>
+            <h2 className={styles.sectionHeading}>19. Marketing Communications</h2>
+            <p>We may communicate with you regarding enquiries, demos, services, account-related matters, support, transactions, and important service notices.</p>
+            <p>Where permitted by applicable law, we may also send promotional communications. You may request to stop promotional communications using the available unsubscribe mechanism or by contacting us.</p>
           </div>
 
           <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>17. Children's Privacy</h2>
-            <p>Our services are intended primarily for businesses and adults.</p>
-            <p>We do not knowingly request or intentionally collect personal information directly from children for independent use of our services.</p>
-            <p>If you believe that a child has provided personal information to us inappropriately, please contact us so that we can investigate and take appropriate action.</p>
-          </div>
-
-          <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>18. Third-Party Websites</h2>
-            <p>Our website may contain links to third-party websites or services.</p>
-            <p>We are not responsible for the privacy practices, security, content or policies of third-party websites. You should review the applicable third-party privacy policy before providing personal information.</p>
-          </div>
-
-          <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>19. Data Breaches and Security Incidents</h2>
-            <p>If we become aware of a security incident involving personal data, we will assess the incident and take reasonable steps required under applicable law, including notification or cooperation with relevant parties where legally required.</p>
-          </div>
-
-          <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>20. Changes to This Privacy Policy</h2>
-            <p>We may update this Privacy Policy from time to time to reflect:</p>
+            <h2 className={styles.sectionHeading}>20. WhatsApp Marketing and Customer Responsibility</h2>
+            <p>Customers using Bluetick for WhatsApp marketing are responsible for complying with applicable messaging and marketing laws and WhatsApp/Meta policies. Customers must:</p>
             <ul className={styles.bulletList}>
-              <li>Changes to our services;</li>
-              <li>Changes to technology;</li>
-              <li>Changes to legal or regulatory requirements;</li>
-              <li>Changes to our data practices;</li>
-              <li>Security or operational improvements.</li>
+              <li>Obtain required permissions/opt-ins;</li>
+              <li>Use legitimate contact information;</li>
+              <li>Respect applicable opt-out requirements;</li>
+              <li>Avoid deceptive or misleading communications;</li>
+              <li>Follow WhatsApp/Meta messaging policies;</li>
+              <li>Maintain appropriate records where required.</li>
             </ul>
-            <p>The updated version will be published on this page with a revised “Last Updated” date.</p>
+            <p>Bluetick may restrict or suspend activity that presents material legal, security, abuse or platform-policy risks.</p>
           </div>
 
           <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>21. Contact and Privacy Requests</h2>
-            <p>For privacy questions, data-related requests or grievances, contact:</p>
+            <h2 className={styles.sectionHeading}>21. Children</h2>
+            <p>Bluetick primarily provides business-oriented services. We do not intentionally design our services to collect personal information from children for independent use.</p>
+            <p>If you believe that information relating to a child has been improperly submitted to us, please contact us.</p>
+          </div>
+
+          <div className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>22. Sensitive Personal Information</h2>
+            <p>Customers should not submit unnecessary sensitive personal information through Bluetick systems, including passwords, OTPs, payment-card credentials, Aadhaar information, PAN information, health information, or authentication credentials.</p>
+            <p>Customers remain responsible for information they choose to submit through the service.</p>
+          </div>
+
+          <div className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>23. Third-Party Websites</h2>
+            <p>Our website may contain links to third-party websites or services. We are not responsible for their privacy practices, security, content, availability, or terms.</p>
+            <p>You should review the applicable third-party policies before providing information to them.</p>
+          </div>
+
+          <div className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>24. Security Incidents</h2>
+            <p>If we become aware of a security incident involving personal information, we will assess the incident and take reasonable steps required under applicable law, including notification or cooperation with relevant authorities where legally required.</p>
+          </div>
+
+          <div className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>25. International Processing</h2>
+            <p>Some third-party technology providers used by Bluetick may process information outside India. Where applicable, such processing will be conducted subject to applicable law and appropriate safeguards.</p>
+          </div>
+
+          <div className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>26. Changes to This Privacy Policy</h2>
+            <p>We may update this Privacy Policy from time to time due to changes in our services, technology, data practices, legal/regulatory developments, or security improvements.</p>
+            <p>The latest version will be published on this page with the updated date.</p>
+          </div>
+
+          <div className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>27. Contact Us</h2>
+            <p>For privacy questions, data requests or grievances:</p>
             <div className={styles.contactCard}>
               <p><strong>Bluetick Digital</strong></p>
+              <p><strong>Owner:</strong> Kheerendra Nayak</p>
               <p><strong>Email:</strong> <a href="mailto:bluetickdigitalraipur@gmail.com" className={styles.contactLink}>bluetickdigitalraipur@gmail.com</a></p>
-              <p><strong>Address:</strong> Chandrakar complex, Raipura chawk, raipur</p>
+              <p><strong>Address:</strong> Business address registered under our applicable MSME/Udyam registration.</p>
               <p><strong>Website:</strong> <a href="https://bluetickdigital.in" target="_blank" rel="noopener noreferrer" className={styles.contactLink}>https://bluetickdigital.in</a></p>
             </div>
-            <p>Please include enough information for us to understand and respond to your request.</p>
-          </div>
-
-          <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>22. Governing Framework</h2>
-            <p>
-              This Privacy Policy is intended to operate in accordance with applicable laws of India, including applicable data-protection, information-technology and consumer-protection requirements.
-            </p>
-            <p>Nothing in this Policy limits any rights or protections that cannot lawfully be excluded under applicable law.</p>
           </div>
         </div>
       </div>
@@ -363,7 +399,7 @@ export const TermsPage = () => (
   <>
     <SEO
       title="Terms of Service | Bluetick Digital"
-      description="Terms of Service governing access to and use of Bluetick Digital's website, platforms, software, AI chatbots, and WhatsApp automation services."
+      description="Terms of Service governing access to and use of Bluetick Digital's website, software, WhatsApp Business API services, AI automation, and digital platforms."
     />
     <section className={styles.legalSection}>
       <div className={styles.container}>
@@ -383,430 +419,372 @@ export const TermsPage = () => (
 
         <div className={styles.contentWrapper}>
           <p className={styles.introParagraph}>
-            These Terms of Service (“Terms”) govern your access to and use of the website, software, platforms, automation services and related services provided by Bluetick Digital (“Bluetick”, “we”, “us” or “our”).
+            These Terms of Service (“Terms”) govern your access to and use of the website, software, WhatsApp/API services, AI automation services and other services provided by <strong>Bluetick Digital</strong>, a proprietorship/business owned by <strong>Kheerendra Nayak</strong> (“Bluetick”, “we”, “us” or “our”).
           </p>
           <p>
-            By accessing our website, requesting our services, creating an account, purchasing a plan, connecting a WhatsApp number, or using any Bluetick service, you agree to these Terms.
+            By accessing our website, requesting a demo, purchasing a service, creating an account, connecting a WhatsApp number, or using any Bluetick service, you agree to these Terms.
           </p>
           <p>
-            If you are using the services on behalf of a company or organisation, you represent that you have authority to bind that organisation to these Terms.
+            If you are using Bluetick on behalf of a business or organisation, you confirm that you have authority to bind that organisation to these Terms.
           </p>
 
           <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>1. About Bluetick Digital</h2>
-            <p>Bluetick Digital provides technology and business automation services including:</p>
+            <h2 className={styles.sectionHeading}>1. Our Services</h2>
+            <p>Bluetick Digital provides business technology and automation services that may include:</p>
             <ul className={styles.bulletList}>
-              <li>WhatsApp Business API solutions;</li>
+              <li>WhatsApp Business API;</li>
               <li>WhatsApp automation;</li>
-              <li>AI-powered chatbots and agents;</li>
-              <li>AI lead qualification;</li>
+              <li>AI-powered agents;</li>
+              <li>AI chatbots;</li>
+              <li>Automated WhatsApp replies;</li>
+              <li>Lead qualification;</li>
               <li>Automated follow-ups;</li>
-              <li>Broadcast and messaging workflows;</li>
-              <li>Smart forms;</li>
+              <li>Appointment booking;</li>
               <li>CRM integrations;</li>
-              <li>Google Sheets/Calendar and other integrations;</li>
-              <li>Custom automation workflows;</li>
-              <li>Website and digital technology services;</li>
-              <li>Related consulting, implementation and support.</li>
+              <li>Business workflow automation;</li>
+              <li>Broadcast messaging;</li>
+              <li>Smart forms;</li>
+              <li>Website and digital services;</li>
+              <li>Related implementation and support.</li>
             </ul>
-            <p>Specific features depend on the plan, order, proposal or service agreement applicable to the customer.</p>
+            <p>Specific features depend on the plan, service package, proposal or agreement applicable to the customer.</p>
           </div>
 
           <div className={styles.sectionBlock}>
             <h2 className={styles.sectionHeading}>2. Eligibility</h2>
             <p>You must have the legal capacity to enter into a binding agreement.</p>
-            <p>If you use Bluetick on behalf of a business, you confirm that you are authorised to do so.</p>
-            <p>You may not use Bluetick services for unlawful, fraudulent or abusive activities.</p>
+            <p>If you use our services on behalf of a business, you confirm that you are authorised to do so.</p>
+            <p>You must not use our services for unlawful, fraudulent, abusive or prohibited purposes.</p>
           </div>
 
           <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>3. Accounts and Onboarding</h2>
-            <p>You may be required to provide accurate information during onboarding.</p>
-            <p>You are responsible for:</p>
+            <h2 className={styles.sectionHeading}>3. Customer Account</h2>
+            <p>Where an account is required, you are responsible for:</p>
             <ul className={styles.bulletList}>
-              <li>Maintaining accurate account information;</li>
+              <li>Providing accurate information;</li>
+              <li>Keeping account information updated;</li>
               <li>Protecting login credentials;</li>
-              <li>Restricting unauthorised account access;</li>
-              <li>Notifying us of suspected unauthorised access;</li>
-              <li>Ensuring authorised team members comply with these Terms.</li>
+              <li>Controlling access to your account;</li>
+              <li>Ensuring authorised users comply with these Terms.</li>
             </ul>
-            <p>Bluetick is not responsible for losses caused by credentials or access being improperly shared or compromised due to customer-side failures.</p>
+            <p>You must notify us if you believe your account has been compromised.</p>
           </div>
 
           <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>4. WhatsApp Business API Services</h2>
-            <p>WhatsApp-related services depend on third-party infrastructure, including Meta/WhatsApp and applicable business solution providers.</p>
-            <p>Your use of WhatsApp services is subject to:</p>
+            <h2 className={styles.sectionHeading}>4. WhatsApp Business API</h2>
+            <p>WhatsApp-related services depend on WhatsApp/Meta and applicable Business Solution Provider infrastructure.</p>
+            <p>Your use of WhatsApp services is also subject to applicable:</p>
             <ul className={styles.bulletList}>
-              <li>WhatsApp/Meta policies;</li>
-              <li>Applicable messaging rules;</li>
-              <li>Business and commerce policies;</li>
+              <li>WhatsApp policies;</li>
+              <li>Meta policies;</li>
+              <li>Messaging rules;</li>
+              <li>Business policies;</li>
               <li>Template requirements;</li>
-              <li>Messaging limits;</li>
-              <li>Quality and spam controls;</li>
-              <li>Other applicable third-party policies.</li>
+              <li>Quality requirements;</li>
+              <li>Messaging limitations.</li>
             </ul>
-            <p>Bluetick cannot guarantee that Meta or another third-party provider will approve a business, template, message, account, phone number or particular use case.</p>
+            <p>Bluetick cannot guarantee approval of WhatsApp accounts, business accounts, phone numbers, templates, campaigns, or particular message content.</p>
           </div>
 
           <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>5. Customer Responsibilities for Messaging</h2>
-            <p>You are responsible for ensuring that your messaging activities are lawful and authorised.</p>
-            <p>You must not use Bluetick to:</p>
+            <h2 className={styles.sectionHeading}>5. WhatsApp Account Ownership and Infrastructure</h2>
+            <p>Depending on the service arrangement, WhatsApp Business API infrastructure may be provisioned or managed through Bluetick's applicable provider/infrastructure.</p>
+            <p>Customers authorise Bluetick to perform the technical configuration necessary to provide the purchased service.</p>
+            <p>Third-party provider policies and decisions may affect the availability of the WhatsApp service.</p>
+          </div>
+
+          <div className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>6. WhatsApp Messaging Responsibilities</h2>
+            <p>Customers are responsible for ensuring that their messaging activities are lawful and authorised. Customers must:</p>
             <ul className={styles.bulletList}>
-              <li>Send spam;</li>
-              <li>Send deceptive messages;</li>
-              <li>Impersonate another person or business;</li>
-              <li>Send unlawful or fraudulent communications;</li>
-              <li>Harass recipients;</li>
-              <li>Circumvent platform restrictions;</li>
-              <li>Use purchased, scraped or unlawfully obtained contact lists;</li>
-              <li>Continue messaging recipients who have opted out where prohibited;</li>
-              <li>Promote prohibited or restricted products or services;</li>
-              <li>Violate WhatsApp, Meta or other platform policies.</li>
+              <li>Obtain required WhatsApp/user opt-ins;</li>
+              <li>Use accurate and legitimate contact information;</li>
+              <li>Respect applicable opt-out requests;</li>
+              <li>Follow applicable marketing laws;</li>
+              <li>Follow WhatsApp/Meta policies;</li>
+              <li>Use appropriate message templates where required;</li>
+              <li>Avoid deceptive messaging.</li>
             </ul>
-            <p>You are responsible for obtaining and maintaining any required customer opt-ins, permissions and notices.</p>
           </div>
 
           <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>6. WhatsApp Account Restrictions and Suspension</h2>
-            <p>WhatsApp/Meta may restrict, suspend, limit or disable accounts, phone numbers, templates or messaging capabilities.</p>
-            <p>Such decisions may occur independently of Bluetick.</p>
-            <p>Bluetick is not responsible for losses arising from third-party platform enforcement, policy changes, messaging limits, quality ratings, template rejection, account restrictions or number bans where those events are outside Bluetick's reasonable control.</p>
-            <p>We may assist with troubleshooting or appeals where such support is available, but we do not guarantee restoration.</p>
-          </div>
-
-          <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>7. AI Services</h2>
-            <p>Bluetick may provide AI-powered features that generate responses, classify leads, analyse conversations or automate business processes.</p>
-            <p>AI outputs may be:</p>
+            <h2 className={styles.sectionHeading}>7. Prohibited Contact Lists</h2>
+            <p>Customers must not use Bluetick to send messages to:</p>
             <ul className={styles.bulletList}>
-              <li>Inaccurate;</li>
-              <li>Incomplete;</li>
-              <li>Outdated;</li>
-              <li>Misinterpreted;</li>
-              <li>Inappropriate for a particular situation.</li>
+              <li>Purchased contact lists;</li>
+              <li>Scraped contact lists;</li>
+              <li>Unauthorised contact databases;</li>
+              <li>Lists obtained without appropriate permission;</li>
+              <li>Contacts where applicable consent/permission requirements have not been satisfied.</li>
             </ul>
-            <p>You are responsible for configuring appropriate safeguards, escalation rules and human review where necessary.</p>
-            <p>AI services should not be relied upon as a substitute for qualified legal, medical, financial, compliance or other professional advice.</p>
+            <p>Bluetick may suspend campaigns or accounts where we reasonably believe such activity is occurring.</p>
           </div>
 
           <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>8. No Guaranteed Business Results</h2>
-            <p>Bluetick provides technology and automation infrastructure.</p>
-            <p>Unless expressly stated in a signed written agreement, we do not guarantee:</p>
+            <h2 className={styles.sectionHeading}>8. Broadcast and Promotional Messaging</h2>
+            <p>Customers may use supported broadcast and promotional messaging functionality subject to applicable laws, WhatsApp/Meta policies and the customer's responsibility to obtain required permissions.</p>
+            <p>Customers are responsible for:</p>
             <ul className={styles.bulletList}>
-              <li>A specific number of leads;</li>
-              <li>A specific conversion rate;</li>
-              <li>A specific revenue amount;</li>
-              <li>A specific ROI;</li>
-              <li>A specific response rate;</li>
-              <li>A specific number of sales;</li>
-              <li>A specific reduction in RTO;</li>
-              <li>A specific campaign performance;</li>
-              <li>Continuous availability of third-party platforms.</li>
+              <li>Message content;</li>
+              <li>Recipient selection;</li>
+              <li>Frequency;</li>
+              <li>Consent;</li>
+              <li>Opt-out handling;</li>
+              <li>Regulatory compliance.</li>
             </ul>
-            <p>Business results depend on numerous factors outside Bluetick's control, including offer quality, audience, pricing, sales process, customer behaviour, platform policies and implementation.</p>
+            <p>Bluetick does not guarantee delivery, open rates, responses or conversions.</p>
           </div>
 
           <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>9. Plans, Features and Pricing</h2>
-            <p>Plans, features and prices are described on our website or in the applicable order, proposal or agreement.</p>
-            <p>Current website pricing may include annual plans such as:</p>
+            <h2 className={styles.sectionHeading}>9. AI Services</h2>
+            <p>Bluetick may provide AI-powered services capable of:</p>
             <ul className={styles.bulletList}>
-              <li>Growth;</li>
-              <li>AI Growth Engine;</li>
-              <li>Power Combo.</li>
+              <li>Replying to customers;</li>
+              <li>Qualifying leads;</li>
+              <li>Conducting follow-ups;</li>
+              <li>Assisting with appointment booking;</li>
+              <li>Supporting customer interactions;</li>
+              <li>Performing workflow actions;</li>
+              <li>Escalating conversations to humans;</li>
+              <li>Other automated business functions.</li>
             </ul>
-            <p>Features may vary by plan and may change over time.</p>
-            <p>Additional usage, AI credits, WhatsApp numbers, third-party charges or custom services may be billed separately where applicable.</p>
-            <p>If there is a conflict between website pricing and a specific written quotation or signed order, the applicable written commercial agreement will control.</p>
+            <p>AI-generated responses may be automatically sent without human approval where the customer enables such functionality. Customers are responsible for configuring the AI appropriately.</p>
           </div>
 
           <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>10. Third-Party Charges</h2>
-            <p>Certain services may involve charges from third-party providers, including WhatsApp/Meta, payment gateways, cloud providers, AI providers, CRM platforms or other integrations.</p>
-            <p>Unless explicitly included in your plan, such charges are your responsibility.</p>
-            <p>Third-party pricing, limits and policies may change without notice.</p>
+            <h2 className={styles.sectionHeading}>10. AI Disclaimer</h2>
+            <p>AI output may be inaccurate, incomplete, misleading, outdated or inappropriate. Customers must not rely exclusively on AI output for decisions requiring professional judgement.</p>
+            <p>Bluetick does not guarantee AI accuracy, availability, particular responses, specific lead qualification results, conversion rates, or sales outcomes.</p>
           </div>
 
           <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>11. Payments</h2>
-            <p>Customers agree to pay applicable fees according to the selected plan or commercial agreement.</p>
-            <p>Unless otherwise stated:</p>
+            <h2 className={styles.sectionHeading}>11. Customer Data</h2>
+            <p>Customers retain ownership of their business information, customer data, leads and content supplied to Bluetick.</p>
+            <p>The customer grants Bluetick the limited rights necessary to process information, operate the service, configure workflows, provide support, maintain security, troubleshoot technical issues, and comply with law.</p>
+            <p><strong>Bluetick does not sell customer business data as a commercial data product.</strong></p>
+            <p><strong>Bluetick does not intentionally use customer business data to train general-purpose AI models.</strong></p>
+          </div>
+
+          <div className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>12. Customer Data Compliance</h2>
+            <p>Customers are responsible for ensuring that information supplied to Bluetick has been collected and provided lawfully with appropriate permissions, consents, notices, and authorisations.</p>
+            <p>Customers are also responsible for complying with applicable privacy and marketing laws.</p>
+          </div>
+
+          <div className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>13. Sensitive Information</h2>
+            <p>Customers should not use Bluetick to unnecessarily process highly sensitive information, including passwords, OTPs, payment-card credentials, Aadhaar information, PAN information, health information, or authentication credentials.</p>
+            <p>Where such information is unnecessarily provided, Bluetick may restrict or remove access to the relevant workflow or service.</p>
+          </div>
+
+          <div className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>14. CRM and Third-Party Integrations</h2>
+            <p>Bluetick may support connections to third-party CRM and business applications. Customers authorise Bluetick to interact with such services as necessary to provide the requested integration.</p>
+            <p>Customers remain responsible for their third-party accounts, permissions, data entered into third-party systems, fees, and compliance with third-party terms.</p>
+          </div>
+
+          <div className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>15. Third-Party Services</h2>
+            <p>Bluetick may depend on third-party infrastructure (messaging platforms, AI providers, hosting, CRM systems, analytics, etc.).</p>
+            <p>Third-party services may change policies, pricing, APIs, limit usage, suspend accounts, or experience downtime. Bluetick is not responsible for failures caused solely by third-party providers.</p>
+          </div>
+
+          <div className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>16. Pricing and Plans</h2>
+            <p>Our current annual plans may include:</p>
             <ul className={styles.bulletList}>
-              <li>Fees must be paid before the applicable service period begins;</li>
-              <li>Taxes may be charged as required by law;</li>
-              <li>Payment gateway charges or applicable taxes may apply;</li>
-              <li>Failure to pay may result in suspension of services.</li>
+              <li><strong>Growth:</strong> ₹11,999/year</li>
+              <li><strong>AI Growth Engine:</strong> ₹14,999/year</li>
+              <li><strong>Power Combo:</strong> ₹25,000/year</li>
             </ul>
-            <p>Bluetick may change pricing for future billing periods by providing reasonable notice.</p>
+            <p>Features and limits may vary by plan. Pricing displayed on the website may be updated from time to time. Applicable taxes, where required by law, may be charged separately.</p>
           </div>
 
           <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>12. Refunds and Cancellation</h2>
-            <p>Refund eligibility depends on the applicable plan, order, proposal or written agreement.</p>
-            <p>Unless expressly stated otherwise in writing, payment for a subscription or service does not automatically create a right to a refund merely because the customer does not use the service.</p>
-            <p>Where a refund policy applies, the specific refund conditions communicated at the time of purchase will govern.</p>
-            <p>Any non-refundable third-party charges, setup charges or completed custom implementation work may not be refundable where legally permitted.</p>
-            <div className={styles.alertNote}>
-              Please review your specific commercial order or agreement for applicable plan refund and cancellation terms.
-            </div>
+            <h2 className={styles.sectionHeading}>17. Annual Subscription</h2>
+            <p>Bluetick plans are currently offered on an annual subscription basis unless otherwise specified. Subscriptions do not automatically renew. Customers must purchase a new subscription when the existing subscription expires if they wish to continue using the service.</p>
           </div>
 
           <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>13. Service Availability</h2>
-            <p>We aim to provide reliable services but do not guarantee uninterrupted or error-free operation.</p>
-            <p>Services may be temporarily unavailable due to:</p>
-            <ul className={styles.bulletList}>
-              <li>Maintenance;</li>
-              <li>Updates;</li>
-              <li>Security incidents;</li>
-              <li>Infrastructure failures;</li>
-              <li>Internet/network problems;</li>
-              <li>Third-party outages;</li>
-              <li>WhatsApp/Meta outages;</li>
-              <li>Cloud provider failures;</li>
-              <li>Force majeure events.</li>
-            </ul>
-            <p>Where commercially reasonable, we may communicate material planned maintenance.</p>
+            <h2 className={styles.sectionHeading}>18. Cancellation</h2>
+            <p>Customers may request cancellation of their subscription. Unless otherwise agreed in writing, cancellation results in <strong>immediate cessation of service access</strong>.</p>
+            <p>Cancellation does not automatically create a right to a refund.</p>
           </div>
 
           <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>14. Integrations</h2>
-            <p>Bluetick may integrate with third-party services including CRM platforms, Google services, payment gateways, calendars, messaging platforms, AI providers and automation tools.</p>
-            <p>You acknowledge that:</p>
-            <ul className={styles.bulletList}>
-              <li>Third-party services may change or become unavailable;</li>
-              <li>Third-party APIs may impose limits;</li>
-              <li>Third-party providers may suspend access;</li>
-              <li>Integration functionality may depend on API availability;</li>
-              <li>Third-party terms may separately apply.</li>
-            </ul>
-            <p>Bluetick is not responsible for failures caused exclusively by third-party systems.</p>
-          </div>
-
-          <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>15. Customer Data</h2>
-            <p>You retain ownership of business data and customer information that you lawfully provide to Bluetick for processing.</p>
-            <p>You grant Bluetick the limited rights necessary to host, process, transmit, store and otherwise use such data solely to provide the contracted services, maintain security, troubleshoot issues, comply with law and perform other legitimate service-related functions.</p>
-            <p>You are responsible for ensuring that you have the legal rights and permissions required to provide such information to Bluetick.</p>
-          </div>
-
-          <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>16. Intellectual Property</h2>
-            <p>Bluetick and its licensors retain all rights in:</p>
-            <ul className={styles.bulletList}>
-              <li>Software;</li>
-              <li>Platforms;</li>
-              <li>Source code;</li>
-              <li>Automation frameworks;</li>
-              <li>Pre-existing workflows;</li>
-              <li>Templates;</li>
-              <li>Interfaces;</li>
-              <li>Documentation;</li>
-              <li>Branding;</li>
-              <li>Logos;</li>
-              <li>Proprietary processes;</li>
-              <li>General know-how;</li>
-              <li>Reusable components.</li>
-            </ul>
-            <p>Unless expressly agreed otherwise in writing, purchasing a service does not transfer ownership of Bluetick's underlying technology or intellectual property.</p>
-            <p>Customer-specific deliverables may be governed by a separate agreement.</p>
-          </div>
-
-          <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>17. Customer Content</h2>
-            <p>You retain ownership of content, business information, product information, documents and other materials you provide to Bluetick.</p>
-            <p>You grant Bluetick a limited licence to use such materials only as reasonably necessary to provide the requested services.</p>
-            <p>You represent that you have the necessary rights to provide such content.</p>
-          </div>
-
-          <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>18. Confidentiality</h2>
-            <p>Each party may receive confidential information belonging to the other party.</p>
-            <p>The receiving party will use reasonable care to protect confidential information and will not disclose it except:</p>
-            <ul className={styles.bulletList}>
-              <li>To authorised personnel and service providers who need it for legitimate purposes;</li>
-              <li>Where required by law;</li>
-              <li>Where necessary to enforce contractual rights;</li>
-              <li>With the other party's permission.</li>
-            </ul>
-            <p>Confidentiality obligations do not apply to information that is publicly available, independently developed, lawfully received from another source or already known without confidentiality obligations.</p>
-          </div>
-
-          <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>19. Acceptable Use</h2>
-            <p>You agree to use Bluetick only for lawful and legitimate business purposes.</p>
-            <p>You must not use the service to:</p>
-            <ul className={styles.bulletList}>
-              <li>Commit fraud;</li>
-              <li>Conduct phishing or scams;</li>
-              <li>Distribute malware;</li>
-              <li>Circumvent security controls;</li>
-              <li>Violate privacy rights;</li>
-              <li>Infringe intellectual-property rights;</li>
-              <li>Harass or threaten individuals;</li>
-              <li>Send unlawful spam;</li>
-              <li>Impersonate individuals or organisations;</li>
-              <li>Promote illegal products or services;</li>
-              <li>Conduct activities prohibited by WhatsApp/Meta or applicable third-party platforms;</li>
-              <li>Attempt to reverse engineer or compromise Bluetick systems;</li>
-              <li>Resell or redistribute Bluetick services except where expressly authorised.</li>
-            </ul>
-            <p>We may suspend access where we reasonably believe the service is being used in violation of these requirements.</p>
-          </div>
-
-          <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>20. Prohibited and Restricted Use Cases</h2>
-            <p>Bluetick may refuse or restrict services involving businesses, content or activities that are illegal, highly regulated, fraudulent, deceptive or prohibited by applicable platform policies.</p>
-            <p>This may include activities involving:</p>
-            <ul className={styles.bulletList}>
-              <li>Illegal goods or services;</li>
-              <li>Fraudulent financial schemes;</li>
-              <li>Malware or cyber abuse;</li>
-              <li>Unlawful gambling;</li>
-              <li>Weapons or prohibited goods;</li>
-              <li>Child exploitation;</li>
-              <li>Illegal drugs;</li>
-              <li>Unauthorised financial or identity data;</li>
-              <li>Other prohibited categories under applicable law or third-party platform policies.</li>
-            </ul>
-            <p>Additional restrictions may apply depending on WhatsApp/Meta or other service-provider policies.</p>
-          </div>
-
-          <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>21. Account Suspension and Termination</h2>
-            <p>Bluetick may suspend or terminate access where:</p>
-            <ul className={styles.bulletList}>
-              <li>Fees remain unpaid;</li>
-              <li>The customer materially breaches these Terms;</li>
-              <li>The service is used unlawfully;</li>
-              <li>The customer violates third-party platform policies;</li>
-              <li>The account creates significant security or abuse risks;</li>
-              <li>Suspension is required by law;</li>
-              <li>Continued service creates material risk to Bluetick or third parties.</li>
-            </ul>
-            <p>Where reasonably possible, we may provide notice and an opportunity to remedy the breach. Certain serious violations may result in immediate suspension.</p>
-          </div>
-
-          <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>22. Effect of Termination</h2>
-            <p>After termination:</p>
-            <ul className={styles.bulletList}>
-              <li>Access to services may stop;</li>
-              <li>Automations may stop executing;</li>
-              <li>Connected integrations may be disconnected;</li>
-              <li>WhatsApp workflows may stop;</li>
-              <li>Customer data may be retained or deleted according to applicable agreements, law and our Privacy Policy;</li>
-              <li>Outstanding payment obligations remain payable.</li>
-            </ul>
-            <p>Customers should export any information they are entitled to retain before terminating a service.</p>
-          </div>
-
-          <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>23. Disclaimer</h2>
-            <p>To the maximum extent permitted by applicable law, Bluetick services are provided on an “as available” and “as is” basis.</p>
-            <p>We do not warrant that:</p>
-            <ul className={styles.bulletList}>
-              <li>The service will always be uninterrupted;</li>
-              <li>Every AI response will be accurate;</li>
-              <li>Every integration will always work;</li>
-              <li>Every WhatsApp message will be delivered;</li>
-              <li>Every template will be approved;</li>
-              <li>Every account will remain active;</li>
-              <li>The service will achieve a particular business result.</li>
-            </ul>
-            <p>Nothing in these Terms excludes warranties or rights that cannot legally be excluded.</p>
-          </div>
-
-          <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>24. Limitation of Liability</h2>
+            <h2 className={styles.sectionHeading}>19. Refund Policy</h2>
             <p>
-              To the maximum extent permitted by applicable law, Bluetick will not be liable for indirect, incidental, special, consequential or punitive losses, or loss of profits, revenue, goodwill, business opportunities or anticipated savings arising from use of the services.
+              <strong>All subscription, setup and activation fees are non-refundable once payment or service activation has occurred</strong>, except where Bluetick is legally required to provide a refund or expressly agrees otherwise in writing.
             </p>
-            <p>
-              Where legally permitted, Bluetick's aggregate liability relating to a particular service will not exceed the fees actually paid by the customer to Bluetick for that service during the twelve (12) months immediately preceding the event giving rise to the claim.
-            </p>
-            <p>This limitation does not apply where liability cannot legally be limited.</p>
-          </div>
-
-          <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>25. Indemnification</h2>
-            <p>To the extent permitted by law, you agree to indemnify and hold Bluetick Digital, its personnel and service providers harmless from claims, losses, damages and reasonable expenses arising from:</p>
+            <p>No refund will generally be provided because:</p>
             <ul className={styles.bulletList}>
-              <li>Your unlawful use of the services;</li>
-              <li>Your violation of these Terms;</li>
-              <li>Your violation of third-party platform policies;</li>
-              <li>Your failure to obtain required permissions or consents;</li>
-              <li>Content or data supplied by you;</li>
-              <li>Your infringement of another party's rights;</li>
-              <li>Your messaging or marketing activities.</li>
+              <li>The customer changes their mind;</li>
+              <li>The customer does not use the service;</li>
+              <li>The customer does not like the service;</li>
+              <li>WhatsApp/Meta does not approve an account or template;</li>
+              <li>The customer supplies incorrect or incomplete information;</li>
+              <li>The customer violates third-party policies;</li>
+              <li>The customer's WhatsApp number/account is restricted due to customer-side activity.</li>
             </ul>
+            <p>Where a technical issue is caused by Bluetick, the primary remedy will generally be reasonable technical support and efforts to resolve the issue.</p>
           </div>
 
           <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>26. Force Majeure</h2>
-            <p>Bluetick will not be responsible for delays or failures caused by circumstances beyond reasonable control, including natural disasters, war, government actions, internet failures, cyber incidents, infrastructure failures, cloud-provider failures, telecommunications failures, strikes, or major third-party platform outages.</p>
+            <h2 className={styles.sectionHeading}>20. Third-Party Charges</h2>
+            <p>Third-party charges may apply depending on the service (messaging providers, AI providers, cloud providers, CRM platforms). Such charges may be separate from Bluetick subscription fees unless explicitly included in the applicable plan.</p>
           </div>
 
           <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>27. Changes to Services</h2>
-            <p>We may modify, improve, replace or discontinue features from time to time.</p>
-            <p>Where a material change substantially reduces a paid service's core functionality, we will make commercially reasonable efforts to provide appropriate notice.</p>
-          </div>
-
-          <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>28. Changes to These Terms</h2>
-            <p>We may update these Terms from time to time.</p>
-            <p>The updated version will be published on this page with a revised “Last Updated” date.</p>
-            <p>Your continued use of the services after the effective date of updated Terms constitutes acceptance of the updated Terms, subject to applicable law.</p>
-          </div>
-
-          <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>29. Governing Law</h2>
-            <p>These Terms shall be governed by and interpreted in accordance with the laws of India.</p>
-            <p>Subject to any mandatory dispute-resolution rights available under applicable law, courts located in <strong>Raipur, Chhattisgarh, India</strong> shall have jurisdiction over disputes arising from these Terms.</p>
-          </div>
-
-          <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>30. Dispute Resolution</h2>
-            <p>Before initiating formal legal proceedings, the parties should attempt to resolve disputes through good-faith communication.</p>
-            <p>A customer may first contact Bluetick at the contact details below and provide:</p>
+            <h2 className={styles.sectionHeading}>21. Support</h2>
+            <p>Customer support is included where specified by the applicable plan.</p>
             <ul className={styles.bulletList}>
-              <li>Account/customer details;</li>
-              <li>Description of the dispute;</li>
-              <li>Relevant transaction/service information;</li>
-              <li>Supporting documents.</li>
+              <li><strong>Support Channels:</strong> WhatsApp and support/ticket channels.</li>
+              <li><strong>Standard Support Hours:</strong> 10:00 AM to 6:00 PM on working days.</li>
             </ul>
-            <p>Nothing in this section prevents a party from seeking urgent legal relief where necessary.</p>
+            <p>Bluetick does not provide guaranteed emergency support unless expressly agreed in writing.</p>
           </div>
 
           <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>31. Severability</h2>
-            <p>If any provision of these Terms is found to be invalid or unenforceable, that provision shall be modified or limited to the minimum extent necessary, and the remaining provisions shall continue to apply.</p>
+            <h2 className={styles.sectionHeading}>22. Service Availability</h2>
+            <p>Bluetick does not provide a guaranteed uptime commitment unless expressly stated in a separate written SLA.</p>
+            <p>Services may be temporarily unavailable due to maintenance, updates, infrastructure issues, security incidents, internet failures, third-party outages, WhatsApp/Meta outages, or other circumstances beyond our reasonable control.</p>
           </div>
 
           <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>32. No Waiver</h2>
-            <p>Failure to enforce any provision of these Terms does not constitute a waiver of our right to enforce that provision later.</p>
+            <h2 className={styles.sectionHeading}>23. No Guaranteed Business Results</h2>
+            <p>Bluetick provides technology and automation infrastructure. We do not guarantee a particular number of leads, sales, revenue, ROI, conversion rate, open rate, response rate, appointment volume, customer acquisition, or specific business growth.</p>
+            <p>Results depend on factors including offer quality, audience, pricing, sales process, market, implementation and customer behaviour.</p>
           </div>
 
           <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>33. Entire Agreement</h2>
-            <p>These Terms, together with any applicable order, proposal, service agreement, pricing terms and policies incorporated by reference, constitute the agreement governing your use of the applicable Bluetick services.</p>
-            <p>Where a signed written agreement conflicts with these Terms, the signed agreement will control for the specific subject matter of that conflict.</p>
+            <h2 className={styles.sectionHeading}>24. Intellectual Property</h2>
+            <p>Bluetick retains all rights in its software, platforms, source code, automation frameworks, templates, reusable workflows, libraries, interfaces, documentation, proprietary processes, and know-how.</p>
+            <p>Customers do not acquire ownership of Bluetick's underlying technology merely by purchasing a service.</p>
           </div>
 
           <div className={styles.sectionBlock}>
-            <h2 className={styles.sectionHeading}>34. Contact Us</h2>
+            <h2 className={styles.sectionHeading}>25. Customer Content</h2>
+            <p>Customers retain ownership of their business information, branding, product information, customer data, marketing content, and other materials supplied to Bluetick.</p>
+            <p>Customers grant Bluetick a limited licence to use such materials solely as necessary to provide the purchased services.</p>
+          </div>
+
+          <div className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>26. Custom Work</h2>
+            <p>Where Bluetick creates custom workflows, integrations or implementations, customer-specific business data and content remain customer property, while Bluetick retains ownership of reusable technology, frameworks, components, templates and know-how.</p>
+          </div>
+
+          <div className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>27. Customer Marketing and Case Studies</h2>
+            <p>Bluetick will not publicly use a customer's name, logo or case study for marketing purposes without appropriate permission.</p>
+          </div>
+
+          <div className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>28. Acceptable Use</h2>
+            <p>You must not use Bluetick services to commit fraud, conduct scams, send unlawful spam, phish users, distribute malware, harass users, impersonate another person/organisation, violate privacy rights, infringe intellectual property, circumvent platform restrictions, violate WhatsApp/Meta policies, or compromise Bluetick's security.</p>
+          </div>
+
+          <div className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>29. Restricted Industries and Activities</h2>
+            <p>Bluetick may restrict or refuse service where a use case creates significant legal, regulatory, security, fraud or platform-policy risk under applicable law or third-party platform policies.</p>
+          </div>
+
+          <div className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>30. Suspension</h2>
+            <p>Bluetick may suspend or restrict an account or workflow where fees remain unpaid, terms are materially breached, service is used unlawfully, WhatsApp/Meta policies are violated, spam/abuse is detected, security risks arise, or as required by law.</p>
+          </div>
+
+          <div className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>31. WhatsApp Suspension or Ban</h2>
+            <p>WhatsApp/Meta may restrict, suspend or terminate a business account, number, template or messaging capability. Bluetick does not control such decisions.</p>
+            <p>If an account is suspended or banned due to customer activity, policy violations, poor messaging quality, or recipient complaints, Bluetick does not guarantee restoration or refund.</p>
+          </div>
+
+          <div className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>32. Termination</h2>
+            <p>Either party may terminate the applicable service relationship subject to the applicable commercial terms. Upon termination, access to relevant services may immediately cease.</p>
+          </div>
+
+          <div className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>33. Data After Termination</h2>
+            <p>Following termination, access to Bluetick services may be disabled. Information may be deleted, anonymised or retained as reasonably necessary for legal compliance, accounting, security, fraud prevention, dispute resolution, or enforcement of contractual obligations.</p>
+            <p>WhatsApp conversation history is not permanently stored on Bluetick's servers as part of the standard service.</p>
+          </div>
+
+          <div className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>34. Confidentiality</h2>
+            <p>Each party agrees to take reasonable steps to protect confidential information and not disclose it except where necessary for providing services, authorised personnel, service providers, legal obligations, or enforcement of rights.</p>
+          </div>
+
+          <div className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>35. Security</h2>
+            <p>Bluetick takes reasonable measures to protect its systems and information. However, no online service can guarantee absolute security. Customers are responsible for maintaining appropriate security for their own accounts, credentials, integrations and connected third-party systems.</p>
+          </div>
+
+          <div className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>36. Disclaimer of Warranties</h2>
+            <p>To the maximum extent permitted by applicable law, Bluetick services are provided on an “as available” basis. We do not guarantee uninterrupted service, 100% AI accuracy, guaranteed message delivery, template approval, or particular business outcomes.</p>
+          </div>
+
+          <div className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>37. Limitation of Liability</h2>
+            <p>To the maximum extent permitted by applicable law, Bluetick will not be liable for indirect, incidental, consequential, special or punitive losses.</p>
+            <p>Subject to applicable law, Bluetick's aggregate liability arising from a service will not exceed the total fees actually paid by the customer to Bluetick for that service during the <strong>12 months preceding the event giving rise to the claim</strong>.</p>
+          </div>
+
+          <div className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>38. Indemnification</h2>
+            <p>To the extent permitted by law, you agree to indemnify Bluetick Digital and its personnel against claims, losses and reasonable expenses arising from your unlawful use of the service, breach of Terms, WhatsApp/Meta policy violations, messaging activities, data supplied, or infringement of third-party rights.</p>
+          </div>
+
+          <div className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>39. Force Majeure</h2>
+            <p>Bluetick will not be responsible for delays or failures caused by circumstances beyond reasonable control, including natural disasters, war, government actions, internet/telecom failures, cyber incidents, cloud provider failures, or platform outages.</p>
+          </div>
+
+          <div className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>40. Changes to Services</h2>
+            <p>Bluetick may modify, improve, add or discontinue features from time to time with reasonable notice where commercially practical.</p>
+          </div>
+
+          <div className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>41. Changes to These Terms</h2>
+            <p>We may update these Terms from time to time. The latest version will be published on this page with an updated “Last Updated” date.</p>
+          </div>
+
+          <div className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>42. Governing Law</h2>
+            <p>These Terms are governed by the laws of <strong>India</strong>. Subject to applicable mandatory legal requirements, courts located in <strong>Raipur, Chhattisgarh, India</strong> shall have jurisdiction over disputes arising from these Terms.</p>
+          </div>
+
+          <div className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>43. Dispute Resolution</h2>
+            <p>Before initiating formal legal proceedings, the parties agree to make reasonable efforts to resolve disputes through good-faith communication with a <strong>30-day good-faith resolution period</strong>.</p>
+          </div>
+
+          <div className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>44. Severability</h2>
+            <p>If any provision of these Terms is found invalid or unenforceable, the remaining provisions will continue to apply to the maximum extent permitted by law.</p>
+          </div>
+
+          <div className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>45. No Waiver</h2>
+            <p>Failure to enforce any provision of these Terms does not waive the right to enforce that provision in the future.</p>
+          </div>
+
+          <div className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>46. Entire Agreement</h2>
+            <p>These Terms, together with applicable pricing, order forms, proposals, service agreements and referenced policies, constitute the agreement governing use of Bluetick services.</p>
+          </div>
+
+          <div className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>47. Contact</h2>
             <div className={styles.contactCard}>
               <p><strong>Bluetick Digital</strong></p>
+              <p><strong>Owner:</strong> Kheerendra Nayak</p>
               <p><strong>Email:</strong> <a href="mailto:bluetickdigitalraipur@gmail.com" className={styles.contactLink}>bluetickdigitalraipur@gmail.com</a></p>
-              <p><strong>Address:</strong> Chandrakar complex, Raipura chawk, raipur</p>
+              <p><strong>Address:</strong> Business address registered under our applicable MSME/Udyam registration.</p>
               <p><strong>Website:</strong> <a href="https://bluetickdigital.in" target="_blank" rel="noopener noreferrer" className={styles.contactLink}>https://bluetickdigital.in</a></p>
             </div>
-            <p>For service, billing or legal notices, please use the contact information specified in your applicable agreement or the contact information published on our website.</p>
           </div>
         </div>
       </div>
