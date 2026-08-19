@@ -1,57 +1,111 @@
-import React, { useRef } from 'react';
-import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
+import React, { useRef, useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Lock, ArrowUpRight } from 'lucide-react';
 import { getMotionCapabilities } from '../../utils/motionCapabilities';
 import styles from './ProjectBrowserPreview.module.css';
 
-const TILT_MAX = 3.0; // Restrained max degrees (±3°)
-const TILT_SPRING = { stiffness: 280, damping: 26 };
+gsap.registerPlugin(ScrollTrigger);
+
+const TILT_MAX = 3.5; // Restrained max degrees (±3.5°)
 
 const ProjectBrowserPreview = ({ url, title, imageSrc, altText }) => {
     const capabilities = getMotionCapabilities();
     const frameRef = useRef(null);
+    const viewportRef = useRef(null);
+    const imageRef = useRef(null);
     const formattedUrl = url.replace(/^https?:\/\//, '').replace(/\/$/, '');
 
-    const normX = useMotionValue(0.5);
-    const normY = useMotionValue(0.5);
+    useEffect(() => {
+        const frame = frameRef.current;
+        const viewport = viewportRef.current;
+        const img = imageRef.current;
+        if (!frame || !viewport) return;
 
-    const rawRotateX = useTransform(normY, [0, 1], [TILT_MAX, -TILT_MAX]);
-    const rawRotateY = useTransform(normX, [0, 1], [-TILT_MAX, TILT_MAX]);
-    const rawTranslateY = useTransform(normY, [0, 1], [-3, -1]);
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReducedMotion || !capabilities.allowComplexMotion) {
+            gsap.set([frame, viewport, img], { clearProps: 'all' });
+            return;
+        }
 
-    const rotateX = useSpring(rawRotateX, TILT_SPRING);
-    const rotateY = useSpring(rawRotateY, TILT_SPRING);
-    const translateY = useSpring(rawTranslateY, TILT_SPRING);
+        const ctx = gsap.context(() => {
+            // QuickTo setters for ultra-smooth 60fps GPU mouse tracking
+            const rotateYTo = gsap.quickTo(frame, "rotationY", { duration: 0.5, ease: "power2.out" });
+            const rotateXTo = gsap.quickTo(frame, "rotationX", { duration: 0.5, ease: "power2.out" });
+            const yTo = gsap.quickTo(frame, "y", { duration: 0.5, ease: "power2.out" });
+
+            // Store references on frame DOM node for event handlers
+            frame._gsapTilt = { rotateYTo, rotateXTo, yTo };
+
+            // Cinematic Curtain Clip-Path Reveal on Scroll Entry
+            if (img) {
+                gsap.fromTo(viewport, 
+                    { clipPath: 'inset(18% 0% 0% 0%)' },
+                    {
+                        clipPath: 'inset(0% 0% 0% 0%)',
+                        duration: 1.0,
+                        ease: 'power3.out',
+                        scrollTrigger: {
+                            trigger: frame,
+                            start: 'top 85%',
+                            toggleActions: 'play none none reverse',
+                        }
+                    }
+                );
+
+                gsap.fromTo(img,
+                    { scale: 1.08 },
+                    {
+                        scale: 1.0,
+                        duration: 1.2,
+                        ease: 'power3.out',
+                        scrollTrigger: {
+                            trigger: frame,
+                            start: 'top 85%',
+                            toggleActions: 'play none none reverse',
+                        }
+                    }
+                );
+            }
+        }, frame);
+
+        return () => {
+            ctx.revert();
+            if (frame) delete frame._gsapTilt;
+        };
+    }, [capabilities.allowComplexMotion]);
 
     const handleMouseMove = (e) => {
-        if (!capabilities.allow3dTilt) return;
-        const el = frameRef.current;
-        if (!el) return;
-        const rect = el.getBoundingClientRect();
-        normX.set((e.clientX - rect.left) / rect.width);
-        normY.set((e.clientY - rect.top) / rect.height);
+        const frame = frameRef.current;
+        if (!frame || !frame._gsapTilt || !capabilities.allow3dTilt) return;
+        const rect = frame.getBoundingClientRect();
+        const xNorm = ((e.clientX - rect.left) / rect.width) * 2 - 1; // -1 to 1
+        const yNorm = ((e.clientY - rect.top) / rect.height) * 2 - 1; // -1 to 1
+
+        frame._gsapTilt.rotateYTo(xNorm * TILT_MAX);
+        frame._gsapTilt.rotateXTo(-yNorm * TILT_MAX);
+        frame._gsapTilt.yTo(yNorm * 2 - 3);
     };
 
     const handleMouseLeave = () => {
-        normX.set(0.5);
-        normY.set(0.5);
+        const frame = frameRef.current;
+        if (!frame || !frame._gsapTilt) return;
+        frame._gsapTilt.rotateYTo(0);
+        frame._gsapTilt.rotateXTo(0);
+        frame._gsapTilt.yTo(0);
     };
 
     return (
-        <motion.div
+        <div
             ref={frameRef}
             className={styles.browserFrame}
             onMouseMove={capabilities.allow3dTilt ? handleMouseMove : undefined}
             onMouseLeave={capabilities.allow3dTilt ? handleMouseLeave : undefined}
             style={capabilities.allow3dTilt ? {
-                rotateX,
-                rotateY,
-                y: translateY,
                 transformPerspective: 1200,
-                transformStyle: 'preserve-3d'
+                transformStyle: 'preserve-3d',
+                willChange: 'transform'
             } : undefined}
-            whileHover={!capabilities.allow3dTilt && capabilities.allowComplexMotion ? { y: -3 } : {}}
-            transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
             {/* Browser Chrome Header (Swiss Architectural Telemetry) */}
             <div className={styles.browserHeader}>
@@ -70,22 +124,16 @@ const ProjectBrowserPreview = ({ url, title, imageSrc, altText }) => {
                 </div>
             </div>
 
-            {/* Brikken Idea #1: Editorial Curtain Clip-Path Reveal Viewport */}
-            <motion.div 
+            {/* Editorial Curtain Clip-Path Reveal Viewport */}
+            <div 
+                ref={viewportRef}
                 className={styles.previewViewport}
-                initial={{ clipPath: 'inset(100% 0% 0% 0%)' }}
-                whileInView={{ clipPath: 'inset(0% 0% 0% 0%)' }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
-                <motion.img
+                <img
+                    ref={imageRef}
                     src={imageSrc}
                     alt={altText || `${title} Demo Preview`}
                     className={styles.previewImage}
-                    initial={{ scale: 1.08 }}
-                    whileInView={{ scale: 1.0 }}
-                    viewport={{ once: true, margin: "-50px" }}
-                    transition={{ duration: 1.0, ease: [0.25, 0.46, 0.45, 0.94] }}
                     loading="lazy"
                 />
                 
@@ -101,8 +149,8 @@ const ProjectBrowserPreview = ({ url, title, imageSrc, altText }) => {
                         Explore Live System <ArrowUpRight size={16} className={styles.arrowIconShift} />
                     </span>
                 </a>
-            </motion.div>
-        </motion.div>
+            </div>
+        </div>
     );
 };
 

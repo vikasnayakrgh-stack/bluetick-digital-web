@@ -190,6 +190,13 @@
   border: 1px solid var(--border-hairline);
   padding: 0.25rem 0.65rem;
   border-radius: var(--radius-sm);
+  transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.capTag:hover {
+  border-color: rgba(29, 78, 216, 0.35);
+  background: #ffffff;
+  transform: translateY(-1px);
 }
 
 .projectCtaWrapper {

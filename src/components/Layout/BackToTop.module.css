@@ -1,7 +1,5 @@
 .backToTop {
-    position: fixed;
-    bottom: 5.5rem;
-    right: 2rem;
+    position: relative;
     width: 44px;
     height: 44px;
     background: #0f172a;
@@ -12,10 +10,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 98;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
     transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
     touch-action: manipulation;
+    flex-shrink: 0;
 }
 
 .backToTop:hover {
@@ -26,9 +24,7 @@
 
 @media (max-width: 768px) {
     .backToTop {
-        bottom: calc(4.75rem + env(safe-area-inset-bottom, 0px));
-        right: 1.25rem;
-        width: 44px;
-        height: 44px;
+        width: 42px;
+        height: 42px;
     }
 }

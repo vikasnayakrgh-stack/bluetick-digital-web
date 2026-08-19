@@ -422,9 +422,9 @@ function generatePageHtml(page) {
     html = html.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/i, `<script type="application/ld+json">\n${schemaJson}\n  </script>`);
   }
 
-  // 6. Inject Pre-rendered Semantic HTML Body into <div id="root">
+  // 6. Inject Pre-rendered Semantic HTML Body inside <noscript> for SEO crawlers without JS
   if (page.bodyHtml) {
-    html = html.replace('<div id="root"></div>', `<div id="root">${page.bodyHtml}</div>`);
+    html = html.replace('<div id="root"></div>', `<div id="root"></div>\n  <noscript>\n    <div class="seo-prerender-fallback">\n${page.bodyHtml}\n    </div>\n  </noscript>`);
   }
 
   return html;

@@ -8,8 +8,7 @@ import { SITE_CONFIG } from './config/siteConfig'
 // Layout
 import Header from './components/Layout/Header'
 import Footer from './components/Layout/Footer'
-import WhatsAppBtn from './components/Layout/WhatsAppBtn'
-import BackToTop from './components/Layout/BackToTop'
+import FloatingActions from './components/Layout/FloatingActions'
 import SEO from './components/Common/SEO'
 
 // Home Sections (Critical Path - Statically Loaded)
@@ -190,8 +189,7 @@ function App() {
             </main>
 
             <Footer />
-            <WhatsAppBtn />
-            <BackToTop />
+            <FloatingActions />
           </div>
         </Router>
       </MotionConfig>
