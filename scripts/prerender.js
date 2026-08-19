@@ -358,28 +358,30 @@ const ROUTES = [
   {
     route: '/privacy',
     title: 'Privacy Policy | Bluetick Digital',
-    description: 'Bluetick Digital Privacy Policy. Enterprise security, confidential requirement handling, and zero-spam data isolation.',
-    keywords: 'Privacy Policy, Bluetick Digital Privacy, Data Security',
+    description: 'Privacy Policy for Bluetick Digital governing data protection, WhatsApp Business API services, AI-powered automation, customer data processing, and user rights.',
+    keywords: 'Privacy Policy, Bluetick Digital Privacy, Data Protection, WhatsApp API Privacy, AI Data Security',
     canonical: 'https://bluetickdigital.in/privacy',
     ogImage: 'https://bluetickdigital.in/assets/logo.png',
     bodyHtml: `
       <main>
         <h1>Privacy Policy</h1>
-        <p>At Bluetick Digital, we treat client data with strict enterprise confidentiality. We never sell or share your business data.</p>
+        <p>Bluetick Digital is committed to protecting personal data handled through our website, WhatsApp Business API solutions, AI automation, and customer communications.</p>
+        <p>Contact: Chandrakar complex, Raipura chawk, Raipur | bluetickdigitalraipur@gmail.com</p>
       </main>
     `
   },
   {
     route: '/terms',
     title: 'Terms of Service | Bluetick Digital',
-    description: 'Bluetick Digital Terms of Service governing web design, custom AI automation, and WhatsApp API engagements.',
-    keywords: 'Terms of Service, Bluetick Digital Terms, Project Agreements',
+    description: 'Terms of Service governing access to and use of Bluetick Digital\'s website, software, AI chatbots, and WhatsApp Business API automation services.',
+    keywords: 'Terms of Service, Bluetick Digital Terms, WhatsApp API Terms, AI Automation Agreement',
     canonical: 'https://bluetickdigital.in/terms',
     ogImage: 'https://bluetickdigital.in/assets/logo.png',
     bodyHtml: `
       <main>
         <h1>Terms of Service</h1>
-        <p>Terms of service for Bluetick Digital web engineering, custom AI agents, and WhatsApp Business API automations.</p>
+        <p>These Terms of Service govern your access to and use of Bluetick Digital website, WhatsApp Business API workflows, custom AI agents, and digital automation platforms.</p>
+        <p>Contact: Chandrakar complex, Raipura chawk, Raipur | bluetickdigitalraipur@gmail.com</p>
       </main>
     `
   }
