@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import SEO from '../Common/SEO';
+import { trackCtaClick } from '../../utils/analytics';
 import styles from './Tools.module.css';
 import { Link } from 'react-router-dom';
 
@@ -155,7 +156,11 @@ const WhatsAppCalculator = () => {
                         ₹{totalCost.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                     </div>
 
-                    <a href="/#audit?req=whatsapp_automation" className={styles.ctaButton}>
+                    <a 
+                        href="/#audit?req=whatsapp_automation" 
+                        onClick={() => trackCtaClick('whatsapp_calculator_cta', '/#audit?req=whatsapp_automation')}
+                        className={styles.ctaButton}
+                    >
                         Get This API with Bluetick Digital
                     </a>
                 </div>

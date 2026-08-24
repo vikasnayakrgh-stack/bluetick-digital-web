@@ -7,6 +7,7 @@ import {
   CheckCircle2, Calculator, ShieldCheck, Zap, Layers, BookOpen, FileText 
 } from 'lucide-react';
 import { MOTION_TOKENS } from '../../constants/motionTokens';
+import { trackCtaClick } from '../../utils/analytics';
 import styles from './Header.module.css';
 
 const Header = () => {
@@ -315,7 +316,10 @@ const Header = () => {
                     <motion.a
                       href="/#audit"
                       className={styles.auditBtn}
-                      onClick={closeAll}
+                      onClick={() => {
+                        trackCtaClick('header_get_free_audit', '/#audit');
+                        closeAll();
+                      }}
                       whileHover={{ scale: 1.03 }}
                       whileTap={{ scale: 0.97 }}
                     >
@@ -415,7 +419,14 @@ const Header = () => {
                                     <span>Transparent Pricing Packages</span>
                                 </a>
 
-                                <a href="/#audit" className={styles.mobileCta} onClick={closeAll}>
+                                <a 
+                                    href="/#audit" 
+                                    className={styles.mobileCta} 
+                                    onClick={() => {
+                                        trackCtaClick('header_mobile_get_free_audit', '/#audit');
+                                        closeAll();
+                                    }}
+                                >
                                     <span>Start a Project / Free Audit</span>
                                     <ArrowRight size={16} />
                                 </a>

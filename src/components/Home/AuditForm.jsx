@@ -5,6 +5,7 @@ import { MOTION_TOKENS } from '../../constants/motionTokens';
 import { Link } from 'react-router-dom';
 import styles from './AuditForm.module.css';
 import { supabase } from '../../supabaseClient';
+import { trackFormSubmission } from '../../utils/analytics';
 
 const REQUIREMENT_OPTIONS = [
     { value: 'new_website', label: 'New Website' },
@@ -151,6 +152,11 @@ const AuditForm = () => {
                 console.error('Supabase Insert Error:', error);
                 throw error;
             }
+            trackFormSubmission('free_growth_audit', {
+                requirement: formData.requirement,
+                business_type: formData.business_type,
+                monthly_leads: formData.monthly_leads
+            });
             setStatus('success');
         } catch (err) {
             console.error('Submission error:', err);

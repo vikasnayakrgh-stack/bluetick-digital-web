@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { SITE_CONFIG } from '../../config/siteConfig';
+import { trackWhatsAppClick } from '../../utils/analytics';
 import styles from './WhatsAppBtn.module.css';
 
 const WhatsAppBtn = () => {
@@ -8,11 +9,16 @@ const WhatsAppBtn = () => {
     const message = encodeURIComponent('Hi, I am interested in your WhatsApp automation services!');
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 
+    const handleClick = () => {
+        trackWhatsAppClick('floating_button');
+    };
+
     return (
         <motion.a
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={handleClick}
             className={styles.button}
             aria-label="Contact us on WhatsApp"
             initial={{ scale: 0, opacity: 0 }}

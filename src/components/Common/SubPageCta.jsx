@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles, ShieldCheck, Zap } from 'lucide-react';
+import { trackCtaClick } from '../../utils/analytics';
 import FloemaReveal from './FloemaReveal';
 import styles from './SubPageCta.module.css';
 
@@ -27,6 +28,7 @@ const SubPageCta = ({
             <div className={styles.ctaActionRow}>
               <motion.a
                 href={ctaHref}
+                onClick={() => trackCtaClick('subpage_growth_audit', ctaHref)}
                 className={styles.ctaPrimaryBtn}
                 whileHover={{ scale: 1.03, x: 2 }}
                 whileTap={{ scale: 0.97 }}

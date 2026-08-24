@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, ShieldCheck, Bot, Globe, MessageSquare, Terminal } from 'lucide-react';
+import { trackCtaClick } from '../../utils/analytics';
 import styles from './Hero.module.css';
 
 const VIDEO_URL = "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260622_204221_5339e40b-e73d-4ab0-9c65-79c18c66fd50.mp4";
@@ -68,6 +69,7 @@ const Hero = () => {
               className={styles.exploreBtn}
               onClick={(e) => {
                 e.preventDefault();
+                trackCtaClick('hero_get_free_growth_audit', '#audit');
                 handleNavClick('#audit');
               }}
             >
@@ -78,6 +80,9 @@ const Hero = () => {
             <a
               href="/whatsapp-api-cost-calculator"
               className={styles.secondaryBtn}
+              onClick={() => {
+                trackCtaClick('hero_calculate_whatsapp_cost', '/whatsapp-api-cost-calculator');
+              }}
             >
               <span>Calculate WhatsApp API Cost →</span>
             </a>
