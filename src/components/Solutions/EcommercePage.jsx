@@ -156,6 +156,18 @@ const ECOMMERCE_SCHEMA = {
         { "@type": "ListItem", "position": 2, "name": "Solutions", "item": "https://bluetickdigital.in/#solutions" },
         { "@type": "ListItem", "position": 3, "name": "E-commerce", "item": "https://bluetickdigital.in/solutions/ecommerce" }
       ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://bluetickdigital.in/solutions/ecommerce#faq",
+      "mainEntity": ECOM_FAQS.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
     }
   ]
 };

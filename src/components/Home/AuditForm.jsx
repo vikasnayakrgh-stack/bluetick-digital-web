@@ -136,6 +136,9 @@ const AuditForm = () => {
             monthly_leads: formData.monthly_leads || null,
             biggest_challenge: formData.biggest_challenge.trim() || null,
             source: 'free_audit_form',
+            consent_agreed: true,
+            consent_version: 'v2.0',
+            consent_timestamp: new Date().toISOString(),
             created_at: new Date().toISOString()
         };
 
@@ -146,11 +149,12 @@ const AuditForm = () => {
 
             if (error) {
                 console.error('Supabase Insert Error:', error);
+                throw error;
             }
             setStatus('success');
         } catch (err) {
             console.error('Submission error:', err);
-            setStatus('success');
+            setStatus('error');
         }
     };
 
@@ -492,6 +496,12 @@ const AuditForm = () => {
                                             <label htmlFor="biggest_challenge" className={styles.label}>Biggest Business / Website Challenge</label>
                                             <textarea id="biggest_challenge" name="biggest_challenge" rows={3} value={formData.biggest_challenge} onChange={handleChange} placeholder="e.g. Low website conversions, slow lead follow-ups..." className={styles.textarea}></textarea>
                                         </div>
+
+                                        {status === 'error' && (
+                                            <div style={{ padding: '0.75rem 1rem', background: 'rgba(239, 68, 68, 0.12)', border: '1px solid rgba(239, 68, 68, 0.35)', borderRadius: '8px', color: '#fca5a5', fontSize: '0.875rem', marginBottom: '0.75rem', textAlign: 'center' }}>
+                                                Unable to submit request. Please try again or <a href="https://wa.me/916261003050?text=Hi,%20I'd%20like%20to%20request%20a%20free%20growth%20audit" target="_blank" rel="noopener noreferrer" style={{ color: '#38bdf8', textDecoration: 'underline' }}>chat directly on WhatsApp</a>.
+                                            </div>
+                                        )}
 
                                         <div style={{ display: 'flex', gap: '1rem', marginTop: '0.5rem' }}>
                                             <motion.button

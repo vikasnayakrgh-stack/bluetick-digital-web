@@ -156,6 +156,18 @@ const WEBSITES_SCHEMA = {
         { "@type": "ListItem", "position": 2, "name": "Solutions", "item": "https://bluetickdigital.in/#solutions" },
         { "@type": "ListItem", "position": 3, "name": "Websites", "item": "https://bluetickdigital.in/solutions/websites" }
       ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://bluetickdigital.in/solutions/websites#faq",
+      "mainEntity": WEBSITES_FAQS.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
     }
   ]
 };

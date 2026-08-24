@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useMemo, useCallback } from 'react';
 
 const STORAGE_KEY = 'bt_cookie_consent_v1';
 
@@ -47,7 +47,7 @@ export const CookieConsentProvider = ({ children }) => {
         }
     }, []);
 
-    const persistConsent = (newConsent) => {
+    const persistConsent = useCallback((newConsent) => {
         const payload = {
             essential: true,
             analytics: Boolean(newConsent.analytics),
@@ -62,50 +62,60 @@ export const CookieConsentProvider = ({ children }) => {
         setConsent(payload);
         setHasChosen(true);
         setIsPreferencesOpen(false);
-    };
+    }, []);
 
-    const acceptAll = () => {
+    const acceptAll = useCallback(() => {
         persistConsent({ analytics: true, marketing: true });
-    };
+    }, [persistConsent]);
 
-    const rejectNonEssential = () => {
+    const rejectNonEssential = useCallback(() => {
         persistConsent({ analytics: false, marketing: false });
-    };
+    }, [persistConsent]);
 
-    const savePreferences = ({ analytics, marketing }) => {
+    const savePreferences = useCallback(({ analytics, marketing }) => {
         persistConsent({ analytics, marketing });
-    };
+    }, [persistConsent]);
 
-    const openPreferences = () => {
+    const openPreferences = useCallback(() => {
         setIsPreferencesOpen(true);
-    };
+    }, []);
 
-    const closePreferences = () => {
+    const closePreferences = useCallback(() => {
         setIsPreferencesOpen(false);
-    };
+    }, []);
 
-    const resetConsent = () => {
+    const resetConsent = useCallback(() => {
         try {
             localStorage.removeItem(STORAGE_KEY);
         } catch (e) {}
         setConsent(DEFAULT_CONSENT);
         setHasChosen(false);
-    };
+    }, []);
+
+    const contextValue = useMemo(() => ({
+        consent,
+        hasChosen,
+        isPreferencesOpen,
+        acceptAll,
+        rejectNonEssential,
+        savePreferences,
+        openPreferences,
+        closePreferences,
+        resetConsent
+    }), [
+        consent,
+        hasChosen,
+        isPreferencesOpen,
+        acceptAll,
+        rejectNonEssential,
+        savePreferences,
+        openPreferences,
+        closePreferences,
+        resetConsent
+    ]);
 
     return (
-        <CookieConsentContext.Provider
-            value={{
-                consent,
-                hasChosen,
-                isPreferencesOpen,
-                acceptAll,
-                rejectNonEssential,
-                savePreferences,
-                openPreferences,
-                closePreferences,
-                resetConsent
-            }}
-        >
+        <CookieConsentContext.Provider value={contextValue}>
             {children}
         </CookieConsentContext.Provider>
     );

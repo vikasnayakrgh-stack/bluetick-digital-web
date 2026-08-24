@@ -156,6 +156,18 @@ const AI_AUTOMATION_SCHEMA = {
         { "@type": "ListItem", "position": 2, "name": "Solutions", "item": "https://bluetickdigital.in/#solutions" },
         { "@type": "ListItem", "position": 3, "name": "AI Automation", "item": "https://bluetickdigital.in/solutions/ai-automation" }
       ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://bluetickdigital.in/solutions/ai-automation#faq",
+      "mainEntity": AI_FAQS.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
     }
   ]
 };

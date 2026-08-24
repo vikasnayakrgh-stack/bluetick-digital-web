@@ -3,6 +3,37 @@ import SEO from '../Common/SEO';
 import styles from './Tools.module.css';
 import { Link } from 'react-router-dom';
 
+const GREEN_TICK_SCHEMA = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What is the WhatsApp Green Tick?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The Green Tick is a verification badge that appears next to your business name, signaling to customers that you are an authentic, verified brand. It builds trust and increases message open rates."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is the Green Tick free?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Applying for the Green Tick through Meta is free, but you must be using the WhatsApp Business API. Agencies like Bluetick Digital can help manage the application process for you."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What documents are required?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You primarily need business registration documents (GST, incorporation certificate) and proof of brand presence (links to 3-5 notable news articles or press coverage)."
+            }
+        }
+    ]
+};
+
 const GreenTickChecker = () => {
     const [businessType, setBusinessType] = useState('ecommerce');
     const [volume, setVolume] = useState('low'); // low, mid, high, enterprise
@@ -50,6 +81,7 @@ const GreenTickChecker = () => {
                 description="Check if your business qualifies for the verified Meta WhatsApp Green Tick badge. Free assessment tool by Bluetick Digital."
                 keywords="WhatsApp Green Tick Checker, Meta Verified Badge, WhatsApp Business Verification, Bluetick Digital"
                 canonical="https://bluetickdigital.in/whatsapp-green-tick-checker"
+                structuredData={GREEN_TICK_SCHEMA}
             />
 
             <div className={styles.card}>

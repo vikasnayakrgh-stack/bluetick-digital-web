@@ -2,7 +2,10 @@ node_modules
 .DS_Store
 dist
 dist-ssr
+.env
+.env*.local
 *.local
+*.log
 Skills/
 advance ai chatbot/
 BLUETICK_DIGITAL_DEEP_AUDIT.md

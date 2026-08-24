@@ -156,6 +156,18 @@ const WABA_SCHEMA = {
         { "@type": "ListItem", "position": 2, "name": "Solutions", "item": "https://bluetickdigital.in/#solutions" },
         { "@type": "ListItem", "position": 3, "name": "WhatsApp Automation", "item": "https://bluetickdigital.in/solutions/whatsapp-automation" }
       ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://bluetickdigital.in/solutions/whatsapp-automation#faq",
+      "mainEntity": WABA_FAQS.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
     }
   ]
 };

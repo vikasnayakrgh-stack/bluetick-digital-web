@@ -13,30 +13,29 @@ const ContactForm = () => {
         setStatus('loading');
 
         const formData = {
-            name: e.target.name.value,
-            phone: e.target.whatsapp.value,
+            name: (e.target.name.value || '').trim(),
+            phone: (e.target.whatsapp.value || '').trim(),
             business_type: e.target.business.value,
             source: 'web_form',
+            consent_agreed: true,
+            consent_version: 'v2.0',
+            consent_timestamp: new Date().toISOString(),
             created_at: new Date().toISOString()
         };
 
         try {
-            console.log('Attempting to submit form data:', formData);
-            const { data, error } = await supabase
+            const { error } = await supabase
                 .from('leads')
-                .insert([formData])
-                .select();
+                .insert([formData]);
 
             if (error) {
-                console.error('Supabase Insert Error:', error);
+                console.error('Lead submission failed');
                 throw error;
             }
 
-            console.log('Supabase Insert Success:', data);
             e.target.reset(); // Reset form after successful submission
             setStatus('success');
         } catch (error) {
-            console.error('Full Error Object:', error);
             setStatus('error');
             setTimeout(() => setStatus('idle'), 3000);
         }
