@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook, Twitter, Instagram, Linkedin, ShieldCheck } from 'lucide-react';
+import { Linkedin, ShieldCheck } from 'lucide-react';
 import logo from '../../assets/logo-icon.png';
 import { useCookieConsent } from '../../context/CookieConsentContext';
+import { SITE_CONFIG } from '../../config/siteConfig';
 import styles from './Footer.module.css';
 
 const Footer = () => {
@@ -73,10 +74,14 @@ const Footer = () => {
                         <span className={styles.hqAddress}>Raipur, Chhattisgarh | Serving Pan-India &amp; Remote Clients</span>
                     </div>
                     <div className={styles.socials}>
-                        <a href="#" aria-label="Facebook"><Facebook size={18} /></a>
-                        <a href="#" aria-label="Twitter"><Twitter size={18} /></a>
-                        <a href="#" aria-label="Instagram"><Instagram size={18} /></a>
-                        <a href="#" aria-label="Linkedin"><Linkedin size={18} /></a>
+                        <a 
+                            href={SITE_CONFIG.social.linkedin} 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            aria-label="Bluetick Digital LinkedIn"
+                        >
+                            <Linkedin size={18} />
+                        </a>
                     </div>
                 </div>
 

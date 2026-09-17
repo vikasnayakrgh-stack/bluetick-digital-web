@@ -18,11 +18,11 @@ const template = fs.readFileSync(templatePath, 'utf-8');
 const ROUTES = [
   {
     route: '/',
-    title: 'Bluetick Digital | Websites + AI Automation Growth Engine',
+    title: 'Bluetick Digital | Websites + AI Automation Partner',
     description: 'Build a high-performance website, automate repetitive business processes, and turn your digital presence into an autonomous growth engine with Bluetick Digital.',
     keywords: 'AI Business Automation, Custom AI Agents, WhatsApp Business API, React Web Development, Bluetick Digital',
     canonical: 'https://bluetickdigital.in/',
-    ogImage: 'https://bluetickdigital.in/assets/logo.png',
+    ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
     schema: {
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
@@ -72,7 +72,7 @@ const ROUTES = [
     description: 'Learn about Bluetick Digital — an AI-powered Digital Transformation Partner headquartered in Raipur, serving Pan-India clients with high-performance websites and AI business automation.',
     keywords: 'About Bluetick Digital, Digital Transformation Partner, AI Business Systems, Vikas Nayak',
     canonical: 'https://bluetickdigital.in/about',
-    ogImage: 'https://bluetickdigital.in/assets/logo.png',
+    ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
     schema: {
       "@context": "https://schema.org",
       "@type": "AboutPage",
@@ -98,7 +98,7 @@ const ROUTES = [
     description: 'Custom AI agents, n8n workflows, and Supabase CRM integrations that automate support, qualify leads in sub-30s, and eliminate manual business overhead.',
     keywords: 'AI Business Automation, Custom AI Agents, GPT-4o, n8n Workflows, Lead Qualification AI, Bluetick Digital',
     canonical: 'https://bluetickdigital.in/solutions/ai-automation',
-    ogImage: 'https://bluetickdigital.in/assets/logo.png',
+    ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
     schema: {
       "@context": "https://schema.org",
       "@type": "Service",
@@ -127,9 +127,9 @@ const ROUTES = [
     route: '/solutions/whatsapp-automation',
     title: 'Official WhatsApp Business API & Automation Systems | Bluetick Digital',
     description: 'Official Meta WhatsApp Business API integration, AI chat automation, broadcast workflows, and multi-agent team inboxes for growing businesses.',
-    keywords: 'WhatsApp Business API, Official Meta Partner, WhatsApp Automation, Green Tick Verification, Bluetick Digital',
+    keywords: 'WhatsApp Business API, Official Meta WhatsApp Business API, WhatsApp Automation, Green Tick Verification, Bluetick Digital',
     canonical: 'https://bluetickdigital.in/solutions/whatsapp-automation',
-    ogImage: 'https://bluetickdigital.in/assets/logo.png',
+    ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
     schema: {
       "@context": "https://schema.org",
       "@type": "Service",
@@ -151,7 +151,7 @@ const ROUTES = [
     description: 'High-converting, sub-second business websites designed to attract, engage, and convert customers. Engineered with modern React tech and connected AI lead pipelines.',
     keywords: 'Business Website Design, Lead Generation Websites, Modern Web Development, React 18, Bluetick Digital',
     canonical: 'https://bluetickdigital.in/solutions/websites',
-    ogImage: 'https://bluetickdigital.in/assets/logo.png',
+    ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
     schema: {
       "@context": "https://schema.org",
       "@type": "Service",
@@ -172,7 +172,7 @@ const ROUTES = [
     description: 'High-converting online stores built with seamless WhatsApp automation, COD verification, and cart recovery workflows. Engineered for scale.',
     keywords: 'E-commerce Website Development, D2C Commerce, COD Verification, Cart Recovery, Bluetick Digital',
     canonical: 'https://bluetickdigital.in/solutions/ecommerce',
-    ogImage: 'https://bluetickdigital.in/assets/logo.png',
+    ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
     schema: {
       "@context": "https://schema.org",
       "@type": "Service",
@@ -192,7 +192,7 @@ const ROUTES = [
     title: 'E-Commerce Digital Transformation & Automation | Bluetick Digital',
     description: 'Digital transformation & automation for D2C brands: automated WhatsApp COD verification, 1-click cart recovery, and 24/7 AI sizing support.',
     canonical: 'https://bluetickdigital.in/industries/ecommerce',
-    ogImage: 'https://bluetickdigital.in/assets/logo.png',
+    ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
     bodyHtml: `<h1>Digital Transformation & Automation for E-Commerce Brands</h1><p>Turn store visitors into high-LTV repeat buyers with sub-second storefronts, automated WhatsApp COD verification, and 1-click cart recovery.</p>`
   },
   {
@@ -200,7 +200,7 @@ const ROUTES = [
     title: 'Manufacturing Inbound & RFQ Automation | Bluetick Digital',
     description: 'Automated RFQ intake, instant spec sheet delivery, and CRM routing for industrial manufacturers and distributors.',
     canonical: 'https://bluetickdigital.in/industries/manufacturing',
-    ogImage: 'https://bluetickdigital.in/assets/logo.png',
+    ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
     bodyHtml: `<h1>Digital Systems & Lead Engines for Manufacturers</h1><p>Accelerate B2B sales cycles with automated RFQ pipelines, instant PDF catalog delivery, and distributor routing.</p>`
   },
   {
@@ -208,7 +208,7 @@ const ROUTES = [
     title: 'Fast-Moving Digital Infrastructure for Startups | Bluetick Digital',
     description: 'Sprint-based web platforms, automated onboarding flows, and scalable tech infrastructure for high-growth startups.',
     canonical: 'https://bluetickdigital.in/industries/startups',
-    ogImage: 'https://bluetickdigital.in/assets/logo.png',
+    ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
     bodyHtml: `<h1>High-Velocity Systems & Automation for Startups</h1><p>Launch scalable web platforms with integrated automated qualification and CRM pipelines in 2-week sprints.</p>`
   },
   {
@@ -216,7 +216,7 @@ const ROUTES = [
     title: 'Local Business Growth & WhatsApp Booking Systems | Bluetick Digital',
     description: 'High-converting local business websites, Google Maps optimization, and automated WhatsApp appointment booking.',
     canonical: 'https://bluetickdigital.in/industries/local-business',
-    ogImage: 'https://bluetickdigital.in/assets/logo.png',
+    ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
     bodyHtml: `<h1>Local Business Growth & Automated WhatsApp Booking</h1><p>Dominate local search and convert showroom inquiries into paying customers automatically.</p>`
   },
   {
@@ -225,7 +225,7 @@ const ROUTES = [
     description: 'Check latest Meta WhatsApp API conversation rates for India (2026). Calculate Marketing, Utility, Authentication, and Service message costs instantly.',
     keywords: 'WhatsApp API Pricing India, Meta Conversation Rates, WhatsApp Marketing Cost, WhatsApp Business API Rates 2026',
     canonical: 'https://bluetickdigital.in/whatsapp-api-pricing-india',
-    ogImage: 'https://bluetickdigital.in/assets/logo.png',
+    ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
     bodyHtml: `
       <header>
         <h1>WhatsApp Business API Pricing India (2026 Updated)</h1>
@@ -239,7 +239,7 @@ const ROUTES = [
     description: 'Check if your business qualifies for the verified Meta WhatsApp Green Tick badge. Free assessment tool by Bluetick Digital.',
     keywords: 'WhatsApp Green Tick Checker, Meta Verified Badge, WhatsApp Business Verification, Bluetick Digital',
     canonical: 'https://bluetickdigital.in/whatsapp-green-tick-checker',
-    ogImage: 'https://bluetickdigital.in/assets/logo.png',
+    ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
     bodyHtml: `
       <header>
         <h1>Green Tick Eligibility Checker</h1>
@@ -253,7 +253,7 @@ const ROUTES = [
     description: 'Engineering guides, automation blueprints, and technical insights on AI agents, n8n workflows, and WhatsApp Business API.',
     keywords: 'WhatsApp Marketing, AI Automation Blog, n8n Workflows, Business Transformation, Bluetick Digital',
     canonical: 'https://bluetickdigital.in/blog',
-    ogImage: 'https://bluetickdigital.in/assets/logo.png',
+    ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
     bodyHtml: `
       <header>
         <h1>Resources & Insights</h1>
@@ -267,13 +267,13 @@ const ROUTES = [
     description: 'Scale your business 10x with AI-powered WhatsApp automation. Learn how to capture leads, book demos, and provide 24/7 support.',
     keywords: 'WhatsApp Chatbot Automation, AI Sales Engine, WhatsApp Business API 2026',
     canonical: 'https://bluetickdigital.in/blog/whatsapp-chatbot-automation',
-    ogImage: 'https://images.unsplash.com/photo-1611746872915-64382b5c76da?auto=format&fit=crop&q=80&w=800',
+    ogImage: 'https://bluetickdigital.in/images/og-whatsapp-chatbot-automation.jpg',
     schema: {
       "@context": "https://schema.org",
       "@type": "BlogPosting",
       "headline": "The Ultimate Guide to WhatsApp Chatbot Automation (2026)",
       "description": "Scale your business 10x with AI-powered WhatsApp automation. Learn how to capture leads, book demos, and provide 24/7 support.",
-      "image": "https://images.unsplash.com/photo-1611746872915-64382b5c76da?auto=format&fit=crop&q=80&w=800",
+      "image": "https://bluetickdigital.in/images/og-whatsapp-chatbot-automation.jpg",
       "author": {
         "@type": "Person",
         "name": "Vikas Nayak",
@@ -309,17 +309,17 @@ const ROUTES = [
   },
   {
     route: '/blog/website-development-cost-in-india-2026',
-    title: 'Website Development Cost in India (2026 Pricing Guide) | Bluetick Digital',
+    title: 'Website Development Cost in India: Complete 2026 Pricing Guide | Bluetick Digital',
     description: 'Transparent 2026 guide to website development costs in India. Compare pricing for small business websites, WordPress, custom platforms, and e-commerce stores.',
     keywords: 'Website Development Cost India, Website Design Pricing 2026, Custom Website Cost, E-commerce Website Cost India',
     canonical: 'https://bluetickdigital.in/blog/website-development-cost-in-india-2026',
-    ogImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
+    ogImage: 'https://bluetickdigital.in/images/og-website-development-cost-in-india-2026.jpg',
     schema: {
       "@context": "https://schema.org",
       "@type": "BlogPosting",
       "headline": "Website Development Cost in India: Complete 2026 Pricing Guide",
       "description": "Transparent 2026 guide to website development costs in India. Compare pricing for small business websites, WordPress, custom platforms, and e-commerce stores.",
-      "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
+      "image": "https://bluetickdigital.in/images/og-website-development-cost-in-india-2026.jpg",
       "author": {
         "@type": "Person",
         "name": "Vikas Nayak",
@@ -361,13 +361,13 @@ const ROUTES = [
     description: 'Discover how Indian businesses are using WhatsApp AI chatbots to qualify leads 24/7, reduce cost per lead by 40%, and close deals while they sleep.',
     keywords: 'WhatsApp AI Chatbot, Automated Lead Qualification, WhatsApp Automation India, BANT Qualification Chatbot',
     canonical: 'https://bluetickdigital.in/blog/automate-lead-qualification-whatsapp-ai-chatbot',
-    ogImage: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=800',
+    ogImage: 'https://bluetickdigital.in/images/og-automate-lead-qualification-whatsapp-ai-chatbot.jpg',
     schema: {
       "@context": "https://schema.org",
       "@type": "BlogPosting",
       "headline": "How to Automate Lead Qualification with WhatsApp AI Chatbots (2026 Guide)",
       "description": "Discover how Indian businesses are using WhatsApp AI chatbots to qualify leads 24/7, reduce cost per lead by 40%, and close deals while they sleep.",
-      "image": "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=800",
+      "image": "https://bluetickdigital.in/images/og-automate-lead-qualification-whatsapp-ai-chatbot.jpg",
       "author": {
         "@type": "Organization",
         "name": "Bluetick Digital Team",
@@ -407,7 +407,7 @@ const ROUTES = [
     description: 'Privacy Policy for Bluetick Digital (owned by Kheerendra Nayak) governing data protection, WhatsApp Business API services, AI-powered automation, customer data processing, and user rights.',
     keywords: 'Privacy Policy, Bluetick Digital Privacy, Data Protection, WhatsApp API Privacy, AI Data Security',
     canonical: 'https://bluetickdigital.in/privacy',
-    ogImage: 'https://bluetickdigital.in/assets/logo.png',
+    ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
     bodyHtml: `
       <main>
         <h1>Privacy Policy</h1>
@@ -422,7 +422,7 @@ const ROUTES = [
     description: 'Terms of Service governing access to and use of Bluetick Digital\'s (owned by Kheerendra Nayak) website, software, AI chatbots, and WhatsApp Business API automation services.',
     keywords: 'Terms of Service, Bluetick Digital Terms, WhatsApp API Terms, AI Automation Agreement',
     canonical: 'https://bluetickdigital.in/terms',
-    ogImage: 'https://bluetickdigital.in/assets/logo.png',
+    ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
     bodyHtml: `
       <main>
         <h1>Terms of Service</h1>
@@ -437,7 +437,7 @@ const ROUTES = [
     description: 'Read Bluetick Digital\'s refund, cancellation, subscription and service policy.',
     keywords: 'Refund Policy, Cancellation Policy, Bluetick Digital Subscription, WhatsApp Automation Refund',
     canonical: 'https://bluetickdigital.in/refund',
-    ogImage: 'https://bluetickdigital.in/assets/logo.png',
+    ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
     bodyHtml: `
       <main>
         <h1>Refund &amp; Cancellation Policy</h1>
@@ -452,7 +452,7 @@ const ROUTES = [
     description: 'Learn how Bluetick Digital uses cookies, analytics and similar technologies on its website.',
     keywords: 'Cookie Policy, Website Cookies, Google Analytics Cookies, Meta Pixel Consent, Bluetick Digital',
     canonical: 'https://bluetickdigital.in/cookies',
-    ogImage: 'https://bluetickdigital.in/assets/logo.png',
+    ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
     bodyHtml: `
       <main>
         <h1>Cookie Policy</h1>
@@ -467,12 +467,26 @@ const ROUTES = [
     description: 'Learn the rules for responsible WhatsApp messaging, automation, AI and acceptable use of Bluetick Digital services.',
     keywords: 'Acceptable Use Policy, WhatsApp Messaging Rules, Anti-Spam Policy, AI Automation Policy, Bluetick Digital',
     canonical: 'https://bluetickdigital.in/acceptable-use',
-    ogImage: 'https://bluetickdigital.in/assets/logo.png',
+    ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
     bodyHtml: `
       <main>
         <h1>Acceptable Use &amp; WhatsApp Messaging Policy</h1>
         <p>Rules and compliance guidelines for WhatsApp Business API messaging, promotional broadcasts, AI automation, and customer opt-in requirements.</p>
         <p>Email: bluetickdigitalraipur@gmail.com | Owner: Kheerendra Nayak</p>
+      </main>
+    `
+  },
+  {
+    route: '/404',
+    title: 'Page Not Found | Bluetick Digital',
+    description: 'The page you requested could not be found. Return to Bluetick Digital homepage or explore our latest resources.',
+    robots: 'noindex, follow',
+    canonical: 'https://bluetickdigital.in/404',
+    ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
+    bodyHtml: `
+      <main>
+        <h1>Page Not Found</h1>
+        <p>The page you requested could not be found. <a href="/">Return to Home</a></p>
       </main>
     `
   }
@@ -503,6 +517,14 @@ function generatePageHtml(page) {
   html = html.replace(/<meta property="og:description" content=".*?"/i, `<meta property="og:description" content="${page.description}"`);
   html = html.replace(/<meta name="twitter:description" content=".*?"/i, `<meta name="twitter:description" content="${page.description}"`);
 
+  if (page.robots) {
+    if (html.includes('<meta name="robots"')) {
+      html = html.replace(/<meta name="robots"[\s\S]*?>/i, `<meta name="robots" content="${page.robots}">`);
+    } else {
+      html = html.replace('</head>', `  <meta name="robots" content="${page.robots}" />\n</head>`);
+    }
+  }
+
   if (page.ogImage) {
     html = html.replace(/<meta property="og:image" content=".*?"/i, `<meta property="og:image" content="${page.ogImage}"`);
     html = html.replace(/<meta name="twitter:image" content=".*?"/i, `<meta name="twitter:image" content="${page.ogImage}"`);
@@ -532,6 +554,8 @@ for (const page of ROUTES) {
 
   if (page.route === '/') {
     targetFile = path.join(DIST_DIR, 'index.html');
+  } else if (page.route === '/404') {
+    targetFile = path.join(DIST_DIR, '404.html');
   } else {
     const routeDir = path.join(DIST_DIR, page.route.slice(1));
     fs.mkdirSync(routeDir, { recursive: true });

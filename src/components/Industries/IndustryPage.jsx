@@ -12,6 +12,7 @@ import SubPageCta from '../Common/SubPageCta';
 
 const INDUSTRY_DATA = {
   ecommerce: {
+    metaTitle: "E-Commerce Digital Transformation & Automation",
     icon: ShoppingBag,
     badgeText: "D2C & Online Retail",
     title: "Digital Transformation & Automation for",
@@ -152,6 +153,7 @@ const INDUSTRY_DATA = {
   },
 
   manufacturing: {
+    metaTitle: "Manufacturing Inbound & RFQ Automation",
     icon: Factory,
     badgeText: "Manufacturing & Industrial B2B",
     title: "Digital Transformation & Lead Qualification for",
@@ -292,6 +294,7 @@ const INDUSTRY_DATA = {
   },
 
   startups: {
+    metaTitle: "Fast-Moving Digital Infrastructure for Startups",
     icon: Rocket,
     badgeText: "Startups & High-Growth Tech",
     title: "Digital Transformation & Demo Pipelines for",
@@ -432,6 +435,7 @@ const INDUSTRY_DATA = {
   },
 
   "local-business": {
+    metaTitle: "Local Business Growth & WhatsApp Booking Systems",
     icon: Building2,
     badgeText: "Real Estate & Local High-Value Services",
     title: "Digital Transformation & Lead Capture for",
@@ -580,7 +584,7 @@ const IndustryPage = () => {
   return (
     <>
       <SEO
-        title={`${industry.title} ${industry.gradientWord}`}
+        title={industry.metaTitle || `${industry.title} ${industry.gradientWord}`.replace(/\.$/, '')}
         description={industry.subtitle}
         keywords={`Digital Transformation, Website Design, AI Automation, ${industry.title}, Bluetick Digital`}
         canonical={`https://bluetickdigital.in/industries/${slug || 'ecommerce'}`}

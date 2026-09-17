@@ -22,7 +22,7 @@
 }
 
 .breadcrumbLink {
-  color: var(--color-brand, #2563eb);
+  color: var(--color-brand, #1d4ed8);
   text-decoration: none;
   font-weight: 500;
   display: inline-flex;
@@ -59,7 +59,7 @@
 }
 
 .headerIcon {
-  color: var(--color-brand, #2563eb);
+  color: var(--color-brand, #1d4ed8);
   flex-shrink: 0;
 }
 
@@ -146,8 +146,8 @@
 }
 
 .tocLink:hover {
-  color: var(--color-brand, #2563eb);
-  background: rgba(37, 99, 235, 0.06);
+  color: var(--color-brand, #1d4ed8);
+  background: rgba(29, 78, 216, 0.06);
 }
 
 /* Main Legal Content */
@@ -238,7 +238,7 @@
 }
 
 .contactLink {
-  color: var(--color-brand, #2563eb);
+  color: var(--color-brand, #1d4ed8);
   text-decoration: underline;
   font-weight: 600;
 }
@@ -282,7 +282,7 @@
 
 .relatedLinksList a {
   font-size: 0.875rem;
-  color: var(--color-brand, #2563eb);
+  color: var(--color-brand, #1d4ed8);
   text-decoration: none;
   font-weight: 500;
   padding: 0.35rem 0.75rem;
@@ -293,8 +293,8 @@
 }
 
 .relatedLinksList a:hover {
-  background: rgba(37, 99, 235, 0.08);
-  border-color: var(--color-brand, #2563eb);
+  background: rgba(29, 78, 216, 0.08);
+  border-color: var(--color-brand, #1d4ed8);
 }
 
 @media (max-width: 640px) {

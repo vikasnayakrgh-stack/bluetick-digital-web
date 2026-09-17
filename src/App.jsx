@@ -46,6 +46,7 @@ const TermsPage = lazy(() => import('./components/Legal/LegalPages').then(m => (
 const RefundPage = lazy(() => import('./components/Legal/LegalPages').then(m => ({ default: m.RefundPage })))
 const CookiePolicyPage = lazy(() => import('./components/Legal/LegalPages').then(m => ({ default: m.CookiePolicyPage })))
 const AcceptableUsePage = lazy(() => import('./components/Legal/LegalPages').then(m => ({ default: m.AcceptableUsePage })))
+const NotFoundPage = lazy(() => import('./components/Common/NotFoundPage'))
 
 import { FAQ_DATA } from './constants/pricing_faq'
 
@@ -125,7 +126,6 @@ const PageFallback = () => (
 const Home = () => (
   <>
     <SEO
-      title="Websites + AI | Digital Transformation Partner"
       description="Build a high-performance website, automate repetitive business processes, and turn your digital presence into an autonomous growth engine with Bluetick Digital."
       keywords="AI Business Automation, Custom AI Agents, WhatsApp Workflows, React Website Development, Bluetick Digital"
       structuredData={HOME_STRUCTURED_DATA}
@@ -201,7 +201,7 @@ function App() {
                     <Route path="/whatsapp-api-pricing-india" element={<WhatsAppCalculator />} />
                     <Route path="/whatsapp-api-cost-calculator" element={<Navigate to="/whatsapp-api-pricing-india" replace />} />
                     <Route path="/whatsapp-green-tick-checker" element={<GreenTickChecker />} />
-                    <Route path="*" element={<Home />} />
+                    <Route path="*" element={<NotFoundPage />} />
                   </Routes>
                 </Suspense>
               </main>

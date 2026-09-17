@@ -68,7 +68,7 @@
 }
 
 .logoAccent {
-  color: var(--color-brand, #2563eb);
+  color: var(--color-brand, #1d4ed8);
 }
 
 /* Floating Pill Nav */
@@ -128,7 +128,7 @@
 
 .chevronRotated {
   transform: rotate(180deg);
-  color: var(--color-brand, #2563eb);
+  color: var(--color-brand, #1d4ed8);
 }
 
 /* Dropdown Content */
@@ -192,7 +192,7 @@
 .iconBoxEmerald { background: #ecfdf5; }
 
 .iconGreen { color: #16a34a; }
-.iconBlue { color: #2563eb; }
+.iconBlue { color: var(--color-brand, #1d4ed8); }
 .iconCyan { color: #0891b2; }
 .iconPurple { color: #9333ea; }
 .iconAmber { color: #d97706; }
@@ -233,7 +233,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.45rem;
-    background: #2563eb;
+    background: var(--color-brand, #1d4ed8);
     color: #ffffff !important;
     padding: 0.6rem 1.4rem;
     border-radius: var(--radius-full, 9999px);
@@ -241,7 +241,7 @@
     font-weight: 700;
     letter-spacing: -0.01em;
     text-decoration: none;
-    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+    box-shadow: 0 4px 14px rgba(29, 78, 216, 0.35);
     transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     white-space: nowrap;
   }
@@ -358,7 +358,7 @@
 
 .mobileLink:hover, .mobileLink:active {
   background: #f1f5f9;
-  color: #2563eb;
+  color: var(--color-brand, #1d4ed8);
 }
 
 .mobileCta {
@@ -367,7 +367,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background: #2563eb;
+  background: var(--color-brand, #1d4ed8);
   color: #ffffff !important;
   min-height: 48px;
   padding: 0.85rem 1.5rem;
@@ -375,6 +375,6 @@
   font-size: 1rem;
   font-weight: 700;
   text-decoration: none;
-  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+  box-shadow: 0 6px 20px rgba(29, 78, 216, 0.35);
   touch-action: manipulation;
 }

@@ -97,7 +97,7 @@
 }
 
 .projectName {
-  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
   font-size: clamp(1.65rem, 3vw, 2.35rem);
   font-weight: 700;
   color: var(--color-text-primary);
@@ -154,7 +154,7 @@
 }
 
 .storyText {
-  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
   font-size: 0.95rem;
   line-height: 1.55;
   color: var(--color-text-secondary);
@@ -162,7 +162,7 @@
 }
 
 .outcomeHighlight {
-  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
   font-size: 1rem;
   font-weight: 600;
   line-height: 1.5;

@@ -91,7 +91,7 @@
 }
 
 .ctaPrimaryBtn:hover {
-  background: #2563eb;
+  background: var(--color-brand-hover, #1e40af);
   box-shadow: 0 8px 30px rgba(29, 78, 216, 0.6);
 }
 

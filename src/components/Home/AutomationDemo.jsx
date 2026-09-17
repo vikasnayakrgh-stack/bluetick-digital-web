@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingBag, Factory, Rocket, Building2, ArrowRight, Zap, CheckCircle2, Bot, MessageSquare, Clock, ShieldCheck, Sparkles, Send } from 'lucide-react';
 import FloemaReveal from '../Common/FloemaReveal';
@@ -100,6 +100,33 @@ const AutomationDemo = () => {
   const [selectedTab, setSelectedTab] = useState("ecommerce");
   const [isTyping, setIsTyping] = useState(false);
   const current = DEMOS[selectedTab];
+  const tabRefs = useRef({});
+  const tabKeys = Object.keys(DEMOS);
+
+  const handleTabKeyDown = (e, currentId) => {
+    const currentIndex = tabKeys.indexOf(currentId);
+    let nextIndex = null;
+
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+      e.preventDefault();
+      nextIndex = (currentIndex + 1) % tabKeys.length;
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      nextIndex = (currentIndex - 1 + tabKeys.length) % tabKeys.length;
+    } else if (e.key === 'Home') {
+      e.preventDefault();
+      nextIndex = 0;
+    } else if (e.key === 'End') {
+      e.preventDefault();
+      nextIndex = tabKeys.length - 1;
+    }
+
+    if (nextIndex !== null) {
+      const nextKey = tabKeys[nextIndex];
+      setSelectedTab(nextKey);
+      tabRefs.current[nextKey]?.focus();
+    }
+  };
 
   // Trigger typing simulation on tab change
   useEffect(() => {
@@ -137,11 +164,15 @@ const AutomationDemo = () => {
             return (
               <button
                 key={demo.id}
+                ref={(el) => { tabRefs.current[demo.id] = el; }}
+                id={`tab-${demo.id}`}
                 role="tab"
                 aria-selected={isSelected}
                 aria-controls="demo-tabpanel"
+                tabIndex={isSelected ? 0 : -1}
                 className={`${styles.tabBtn} ${isSelected ? styles.tabSelected : ''}`}
                 onClick={() => setSelectedTab(demo.id)}
+                onKeyDown={(e) => handleTabKeyDown(e, demo.id)}
               >
                 {isSelected && (
                   <motion.div
@@ -165,6 +196,7 @@ const AutomationDemo = () => {
             key={current.id}
             id="demo-tabpanel"
             role="tabpanel"
+            aria-labelledby={`tab-${current.id}`}
             aria-label={`${current.title} Automation Showcase`}
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}

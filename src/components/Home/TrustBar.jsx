@@ -57,28 +57,14 @@ const TrustBar = () => {
         </div>
 
         {/* Tech Stack Marquee Ticker */}
-        <div className={styles.marqueeWrapper} style={{ marginTop: '2.5rem', overflow: 'hidden', whiteSpace: 'nowrap', display: 'flex', maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)' }}>
+        <div className={styles.marqueeWrapper}>
           <motion.div
             className={styles.marqueeTrack}
             animate={{ x: ['0%', '-50%'] }}
             transition={{ repeat: Infinity, duration: 45, ease: 'linear' }}
-            style={{ display: 'flex', gap: '1.5rem', flexShrink: 0 }}
           >
             {[...techBadges, ...techBadges].map((badge, idx) => (
-              <span
-                key={idx}
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  padding: '6px 16px',
-                  background: 'var(--color-bg-subtle)',
-                  border: '1px solid var(--color-border-hairline)',
-                  borderRadius: '999px',
-                  fontSize: '0.85rem',
-                  fontWeight: 600,
-                  color: 'var(--color-text-secondary)',
-                }}
-              >
+              <span key={idx} className={styles.techBadge}>
                 {badge}
               </span>
             ))}

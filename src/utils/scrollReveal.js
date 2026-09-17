@@ -28,11 +28,8 @@ export function initScrollReveal(options = {}) {
   );
 
   if (!revealElements.length) {
-    console.log('[ScrollReveal] No elements found to animate');
     return;
   }
-
-  console.log(`[ScrollReveal] Initializing ${revealElements.length} elements`);
 
   const revealObserver = new IntersectionObserver(
     (entries) => {

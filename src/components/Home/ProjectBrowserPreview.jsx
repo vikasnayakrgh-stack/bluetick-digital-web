@@ -1,11 +1,7 @@
 import React, { useRef, useEffect } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Lock, ArrowUpRight } from 'lucide-react';
 import { getMotionCapabilities } from '../../utils/motionCapabilities';
 import styles from './ProjectBrowserPreview.module.css';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const TILT_MAX = 3.5; // Restrained max degrees (±3.5°)
 
@@ -24,53 +20,20 @@ const ProjectBrowserPreview = ({ url, title, imageSrc, altText }) => {
 
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         if (prefersReducedMotion || !capabilities.allowComplexMotion) {
-            gsap.set([frame, viewport, img], { clearProps: 'all' });
             return;
         }
 
-        const ctx = gsap.context(() => {
-            // QuickTo setters for ultra-smooth 60fps GPU mouse tracking
-            const rotateYTo = gsap.quickTo(frame, "rotationY", { duration: 0.5, ease: "power2.out" });
-            const rotateXTo = gsap.quickTo(frame, "rotationX", { duration: 0.5, ease: "power2.out" });
-            const yTo = gsap.quickTo(frame, "y", { duration: 0.5, ease: "power2.out" });
+        let cleanup;
+        let isMounted = true;
 
-            // Store references on frame DOM node for event handlers
-            frame._gsapTilt = { rotateYTo, rotateXTo, yTo };
-
-            // Cinematic Curtain Clip-Path Reveal on Scroll Entry
-            if (img) {
-                gsap.fromTo(viewport, 
-                    { clipPath: 'inset(18% 0% 0% 0%)' },
-                    {
-                        clipPath: 'inset(0% 0% 0% 0%)',
-                        duration: 1.0,
-                        ease: 'power3.out',
-                        scrollTrigger: {
-                            trigger: frame,
-                            start: 'top 85%',
-                            toggleActions: 'play none none reverse',
-                        }
-                    }
-                );
-
-                gsap.fromTo(img,
-                    { scale: 1.08 },
-                    {
-                        scale: 1.0,
-                        duration: 1.2,
-                        ease: 'power3.out',
-                        scrollTrigger: {
-                            trigger: frame,
-                            start: 'top 85%',
-                            toggleActions: 'play none none reverse',
-                        }
-                    }
-                );
-            }
-        }, frame);
+        import('../../utils/showcaseAnimations').then((mod) => {
+            if (!isMounted) return;
+            cleanup = mod.initBrowserPreviewAnimations({ frame, viewport, img });
+        });
 
         return () => {
-            ctx.revert();
+            isMounted = false;
+            if (cleanup) cleanup();
             if (frame) delete frame._gsapTilt;
         };
     }, [capabilities.allowComplexMotion]);

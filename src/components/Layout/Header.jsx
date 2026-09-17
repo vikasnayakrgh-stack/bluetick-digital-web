@@ -18,6 +18,20 @@ const Header = () => {
     const navRef = useRef(null);
     const location = useLocation();
 
+    const triggerRefs = {
+        whatsapp: useRef(null),
+        ai: useRef(null),
+        websites: useRef(null),
+        industries: useRef(null),
+    };
+
+    const menuRefs = {
+        whatsapp: useRef(null),
+        ai: useRef(null),
+        websites: useRef(null),
+        industries: useRef(null),
+    };
+
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 30);
@@ -81,6 +95,62 @@ const Header = () => {
         setActiveDropdown(prev => prev === menuName ? null : menuName);
     };
 
+    const handleTriggerKeyDown = (e, menuName) => {
+        if (e.key === 'ArrowDown' || e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            setActiveDropdown(menuName);
+            setTimeout(() => {
+                const firstItem = menuRefs[menuName].current?.querySelector('a, button');
+                firstItem?.focus();
+            }, 50);
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            setActiveDropdown(menuName);
+            setTimeout(() => {
+                const items = menuRefs[menuName].current?.querySelectorAll('a, button');
+                if (items && items.length > 0) {
+                    items[items.length - 1].focus();
+                }
+            }, 50);
+        } else if (e.key === 'Escape') {
+            if (activeDropdown) {
+                e.preventDefault();
+                setActiveDropdown(null);
+            }
+        }
+    };
+
+    const handleMenuKeyDown = (e, menuName) => {
+        if (e.key === 'Escape') {
+            e.preventDefault();
+            setActiveDropdown(null);
+            triggerRefs[menuName].current?.focus();
+            return;
+        }
+
+        const menuEl = menuRefs[menuName].current;
+        if (!menuEl) return;
+        const items = Array.from(menuEl.querySelectorAll('a, button'));
+        if (!items.length) return;
+        const currentIndex = items.indexOf(document.activeElement);
+
+        if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            const nextIndex = (currentIndex + 1) % items.length;
+            items[nextIndex]?.focus();
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            const prevIndex = (currentIndex - 1 + items.length) % items.length;
+            items[prevIndex]?.focus();
+        } else if (e.key === 'Home') {
+            e.preventDefault();
+            items[0]?.focus();
+        } else if (e.key === 'End') {
+            e.preventDefault();
+            items[items.length - 1]?.focus();
+        }
+    };
+
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
@@ -110,14 +180,26 @@ const Header = () => {
                         onMouseLeave={handleMouseLeave}
                     >
                         <button 
+                            ref={triggerRefs.whatsapp}
+                            id="nav-trigger-whatsapp"
                             className={`${styles.navLink} ${styles.dropdownTrigger} ${activeDropdown === 'whatsapp' ? styles.navLinkActive : ''}`}
                             onClick={(e) => handleToggleDropdown(e, 'whatsapp')}
+                            onKeyDown={(e) => handleTriggerKeyDown(e, 'whatsapp')}
                             aria-expanded={activeDropdown === 'whatsapp'}
+                            aria-haspopup="true"
+                            aria-controls="nav-menu-whatsapp"
                         >
                             WhatsApp API <ChevronDown size={14} className={`${styles.chevron} ${activeDropdown === 'whatsapp' ? styles.chevronRotated : ''}`} />
                         </button>
-                        <div className={styles.dropdownContent}>
-                            <Link to="/solutions/whatsapp-automation" className={styles.dropdownItem} onClick={closeAll}>
+                        <div 
+                            ref={menuRefs.whatsapp}
+                            id="nav-menu-whatsapp"
+                            role="menu"
+                            aria-labelledby="nav-trigger-whatsapp"
+                            onKeyDown={(e) => handleMenuKeyDown(e, 'whatsapp')}
+                            className={styles.dropdownContent}
+                        >
+                            <Link to="/solutions/whatsapp-automation" role="menuitem" className={styles.dropdownItem} onClick={closeAll}>
                                 <div className={`${styles.iconBox} ${styles.iconBoxGreen}`}>
                                     <MessageSquare size={18} className={styles.iconGreen} />
                                 </div>
@@ -126,7 +208,7 @@ const Header = () => {
                                     <div className={styles.itemDesc}>WABA onboarding, team inbox & broadcasts</div>
                                 </div>
                             </Link>
-                            <Link to="/whatsapp-green-tick-checker" className={styles.dropdownItem} onClick={closeAll}>
+                            <Link to="/whatsapp-green-tick-checker" role="menuitem" className={styles.dropdownItem} onClick={closeAll}>
                                 <div className={`${styles.iconBox} ${styles.iconBoxBlue}`}>
                                     <ShieldCheck size={18} className={styles.iconBlue} />
                                 </div>
@@ -135,7 +217,7 @@ const Header = () => {
                                     <div className={styles.itemDesc}>Official Meta verified badge assistance</div>
                                 </div>
                             </Link>
-                            <Link to="/whatsapp-api-pricing-india" className={styles.dropdownItem} onClick={closeAll}>
+                            <Link to="/whatsapp-api-pricing-india" role="menuitem" className={styles.dropdownItem} onClick={closeAll}>
                                 <div className={`${styles.iconBox} ${styles.iconBoxCyan}`}>
                                     <Calculator size={18} className={styles.iconCyan} />
                                 </div>
@@ -144,7 +226,7 @@ const Header = () => {
                                     <div className={styles.itemDesc}>Instant Meta per-conversation pricing tool</div>
                                 </div>
                             </Link>
-                            <Link to="/blog/whatsapp-chatbot-automation" className={styles.dropdownItem} onClick={closeAll}>
+                            <Link to="/blog/whatsapp-chatbot-automation" role="menuitem" className={styles.dropdownItem} onClick={closeAll}>
                                 <div className={`${styles.iconBox} ${styles.iconBoxPurple}`}>
                                     <BookOpen size={18} className={styles.iconPurple} />
                                 </div>
@@ -163,14 +245,26 @@ const Header = () => {
                         onMouseLeave={handleMouseLeave}
                     >
                         <button 
+                            ref={triggerRefs.ai}
+                            id="nav-trigger-ai"
                             className={`${styles.navLink} ${styles.dropdownTrigger} ${activeDropdown === 'ai' ? styles.navLinkActive : ''}`}
                             onClick={(e) => handleToggleDropdown(e, 'ai')}
+                            onKeyDown={(e) => handleTriggerKeyDown(e, 'ai')}
                             aria-expanded={activeDropdown === 'ai'}
+                            aria-haspopup="true"
+                            aria-controls="nav-menu-ai"
                         >
                             AI Agents <ChevronDown size={14} className={`${styles.chevron} ${activeDropdown === 'ai' ? styles.chevronRotated : ''}`} />
                         </button>
-                        <div className={styles.dropdownContent}>
-                            <Link to="/solutions/ai-automation" className={styles.dropdownItem} onClick={closeAll}>
+                        <div 
+                            ref={menuRefs.ai}
+                            id="nav-menu-ai"
+                            role="menu"
+                            aria-labelledby="nav-trigger-ai"
+                            onKeyDown={(e) => handleMenuKeyDown(e, 'ai')}
+                            className={styles.dropdownContent}
+                        >
+                            <Link to="/solutions/ai-automation" role="menuitem" className={styles.dropdownItem} onClick={closeAll}>
                                 <div className={`${styles.iconBox} ${styles.iconBoxPurple}`}>
                                     <Bot size={18} className={styles.iconPurple} />
                                 </div>
@@ -179,7 +273,7 @@ const Header = () => {
                                     <div className={styles.itemDesc}>Autonomous lead qualification & CRM sync</div>
                                 </div>
                             </Link>
-                            <a href="/#business-system" className={styles.dropdownItem} onClick={closeAll}>
+                            <a href="/#business-system" role="menuitem" className={styles.dropdownItem} onClick={closeAll}>
                                 <div className={`${styles.iconBox} ${styles.iconBoxAmber}`}>
                                     <Zap size={18} className={styles.iconAmber} />
                                 </div>
@@ -188,7 +282,7 @@ const Header = () => {
                                     <div className={styles.itemDesc}>Sub-30s qualification & calendar booking</div>
                                 </div>
                             </a>
-                            <a href="/#demo" className={styles.dropdownItem} onClick={closeAll}>
+                            <a href="/#demo" role="menuitem" className={styles.dropdownItem} onClick={closeAll}>
                                 <div className={`${styles.iconBox} ${styles.iconBoxBlue}`}>
                                     <Sparkles size={18} className={styles.iconBlue} />
                                 </div>
@@ -207,14 +301,26 @@ const Header = () => {
                         onMouseLeave={handleMouseLeave}
                     >
                         <button 
+                            ref={triggerRefs.websites}
+                            id="nav-trigger-websites"
                             className={`${styles.navLink} ${styles.dropdownTrigger} ${activeDropdown === 'websites' ? styles.navLinkActive : ''}`}
                             onClick={(e) => handleToggleDropdown(e, 'websites')}
+                            onKeyDown={(e) => handleTriggerKeyDown(e, 'websites')}
                             aria-expanded={activeDropdown === 'websites'}
+                            aria-haspopup="true"
+                            aria-controls="nav-menu-websites"
                         >
                             Websites <ChevronDown size={14} className={`${styles.chevron} ${activeDropdown === 'websites' ? styles.chevronRotated : ''}`} />
                         </button>
-                        <div className={styles.dropdownContent}>
-                            <Link to="/solutions/websites" className={styles.dropdownItem} onClick={closeAll}>
+                        <div 
+                            ref={menuRefs.websites}
+                            id="nav-menu-websites"
+                            role="menu"
+                            aria-labelledby="nav-trigger-websites"
+                            onKeyDown={(e) => handleMenuKeyDown(e, 'websites')}
+                            className={styles.dropdownContent}
+                        >
+                            <Link to="/solutions/websites" role="menuitem" className={styles.dropdownItem} onClick={closeAll}>
                                 <div className={`${styles.iconBox} ${styles.iconBoxBlue}`}>
                                     <Globe size={18} className={styles.iconBlue} />
                                 </div>
@@ -223,7 +329,7 @@ const Header = () => {
                                     <div className={styles.itemDesc}>Sub-second React platforms with lead pipelines</div>
                                 </div>
                             </Link>
-                            <Link to="/solutions/ecommerce" className={styles.dropdownItem} onClick={closeAll}>
+                            <Link to="/solutions/ecommerce" role="menuitem" className={styles.dropdownItem} onClick={closeAll}>
                                 <div className={`${styles.iconBox} ${styles.iconBoxEmerald}`}>
                                     <ShoppingBag size={18} className={styles.iconEmerald} />
                                 </div>
@@ -232,7 +338,7 @@ const Header = () => {
                                     <div className={styles.itemDesc}>D2C stores with COD verification & cart recovery</div>
                                 </div>
                             </Link>
-                            <Link to="/blog/website-development-cost-in-india-2026" className={styles.dropdownItem} onClick={closeAll}>
+                            <Link to="/blog/website-development-cost-in-india-2026" role="menuitem" className={styles.dropdownItem} onClick={closeAll}>
                                 <div className={`${styles.iconBox} ${styles.iconBoxCyan}`}>
                                     <FileText size={18} className={styles.iconCyan} />
                                 </div>
@@ -241,7 +347,7 @@ const Header = () => {
                                     <div className={styles.itemDesc}>Transparent pricing guide & breakdown for India</div>
                                 </div>
                             </Link>
-                            <a href="/#ecosystem" className={styles.dropdownItem} onClick={closeAll}>
+                            <a href="/#ecosystem" role="menuitem" className={styles.dropdownItem} onClick={closeAll}>
                                 <div className={`${styles.iconBox} ${styles.iconBoxPurple}`}>
                                     <Layers size={18} className={styles.iconPurple} />
                                 </div>
@@ -260,14 +366,26 @@ const Header = () => {
                         onMouseLeave={handleMouseLeave}
                     >
                         <button 
+                            ref={triggerRefs.industries}
+                            id="nav-trigger-industries"
                             className={`${styles.navLink} ${styles.dropdownTrigger} ${activeDropdown === 'industries' ? styles.navLinkActive : ''}`}
                             onClick={(e) => handleToggleDropdown(e, 'industries')}
+                            onKeyDown={(e) => handleTriggerKeyDown(e, 'industries')}
                             aria-expanded={activeDropdown === 'industries'}
+                            aria-haspopup="true"
+                            aria-controls="nav-menu-industries"
                         >
                             Industries <ChevronDown size={14} className={`${styles.chevron} ${activeDropdown === 'industries' ? styles.chevronRotated : ''}`} />
                         </button>
-                        <div className={styles.dropdownContent}>
-                            <Link to="/industries/ecommerce" className={styles.dropdownItem} onClick={closeAll}>
+                        <div 
+                            ref={menuRefs.industries}
+                            id="nav-menu-industries"
+                            role="menu"
+                            aria-labelledby="nav-trigger-industries"
+                            onKeyDown={(e) => handleMenuKeyDown(e, 'industries')}
+                            className={styles.dropdownContent}
+                        >
+                            <Link to="/industries/ecommerce" role="menuitem" className={styles.dropdownItem} onClick={closeAll}>
                                 <div className={`${styles.iconBox} ${styles.iconBoxEmerald}`}>
                                     <ShoppingBag size={18} className={styles.iconEmerald} />
                                 </div>
@@ -276,7 +394,7 @@ const Header = () => {
                                     <div className={styles.itemDesc}>COD verification, cart recovery & 24/7 support</div>
                                 </div>
                             </Link>
-                            <Link to="/industries/manufacturing" className={styles.dropdownItem} onClick={closeAll}>
+                            <Link to="/industries/manufacturing" role="menuitem" className={styles.dropdownItem} onClick={closeAll}>
                                 <div className={`${styles.iconBox} ${styles.iconBoxAmber}`}>
                                     <Factory size={18} className={styles.iconAmber} />
                                 </div>
@@ -285,7 +403,7 @@ const Header = () => {
                                     <div className={styles.itemDesc}>RFQ automation & instant catalog routing</div>
                                 </div>
                             </Link>
-                            <Link to="/industries/startups" className={styles.dropdownItem} onClick={closeAll}>
+                            <Link to="/industries/startups" role="menuitem" className={styles.dropdownItem} onClick={closeAll}>
                                 <div className={`${styles.iconBox} ${styles.iconBoxPurple}`}>
                                     <Rocket size={18} className={styles.iconPurple} />
                                 </div>
@@ -294,7 +412,7 @@ const Header = () => {
                                     <div className={styles.itemDesc}>Rapid sprint deployments & automated onboarding</div>
                                 </div>
                             </Link>
-                            <Link to="/industries/local-business" className={styles.dropdownItem} onClick={closeAll}>
+                            <Link to="/industries/local-business" role="menuitem" className={styles.dropdownItem} onClick={closeAll}>
                                 <div className={`${styles.iconBox} ${styles.iconBoxGreen}`}>
                                     <Building2 size={18} className={styles.iconGreen} />
                                 </div>

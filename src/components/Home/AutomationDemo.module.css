@@ -292,6 +292,11 @@
   color: #ffffff;
 }
 
+.waAvatarIcon {
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
 .waOnlineDot {
   position: absolute;
   bottom: 0;

@@ -1,11 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight, Sparkles, ExternalLink } from 'lucide-react';
 import ProjectBrowserPreview from './ProjectBrowserPreview';
 import styles from './ProjectsShowcase.module.css';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const PROJECTS = [
   {
@@ -36,6 +32,48 @@ const PROJECTS = [
     imageSrc: '/images/laxmi-furniture-preview.jpg',
     badge: 'CONCEPT / DEMO SYSTEM',
   },
+  {
+    id: 'zivara-jewels',
+    stepNumber: 'System 03',
+    name: 'Zivara Jewels',
+    category: 'Luxury Retail & VIP Showroom Booking',
+    title: 'Fine Jewellery Digital Showroom & VIP Consultation Engine',
+    challenge: 'High-value jewellery buyers hesitate online without live metal rate transparency, certified purity proof, and personalized in-store viewing concierge.',
+    systemBuilt: 'Editorial luxury storefront featuring live gold/silver rate ticker (AU 916), interactive wedding trousseau catalog, visit shortlist builder, and WhatsApp appointment booking concierge.',
+    outcome: 'Sub-second catalog browsing, 100% BIS HUID purity transparency, and 3x higher in-store private viewing conversions.',
+    capabilities: ['Live Metal Ticker', 'VIP Visit Concierge', 'BIS HUID Transparency', 'WhatsApp Booking'],
+    liveDemoUrl: 'https://zivara-jewels-rouge.vercel.app/',
+    imageSrc: '/images/zivara-jewels-preview.jpg',
+    badge: 'CONCEPT / DEMO SYSTEM',
+  },
+  {
+    id: 'aurelia-dental',
+    stepNumber: 'System 04',
+    name: 'Aurelia Dental Studio',
+    category: 'Healthcare & Patient Consultation Engine',
+    title: 'Modern Private Dental Studio & Patient Experience Engine',
+    challenge: 'Dental patients experience booking friction and anxiety when clinics bury treatment transparent pricing and rely on manual phone scheduling.',
+    systemBuilt: 'Patient-first digital studio featuring symptom-based intent self-triage, transparent procedure pricing, anxiety-aware clinical presentation, and direct WhatsApp appointment booking.',
+    outcome: 'Sub-second consultation routing, 24/7 symptom self-triage, and automated patient appointment confirmations.',
+    capabilities: ['Symptom Self-Triage', 'Direct WhatsApp Triage', 'Transparent Pricing', 'Zero-Friction Booking'],
+    liveDemoUrl: 'https://aurelia-khaki-three.vercel.app/',
+    imageSrc: '/images/aurelia-dental-preview.jpg',
+    badge: 'CONCEPT / DEMO SYSTEM',
+  },
+  {
+    id: 'forgecore-industries',
+    stepNumber: 'System 05',
+    name: 'ForgeCore Industries',
+    category: 'Industrial Manufacturing & B2B RFQ Engine',
+    title: 'Precision Components Manufacturing & RFQ Platform',
+    challenge: 'Industrial procurement teams face slow quoting cycles, vague tolerance specs, and friction submitting technical CAD/drawing requirements.',
+    systemBuilt: 'Heavy-industry digital catalog showcasing 5-axis CNC machining, tolerance guides, live machine capacity telemetry, automated DFM review workflow, and direct WhatsApp RFQ desk.',
+    outcome: '4-hour DFM turnaround, 100% CMM inspection transparency, and automated industrial RFQ lead qualification.',
+    capabilities: ['Automated DFM Review', 'Tolerance Specifications', 'Direct WhatsApp RFQ', 'CMM Quality Standards'],
+    liveDemoUrl: 'https://forge-core-industries.vercel.app/',
+    imageSrc: '/images/forgecore-preview.jpg',
+    badge: 'CONCEPT / DEMO SYSTEM',
+  },
 ];
 
 const ProjectsShowcase = () => {
@@ -44,6 +82,7 @@ const ProjectsShowcase = () => {
   const headerRef = useRef(null);
   const watermarkRef = useRef(null);
   const cardsRef = useRef([]);
+  const animModuleRef = useRef(null);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -53,114 +92,38 @@ const ProjectsShowcase = () => {
     if (!section) return;
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) {
-      gsap.set([header, watermark, ...cards], { clearProps: 'all' });
-      return;
-    }
+    if (prefersReducedMotion) return;
 
-    const ctx = gsap.context(() => {
-      // 1. Watermark Parallax Drift
-      if (watermark) {
-        gsap.to(watermark, {
-          yPercent: -20,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: section,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: 0.6,
-          },
-        });
-      }
+    let cleanup;
+    let isMounted = true;
 
-      // 2. Section Header Staggered Reveal
-      if (header) {
-        gsap.from(header.children, {
-          y: 35,
-          opacity: 0,
-          duration: 0.75,
-          stagger: 0.1,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: header,
-            start: 'top 85%',
-            toggleActions: 'play none none reverse',
-          },
-        });
-      }
+    import('../../utils/showcaseAnimations').then((mod) => {
+      if (!isMounted) return;
+      animModuleRef.current = mod;
+      cleanup = mod.initShowcaseAnimations({ section, header, watermark, cards, styles });
+    });
 
-      // 3. Project Cards ScrollTrigger Cascade
-      cards.forEach((cardEl) => {
-        if (!cardEl) return;
-
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: cardEl,
-            start: 'top 85%',
-            toggleActions: 'play none none reverse',
-          },
-        });
-
-        // Main card box entrance
-        tl.from(cardEl, {
-          y: 45,
-          opacity: 0,
-          duration: 0.75,
-          ease: 'power3.out',
-        });
-
-        // Story blocks stagger
-        const storyBlocks = cardEl.querySelectorAll(`.${styles.storyBlock}`);
-        if (storyBlocks.length) {
-          tl.from(storyBlocks, {
-            y: 18,
-            opacity: 0,
-            duration: 0.45,
-            stagger: 0.08,
-            ease: 'power2.out',
-          }, '-=0.4');
-        }
-
-        // Capability tags pop-in
-        const capTags = cardEl.querySelectorAll(`.${styles.capTag}`);
-        if (capTags.length) {
-          tl.from(capTags, {
-            scale: 0.88,
-            opacity: 0,
-            duration: 0.4,
-            stagger: 0.04,
-            ease: 'back.out(1.5)',
-          }, '-=0.3');
-        }
-
-        // CTA button entrance
-        const ctaBtn = cardEl.querySelector(`.${styles.liveDemoBtn}`);
-        if (ctaBtn) {
-          tl.from(ctaBtn, {
-            y: 12,
-            opacity: 0,
-            duration: 0.4,
-            ease: 'power2.out',
-          }, '-=0.2');
-        }
-      });
-    }, section);
-
-    return () => ctx.revert();
+    return () => {
+      isMounted = false;
+      if (cleanup) cleanup();
+    };
   }, []);
 
   // Magnetic Button Hover Effects
   const handleBtnMouseMove = (e) => {
-    const btn = e.currentTarget;
-    const rect = btn.getBoundingClientRect();
-    const x = (e.clientX - rect.left - rect.width / 2) * 0.28;
-    const y = (e.clientY - rect.top - rect.height / 2) * 0.28;
-    gsap.to(btn, { x, y, duration: 0.3, ease: 'power2.out' });
+    if (animModuleRef.current?.animateBtnMouseMove) {
+      const btn = e.currentTarget;
+      const rect = btn.getBoundingClientRect();
+      const x = (e.clientX - rect.left - rect.width / 2) * 0.28;
+      const y = (e.clientY - rect.top - rect.height / 2) * 0.28;
+      animModuleRef.current.animateBtnMouseMove(btn, x, y);
+    }
   };
 
   const handleBtnMouseLeave = (e) => {
-    const btn = e.currentTarget;
-    gsap.to(btn, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.4)' });
+    if (animModuleRef.current?.animateBtnMouseLeave) {
+      animModuleRef.current.animateBtnMouseLeave(e.currentTarget);
+    }
   };
 
   return (

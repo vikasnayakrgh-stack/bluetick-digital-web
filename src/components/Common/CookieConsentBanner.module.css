@@ -67,7 +67,7 @@
 }
 
 .acceptBtn {
-  background: var(--color-brand, #2563eb);
+  background: var(--color-brand, #1d4ed8);
   color: #ffffff;
   border: none;
   padding: 0.6rem 1.15rem;
@@ -279,7 +279,7 @@
 }
 
 .switchInput:checked + .switchSlider {
-  background-color: var(--color-brand, #2563eb);
+  background-color: var(--color-brand, #1d4ed8);
 }
 
 .switchInput:focus-visible + .switchSlider {

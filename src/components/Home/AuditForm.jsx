@@ -22,6 +22,10 @@ const AuditForm = () => {
     const [hasError, setHasError] = useState(false);
     const [errors, setErrors] = useState({});
 
+    // Spam protection: honeypot & time-gate
+    const [honeypot, setHoneypot] = useState('');
+    const formMountTime = useRef(Date.now());
+
     // Field refs for accessible focus management
     const nameInputRef = useRef(null);
     const businessNameRef = useRef(null);
@@ -102,10 +106,20 @@ const AuditForm = () => {
 
         setErrors({});
         setStep(2);
+        setTimeout(() => businessTypeRef.current?.focus(), 50);
+    };
+
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+        if (step === 1) {
+            handleNextStep(e);
+        } else {
+            handleSubmit(e);
+        }
     };
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
+        if (e) e.preventDefault();
         const newErrors = {};
 
         if (!formData.business_type) {
@@ -124,6 +138,22 @@ const AuditForm = () => {
             else if (newErrors.requirement) requirementRef.current?.focus();
             return;
         }
+
+        // Anti-spam check 1: Hidden honeypot field must be untouched
+        if (honeypot) {
+            console.warn('[AuditForm] Spam submission prevented via honeypot.');
+            setStatus('success');
+            return;
+        }
+
+        // Anti-spam check 2: Time-gate check (must be at least 3 seconds from component mount)
+        if (Date.now() - formMountTime.current < 3000) {
+            console.warn('[AuditForm] Rapid submission prevented via time-gate (<3s).');
+            setStatus('success');
+            return;
+        }
+
+        // NOTE: Server-side RLS (insert-only policy) and rate limiting on Supabase must be verified separately.
 
         setStatus('loading');
 
@@ -256,7 +286,20 @@ const AuditForm = () => {
                             </span>
                         </div>
 
-                        <form onSubmit={handleSubmit} noValidate className={styles.form}>
+                        <form onSubmit={handleFormSubmit} noValidate className={styles.form}>
+                            {/* Honeypot field for bot mitigation - hidden from humans and screen readers */}
+                            <div style={{ display: 'none', position: 'absolute', left: '-9999px', opacity: 0 }} aria-hidden="true">
+                                <label htmlFor="bt_honeypot_field">Do not fill this field</label>
+                                <input
+                                    type="text"
+                                    id="bt_honeypot_field"
+                                    name="bt_honeypot_field"
+                                    value={honeypot}
+                                    onChange={(e) => setHoneypot(e.target.value)}
+                                    tabIndex={-1}
+                                    autoComplete="off"
+                                />
+                            </div>
                             <AnimatePresence mode="wait" initial={false}>
                                 {step === 1 ? (
                                     <motion.div
@@ -512,7 +555,7 @@ const AuditForm = () => {
                                         <div style={{ display: 'flex', gap: '1rem', marginTop: '0.5rem' }}>
                                             <motion.button
                                                 type="button"
-                                                onClick={() => { setStep(1); setErrors({}); }}
+                                                onClick={() => { setStep(1); setErrors({}); setTimeout(() => nameInputRef.current?.focus(), 50); }}
                                                 className="btn btn-outline"
                                                 style={{ flex: '0 0 auto', minHeight: '48px' }}
                                                 whileHover={{ scale: 1.01, y: -2 }}

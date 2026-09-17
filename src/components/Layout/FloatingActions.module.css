@@ -9,10 +9,15 @@
     justify-content: flex-end;
     gap: 12px;
     pointer-events: none;
+    transition: bottom 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .floatingContainer > * {
     pointer-events: auto;
+}
+
+.hasCookieBanner {
+    bottom: 6.5rem;
 }
 
 @media (max-width: 768px) {
@@ -20,5 +25,9 @@
         bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
         right: 1.25rem;
         gap: 10px;
+    }
+
+    .hasCookieBanner {
+        bottom: calc(13rem + env(safe-area-inset-bottom, 0px));
     }
 }

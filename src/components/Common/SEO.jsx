@@ -15,7 +15,8 @@ const SEO = ({
     twitterTitle,
     twitterDescription,
     twitterImage,
-    structuredData
+    structuredData,
+    robots
 }) => {
     const location = useLocation();
     const currentPath = location.pathname || '';
@@ -38,9 +39,10 @@ const SEO = ({
         <Helmet>
             {/* Standard metadata tags */}
             <title>{fullTitle}</title>
+            {robots && <meta name="robots" content={robots} />}
             <meta name="description" content={metaDescription} />
             <meta name="keywords" content={metaKeywords} />
-            <link rel="canonical" href={resolvedCanonical} />
+            {!robots?.includes('noindex') && <link rel="canonical" href={resolvedCanonical} />}
 
             {/* Open Graph / Facebook */}
             <meta property="og:title" content={ogTitle || fullTitle} />

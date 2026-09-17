@@ -1,16 +1,13 @@
 import React, { useEffect } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { blogPosts } from '../../data/blogPosts';
+import { getFullBlogPostBySlug } from '../../data/blog';
 import SEO from '../Common/SEO';
 import styles from './BlogPost.module.css';
 
 const BlogPost = () => {
     const { slug } = useParams();
-    const rawSlug = slug || '';
-    const decodedSlug = decodeURIComponent(rawSlug).trim().toLowerCase();
-    const normalizedSlug = decodedSlug.replace(/[\s_]+/g, '-');
-    const post = blogPosts.find(p => p.slug === rawSlug || p.slug === decodedSlug || p.slug === normalizedSlug || p.id === rawSlug);
+    const post = getFullBlogPostBySlug(slug);
 
     useEffect(() => {
         if (post) {
@@ -117,29 +114,44 @@ const BlogPost = () => {
                 canonical={`https://bluetickdigital.in/blog/${post.slug}`}
                 structuredData={{
                     "@context": "https://schema.org",
-                    "@type": "BlogPosting",
-                    "headline": post.title,
-                    "description": post.description,
-                    "image": post.image,
-                    "author": {
-                        "@type": "Person",
-                        "name": post.author || "Vikas Nayak",
-                        "url": "https://bluetickdigital.in/about"
-                    },
-                    "publisher": {
-                        "@type": "Organization",
-                        "name": "Bluetick Digital",
-                        "logo": {
-                            "@type": "ImageObject",
-                            "url": "https://bluetickdigital.in/assets/logo.png"
-                        }
-                    },
-                    "datePublished": post.isoDate || "2026-02-07T00:00:00+05:30",
-                    "dateModified": post.isoDate || "2026-02-07T00:00:00+05:30",
-                    "mainEntityOfPage": {
-                        "@type": "WebPage",
-                        "@id": `https://bluetickdigital.in/blog/${post.slug}`
-                    }
+                    "@graph": [
+                        {
+                            "@type": "BlogPosting",
+                            "headline": post.title,
+                            "description": post.description,
+                            "image": post.image,
+                            "author": {
+                                "@type": "Person",
+                                "name": post.author || "Vikas Nayak",
+                                "url": "https://bluetickdigital.in/about"
+                            },
+                            "publisher": {
+                                "@type": "Organization",
+                                "name": "Bluetick Digital",
+                                "logo": {
+                                    "@type": "ImageObject",
+                                    "url": "https://bluetickdigital.in/assets/logo.png"
+                                }
+                            },
+                            "datePublished": post.isoDate || "2026-02-07T00:00:00+05:30",
+                            "dateModified": post.isoDate || "2026-02-07T00:00:00+05:30",
+                            "mainEntityOfPage": {
+                                "@type": "WebPage",
+                                "@id": `https://bluetickdigital.in/blog/${post.slug}`
+                            }
+                        },
+                        ...(post.content.faqs ? [{
+                            "@type": "FAQPage",
+                            "mainEntity": post.content.faqs.map((faq) => ({
+                                "@type": "Question",
+                                "name": faq.q,
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": faq.a
+                                }
+                            }))
+                        }] : [])
+                    ]
                 }}
             />
             <div className={styles.guideContainer}>

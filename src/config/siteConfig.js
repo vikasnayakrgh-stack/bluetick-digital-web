@@ -37,7 +37,7 @@ export const SITE_CONFIG = {
     logo: 'https://bluetickdigital.in/assets/logo.png',
     logoIcon: 'https://bluetickdigital.in/assets/logo-icon.png',
     favicon: 'https://bluetickdigital.in/assets/favicon.png',
-    ogImage: 'https://bluetickdigital.in/assets/logo.png',
+    ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
   },
 
   // Social & External Profiles

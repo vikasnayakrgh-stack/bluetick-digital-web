@@ -267,12 +267,7 @@
   border: 1px solid var(--color-border-hairline);
   border-radius: var(--radius-md);
   padding: var(--space-8);
-  transition: border-color var(--transition-base), box-shadow var(--transition-base);
-}
-
-.card:hover {
-  border-color: var(--color-border-subtle);
-  box-shadow: var(--shadow-card);
+  transition: border-color var(--transition-base), transform var(--transition-base), box-shadow var(--transition-base);
 }
 
 .card-editorial {
@@ -625,12 +620,6 @@
    ============================================ */
 
 /* Standard Card Hover */
-.card {
-  transition: border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
 .card:hover {
   border-color: var(--color-border-subtle);
   transform: translateY(-4px);

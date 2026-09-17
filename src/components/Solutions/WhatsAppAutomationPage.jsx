@@ -178,7 +178,7 @@ const WhatsAppAutomationPage = () => {
       <SEO
         title="Official WhatsApp Business API & Automation Systems"
         description="Official Meta WhatsApp Business API integration, AI chat automation, broadcast workflows, and multi-agent team inboxes for growing businesses."
-        keywords="WhatsApp Business API, Official Meta Partner, WhatsApp Automation, Green Tick Verification, Bluetick Digital"
+        keywords="WhatsApp Business API, Official Meta WhatsApp Business API, WhatsApp Automation, Green Tick Verification, Bluetick Digital"
         canonical="https://bluetickdigital.in/solutions/whatsapp-automation"
         structuredData={WABA_SCHEMA}
       />
