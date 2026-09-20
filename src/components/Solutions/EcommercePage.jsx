@@ -160,7 +160,7 @@ const ECOMMERCE_SCHEMA = {
     {
       "@type": "FAQPage",
       "@id": "https://bluetickdigital.in/solutions/ecommerce#faq",
-      "mainEntity": ECOM_FAQS.map(faq => ({
+      "mainEntity": ECOMMERCE_FAQS.map(faq => ({
         "@type": "Question",
         "name": faq.q,
         "acceptedAnswer": {
@@ -171,6 +171,8 @@ const ECOMMERCE_SCHEMA = {
     }
   ]
 };
+
+const ECOM_FAQS = ECOMMERCE_FAQS;
 
 const EcommercePage = () => {
   return (

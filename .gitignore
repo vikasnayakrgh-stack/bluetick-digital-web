@@ -8,3 +8,6 @@ dist-ssr
 *.log
 Skills/
 advance ai chatbot/
+
+# graft's local graph cache — regenerable, not committed (run `graft build`).
+/graft/

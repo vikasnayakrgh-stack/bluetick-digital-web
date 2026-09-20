@@ -190,3 +190,39 @@ Any fixed bottom element on mobile must account for transient full-width overlay
 ### Future Checklist
 - [x] Does the floating action button clear the cookie banner when viewed on a 375px mobile screen?
 - [x] Does the transition animate smoothly when the banner is dismissed?
+
+---
+
+### [BLT-006] Subpage Infinite Loading / White Screen Caused by Top-Level Schema ReferenceError
+
+**Date:** 2026-09-20  
+**Category:** Bug / Technical / Runtime  
+**Severity:** Critical  
+**Status:** Resolved  
+
+### Problem
+The route `https://bluetickdigital.in/solutions/whatsapp-automation` (and `solutions/ecommerce`) failed to load in the browser, showing an infinite spinning loader (`PageFallback`) or failing hydration.
+
+### Immediate Cause
+An unhandled `ReferenceError: WABA_FAQS is not defined` occurred at module evaluation time when the lazy-loaded chunk for `WhatsAppAutomationPage` was imported.
+
+### Root Cause
+In `src/components/Solutions/WhatsAppAutomationPage.jsx`, the FAQ data array was declared as `const WA_FAQS = [...]`. However, in the top-level structured data object `WABA_SCHEMA`, the `mainEntity` field called `WABA_FAQS.map(...)` instead of `WA_FAQS.map(...)`. Because `WABA_SCHEMA` is evaluated immediately when the module is imported, the `ReferenceError` prevented the React component from mounting, causing `<Suspense>` to hang indefinitely or throw an unhandled rejection. A similar mismatch (`ECOM_FAQS` instead of `ECOMMERCE_FAQS`) existed in `src/components/Solutions/EcommercePage.jsx`.
+
+### Why We Missed It
+`vite build` performs AST syntax bundling and tree-shaking but does not evaluate runtime JavaScript outside of TypeScript type-checking or strict lint passes. Furthermore, `scripts/prerender.js` uses regex string injection rather than executing the React component tree in Node, allowing the build step to pass with 0 errors while the browser runtime crashed.
+
+### Fix
+1. Corrected `WABA_SCHEMA` in `src/components/Solutions/WhatsAppAutomationPage.jsx` to map over `WA_FAQS` and added a safe alias `const WABA_FAQS = WA_FAQS;`.
+2. Corrected `ECOMMERCE_SCHEMA` in `src/components/Solutions/EcommercePage.jsx` to map over `ECOMMERCE_FAQS` and added a safe alias `const ECOM_FAQS = ECOMMERCE_FAQS;`.
+3. Verified the build and static pre-rendering passes cleanly with `npm run build`.
+
+### What We Learned
+Top-level constants and JSON-LD schema objects that reference other module-scoped variables must be strictly typed or verified against their source declarations. A passing `vite build` does not verify runtime variable resolution in plain JavaScript.
+
+### Prevention Rule
+Always cross-verify that all data variables referenced inside top-level structured data (`@graph` / `FAQPage` schemas) match their local declarations exactly before committing.
+
+### Future Checklist
+- [x] Do all `.map()` calls in schema definitions reference defined array constants?
+- [x] Are both `WA_FAQS` and `ECOMMERCE_FAQS` consistently named and aliased?

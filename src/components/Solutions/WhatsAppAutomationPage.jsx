@@ -160,7 +160,7 @@ const WABA_SCHEMA = {
     {
       "@type": "FAQPage",
       "@id": "https://bluetickdigital.in/solutions/whatsapp-automation#faq",
-      "mainEntity": WABA_FAQS.map(faq => ({
+      "mainEntity": WA_FAQS.map(faq => ({
         "@type": "Question",
         "name": faq.q,
         "acceptedAnswer": {
@@ -171,6 +171,8 @@ const WABA_SCHEMA = {
     }
   ]
 };
+
+const WABA_FAQS = WA_FAQS;
 
 const WhatsAppAutomationPage = () => {
   return (
