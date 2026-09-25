@@ -1,6 +1,6 @@
-import { websiteDevelopmentCostArticle } from './websiteDevelopmentCost';
-import { whatsappChatbotAutomationArticle } from './whatsappChatbotAutomation';
-import { automateLeadQualificationArticle } from './automateLeadQualification';
+import { websiteDevelopmentCostArticle } from './websiteDevelopmentCost.js';
+import { whatsappChatbotAutomationArticle } from './whatsappChatbotAutomation.js';
+import { automateLeadQualificationArticle } from './automateLeadQualification.js';
 
 export const fullBlogArticles = [
     websiteDevelopmentCostArticle,

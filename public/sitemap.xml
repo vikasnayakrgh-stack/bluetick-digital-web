@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Core Routes -->
   <url>
     <loc>https://bluetickdigital.in/</loc>
     <lastmod>2026-02-18</lastmod>
@@ -13,8 +12,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- Core Solutions (70/30 Focus) -->
   <url>
     <loc>https://bluetickdigital.in/solutions/ai-automation</loc>
     <lastmod>2026-02-18</lastmod>
@@ -39,8 +36,6 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- Industry Solutions -->
   <url>
     <loc>https://bluetickdigital.in/industries/ecommerce</loc>
     <lastmod>2026-02-18</lastmod>
@@ -65,8 +60,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-
-  <!-- Commercial Calculators & Tools -->
   <url>
     <loc>https://bluetickdigital.in/whatsapp-api-pricing-india</loc>
     <lastmod>2026-02-18</lastmod>
@@ -79,34 +72,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-
-  <!-- Knowledge Hub & Articles -->
   <url>
     <loc>https://bluetickdigital.in/blog</loc>
     <lastmod>2026-02-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://bluetickdigital.in/blog/whatsapp-chatbot-automation</loc>
-    <lastmod>2026-02-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://bluetickdigital.in/blog/website-development-cost-in-india-2026</loc>
-    <lastmod>2026-08-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://bluetickdigital.in/blog/automate-lead-qualification-whatsapp-ai-chatbot</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Legal & Compliance Policies -->
   <url>
     <loc>https://bluetickdigital.in/privacy</loc>
     <lastmod>2026-08-24</lastmod>
@@ -136,5 +107,23 @@
     <lastmod>2026-08-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://bluetickdigital.in/blog/website-development-cost-in-india-2026</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bluetickdigital.in/blog/whatsapp-chatbot-automation</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bluetickdigital.in/blog/automate-lead-qualification-whatsapp-ai-chatbot</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>

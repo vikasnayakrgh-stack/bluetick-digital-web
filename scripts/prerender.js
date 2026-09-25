@@ -1,10 +1,13 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { blogPosts } from '../src/data/blogPosts.js';
+import { fullBlogArticles } from '../src/data/blog/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const DIST_DIR = path.resolve(__dirname, '../dist');
+const PUBLIC_DIR = path.resolve(__dirname, '../public');
 
 // Read built index.html template
 const templatePath = path.join(DIST_DIR, 'index.html');
@@ -14,8 +17,179 @@ if (!fs.existsSync(templatePath)) {
 }
 const template = fs.readFileSync(templatePath, 'utf-8');
 
-// Authoritative Route Definitions with Complete Semantic Metadata & Initial HTML Snapshot
-const ROUTES = [
+/**
+ * Escapes characters for safe HTML attributes and text
+ */
+function escapeHtml(str) {
+  if (typeof str !== 'string') return str == null ? '' : String(str);
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+/**
+ * Generates JSON-LD structured data graph for blog articles (BlogPosting + optional FAQPage)
+ */
+function generateBlogSchema(post) {
+  const schemaGraph = [
+    {
+      "@type": "BlogPosting",
+      "headline": post.title,
+      "description": post.description,
+      "image": post.image,
+      "author": {
+        "@type": "Person",
+        "name": post.author || "Vikas Nayak",
+        "url": "https://bluetickdigital.in/about"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Bluetick Digital",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://bluetickdigital.in/assets/logo.png"
+        }
+      },
+      "datePublished": post.isoDate || "2026-08-18T00:00:00+05:30",
+      "dateModified": post.isoDate || "2026-08-18T00:00:00+05:30",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": `https://bluetickdigital.in/blog/${post.slug}`
+      }
+    }
+  ];
+
+  if (post.content && post.content.faqs && post.content.faqs.length > 0) {
+    schemaGraph.push({
+      "@type": "FAQPage",
+      "@id": `https://bluetickdigital.in/blog/${post.slug}#faq`,
+      "mainEntity": post.content.faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
+    });
+  }
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": schemaGraph
+  };
+}
+
+/**
+ * Renders complete semantic HTML for an article from structured blog data
+ */
+function renderArticleToHtml(post) {
+  if (!post || !post.content) return '';
+  const { title, description, category, date, author, content } = post;
+  const sections = content.sections || [];
+  const faqs = content.faqs || [];
+  const cta = content.cta || null;
+  const hero = content.hero || null;
+  const readTime = content.meta?.readTime || 10;
+
+  let heroHtml = '';
+  if (hero) {
+    heroHtml = `
+      <header class="article-hero-extended">
+        <h2>${escapeHtml(hero.title)}</h2>
+        ${hero.subtitle ? `<p>${escapeHtml(hero.subtitle)}</p>` : ''}
+        ${hero.stats ? `<div class="hero-stats">${hero.stats.map(s => `<div><strong>${escapeHtml(s.value)}</strong><span>${escapeHtml(s.label)}</span></div>`).join('')}</div>` : ''}
+      </header>
+    `;
+  }
+
+  let sectionsHtml = '';
+  for (const section of sections) {
+    let body = '';
+    switch (section.type) {
+      case 'text':
+        body = (section.body || '').split('\n\n').filter(Boolean).map(p => `<p>${p.replace(/\n/g, '<br/>')}</p>`).join('\n');
+        break;
+      case 'html':
+        body = section.body || '';
+        break;
+      case 'features':
+        body = `<div class="features-grid">${(section.items || []).map(i => `<div class="feature-card"><h3>${escapeHtml(i.title)}</h3><p>${escapeHtml(i.desc)}</p></div>`).join('')}</div>`;
+        break;
+      case 'list':
+        body = `<ul class="article-list">${(section.items || []).map(i => `<li>${escapeHtml(i)}</li>`).join('')}</ul>`;
+        break;
+      case 'steps':
+        body = `<div class="steps-list">${(section.items || []).map(s => `<div class="step-card"><span class="step-badge">Step ${escapeHtml(s.step)}</span><h3>${escapeHtml(s.title)}</h3><p>${escapeHtml(s.body)}</p></div>`).join('')}</div>`;
+        break;
+      case 'table':
+        body = `<div class="table-wrapper"><table><thead><tr>${(section.headers || []).map(h => `<th>${escapeHtml(h)}</th>`).join('')}</tr></thead><tbody>${(section.rows || []).map(r => `<tr>${r.map(c => `<td>${c}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+        break;
+      case 'metrics':
+        body = `<div class="metrics-grid">${(section.items || []).map(m => `<div class="metric-card"><strong>${escapeHtml(m.value)}</strong><span>${escapeHtml(m.label)}</span></div>`).join('')}</div>`;
+        break;
+    }
+    sectionsHtml += `
+      <section class="article-section">
+        ${section.title ? `<h2>${escapeHtml(section.title)}</h2>` : ''}
+        ${section.subtitle ? `<p class="section-subtitle">${escapeHtml(section.subtitle)}</p>` : ''}
+        ${body}
+      </section>
+    `;
+  }
+
+  let faqsHtml = '';
+  if (faqs.length > 0) {
+    faqsHtml = `
+      <section class="faqs-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faqs-list">
+          ${faqs.map(f => `<div class="faq-item"><h3>${escapeHtml(f.q)}</h3><p>${escapeHtml(f.a)}</p></div>`).join('')}
+        </div>
+      </section>
+    `;
+  }
+
+  let ctaHtml = '';
+  if (cta) {
+    ctaHtml = `
+      <section class="cta-section">
+        <h3>${escapeHtml(cta.title)}</h3>
+        <p>${escapeHtml(cta.body)}</p>
+        <p><a href="${escapeHtml(cta.buttonLink || '/#audit')}" class="cta-btn">${escapeHtml(cta.buttonText || 'Get Free Audit →')}</a></p>
+      </section>
+    `;
+  }
+
+  return `
+    <main id="main-content">
+      <article class="blog-article">
+        <header class="article-header">
+          <div class="article-meta">
+            <span>${escapeHtml(category || 'Guide')}</span> • <time datetime="${post.isoDate || ''}">${escapeHtml(date || '')}</time> • <span>${readTime} min read</span>
+          </div>
+          <h1>${escapeHtml(title)}</h1>
+          <p class="article-lead">${escapeHtml(description)}</p>
+          <div class="article-author">
+            <span>By ${escapeHtml(author || 'Vikas Nayak')}</span>
+          </div>
+        </header>
+        ${heroHtml}
+        <div class="article-body">
+          ${sectionsHtml}
+          ${faqsHtml}
+          ${ctaHtml}
+        </div>
+      </article>
+    </main>
+  `;
+}
+
+// 1. Static Public Routes with Semantic Initial HTML
+const STATIC_ROUTES = [
   {
     route: '/',
     title: 'Bluetick Digital | Websites + AI Automation Partner',
@@ -23,6 +197,9 @@ const ROUTES = [
     keywords: 'AI Business Automation, Custom AI Agents, WhatsApp Business API, React Web Development, Bluetick Digital',
     canonical: 'https://bluetickdigital.in/',
     ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
+    lastmod: '2026-02-18',
+    changefreq: 'weekly',
+    priority: '1.0',
     schema: {
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
@@ -64,6 +241,22 @@ const ROUTES = [
           <li><strong>Knowledge Hub:</strong> <a href="/blog">Engineering guides, pricing benchmarks, and WhatsApp automation blueprints</a>.</li>
         </ul>
       </section>
+      <section>
+        <h2>Engineering Insights & Pricing Benchmarks</h2>
+        <p>In-depth technical blueprints, cost breakdowns, and conversion playbooks for founders, business owners, and marketing leaders.</p>
+        <ul>
+          ${blogPosts.slice(0, 2).map(post => `
+            <li>
+              <article>
+                <h3><a href="/blog/${post.slug}">${post.title}</a></h3>
+                <p>${post.description}</p>
+                <a href="/blog/${post.slug}">Read Full Guide →</a>
+              </article>
+            </li>
+          `).join('\n')}
+        </ul>
+        <p><a href="/blog">Explore the Complete Knowledge Hub →</a></p>
+      </section>
     `
   },
   {
@@ -73,6 +266,9 @@ const ROUTES = [
     keywords: 'About Bluetick Digital, Digital Transformation Partner, AI Business Systems, Vikas Nayak',
     canonical: 'https://bluetickdigital.in/about',
     ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
+    lastmod: '2026-02-18',
+    changefreq: 'monthly',
+    priority: '0.8',
     schema: {
       "@context": "https://schema.org",
       "@type": "AboutPage",
@@ -99,6 +295,9 @@ const ROUTES = [
     keywords: 'AI Business Automation, Custom AI Agents, GPT-4o, n8n Workflows, Lead Qualification AI, Bluetick Digital',
     canonical: 'https://bluetickdigital.in/solutions/ai-automation',
     ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
+    lastmod: '2026-02-18',
+    changefreq: 'weekly',
+    priority: '0.9',
     schema: {
       "@context": "https://schema.org",
       "@type": "Service",
@@ -130,6 +329,9 @@ const ROUTES = [
     keywords: 'WhatsApp Business API, Official Meta WhatsApp Business API, WhatsApp Automation, Green Tick Verification, Bluetick Digital',
     canonical: 'https://bluetickdigital.in/solutions/whatsapp-automation',
     ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
+    lastmod: '2026-02-18',
+    changefreq: 'weekly',
+    priority: '0.9',
     schema: {
       "@context": "https://schema.org",
       "@type": "Service",
@@ -152,6 +354,9 @@ const ROUTES = [
     keywords: 'Business Website Design, Lead Generation Websites, Modern Web Development, React 18, Bluetick Digital',
     canonical: 'https://bluetickdigital.in/solutions/websites',
     ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
+    lastmod: '2026-02-18',
+    changefreq: 'weekly',
+    priority: '0.8',
     schema: {
       "@context": "https://schema.org",
       "@type": "Service",
@@ -164,6 +369,11 @@ const ROUTES = [
         <h1>High-Speed Business Websites Engineered for Measurable Growth</h1>
         <p>We build ultra-fast, mobile-first business web platforms that capture intent, rank on search engines, and connect directly to automated sales pipelines.</p>
       </header>
+      <section>
+        <h2>Transparent Website Packages</h2>
+        <p>Starter business websites starting from ₹10,000, growth corporate platforms from ₹20,000, and bespoke enterprise systems.</p>
+        <p>Planning your budget? See our comprehensive <a href="/blog/website-development-cost-in-india-2026">2026 website development cost guide</a> for pricing benchmarks across freelancers, boutique agencies, and modern tech stacks.</p>
+      </section>
     `
   },
   {
@@ -173,6 +383,9 @@ const ROUTES = [
     keywords: 'E-commerce Website Development, D2C Commerce, COD Verification, Cart Recovery, Bluetick Digital',
     canonical: 'https://bluetickdigital.in/solutions/ecommerce',
     ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
+    lastmod: '2026-02-18',
+    changefreq: 'weekly',
+    priority: '0.8',
     schema: {
       "@context": "https://schema.org",
       "@type": "Service",
@@ -193,6 +406,9 @@ const ROUTES = [
     description: 'Digital transformation & automation for D2C brands: automated WhatsApp COD verification, 1-click cart recovery, and 24/7 AI sizing support.',
     canonical: 'https://bluetickdigital.in/industries/ecommerce',
     ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
+    lastmod: '2026-02-18',
+    changefreq: 'monthly',
+    priority: '0.7',
     bodyHtml: `<h1>Digital Transformation & Automation for E-Commerce Brands</h1><p>Turn store visitors into high-LTV repeat buyers with sub-second storefronts, automated WhatsApp COD verification, and 1-click cart recovery.</p>`
   },
   {
@@ -201,6 +417,9 @@ const ROUTES = [
     description: 'Automated RFQ intake, instant spec sheet delivery, and CRM routing for industrial manufacturers and distributors.',
     canonical: 'https://bluetickdigital.in/industries/manufacturing',
     ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
+    lastmod: '2026-02-18',
+    changefreq: 'monthly',
+    priority: '0.7',
     bodyHtml: `<h1>Digital Systems & Lead Engines for Manufacturers</h1><p>Accelerate B2B sales cycles with automated RFQ pipelines, instant PDF catalog delivery, and distributor routing.</p>`
   },
   {
@@ -209,6 +428,9 @@ const ROUTES = [
     description: 'Sprint-based web platforms, automated onboarding flows, and scalable tech infrastructure for high-growth startups.',
     canonical: 'https://bluetickdigital.in/industries/startups',
     ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
+    lastmod: '2026-02-18',
+    changefreq: 'monthly',
+    priority: '0.7',
     bodyHtml: `<h1>High-Velocity Systems & Automation for Startups</h1><p>Launch scalable web platforms with integrated automated qualification and CRM pipelines in 2-week sprints.</p>`
   },
   {
@@ -217,6 +439,9 @@ const ROUTES = [
     description: 'High-converting local business websites, Google Maps optimization, and automated WhatsApp appointment booking.',
     canonical: 'https://bluetickdigital.in/industries/local-business',
     ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
+    lastmod: '2026-02-18',
+    changefreq: 'monthly',
+    priority: '0.7',
     bodyHtml: `<h1>Local Business Growth & Automated WhatsApp Booking</h1><p>Dominate local search and convert showroom inquiries into paying customers automatically.</p>`
   },
   {
@@ -226,6 +451,9 @@ const ROUTES = [
     keywords: 'WhatsApp API Pricing India, Meta Conversation Rates, WhatsApp Marketing Cost, WhatsApp Business API Rates 2026',
     canonical: 'https://bluetickdigital.in/whatsapp-api-pricing-india',
     ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
+    lastmod: '2026-02-18',
+    changefreq: 'weekly',
+    priority: '0.8',
     bodyHtml: `
       <header>
         <h1>WhatsApp Business API Pricing India (2026 Updated)</h1>
@@ -240,6 +468,9 @@ const ROUTES = [
     keywords: 'WhatsApp Green Tick Checker, Meta Verified Badge, WhatsApp Business Verification, Bluetick Digital',
     canonical: 'https://bluetickdigital.in/whatsapp-green-tick-checker',
     ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
+    lastmod: '2026-02-18',
+    changefreq: 'monthly',
+    priority: '0.7',
     bodyHtml: `
       <header>
         <h1>Green Tick Eligibility Checker</h1>
@@ -254,151 +485,31 @@ const ROUTES = [
     keywords: 'WhatsApp Marketing, AI Automation Blog, n8n Workflows, Business Transformation, Bluetick Digital',
     canonical: 'https://bluetickdigital.in/blog',
     ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
+    lastmod: '2026-02-18',
+    changefreq: 'daily',
+    priority: '0.8',
     bodyHtml: `
-      <header>
-        <h1>Resources & Insights</h1>
-        <p>Learn how to scale your business with AI agents, n8n automation, and official WhatsApp Business API workflows.</p>
-      </header>
-    `
-  },
-  {
-    route: '/blog/whatsapp-chatbot-automation',
-    title: 'The Ultimate Guide to WhatsApp Chatbot Automation (2026) | Bluetick Digital',
-    description: 'Scale your business 10x with AI-powered WhatsApp automation. Learn how to capture leads, book demos, and provide 24/7 support.',
-    keywords: 'WhatsApp Chatbot Automation, AI Sales Engine, WhatsApp Business API 2026',
-    canonical: 'https://bluetickdigital.in/blog/whatsapp-chatbot-automation',
-    ogImage: 'https://bluetickdigital.in/images/og-whatsapp-chatbot-automation.jpg',
-    schema: {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": "The Ultimate Guide to WhatsApp Chatbot Automation (2026)",
-      "description": "Scale your business 10x with AI-powered WhatsApp automation. Learn how to capture leads, book demos, and provide 24/7 support.",
-      "image": "https://bluetickdigital.in/images/og-whatsapp-chatbot-automation.jpg",
-      "author": {
-        "@type": "Person",
-        "name": "Vikas Nayak",
-        "url": "https://bluetickdigital.in/about"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Bluetick Digital",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://bluetickdigital.in/assets/logo.png"
-        }
-      },
-      "datePublished": "2026-02-07T00:00:00+05:30",
-      "dateModified": "2026-02-07T00:00:00+05:30",
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://bluetickdigital.in/blog/whatsapp-chatbot-automation"
-      }
-    },
-    bodyHtml: `
-      <article>
-        <h1>The Ultimate Guide to WhatsApp Chatbot Automation (2026)</h1>
-        <p>In 2026, customers expect instant responses. WhatsApp is no longer just a messaging app; it is the world's most powerful sales engine. With over 2 billion active users and a 98% open rate, automating your WhatsApp conversations turns inquiries into closed deals 24/7.</p>
-        <h2>Key Features of an Enterprise AI Chatbot</h2>
-        <ul>
-          <li><strong>24/7 Lead Capture:</strong> Never miss a prospect, even after office hours.</li>
-          <li><strong>CRM Integration:</strong> Instantly sync leads to Supabase, HubSpot, or Zoho.</li>
-          <li><strong>Payment Collection:</strong> Send secure UPI and Razorpay payment links directly in chat.</li>
-        </ul>
-      </article>
-    `
-  },
-  {
-    route: '/blog/website-development-cost-in-india-2026',
-    title: 'Website Development Cost in India: Complete 2026 Pricing Guide | Bluetick Digital',
-    description: 'Transparent 2026 guide to website development costs in India. Compare pricing for small business websites, WordPress, custom platforms, and e-commerce stores.',
-    keywords: 'Website Development Cost India, Website Design Pricing 2026, Custom Website Cost, E-commerce Website Cost India',
-    canonical: 'https://bluetickdigital.in/blog/website-development-cost-in-india-2026',
-    ogImage: 'https://bluetickdigital.in/images/og-website-development-cost-in-india-2026.jpg',
-    schema: {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": "Website Development Cost in India: Complete 2026 Pricing Guide",
-      "description": "Transparent 2026 guide to website development costs in India. Compare pricing for small business websites, WordPress, custom platforms, and e-commerce stores.",
-      "image": "https://bluetickdigital.in/images/og-website-development-cost-in-india-2026.jpg",
-      "author": {
-        "@type": "Person",
-        "name": "Vikas Nayak",
-        "url": "https://bluetickdigital.in/about"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Bluetick Digital",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://bluetickdigital.in/assets/logo.png"
-        }
-      },
-      "datePublished": "2026-08-18T00:00:00+05:30",
-      "dateModified": "2026-08-18T00:00:00+05:30",
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://bluetickdigital.in/blog/website-development-cost-in-india-2026"
-      }
-    },
-    bodyHtml: `
-      <article>
-        <h1>Website Development Cost in India: Complete 2026 Pricing Guide</h1>
-        <p>In 2026, the cost of developing a professional business website in India typically ranges from ₹15,000 to ₹90,000 for standard business and corporate websites, ₹50,000 to ₹1,50,000 for D2C e-commerce stores, and ₹1,50,000 to ₹10,00,000+ for custom web applications and enterprise portals.</p>
-        <h2>5 Core Cost Determinants</h2>
-        <ul>
-          <li><strong>Design Approach:</strong> Pre-made Theme vs Bespoke UX Wireframing.</li>
-          <li><strong>Page Volume & Content Depth:</strong> Information architecture and catalog size.</li>
-          <li><strong>Technology Stack:</strong> WordPress, Shopify, or modern custom builds (React / Vite).</li>
-          <li><strong>Lead Pipeline Complexity:</strong> Static forms vs atomic database and WhatsApp alerts.</li>
-          <li><strong>Integrations:</strong> Payment gateways, logistics APIs, and CRM synchronization.</li>
-        </ul>
-      </article>
-    `
-  },
-  {
-    route: '/blog/automate-lead-qualification-whatsapp-ai-chatbot',
-    title: 'How to Automate Lead Qualification with WhatsApp AI Chatbots (2026 Guide) | Bluetick Digital',
-    description: 'Discover how Indian businesses are using WhatsApp AI chatbots to qualify leads 24/7, reduce cost per lead by 40%, and close deals while they sleep.',
-    keywords: 'WhatsApp AI Chatbot, Automated Lead Qualification, WhatsApp Automation India, BANT Qualification Chatbot',
-    canonical: 'https://bluetickdigital.in/blog/automate-lead-qualification-whatsapp-ai-chatbot',
-    ogImage: 'https://bluetickdigital.in/images/og-automate-lead-qualification-whatsapp-ai-chatbot.jpg',
-    schema: {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": "How to Automate Lead Qualification with WhatsApp AI Chatbots (2026 Guide)",
-      "description": "Discover how Indian businesses are using WhatsApp AI chatbots to qualify leads 24/7, reduce cost per lead by 40%, and close deals while they sleep.",
-      "image": "https://bluetickdigital.in/images/og-automate-lead-qualification-whatsapp-ai-chatbot.jpg",
-      "author": {
-        "@type": "Organization",
-        "name": "Bluetick Digital Team",
-        "url": "https://bluetickdigital.in/about"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Bluetick Digital",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://bluetickdigital.in/assets/logo.png"
-        }
-      },
-      "datePublished": "2026-07-05T00:00:00+05:30",
-      "dateModified": "2026-08-24T00:00:00+05:30",
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://bluetickdigital.in/blog/automate-lead-qualification-whatsapp-ai-chatbot"
-      }
-    },
-    bodyHtml: `
-      <article>
-        <h1>How to Automate Lead Qualification with WhatsApp AI Chatbots (2026 Guide)</h1>
-        <p>Learn how businesses automate 24/7 BANT lead qualification with WhatsApp AI agents, sync to CRM, and boost conversion rates while reducing response times under 30 seconds.</p>
-        <h2>Core Automation Benefits</h2>
-        <ul>
-          <li><strong>Sub-30s Response Time:</strong> Qualify high-intent inbound inquiries before competitors respond.</li>
-          <li><strong>Automated BANT Scoring:</strong> Dynamic scoring based on budget, timeline, and need.</li>
-          <li><strong>CRM Synchronization:</strong> Seamless atomic data sync to Supabase, Zoho, or HubSpot.</li>
-        </ul>
-      </article>
+      <main id="main-content">
+        <header>
+          <h1>Resources &amp; Insights</h1>
+          <p>Learn how to scale your business with WhatsApp automation, web development, and AI.</p>
+        </header>
+        <section>
+          <h2>All Articles &amp; Engineering Guides</h2>
+          <div class="blog-articles-grid">
+            ${blogPosts.map(post => `
+              <article class="blog-card">
+                <h3><a href="/blog/${post.slug}">${escapeHtml(post.title)}</a></h3>
+                <p>${escapeHtml(post.description)}</p>
+                <div>
+                  <span>${escapeHtml(post.date)}</span> • <span>${escapeHtml(post.category)}</span>
+                  <a href="/blog/${post.slug}">Read Article →</a>
+                </div>
+              </article>
+            `).join('\n')}
+          </div>
+        </section>
+      </main>
     `
   },
   {
@@ -408,6 +519,9 @@ const ROUTES = [
     keywords: 'Privacy Policy, Bluetick Digital Privacy, Data Protection, WhatsApp API Privacy, AI Data Security',
     canonical: 'https://bluetickdigital.in/privacy',
     ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
+    lastmod: '2026-08-24',
+    changefreq: 'monthly',
+    priority: '0.5',
     bodyHtml: `
       <main>
         <h1>Privacy Policy</h1>
@@ -423,6 +537,9 @@ const ROUTES = [
     keywords: 'Terms of Service, Bluetick Digital Terms, WhatsApp API Terms, AI Automation Agreement',
     canonical: 'https://bluetickdigital.in/terms',
     ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
+    lastmod: '2026-08-24',
+    changefreq: 'monthly',
+    priority: '0.5',
     bodyHtml: `
       <main>
         <h1>Terms of Service</h1>
@@ -438,6 +555,9 @@ const ROUTES = [
     keywords: 'Refund Policy, Cancellation Policy, Bluetick Digital Subscription, WhatsApp Automation Refund',
     canonical: 'https://bluetickdigital.in/refund',
     ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
+    lastmod: '2026-08-24',
+    changefreq: 'monthly',
+    priority: '0.5',
     bodyHtml: `
       <main>
         <h1>Refund &amp; Cancellation Policy</h1>
@@ -453,6 +573,9 @@ const ROUTES = [
     keywords: 'Cookie Policy, Website Cookies, Google Analytics Cookies, Meta Pixel Consent, Bluetick Digital',
     canonical: 'https://bluetickdigital.in/cookies',
     ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
+    lastmod: '2026-08-24',
+    changefreq: 'monthly',
+    priority: '0.5',
     bodyHtml: `
       <main>
         <h1>Cookie Policy</h1>
@@ -468,6 +591,9 @@ const ROUTES = [
     keywords: 'Acceptable Use Policy, WhatsApp Messaging Rules, Anti-Spam Policy, AI Automation Policy, Bluetick Digital',
     canonical: 'https://bluetickdigital.in/acceptable-use',
     ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
+    lastmod: '2026-08-24',
+    changefreq: 'monthly',
+    priority: '0.5',
     bodyHtml: `
       <main>
         <h1>Acceptable Use &amp; WhatsApp Messaging Policy</h1>
@@ -491,6 +617,24 @@ const ROUTES = [
     `
   }
 ];
+
+// 2. Dynamically Generate Blog Article Routes from Single Source of Truth
+const blogRoutes = fullBlogArticles.map(post => ({
+  route: `/blog/${post.slug}`,
+  title: `${post.title} | Bluetick Digital`,
+  description: post.description,
+  keywords: `${post.category || 'Websites'}, AI Automation, Web Development India, Bluetick Digital`,
+  canonical: `https://bluetickdigital.in/blog/${post.slug}`,
+  ogImage: post.image || 'https://bluetickdigital.in/images/og-default.jpg',
+  lastmod: post.isoDate ? post.isoDate.split('T')[0] : '2026-08-18',
+  changefreq: 'monthly',
+  priority: '0.8',
+  schema: generateBlogSchema(post),
+  bodyHtml: renderArticleToHtml(post)
+}));
+
+// Combine all routes
+const ROUTES = [...STATIC_ROUTES, ...blogRoutes];
 
 // Helper to replace or insert meta tags in HTML
 function generatePageHtml(page) {
@@ -537,12 +681,35 @@ function generatePageHtml(page) {
     html = html.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/i, `<script type="application/ld+json">\n${schemaJson}\n  </script>`);
   }
 
-  // 6. Inject Pre-rendered Semantic HTML Body inside <noscript> for SEO crawlers without JS
+  // 6. Inject Pre-rendered Semantic HTML Body directly into #root
+  // This ensures search engine crawlers and users receive 100% full semantic content immediately,
+  // without relying on client-side JS or thin <noscript> fallbacks.
   if (page.bodyHtml) {
-    html = html.replace('<div id="root"></div>', `<div id="root"></div>\n  <noscript>\n    <div class="seo-prerender-fallback">\n${page.bodyHtml}\n    </div>\n  </noscript>`);
+    html = html.replace('<div id="root"></div>', `<div id="root">${page.bodyHtml}</div>`);
   }
 
   return html;
+}
+
+/**
+ * Automatically generates a clean, valid XML sitemap based on route definitions
+ */
+function generateSitemapXml(routes) {
+  const publicRoutes = routes.filter(r => r.route !== '/404');
+  let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
+  xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
+
+  for (const r of publicRoutes) {
+    xml += '  <url>\n';
+    xml += `    <loc>${r.canonical}</loc>\n`;
+    xml += `    <lastmod>${r.lastmod || '2026-02-18'}</lastmod>\n`;
+    xml += `    <changefreq>${r.changefreq || 'monthly'}</changefreq>\n`;
+    xml += `    <priority>${r.priority || '0.7'}</priority>\n`;
+    xml += '  </url>\n';
+  }
+
+  xml += '</urlset>\n';
+  return xml;
 }
 
 console.log('--- PRE-RENDERING STATIC HTML ROUTES ---');
@@ -566,5 +733,11 @@ for (const page of ROUTES) {
   console.log(`✓ Pre-rendered: ${page.route} -> ${path.relative(DIST_DIR, targetFile)}`);
   count++;
 }
+
+// 7. Synchronize XML Sitemap
+const sitemapXml = generateSitemapXml(ROUTES);
+fs.writeFileSync(path.join(PUBLIC_DIR, 'sitemap.xml'), sitemapXml, 'utf-8');
+fs.writeFileSync(path.join(DIST_DIR, 'sitemap.xml'), sitemapXml, 'utf-8');
+console.log(`✓ Synchronized XML Sitemap with ${ROUTES.filter(r => r.route !== '/404').length} public routes`);
 
 console.log(`\n🎉 Successfully pre-rendered ${count} static HTML routes with complete metadata & semantic content!`);

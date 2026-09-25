@@ -260,7 +260,11 @@ const WebsitesPage = () => {
         title="Transparent Website Packages"
         subtitle="No hidden agency retainers. Clear milestone-based scopes framed around your business stage."
         tiers={WEBSITES_PRICING_TIERS}
-        disclaimer="Starting from prices indicate standard baseline packages. Final investment is scoped transparently during your free audit based on custom pages, integrations, and specific feature requirements."
+        disclaimer={
+          <>
+            Starting from prices indicate standard baseline packages. Final investment is scoped transparently during your free audit based on custom pages, integrations, and specific feature requirements. For detailed industry pricing benchmarks, see our <a href="/blog/website-development-cost-in-india-2026" style={{ color: 'var(--color-brand)', textDecoration: 'underline', fontWeight: 600 }}>2026 website development cost guide</a>.
+          </>
+        }
       />
 
       {/* FAQ Section */}
