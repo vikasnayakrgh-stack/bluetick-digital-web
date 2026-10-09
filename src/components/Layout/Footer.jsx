@@ -61,9 +61,24 @@ const Footer = () => {
                         <h4 className={styles.colTitle}>Company</h4>
                         <ul className={styles.linkList}>
                             <li><Link to="/about">About Bluetick</Link></li>
+                            <li><Link to="/pricing">Pricing Hub</Link></li>
                             <li><a href="/#showcase">Projects &amp; Showcase</a></li>
-                            <li><a href="/#how-it-works">How It Works</a></li>
-                            <li><a href="/#audit">Get Free Audit</a></li>
+                            <li><a href="/#audit">Request Architecture Proposal</a></li>
+                            <li>
+                                <button 
+                                    type="button" 
+                                    onClick={() => {
+                                        if (window.openAIPriyaChat) {
+                                            window.openAIPriyaChat();
+                                        } else {
+                                            window.dispatchEvent(new CustomEvent('bluetick:open-ai-chat'));
+                                        }
+                                    }}
+                                    style={{ background: 'none', border: 'none', padding: 0, font: 'inherit', color: 'inherit', cursor: 'pointer', textAlign: 'left' }}
+                                >
+                                    Try AI Sales Agent (Live)
+                                </button>
+                            </li>
                         </ul>
                     </div>
                 </div>

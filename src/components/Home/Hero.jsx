@@ -91,18 +91,21 @@ const Hero = () => {
 
           {/* Actions & Proof */}
           <div className={styles.actionRow}>
-            <a
-              href="#audit"
+            <button
+              type="button"
               className={styles.exploreBtn}
               onClick={(e) => {
                 e.preventDefault();
-                trackCtaClick('hero_get_free_growth_audit', '#audit');
-                handleNavClick('#audit');
+                trackCtaClick('hero_try_ai_sales_agent', 'ai_chat_modal');
+                if (window.openAIPriyaChat) {
+                  window.openAIPriyaChat();
+                } else {
+                  window.dispatchEvent(new CustomEvent('bluetick:open-ai-chat'));
+                }
               }}
             >
-              <span>Get Free Growth Audit</span>
-              <ArrowRight size={15} className={styles.btnArrow} />
-            </a>
+              <span>Try AI Sales Agent →</span>
+            </button>
 
             <a
               href="/whatsapp-api-cost-calculator"

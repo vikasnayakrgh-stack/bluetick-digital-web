@@ -206,9 +206,9 @@ const AuditForm = () => {
                         style={{ textAlign: 'center', padding: '3rem 2rem', background: '#1e293b', borderRadius: '12px', maxWidth: '640px', margin: '0 auto' }}
                     >
                         <CheckCircle2 size={64} style={{ color: '#16a34a', margin: '0 auto 1rem auto' }} />
-                        <h3 className={styles.successTitle} style={{ color: '#fff', fontSize: '1.75rem', marginBottom: '1rem' }}>Audit Request Received!</h3>
+                        <h3 className={styles.successTitle} style={{ color: '#fff', fontSize: '1.75rem', marginBottom: '1rem' }}>Proposal Request Received!</h3>
                         <p className={styles.successText} style={{ color: '#94a3b8', marginBottom: '2rem' }}>
-                            Thank you for submitting your details. Our Senior Technical Architect will analyze your digital presence and send a custom Website & Automation Audit report via WhatsApp within 24 hours.
+                            Thank you for submitting your details. Our Senior Technical Architect will analyze your digital setup and send a custom Architecture Plan & Fixed-Price Proposal via WhatsApp within 24 hours.
                         </p>
                         <button onClick={() => { setStatus('idle'); setStep(1); setFormData({ name: '', business_name: '', whatsapp: '', website_url: '', business_type: '', requirement: '', monthly_leads: 'under_50', biggest_challenge: '' }); setErrors({}); }} className="btn btn-outline" style={{ color: '#fff', borderColor: '#475569' }}>
                             Submit Another Request
@@ -232,13 +232,13 @@ const AuditForm = () => {
                     >
                         <span className={styles.watermarkNumberDark}>07</span>
                         <span className="section-badge section-badge-dark">
-                            <Sparkles size={14} /> Free Growth Assessment
+                            <Sparkles size={14} /> Architecture Consultation & Proposal
                         </span>
                         <h2 className={styles.infoTitle}>
-                            Get Your Free Website & Automation Audit.
+                            Request a Custom Architecture Plan & Proposal.
                         </h2>
                         <p className={styles.infoDesc}>
-                            Tell us about your business goals and current setup. We’ll analyze your website, identify automation opportunities, and send you an actionable roadmap.
+                            Tell us about your business goals and current setup. We’ll analyze your digital workflow, identify AI automation opportunities, and deliver an actionable architecture proposal.
                         </p>
 
                         <div className={styles.benefitList}>
@@ -280,7 +280,7 @@ const AuditForm = () => {
                         transition={{ duration: 0.5, ease: MOTION_TOKENS.ease.outExpo }}
                     >
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.5rem' }}>
-                            <h3 className={styles.formHeader} style={{ margin: 0, paddingBottom: 0, borderBottom: 'none' }}>Request Your Free Audit</h3>
+                            <h3 className={styles.formHeader} style={{ margin: 0, paddingBottom: 0, borderBottom: 'none' }}>Request Architecture Proposal</h3>
                             <span style={{ fontSize: '0.85rem', fontWeight: 700, fontFamily: 'var(--font-mono)', color: 'var(--color-brand)' }}>
                                 STEP {step} OF 2
                             </span>
@@ -577,7 +577,7 @@ const AuditForm = () => {
                                                     </>
                                                 ) : (
                                                     <>
-                                                        Generate My Growth Roadmap <Send size={18} />
+                                                        Request Architecture Proposal <Send size={18} />
                                                     </>
                                                 )}
                                             </motion.button>

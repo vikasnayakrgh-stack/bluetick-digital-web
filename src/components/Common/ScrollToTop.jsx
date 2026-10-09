@@ -10,12 +10,21 @@ const ScrollToTop = () => {
 
     useEffect(() => {
         if (hash) {
-            // Anchor navigation (e.g., /#audit or /#showcase)
-            const el = document.querySelector(hash);
-            if (el) {
-                el.scrollIntoView({ behavior: 'smooth' });
-                return;
+            // Anchor navigation (e.g., /#showcase or /pricing/ai-automation#whatsapp)
+            const scrollToHash = () => {
+                const el = document.querySelector(hash);
+                if (el) {
+                    el.scrollIntoView({ behavior: 'smooth' });
+                    return true;
+                }
+                return false;
+            };
+
+            if (!scrollToHash()) {
+                const timer = setTimeout(scrollToHash, 120);
+                return () => clearTimeout(timer);
             }
+            return;
         }
 
         // Standard page navigation: instantly reset scroll position to top

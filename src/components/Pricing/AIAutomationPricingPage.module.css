@@ -1,0 +1,556 @@
+/* ============================================
+   AI AUTOMATION PRICING PAGE — SWISS STYLING
+   ============================================ */
+
+.aiPricingPage {
+  min-height: 100vh;
+  background-color: #f8fafc;
+  padding-bottom: 5rem;
+}
+
+/* Breadcrumb Bar */
+.breadcrumbBar {
+  padding-top: 5.5rem;
+  padding-bottom: 0.75rem;
+}
+
+.breadcrumbList {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.85rem;
+  color: #64748b;
+  font-family: var(--font-body, 'Inter', sans-serif);
+}
+
+.breadcrumbList a {
+  color: #64748b;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.breadcrumbList a:hover {
+  color: #0f172a;
+}
+
+.breadcrumbSeparator {
+  color: #cbd5e1;
+}
+
+/* Back Link */
+.backToHubLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1d4ed8;
+  text-decoration: none;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+  transition: transform 0.15s ease;
+}
+
+.backToHubLink:hover {
+  transform: translateX(-2px);
+}
+
+/* Hero Header */
+.pageHero {
+  padding: 1rem 0 2rem 0;
+  text-align: center;
+}
+
+.sectionBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.85rem;
+  background: #eff6ff;
+  border: 1px solid #dbeafe;
+  color: #1d4ed8;
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.775rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 6px;
+  margin-bottom: 1.25rem;
+}
+
+.pageTitle {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  max-width: 840px;
+  margin: 0 auto 1rem auto;
+}
+
+.pageSubtitle {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+  color: #475569;
+  line-height: 1.6;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* Mandatory Notice Box */
+.mandatoryNoticeBox {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-left: 4px solid #1d4ed8;
+  border-radius: 8px;
+  padding: 1.15rem 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  margin: 1.5rem auto 3rem auto;
+  max-width: 1140px;
+}
+
+.noticeIcon {
+  color: #1d4ed8;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.noticeText {
+  font-size: 0.925rem;
+  color: #1e3a8a;
+  line-height: 1.55;
+  font-family: var(--font-body, 'Inter', sans-serif);
+}
+
+.noticeText strong {
+  font-weight: 700;
+}
+
+/* Tiers Grid */
+.tiersSection {
+  padding: 0 0 2rem 0;
+}
+
+.tiersGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .tiersGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .tiersGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.tierCard {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 12px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.tierCard:hover {
+  transform: translateY(-3px);
+  border-color: rgba(29, 78, 216, 0.25);
+  box-shadow: 0 12px 28px -6px rgba(15, 23, 42, 0.08);
+}
+
+.popularCard {
+  border-color: #1d4ed8;
+  box-shadow: 0 8px 24px -4px rgba(29, 78, 216, 0.12);
+}
+
+.popularBadge {
+  position: absolute;
+  top: -12px;
+  right: 1.25rem;
+  background: #1d4ed8;
+  color: #ffffff;
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.725rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  box-shadow: 0 2px 6px rgba(29, 78, 216, 0.3);
+}
+
+.tierTop {
+  margin-bottom: 1.25rem;
+}
+
+.tierModelBadge {
+  display: inline-block;
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #64748b;
+  background: #f1f5f9;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
+}
+
+.tierName {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.priceWrap {
+  margin-bottom: 0.75rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.setupPrice {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+}
+
+.monthlyPrice {
+  font-size: 0.85rem;
+  color: #1d4ed8;
+  font-weight: 700;
+  margin-top: 0.15rem;
+}
+
+.tierTagline {
+  font-size: 0.85rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0;
+  min-height: 52px;
+}
+
+.tierDivider {
+  height: 1px;
+  background: rgba(15, 23, 42, 0.08);
+  margin-bottom: 1.25rem;
+}
+
+.featuresHeader {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #475569;
+  margin-bottom: 0.85rem;
+}
+
+.featureList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex-grow: 1;
+}
+
+.featureList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: #334155;
+  line-height: 1.45;
+}
+
+.checkIcon {
+  color: #16a34a;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.tierFooter {
+  margin-top: auto;
+}
+
+.cardBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.885rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+/* ============================================
+   WHATSAPP BUSINESS API (OFFICIAL META PASS-THROUGH)
+   ============================================ */
+.whatsappSubsection {
+  margin-top: 4.5rem;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 14px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);
+}
+
+.whatsappHeader {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 2rem auto;
+}
+
+.whatsappBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.75rem;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #16a34a;
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-radius: 6px;
+  margin-bottom: 0.85rem;
+}
+
+.whatsappTitle {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.65rem;
+}
+
+.whatsappSubtitle {
+  font-size: 0.95rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.ratesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 640px) {
+  .ratesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .ratesGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.rateCard {
+  background: #f8fafc;
+  border: 1px solid #edf2f7;
+  border-radius: 10px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.rateCategory {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.775rem;
+  font-weight: 700;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.35rem;
+}
+
+.rateValue {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.rateDesc {
+  font-size: 0.825rem;
+  color: #64748b;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.whatsappToolsBar {
+  background: #eff6ff;
+  border: 1px solid #dbeafe;
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+
+@media (min-width: 768px) {
+  .whatsappToolsBar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.toolsBarText {
+  font-size: 0.9rem;
+  color: #1e3a8a;
+  line-height: 1.5;
+  max-width: 620px;
+}
+
+.toolsBarText strong {
+  font-weight: 700;
+}
+
+.toolsBarActions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.toolBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: #1d4ed8;
+  color: #ffffff !important;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.55rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.15s ease;
+}
+
+.toolBtn:hover {
+  background: #1e40af;
+}
+
+.toolBtnOutline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: #ffffff;
+  color: #1d4ed8 !important;
+  border: 1px solid #bfdbfe;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.55rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.15s ease;
+}
+
+.toolBtnOutline:hover {
+  background: #f8fafc;
+}
+
+/* Bottom Live Demo Callout */
+.bottomDemoCallout {
+  margin-top: 3.5rem;
+  background: #0f172a;
+  color: #ffffff;
+  border-radius: 12px;
+  padding: 2.25rem 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.demoCalloutContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+@media (min-width: 768px) {
+  .demoCalloutContent {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.demoCalloutText {
+  max-width: 680px;
+}
+
+.demoCalloutTitle {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.demoCalloutDesc {
+  font-size: 0.925rem;
+  color: #94a3b8;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.demoCalloutBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: #1d4ed8;
+  color: #ffffff;
+  font-size: 0.925rem;
+  font-weight: 600;
+  padding: 0.75rem 1.4rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.15s ease;
+}
+
+.demoCalloutBtn:hover {
+  background: #2563eb;
+}

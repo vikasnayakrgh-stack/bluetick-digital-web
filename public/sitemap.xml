@@ -109,6 +109,24 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://bluetickdigital.in/pricing</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://bluetickdigital.in/pricing/websites</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://bluetickdigital.in/pricing/ai-automation</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://bluetickdigital.in/blog/website-development-cost-in-india-2026</loc>
     <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>

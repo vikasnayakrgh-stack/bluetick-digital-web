@@ -226,3 +226,86 @@ Always cross-verify that all data variables referenced inside top-level structur
 ### Future Checklist
 - [x] Do all `.map()` calls in schema definitions reference defined array constants?
 - [x] Are both `WA_FAQS` and `ECOMMERCE_FAQS` consistently named and aliased?
+
+---
+
+### [BLT-007] Third-Party CDN Chat Widget Integration (CSP & Floating Action Collision)
+
+**Date:** 2026-09-29  
+**Category:** Security & Headers / UI / UX / Mobile / Architecture  
+**Severity:** High  
+**Status:** Resolved  
+
+### Problem
+Integrating an external `@n8n/chat` sales agent widget ("AI Priya") into a production React 18 + Vite SPA deployed on Vercel can cause three distinct production defects:
+1. Strict Vercel CSP directives blocking CDN bundle scripts (`cdn.jsdelivr.net`) and webhook API calls.
+2. Direct collisions with the existing fixed bottom-right floating actions (`WhatsAppBtn` and `BackToTop`).
+3. Overlap with the `CookieConsentBanner` on mobile and desktop viewports.
+
+### Immediate Cause
+- `vercel.json` CSP had strict `script-src`, `style-src`, and `connect-src` directives omitting `https://cdn.jsdelivr.net` and the self-hosted n8n instance.
+- Both the default `@n8n/chat` launcher and Bluetick's `FloatingActions` container shared `position: fixed; bottom: 2rem; right: 2rem`.
+
+### Root Cause
+Third-party web chat widgets inject fixed DOM elements directly into the `document.body` outside React's virtual DOM tree. Without intentional spacing and CSP provisioning, external CDN scripts fail to load silently in production, and if loaded, stack directly over existing fixed buttons.
+
+### Why We Missed It
+Default vendor snippets are designed as standalone HTML script tags without awareness of single-page application lifecycle (StrictMode re-mounting), CSP headers, or existing floating UI components.
+
+### Fix
+1. **CSP Whitelisting:** Updated `vercel.json` CSP to include `https://cdn.jsdelivr.net` in `script-src` and `style-src`, and `https://n8n.srv1179181.hstgr.cloud` in `connect-src`.
+2. **Modular Dynamic Mounting:** Implemented `src/components/Chat/AIPriyaChat.jsx` using dynamic import `/* @vite-ignore */` with a `window.__n8nChatInitialized` guard to prevent duplicate instances under React StrictMode.
+3. **Ergonomic Floating Actions Repositioning:** Moved `.floatingContainer` (`WhatsAppBtn` and `BackToTop`) to the bottom-left (`left: 2rem` / `left: 1.25rem`), keeping the AI Priya widget anchored on the standard bottom-right.
+4. **Cookie Banner Sync:** Toggled `document.body.classList.toggle('hasCookieBanner', !hasChosen)` so `--chat--window--bottom` and `.floatingContainer` elevate synchronously above the cookie banner.
+5. **Theme Harmonization:** Overrode `@n8n/chat` CSS variables with Bluetick Digital's Swiss palette (`--chat--color--primary: #1d4ed8; --chat--header--background: #080A0E`).
+
+### What We Learned
+External conversational widgets must be isolated in a dedicated React wrapper component, guarded against re-initialization, styled through brand CSS custom properties, and positioned to maintain ergonomic separation from primary communication channels like WhatsApp.
+
+### Prevention Rule
+Whenever introducing an external floating widget, always verify CSP header compatibility in `vercel.json`, coordinate z-indexes and screen corner positions with existing floating CTAs, and ensure banner collision clearance across all mobile viewports.
+
+### Future Checklist
+- [x] Are external script/style/connect domains declared in `vercel.json` CSP?
+- [x] Does the chat widget launcher avoid overlapping WhatsApp or back-to-top buttons?
+- [x] Does the widget elevate above sticky banners (e.g. cookie consent)?
+- [x] Is the widget guarded against duplicate initialization in React StrictMode?
+
+---
+
+### [BLT-008] Separation of Project-Based Website Pricing and Recurring AI Automation Workflows (Information Architecture & Hub Pattern)
+
+**Date:** 2026-09-29  
+**Category:** Architecture / UX / Process  
+**Severity:** Medium  
+**Status:** Resolved  
+
+### Problem
+Grouping distinct pricing models (one-time project-based website development from ₹10K vs setup + monthly recurring AI automation from ₹5K + ₹1K/mo) into a single generic 3-card SaaS pricing table caused user confusion and unclear expectations around deliverables and billing cycles.
+
+### Immediate Cause
+The website displayed a single pricing section that attempted to compare websites, WhatsApp API, and AI bots within the same comparison frame.
+
+### Root Cause
+Web development and AI automation represent two fundamentally different commercial engagements:
+1. Websites & E-commerce: Fixed-scope, milestone-delivered capital projects (one-time).
+2. AI Automation & Workflows: Setup engineering + recurring cloud compute and prompt maintenance (setup + monthly).
+Presenting them in a standard SaaS table forced an artificial apples-to-oranges comparison.
+
+### Fix
+1. **Engineered a Dedicated Pricing Hub (`/pricing`):** Directs the user immediately to choose their intended solution path ("Websites & E-Commerce" vs "AI Automation & Workflows") in under 2 seconds.
+2. **Dedicated Website Pricing Page (`/pricing/websites`):** Outlines project-based tiers (Business Website from ₹10K, Premium Profile from ₹20K, Small E-commerce from ₹30K, Large Catalog from ₹50K, Custom) with explicit disclaimers that prices are starting estimates based on scope.
+3. **Dedicated AI Automation Pricing Page (`/pricing/ai-automation`):** Outlines setup + monthly operational tiers (Starter from ₹5K setup + ₹1K/mo, Business from ₹10K + ₹2K/mo, Advanced from ₹20K + ₹5K/mo, Custom) with an embedded, clearly separated Meta pass-through WhatsApp conversation rates subsection.
+4. **Pre-rendering & SEO:** Pre-rendered all 3 pricing routes as static HTML with synchronized XML sitemap and JSON-LD breadcrumbs.
+
+### What We Learned
+Never force heterogeneous service models into a homogeneous SaaS comparison table. High-ticket digital agency and technology partner offerings require clear cognitive bifurcation at the top of the pricing funnel.
+
+### Prevention Rule
+Whenever commercial models differ in billing cadence (project-based vs recurring), separate them through an intentional Hub & Spoke architecture (`/pricing` → `/pricing/[service]`) rather than combining them into a single generic pricing grid.
+
+### Future Checklist
+- [x] Does `/pricing` guide the user to choose between project-based and recurring models within 2 seconds?
+- [x] Do all project tiers use explicit "From" starting indicators rather than deceptive fixed packages?
+- [x] Are third-party pass-through costs (Meta WhatsApp conversation charges) explicitly isolated from core service fees?
+- [x] Are all pricing sub-routes pre-rendered statically with zero 404s?

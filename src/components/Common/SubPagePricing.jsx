@@ -57,7 +57,7 @@ const SubPagePricing = ({
                     href="/#audit"
                     className={`btn ${isFeatured ? 'btn-primary' : 'btn-outline'} ${styles.tierBtn}`}
                   >
-                    <span>Get Free Audit & Proposal</span>
+                    <span>Request Architecture Proposal</span>
                     <ArrowRight size={15} />
                   </a>
                 </div>

@@ -9,6 +9,7 @@ import { SITE_CONFIG } from './config/siteConfig'
 import Header from './components/Layout/Header'
 import Footer from './components/Layout/Footer'
 import FloatingActions from './components/Layout/FloatingActions'
+import AIPriyaChat from './components/Chat/AIPriyaChat'
 import SEO from './components/Common/SEO'
 import ScrollToTop from './components/Common/ScrollToTop'
 import GoogleAnalytics from './components/Common/GoogleAnalytics'
@@ -47,6 +48,9 @@ const RefundPage = lazy(() => import('./components/Legal/LegalPages').then(m => 
 const CookiePolicyPage = lazy(() => import('./components/Legal/LegalPages').then(m => ({ default: m.CookiePolicyPage })))
 const AcceptableUsePage = lazy(() => import('./components/Legal/LegalPages').then(m => ({ default: m.AcceptableUsePage })))
 const NotFoundPage = lazy(() => import('./components/Common/NotFoundPage'))
+const PricingHub = lazy(() => import('./components/Pricing/PricingHub'))
+const WebsitePricingPage = lazy(() => import('./components/Pricing/WebsitePricingPage'))
+const AIAutomationPricingPage = lazy(() => import('./components/Pricing/AIAutomationPricingPage'))
 
 import { FAQ_DATA } from './constants/pricing_faq'
 
@@ -201,6 +205,10 @@ function App() {
                     <Route path="/whatsapp-api-pricing-india" element={<WhatsAppCalculator />} />
                     <Route path="/whatsapp-api-cost-calculator" element={<Navigate to="/whatsapp-api-pricing-india" replace />} />
                     <Route path="/whatsapp-green-tick-checker" element={<GreenTickChecker />} />
+                    <Route path="/pricing" element={<PricingHub />} />
+                    <Route path="/pricing/websites" element={<WebsitePricingPage />} />
+                    <Route path="/pricing/ai-automation" element={<AIAutomationPricingPage />} />
+                    <Route path="/work" element={<Navigate to="/#showcase" replace />} />
                     <Route path="*" element={<NotFoundPage />} />
                   </Routes>
                 </Suspense>
@@ -208,6 +216,7 @@ function App() {
 
               <Footer />
               <FloatingActions />
+              <AIPriyaChat />
               <CookieConsentBanner />
             </div>
           </Router>
