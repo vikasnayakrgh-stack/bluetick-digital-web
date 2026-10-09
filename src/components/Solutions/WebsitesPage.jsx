@@ -8,6 +8,7 @@ import SubPageDeliverables from '../Common/SubPageDeliverables';
 import SubPagePricing from '../Common/SubPagePricing';
 import SubPageFaq from '../Common/SubPageFaq';
 import SubPageCta from '../Common/SubPageCta';
+import NavratriWebsiteCampaign from './NavratriWebsiteCampaign';
 
 const WEBSITES_WORKFLOW = [
   {
@@ -202,6 +203,9 @@ const WebsitesPage = () => {
         secondaryCtaHref="#workflow"
       />
 
+      {/* Navratri Website Campaign Spotlight */}
+      <NavratriWebsiteCampaign />
+
       {/* The Strategic Shift */}
       <SubPageShift
         sectionNumber="01 /"
@@ -254,18 +258,20 @@ const WebsitesPage = () => {
       />
 
       {/* Pricing Tiers */}
-      <SubPagePricing
-        sectionNumber="04 /"
-        sectionBadge="Transparent Investment"
-        title="Transparent Website Packages"
-        subtitle="No hidden agency retainers. Clear milestone-based scopes framed around your business stage."
-        tiers={WEBSITES_PRICING_TIERS}
-        disclaimer={
-          <>
-            Starting from prices indicate standard baseline packages. Final investment is scoped transparently during your free audit based on custom pages, integrations, and specific feature requirements. For detailed industry pricing benchmarks, see our <a href="/blog/website-development-cost-in-india-2026" style={{ color: 'var(--color-brand)', textDecoration: 'underline', fontWeight: 600 }}>2026 website development cost guide</a>.
-          </>
-        }
-      />
+      <div id="packages">
+        <SubPagePricing
+          sectionNumber="04 /"
+          sectionBadge="Transparent Investment"
+          title="Transparent Website Packages"
+          subtitle="No hidden agency retainers. Clear milestone-based scopes framed around your business stage."
+          tiers={WEBSITES_PRICING_TIERS}
+          disclaimer={
+            <>
+              Starting from prices indicate standard baseline packages. Final investment is scoped transparently during your free audit based on custom pages, integrations, and specific feature requirements. For detailed industry pricing benchmarks, see our <a href="/blog/website-development-cost-in-india-2026" style={{ color: 'var(--color-brand)', textDecoration: 'underline', fontWeight: 600 }}>2026 website development cost guide</a>.
+            </>
+          }
+        />
+      </div>
 
       {/* FAQ Section */}
       <SubPageFaq

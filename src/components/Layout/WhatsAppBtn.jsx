@@ -6,7 +6,7 @@ import styles from './WhatsAppBtn.module.css';
 
 const WhatsAppBtn = () => {
     const phoneNumber = SITE_CONFIG.contact.whatsappRaw;
-    const message = encodeURIComponent('Hi, I am interested in your WhatsApp automation services!');
+    const message = encodeURIComponent('Hi Bluetick Digital! I’m interested in your website development services and Navratri offer. Please share the package details.');
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 
     const handleClick = () => {
