@@ -23,10 +23,10 @@ export const websiteDevelopmentCostArticle = {
                 title: 'Indicative Market Pricing & Bluetick Digital Starting Packages',
                 headers: ['Website Category', 'Freelancer / Entry-Level', 'Small / Boutique Agency', 'Enterprise / Large Agency', 'Bluetick Digital Baseline', 'Typical Timeline'],
                 rows: [
-                    ['Starter Business Website (1–4 Pages)', '₹5,000 – ₹20,000', '₹15,000 – ₹45,000', '₹60,000 – ₹1,50,000+', 'Starting from ₹10,000', '1–2 Weeks'],
-                    ['Growth Corporate Platform (5–12 Pages)', '₹15,000 – ₹40,000', '₹30,000 – ₹90,000', '₹1,50,000 – ₹4,00,000+', 'Starting from ₹20,000', '2–4 Weeks'],
-                    ['D2C E-Commerce Store (Up to 100 SKUs)', '₹25,000 – ₹60,000', '₹50,000 – ₹1,50,000', '₹2,50,000 – ₹8,00,000+', 'Starting from ₹30,000', '3–6 Weeks'],
-                    ['Custom Web Application / Portal', '₹50,000 – ₹1,50,000+', '₹1,50,000 – ₹5,00,000+', '₹5,00,000 – ₹20,00,000+', 'Custom Scoped', '6–12+ Weeks']
+                    ['Starter Business Website (1–4 Pages)', '₹5,000 – ₹20,000', '₹15,000 – ₹45,000', '₹60,000 – ₹1,50,000+', 'Starting from ₹9,999', '1–2 Weeks'],
+                    ['Growth Corporate Platform (5–12 Pages)', '₹15,000 – ₹40,000', '₹30,000 – ₹90,000', '₹1,50,000 – ₹4,00,000+', 'Starting from ₹19,999', '2–4 Weeks'],
+                    ['D2C E-Commerce Store (Up to 100 SKUs)', '₹25,000 – ₹60,000', '₹50,000 – ₹1,50,000', '₹2,50,000 – ₹8,00,000+', 'Starting from ₹29,999', '3–6 Weeks'],
+                    ['Custom Web Application / Enterprise', '₹50,000 – ₹1,50,000+', '₹1,50,000 – ₹5,00,000+', '₹5,00,000 – ₹20,00,000+', 'Custom quote', '6–12+ Weeks']
                 ]
             },
             {
@@ -40,19 +40,19 @@ export const websiteDevelopmentCostArticle = {
                 subtitle: 'Matching your budget to your actual business requirements prevents both under-investing in fragile setups and over-investing in unnecessary complexity.',
                 items: [
                     {
-                        title: 'Starter Business Website (From ₹10,000)',
+                        title: 'Starter Business Website (From ₹9,999)',
                         desc: 'Best for local services, emerging startups, and consultants. Scope includes 1–4 responsive pages, WhatsApp inquiry chat integration, essential technical SEO meta tags, and fast cloud hosting setup.'
                     },
                     {
-                        title: 'Growth Corporate Platform (From ₹20,000)',
+                        title: 'Growth Corporate Platform (From ₹19,999)',
                         desc: 'Best for established B2B firms, industrial manufacturers, and healthcare providers. Scope includes 5–12 bespoke pages, interactive showcases, direct Supabase CRM database logging, and full JSON-LD structured data.'
                     },
                     {
-                        title: 'D2C E-Commerce Storefront (From ₹30,000 to ₹50,000)',
+                        title: 'D2C E-Commerce Storefront (Starting from ₹29,999)',
                         desc: 'Best for retail brands and product catalog businesses. Scope includes dynamic variant management, secure payment gateways (UPI, Cards, Net Banking), mobile cart drawer, and automated WhatsApp order notifications.'
                     },
                     {
-                        title: 'Custom Web Application / Portal (Custom Scoped)',
+                        title: 'Custom Web Application / Enterprise (Custom quote)',
                         desc: 'Best for SaaS platforms, dealer networks, and operational dashboards. Scope includes role-based authentication, relational database architectures, custom API integrations, and milestone-based testing.'
                     }
                 ]
@@ -159,12 +159,12 @@ export const websiteDevelopmentCostArticle = {
             {
                 type: 'html',
                 title: '11. What You Get With Bluetick Digital',
-                body: '<p>At Bluetick Digital, we build modern, high-performance business websites designed to generate qualified inquiries. We follow a disciplined, buyer-focused process:</p><ul><li><strong>Strategy & Architecture:</strong> We analyze your business model, customer journey, and conversion points before writing code.</li><li><strong>Custom Responsive Design:</strong> Clean, editorial UI tailored to your brand without bloated third-party themes.</li><li><strong>Modern Engineering:</strong> Fast, mobile-first frontend code engineered for Google Core Web Vitals compliance.</li><li><strong>Technical SEO Foundation:</strong> Built-in semantic HTML, OpenGraph tags, XML sitemaps, and structured JSON-LD schemas.</li><li><strong>Connected Lead Capture:</strong> Forms integrated with secure database storage and instant WhatsApp alerts.</li></ul><h3>Our Standard Website Solutions:</h3><ul><li><a href="https://bluetickdigital.in/solutions/websites" style="color: var(--color-brand, #1d4ed8); text-decoration: underline;"><strong>Custom Business Websites:</strong></a> High-speed, conversion-focused web platforms starting from ₹10,000 (Starter) and ₹20,000 (Growth).</li><li><a href="https://bluetickdigital.in/solutions/ecommerce" style="color: var(--color-brand, #1d4ed8); text-decoration: underline;"><strong>D2C E-Commerce Storefronts:</strong></a> Mobile commerce platforms starting from ₹30,000 (Starter) and ₹50,000 (Growth Commerce).</li><li><a href="https://bluetickdigital.in/solutions/ai-automation" style="color: var(--color-brand, #1d4ed8); text-decoration: underline;"><strong>Connected AI & WhatsApp Systems:</strong></a> Seamless lead pipelines connecting your website to automated qualification and CRM workflows.</li></ul>'
+                body: '<p>At Bluetick Digital, we build modern, high-performance business websites designed to generate qualified inquiries. We follow a disciplined, buyer-focused process:</p><ul><li><strong>Strategy & Architecture:</strong> We analyze your business model, customer journey, and conversion points before writing code.</li><li><strong>Custom Responsive Design:</strong> Clean, editorial UI tailored to your brand without bloated third-party themes.</li><li><strong>Modern Engineering:</strong> Fast, mobile-first frontend code engineered for Google Core Web Vitals compliance.</li><li><strong>Technical SEO Foundation:</strong> Built-in semantic HTML, OpenGraph tags, XML sitemaps, and structured JSON-LD schemas.</li><li><strong>Connected Lead Capture:</strong> Forms integrated with secure database storage and instant WhatsApp alerts.</li></ul><h3>Our Standard Website Solutions:</h3><ul><li><a href="https://bluetickdigital.in/solutions/websites" style="color: var(--color-brand, #1d4ed8); text-decoration: underline;"><strong>Custom Business Websites:</strong></a> High-speed, conversion-focused web platforms starting from ₹9,999 (Business) and ₹19,999 (Premium).</li><li><a href="https://bluetickdigital.in/solutions/ecommerce" style="color: var(--color-brand, #1d4ed8); text-decoration: underline;"><strong>D2C E-Commerce Storefronts:</strong></a> Online shopping platforms starting from ₹29,999 (Storefront) and Custom quotes for Enterprise.</li><li><a href="https://bluetickdigital.in/solutions/ai-automation" style="color: var(--color-brand, #1d4ed8); text-decoration: underline;"><strong>Connected AI & WhatsApp Systems:</strong></a> Seamless lead pipelines connecting your website to automated qualification and CRM workflows.</li></ul>'
             }
         ],
         faqs: [
-            { q: "How much does a basic business website cost in India?", a: "An entry-level 1 to 4 page responsive business website generally ranges from ₹15,000 to ₹45,000 through small digital agencies, while freelancers may charge ₹5,000 to ₹20,000. Bluetick Digital offers starter business website packages starting from ₹10,000 with a 5-day delivery sprint." },
-            { q: "How much does an e-commerce website cost in India?", a: "A standard online storefront for up to 50–100 products typically ranges from ₹50,000 to ₹1,50,000 across Indian agencies. Bluetick Digital's e-commerce storefront packages start from ₹30,000 for starter stores and ₹50,000 for growth commerce platforms with automated WhatsApp order workflows." },
+            { q: "How much does a basic business website cost in India?", a: "An entry-level 1 to 4 page responsive business website generally ranges from ₹15,000 to ₹45,000 through small digital agencies, while freelancers may charge ₹5,000 to ₹20,000. Bluetick Digital offers starter business website packages starting from ₹9,999 with a structured delivery sprint." },
+            { q: "How much does an e-commerce website cost in India?", a: "A standard online storefront for up to 50–100 products typically ranges from ₹50,000 to ₹1,50,000 across Indian agencies. Bluetick Digital's e-commerce storefront packages start from ₹29,999 for online stores and custom quotes for enterprise catalogs with automated WhatsApp order workflows." },
             { q: "Is WordPress cheaper than custom website development?", a: "WordPress often has a lower initial development cost because of its pre-built theme ecosystem. However, custom web builds (using React or Vite) can have comparable or lower long-term costs because they do not require paid plugin subscriptions, heavy server instances, or frequent plugin security maintenance." },
             { q: "Does website development cost include domain and hosting?", a: "Professional agencies typically separate domain registration (₹600–₹1,500/year) and cloud hosting fees so that you retain 100% direct ownership and billing control of your digital infrastructure." },
             { q: "How long does it take to develop a business website?", a: "A focused starter website typically takes 1 to 2 weeks, a multi-page corporate growth platform takes 2 to 4 weeks, and complex custom web applications require 6 to 12+ weeks depending on integration complexity." },

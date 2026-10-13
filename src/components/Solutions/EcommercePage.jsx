@@ -75,42 +75,33 @@ const ECOMMERCE_DELIVERABLES = [
 
 const ECOMMERCE_PRICING_TIERS = [
   {
-    name: "D2C Starter Storefront",
-    price: "₹30,000",
-    description: "Complete modern e-commerce platform for emerging D2C brands launching up to 50 product SKUs.",
-    features: [
-      "Up to 50 product catalog setup",
-      "Payment gateway integration (UPI, Cards, COD)",
-      "Basic WhatsApp order notification messages",
-      "Mobile-optimized checkout funnel",
-      "Standard 7-day engineering delivery"
-    ]
-  },
-  {
-    name: "Growth Commerce Engine",
-    price: "₹50,000",
+    name: "E-commerce Website",
+    price: "₹29,999",
     featured: true,
-    description: "High-scale commerce platform with automated COD verification, WhatsApp cart recovery, and deep inventory management.",
+    description: "Complete modern e-commerce storefront engineered for businesses selling products online.",
     features: [
-      "Unlimited product catalog & dynamic variant engine",
-      "Automated WhatsApp COD confirmation workflow",
-      "Abandoned cart recovery sequences over WhatsApp",
-      "Custom discounts, promo codes & bundled offers",
-      "Supabase CRM customer purchase history database",
-      "Dedicated 14-day engineering sprint"
-    ]
+      "Product catalog architecture & category browsing",
+      "Dynamic variant selector (sizes, weights, materials)",
+      "Integrated UPI & multi-method checkout",
+      "Automated WhatsApp order confirmation flow",
+      "Supabase order database & customer ledger"
+    ],
+    ctaHref: "/#audit?req=ecommerce_store",
+    ctaText: "Launch E-commerce Store"
   },
   {
-    name: "Enterprise Multi-Vendor / Custom Store",
-    price: "Custom Scoped",
-    description: "Bespoke high-volume commerce architecture, custom ERP integrations, multi-warehouse sync, and international payments.",
+    name: "Custom / Enterprise Commerce",
+    price: "Custom quote",
+    description: "Tailored architecture for large catalogues, complex integrations, multi-warehouse sync, and specialized workflows.",
     features: [
-      "Multi-warehouse inventory routing",
-      "Custom ERP & logistics API integrations (Shiprocket / Delhivery)",
-      "Full 24/7 AI WhatsApp customer support bot",
-      "Multi-currency & international payment gateways",
-      "Dedicated SLA monitoring & priority support"
-    ]
+      "Large product catalogues & complex commerce workflows",
+      "Multi-warehouse inventory routing & ERP API sync",
+      "Custom third-party integrations (Shiprocket, Delhivery, ERPs)",
+      "Specialized database architecture & high-throughput concurrency",
+      "Dedicated technical architecture roadmap & weekly milestones"
+    ],
+    ctaHref: "/#audit?req=website_plus_automation",
+    ctaText: "Discuss Your Project"
   }
 ];
 
@@ -192,13 +183,13 @@ const EcommercePage = () => {
         gradientWord="Maximize Conversions."
         subtitle="Turn casual browsers into repeat buyers. We build high-speed, mobile-first e-commerce platforms connected with automated WhatsApp COD verification, 1-click cart recovery, and instant order tracking."
         metrics={[
-          "3.2x Faster Checkout Completion",
-          "-45% RTO Shipping Losses",
-          "+184% Lead & Cart Recovery",
-          "Automated UPI & COD Verification"
+          "Fast Mobile Checkout Experience",
+          "Automated COD Order Verification",
+          "WhatsApp Abandoned Cart Recovery",
+          "Direct UPI & Payment Gateway Integration"
         ]}
         primaryCtaText="Get Your Free Store Audit"
-        primaryCtaHref="/#audit"
+        primaryCtaHref="/#audit?req=ecommerce_store"
         secondaryCtaText="Explore Store Workflow"
         secondaryCtaHref="#workflow"
       />
@@ -206,21 +197,21 @@ const EcommercePage = () => {
       <SubPageShift
         sectionNumber="01 /"
         sectionBadge="The Strategic Shift"
-        title="Why Traditional Stores Lose 70% of Sales & How Bluetick Fixes It"
+        title="Why Traditional Stores Lose Sales & How Bluetick Fixes It"
         subtitle="Eliminate checkout drop-offs and high RTO shipping losses with automated commerce infrastructure."
         traditionalTitle="Generic Storefront"
         traditionalItems={[
           "Slow product loading causing immediate visitor bounce.",
           "High RTO losses due to unverified, fake COD orders.",
-          "70%+ cart abandonment with zero proactive follow-up.",
+          "High cart abandonment with zero proactive follow-up.",
           "Manual customer support for sizing, stock, and tracking FAQs.",
           "Disconnected databases requiring manual order entry."
         ]}
         bluetickTitle="Bluetick Automated Commerce Platform"
         bluetickItems={[
           "Sub-second React catalog browsing with instant mobile checkout.",
-          "Automated WhatsApp COD verification cutting RTO losses by 45%.",
-          "Automated WhatsApp cart recovery messages with 1-click discounts.",
+          "Automated WhatsApp COD verification reducing failed deliveries.",
+          "Automated WhatsApp cart recovery messages with direct links.",
           "24/7 AI agent answering sizing, stock, and policy questions in 2s.",
           "Atomic Supabase database sync with automated GST invoice generation."
         ]}
@@ -257,6 +248,7 @@ const EcommercePage = () => {
         title="Transparent E-Commerce Packages"
         subtitle="No hidden revenue cuts or surprise retainers. Clear milestone-based scopes framed around your catalog scale."
         tiers={ECOMMERCE_PRICING_TIERS}
+        ctaHref="/#audit?req=ecommerce_store"
         disclaimer="Starting from prices indicate standard baseline storefront packages. Final investment is scoped transparently based on total SKU count, custom integrations (ERP/logistics), and specific automation workflows."
       />
 
@@ -273,7 +265,7 @@ const EcommercePage = () => {
         title="Ready to Scale Your Online Store Revenue?"
         subtitle="We will review your checkout funnel, identify conversion bottlenecks, and provide a clear technical roadmap in 24 hours."
         ctaText="Get Your Free Store Audit"
-        ctaHref="/#audit"
+        ctaHref="/#audit?req=ecommerce_store"
       />
     </>
   );

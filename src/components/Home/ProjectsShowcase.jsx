@@ -12,7 +12,7 @@ const PROJECTS = [
     title: 'High-Performance D2C Commerce Experience',
     challenge: 'High checkout abandonment on mobile and expensive RTO shipping losses on Cash-on-Delivery orders.',
     systemBuilt: 'Custom React 18 storefront with dynamic variant selector, integrated Razorpay 1-click checkout, and automated WhatsApp COD verification workflow.',
-    outcome: 'Sub-1.2s page load, up to 45% reduction in RTO shipping losses, and automated 1-click cart recovery.',
+    outcome: 'Demonstrates a sub-second storefront with automated WhatsApp COD verification and abandoned cart recovery workflows.',
     capabilities: ['Sub-Second React', 'WhatsApp COD Bot', '1-Click Cart Recovery', 'Supabase Ledger'],
     liveDemoUrl: 'https://chouhan-mattress.vercel.app/',
     imageSrc: '/images/chouhan-mattress-preview.jpg',
@@ -26,7 +26,7 @@ const PROJECTS = [
     title: 'Modern Furniture Catalog & Showroom Engine',
     challenge: 'Potential buyers visited local competitors due to slow response on custom pricing and showroom availability.',
     systemBuilt: 'Architectural furniture catalog platform connected with 24/7 WhatsApp AI bot for instant PDF dimension sheets and showroom appointment scheduling.',
-    outcome: '100% of weekend showroom visits booked automatically with zero human broker delays.',
+    outcome: 'Demonstrates an architectural catalog with automated WhatsApp dimension sheet dispatch and showroom appointment booking.',
     capabilities: ['Architectural Catalog', 'Instant PDF Dispatch', 'Showroom Booking Bot', 'Meta WABA API'],
     liveDemoUrl: 'https://laxmi-furniture-zeta.vercel.app/',
     imageSrc: '/images/laxmi-furniture-preview.jpg',
@@ -40,7 +40,7 @@ const PROJECTS = [
     title: 'Fine Jewellery Digital Showroom & VIP Consultation Engine',
     challenge: 'High-value jewellery buyers hesitate online without live metal rate transparency, certified purity proof, and personalized in-store viewing concierge.',
     systemBuilt: 'Editorial luxury storefront featuring live gold/silver rate ticker (AU 916), interactive wedding trousseau catalog, visit shortlist builder, and WhatsApp appointment booking concierge.',
-    outcome: 'Sub-second catalog browsing, 100% BIS HUID purity transparency, and 3x higher in-store private viewing conversions.',
+    outcome: 'Demonstrates live metal rate transparency, trousseau shortlisting, and VIP in-store consultation booking.',
     capabilities: ['Live Metal Ticker', 'VIP Visit Concierge', 'BIS HUID Transparency', 'WhatsApp Booking'],
     liveDemoUrl: 'https://zivara-jewels-rouge.vercel.app/',
     imageSrc: '/images/zivara-jewels-preview.jpg',
@@ -54,7 +54,7 @@ const PROJECTS = [
     title: 'Modern Private Dental Studio & Patient Experience Engine',
     challenge: 'Dental patients experience booking friction and anxiety when clinics bury treatment transparent pricing and rely on manual phone scheduling.',
     systemBuilt: 'Patient-first digital studio featuring symptom-based intent self-triage, transparent procedure pricing, anxiety-aware clinical presentation, and direct WhatsApp appointment booking.',
-    outcome: 'Sub-second consultation routing, 24/7 symptom self-triage, and automated patient appointment confirmations.',
+    outcome: 'Demonstrates symptom-based self-triage, transparent procedure pricing, and automated patient consultation booking.',
     capabilities: ['Symptom Self-Triage', 'Direct WhatsApp Triage', 'Transparent Pricing', 'Zero-Friction Booking'],
     liveDemoUrl: 'https://aurelia-khaki-three.vercel.app/',
     imageSrc: '/images/aurelia-dental-preview.jpg',
@@ -68,7 +68,7 @@ const PROJECTS = [
     title: 'Precision Components Manufacturing & RFQ Platform',
     challenge: 'Industrial procurement teams face slow quoting cycles, vague tolerance specs, and friction submitting technical CAD/drawing requirements.',
     systemBuilt: 'Heavy-industry digital catalog showcasing 5-axis CNC machining, tolerance guides, live machine capacity telemetry, automated DFM review workflow, and direct WhatsApp RFQ desk.',
-    outcome: '4-hour DFM turnaround, 100% CMM inspection transparency, and automated industrial RFQ lead qualification.',
+    outcome: 'Demonstrates CAD/specifications intake, automated technical DFM review flow, and structured B2B RFQ routing.',
     capabilities: ['Automated DFM Review', 'Tolerance Specifications', 'Direct WhatsApp RFQ', 'CMM Quality Standards'],
     liveDemoUrl: 'https://forge-core-industries.vercel.app/',
     imageSrc: '/images/forgecore-preview.jpg',
@@ -208,7 +208,7 @@ const ProjectsShowcase = () => {
                       </div>
 
                       <div className={styles.storyBlock}>
-                        <span className={styles.storyLabel}>MEASURABLE OUTCOME</span>
+                        <span className={styles.storyLabel}>WHAT THIS DEMO DEMONSTRATES</span>
                         <p className={styles.outcomeHighlight}>{project.outcome}</p>
                       </div>
 

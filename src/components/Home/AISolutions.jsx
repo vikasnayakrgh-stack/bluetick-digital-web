@@ -84,7 +84,7 @@ const SIMULATION_PROMPTS = [
     {
         label: "Price Inquiry",
         userMsg: "Hi, what are your website and AI automation package prices?",
-        aiReply: "Namaste! Our digital web platforms start at ₹10,000 for business sites, and AI workflow packages are custom scoped. What type of business do you run?",
+        aiReply: "Namaste! Our digital web platforms start at ₹9,999 for business sites, and AI workflow packages are custom scoped. What type of business do you run?",
         intent: "High Buy Intent (96%)",
         tag: "HOT LEAD"
     },

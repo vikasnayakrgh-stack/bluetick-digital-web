@@ -12,7 +12,7 @@ const PRICING_HUB_SCHEMA = {
       "@id": "https://bluetickdigital.in/pricing#webpage",
       "url": "https://bluetickdigital.in/pricing",
       "name": "Pricing Hub | Transparent Website & AI Automation Investment | Bluetick Digital",
-      "description": "Select your solution: Project-based website & e-commerce pricing from ₹10K, or setup + monthly AI automation & WhatsApp workflows from ₹5K.",
+      "description": "Select your solution: Project-based website & e-commerce pricing starting from ₹9,999, or annual AI automation & WhatsApp platforms starting from ₹11,999/year.",
       "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [
@@ -29,7 +29,7 @@ const PricingHub = () => {
     <>
       <SEO
         title="Pricing Hub | Website & AI Automation Investment | Bluetick Digital"
-        description="Choose your path: Transparent project-based pricing for high-performance websites from ₹10K, or setup + monthly AI automation systems from ₹5K."
+        description="Choose your path: Transparent project-based pricing for high-performance websites starting from ₹9,999, or annual AI automation platforms from ₹11,999/year."
         keywords="Bluetick Digital Pricing, Website Development Cost India, AI Automation Pricing, WhatsApp Bot Pricing"
         canonical="https://bluetickdigital.in/pricing"
         structuredData={PRICING_HUB_SCHEMA}
@@ -83,7 +83,7 @@ const PricingHub = () => {
                 <div className={styles.startingPriceBox}>
                   <span className={styles.pricePrefix}>Starting from</span>
                   <div className={styles.priceFigures}>
-                    <span className={styles.amount}>₹10,000</span>
+                    <span className={styles.amount}>₹9,999</span>
                     <span className={styles.scopeNote}>/ project scope</span>
                   </div>
                 </div>
@@ -94,19 +94,19 @@ const PricingHub = () => {
                 <ul className={styles.scopeList}>
                   <li>
                     <CheckCircle2 size={16} className={styles.checkIcon} />
-                    <span><strong>Business Websites</strong> (Fast, high-converting platforms)</span>
+                    <span><strong>Business Websites</strong> (Entry-level high-converting platforms)</span>
                   </li>
                   <li>
                     <CheckCircle2 size={16} className={styles.checkIcon} />
-                    <span><strong>Premium Profile Websites</strong> (Executive &amp; corporate branding)</span>
+                    <span><strong>Premium Websites</strong> (Tailored corporate &amp; executive branding)</span>
                   </li>
                   <li>
                     <CheckCircle2 size={16} className={styles.checkIcon} />
-                    <span><strong>E-commerce Storefronts</strong> (D2C checkout &amp; COD verification)</span>
+                    <span><strong>E-commerce Storefronts</strong> (D2C shopping &amp; online checkout)</span>
                   </li>
                   <li>
                     <CheckCircle2 size={16} className={styles.checkIcon} />
-                    <span><strong>Large Catalog Stores</strong> (Multi-category, 1000+ SKUs)</span>
+                    <span><strong>Custom / Enterprise Websites</strong> (Large catalogues &amp; complex integrations)</span>
                   </li>
                 </ul>
 
@@ -124,19 +124,19 @@ const PricingHub = () => {
                   <div className={styles.iconWrap}>
                     <Bot size={26} className={styles.iconBrand} />
                   </div>
-                  <div className={styles.modelTag}>Setup + Monthly Operations</div>
+                  <div className={styles.modelTag}>Annual Platform &amp; Systems</div>
                 </div>
 
                 <h2 className={styles.pathTitle}>AI Automation &amp; Workflows</h2>
                 <p className={styles.pathTagline}>
-                  24/7 autonomous sales agents, intelligent lead triage, WhatsApp API integration, and CRM workflow orchestrations that save operational hours.
+                  Official WhatsApp Business platform, autonomous 24/7 AI sales agents, and custom workflow automations that eliminate manual follow-ups.
                 </p>
 
                 <div className={styles.startingPriceBox}>
                   <span className={styles.pricePrefix}>Starting from</span>
                   <div className={styles.priceFigures}>
-                    <span className={styles.amount}>₹5,000 setup</span>
-                    <span className={styles.scopeNote}>+ ₹1,000 / month</span>
+                    <span className={styles.amount}>₹11,999</span>
+                    <span className={styles.scopeNote}>/ year (Annual Plan)</span>
                   </div>
                 </div>
 
@@ -146,19 +146,19 @@ const PricingHub = () => {
                 <ul className={styles.scopeList}>
                   <li>
                     <CheckCircle2 size={16} className={styles.checkIcon} />
-                    <span><strong>AI Sales Agent</strong> (Priya 24/7 conversational sales demo)</span>
+                    <span><strong>Growth Plan</strong> (Official WhatsApp Business API &amp; team inbox)</span>
                   </li>
                   <li>
                     <CheckCircle2 size={16} className={styles.checkIcon} />
-                    <span><strong>AI Customer Support</strong> (Autonomous ticket resolution &amp; FAQs)</span>
+                    <span><strong>AI Growth Engine</strong> (Autonomous lead qualification &amp; CRM sync)</span>
                   </li>
                   <li>
                     <CheckCircle2 size={16} className={styles.checkIcon} />
-                    <span><strong>Lead Qualification</strong> (Sub-30s intent qualification &amp; booking)</span>
+                    <span><strong>Power Combo</strong> (Combined WhatsApp + AI engine offering)</span>
                   </li>
                   <li>
                     <CheckCircle2 size={16} className={styles.checkIcon} />
-                    <span><strong>WhatsApp Automation</strong> (Official Meta WABA &amp; broadcast flows)</span>
+                    <span><strong>Custom Projects</strong> (Discussion-led bespoke workflows)</span>
                   </li>
                 </ul>
 

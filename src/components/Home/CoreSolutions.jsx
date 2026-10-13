@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Globe, Bot, MessageCircle, ArrowRight, Check, Info, Cpu, Layers } from 'lucide-react';
 import FloemaReveal from '../Common/FloemaReveal';
 import { MOTION_TOKENS } from '../../constants/motionTokens';
@@ -9,19 +10,25 @@ const SYSTEM_MODES = [
     {
         id: 'full-engine',
         label: 'Connected Full Engine',
-        subtitle: 'Website + AI Agent + WhatsApp API + Supabase CRM (Recommended)',
+        subtitle: 'Website + AI Agent + WhatsApp API + Supabase CRM (Recommended Bundle)',
         activePillar: 'both'
     },
     {
         id: 'web-platform',
-        label: 'Digital Web Platform',
+        label: 'I Need a Website',
         subtitle: 'High-Performance E-commerce & Business Web Architecture',
         activePillar: 'pillar1'
     },
     {
+        id: 'whatsapp-automation',
+        label: 'WhatsApp API',
+        subtitle: 'Official Meta WhatsApp Business API, 24/7 Bots & Team Inboxes',
+        activePillar: 'both'
+    },
+    {
         id: 'ai-automation',
-        label: 'AI Workflow Automation',
-        subtitle: 'Custom n8n Pipelines & Automated Lead Qualification',
+        label: 'Automate Business Tasks',
+        subtitle: 'Custom n8n Pipelines, Lead Intelligence & Automated Qualification',
         activePillar: 'pillar2'
     }
 ];
@@ -121,25 +128,30 @@ const CoreSolutions = () => {
                         <div className={styles.pricingGrid}>
                             <motion.div className={styles.pricingItem} whileHover={{ x: 4, background: 'var(--color-bg-subtle)' }}>
                                 <span className={styles.itemTitle}>Business Websites</span>
-                                <span className={styles.itemPrice}>from ₹10,000</span>
+                                <span className={styles.itemPrice}>from ₹9,999</span>
                             </motion.div>
                             <motion.div className={styles.pricingItem} whileHover={{ x: 4, background: 'var(--color-bg-subtle)' }}>
-                                <span className={styles.itemTitle}>Premium Profile Websites</span>
-                                <span className={styles.itemPrice}>from ₹20,000</span>
+                                <span className={styles.itemTitle}>Premium Websites</span>
+                                <span className={styles.itemPrice}>from ₹19,999</span>
                             </motion.div>
                             <motion.div className={styles.pricingItem} whileHover={{ x: 4, background: 'var(--color-bg-subtle)' }}>
-                                <span className={styles.itemTitle}>Small E-commerce Stores</span>
-                                <span className={styles.itemPrice}>from ₹30,000</span>
+                                <span className={styles.itemTitle}>E-commerce Stores</span>
+                                <span className={styles.itemPrice}>from ₹29,999</span>
                             </motion.div>
                             <motion.div className={styles.pricingItem} whileHover={{ x: 4, background: 'var(--color-bg-subtle)' }}>
-                                <span className={styles.itemTitle}>Large Catalog Platforms</span>
-                                <span className={styles.itemPrice}>from ₹50,000</span>
+                                <span className={styles.itemTitle}>Custom / Enterprise</span>
+                                <span className={styles.itemPrice}>Custom quote</span>
                             </motion.div>
                         </div>
 
-                        <a href="#audit?req=new_website" className={`${styles.pillarBtn} btn btn-outline`}>
-                            Explore Web Solutions <ArrowRight size={16} />
-                        </a>
+                        <div className={styles.pillarActions}>
+                            <Link to="/solutions/websites" className={`${styles.pillarBtn} btn btn-outline`}>
+                                View Website Services <ArrowRight size={16} />
+                            </Link>
+                            <a href="/#audit?req=new_website" className={styles.quoteLink}>
+                                Get a Website Quote →
+                            </a>
+                        </div>
                     </motion.div>
 
                     {/* Pillar 02: AI Automation (Featured with Spotlight) */}
@@ -200,11 +212,32 @@ const CoreSolutions = () => {
                             <span>Custom pricing scoped to your business workflow</span>
                         </div>
 
-                        <a href="#audit?req=ai_automation" className={`${styles.pillarBtn} btn btn-primary`}>
-                            Explore AI Automation <ArrowRight size={16} />
-                        </a>
+                        <div className={styles.pillarActions}>
+                            <Link to="/solutions/ai-automation" className={`${styles.pillarBtn} btn btn-primary`}>
+                                View AI Automation Services <ArrowRight size={16} />
+                            </Link>
+                            <a href="/#audit?req=ai_automation" className={styles.quoteLinkDark}>
+                                Get an Automation Quote →
+                            </a>
+                        </div>
 
                     </motion.div>
+                </div>
+
+                {/* Quick Strip for WhatsApp and Full Engine bundles */}
+                <div className={styles.servicesQuickstrip}>
+                    <div className={styles.quickstripItem}>
+                        <MessageCircle size={18} className={styles.quickstripIconGreen} />
+                        <span>Looking for WhatsApp Business API setup?</span>
+                        <Link to="/solutions/ai-automation" className={styles.quickstripLink}>Explore WhatsApp Solutions</Link>
+                        <span className={styles.quickstripDivider}>·</span>
+                        <a href="/#audit?req=whatsapp_automation" className={styles.quickstripQuoteLink}>Get a WhatsApp Quote</a>
+                    </div>
+                    <div className={styles.quickstripItem}>
+                        <Cpu size={18} className={styles.quickstripIconBlue} />
+                        <span>Need a Website + AI + WhatsApp combined?</span>
+                        <a href="/#audit?req=website_plus_automation" className={styles.quickstripBundleLink}>Get Connected Engine Quote →</a>
+                    </div>
                 </div>
 
                 {/* Mandatory Scoping Disclaimer */}

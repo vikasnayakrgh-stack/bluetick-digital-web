@@ -11,8 +11,8 @@ const AI_PRICING_SCHEMA = {
       "@type": "WebPage",
       "@id": "https://bluetickdigital.in/pricing/ai-automation#webpage",
       "url": "https://bluetickdigital.in/pricing/ai-automation",
-      "name": "AI Automation Pricing | Setup + Monthly Operations Starting ₹5K | Bluetick Digital",
-      "description": "Transparent setup and monthly pricing for AI sales agents, WhatsApp business bots, autonomous lead triage, and CRM integrations in India.",
+      "name": "AI Automation & WhatsApp Pricing | Annual Plans Starting ₹11,999/yr | Bluetick Digital",
+      "description": "Transparent annual pricing for official WhatsApp Business platform, 24/7 AI conversational sales agents, and custom workflow automations. BYOK model with direct provider billing.",
       "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [
@@ -27,74 +27,77 @@ const AI_PRICING_SCHEMA = {
 
 const AUTOMATION_TIERS = [
   {
-    name: "Starter Automation",
-    setup: "From ₹5,000",
-    monthly: "+ ₹1,000 / month",
-    model: "Setup + Monthly",
-    tagline: "Single automated workflow to eliminate repetitive manual data entry and capture inbound leads.",
+    name: "Growth Plan",
+    price: "₹11,999",
+    period: "/ year",
+    model: "Annual Platform",
+    tagline: "Official Meta WhatsApp Business API platform foundation for team messaging, broadcasts, and shared inbox.",
     features: [
-      "1 core automated workflow (e.g. Inquiry capture to Google Sheets / CRM)",
-      "Standard webhook & form listener integration",
-      "Automated instant email / WhatsApp notification alert",
-      "Basic intent triage & data formatting",
-      "Cloud execution hosting & uptime monitoring",
-      "Standard email support & monthly maintenance"
+      "Official Meta WABA API onboarding & panel access",
+      "Shared team multi-agent chat inbox",
+      "Unlimited broadcast campaigns (Meta conversation charges apply)",
+      "Template message management & approval assistance",
+      "Green Tick verification guidance & phone migration",
+      "Annual billing with manual renewal (no auto-debit)"
     ],
     popular: false,
-    ctaText: "Start Starter Workflow"
+    ctaText: "Get Growth Plan",
+    cta: "/#audit?req=whatsapp_waba"
   },
   {
-    name: "Business Automation",
-    setup: "From ₹10,000",
-    monthly: "+ ₹2,000 / month",
-    model: "Setup + Monthly",
-    tagline: "Autonomous sales qualification and conversational AI support connected to your CRM.",
+    name: "AI Growth Engine",
+    price: "₹14,999",
+    period: "/ year",
+    note: "*Requires active Growth Plan (₹11,999/yr) or get both with Power Combo (₹25,000/yr)",
+    model: "Annual AI Layer",
+    tagline: "Autonomous 24/7 conversational sales & support agent deployed over your WhatsApp Business platform.",
     features: [
-      "AI Sales or Support Agent (GPT-4o-mini / Claude 3.5)",
-      "Official Meta WhatsApp Business API integration",
-      "Sub-30 second lead qualification & calendar appointment booking",
-      "Atomic Supabase / CRM bidirectional database synchronization",
-      "Human handoff alerts & notification cooldown rules",
-      "Monthly prompt engineering updates & conversation log audits",
-      "Priority WhatsApp engineering support"
+      "Autonomous 24/7 AI conversational responses",
+      "Sub-30 second lead qualification & intent triage",
+      "Conversation memory & context-aware answering",
+      "Supabase / CRM bidirectional database synchronization",
+      "Automated follow-up scheduling & manager handoff alerts",
+      "BYOK model: Direct LLM billing with zero agency markup"
+    ],
+    popular: false,
+    ctaText: "Deploy AI Engine",
+    cta: "/#audit?req=ai_automation"
+  },
+  {
+    name: "Power Combo",
+    price: "₹25,000",
+    period: "/ year",
+    note: "WhatsApp Platform + AI Growth Engine",
+    model: "Unified Annual Suite",
+    tagline: "Best value unified offering combining the official WhatsApp platform and autonomous AI engine.",
+    features: [
+      "Everything in Growth Plan (WhatsApp API & Multi-Agent Inbox)",
+      "Everything in AI Growth Engine (24/7 Sales Agent & CRM Sync)",
+      "Priority onboarding & unified workflow configuration",
+      "BYOK model: Direct LLM provider billing with zero markup",
+      "Annual billing with manual renewal (no auto-debit)",
+      "Note: Does not include website development (standalone service)"
     ],
     popular: true,
-    ctaText: "Deploy Business Agent"
+    ctaText: "Choose Power Combo",
+    cta: "/#audit?req=website_plus_automation"
   },
   {
-    name: "Advanced Automation",
-    setup: "From ₹20,000",
-    monthly: "+ ₹5,000 / month",
-    model: "Setup + Monthly",
-    tagline: "End-to-end multi-agent orchestration for sales, customer support, and operational logistics.",
+    name: "Custom Automation Projects",
+    price: "Custom quote",
+    period: "",
+    model: "Scoped Architecture",
+    tagline: "Discussion-led engineering for bespoke multi-agent workflows, legacy ERP integrations, and custom logic.",
     features: [
-      "Multi-agent architecture (Sales Consultant + Support Triage + Escalations)",
-      "Dynamic catalog lookup, inventory status & order tracking bots",
-      "Custom self-hosted n8n workflows with complex business logic",
-      "Automated follow-up cadences with anti-spam rate limiting",
-      "Private vector knowledge base (RAG) for deep document retrieval",
-      "Weekly performance reviews & conversation optimization",
-      "Dedicated account engineer & SLA guarantees"
+      "Custom multi-step business logic & agentic pipelines",
+      "Proprietary ERP, CRM, or database integrations",
+      "Private vector knowledge bases (RAG) & document search",
+      "Custom webhook architectures & high-concurrency pipelines",
+      "Quotation tailored to integrations, workflow depth & SLA"
     ],
     popular: false,
-    ctaText: "Scale Advanced Workflows"
-  },
-  {
-    name: "Custom AI Systems",
-    setup: "Custom Pricing",
-    monthly: "Custom Monthly SLA",
-    model: "Enterprise Architecture",
-    tagline: "Proprietary enterprise AI infrastructure, internal tooling, and on-premise VPC deployments.",
-    features: [
-      "Custom fine-tuned or local LLM deployments",
-      "Proprietary ERP, SAP, or legacy database integrations",
-      "Custom agentic architectures with strict data isolation",
-      "High-throughput concurrency & compliance audits",
-      "Full source code ownership & architectural documentation",
-      "Dedicated 24/7 incident response SLA"
-    ],
-    popular: false,
-    ctaText: "Consult Enterprise Architect"
+    ctaText: "Contact Us for a Custom Quote",
+    cta: "/#audit?req=ai_automation"
   }
 ];
 
@@ -109,9 +112,9 @@ const AIAutomationPricingPage = () => {
   return (
     <>
       <SEO
-        title="AI Automation Pricing | Setup + Monthly Operations Starting ₹5K | Bluetick Digital"
-        description="Transparent setup and monthly pricing for AI sales agents, WhatsApp business automation, and CRM integrations in India. Starting from ₹5,000 setup + ₹1,000/month."
-        keywords="AI Automation Pricing, WhatsApp Bot Cost India, AI Sales Agent Pricing, n8n Automation Pricing, Bluetick Digital"
+        title="AI Automation & WhatsApp Pricing | Annual Plans Starting ₹11,999/yr | Bluetick Digital"
+        description="Predictable annual subscription plans for official Meta WhatsApp Business API platform, 24/7 AI conversational sales agents, and custom workflow automations. BYOK model with direct provider billing."
+        keywords="AI Automation Pricing, WhatsApp Bot Cost India, AI Sales Agent Pricing, WhatsApp Business API Rates 2026, Bluetick Digital"
         canonical="https://bluetickdigital.in/pricing/ai-automation"
         structuredData={AI_PRICING_SCHEMA}
       />
@@ -142,13 +145,13 @@ const AIAutomationPricingPage = () => {
         <header className={styles.pageHero}>
           <div className="container">
             <span className={styles.sectionBadge}>
-              <Bot size={13} /> Setup + Monthly Operations Model
+              <Bot size={13} /> Annual Subscription &amp; Platform Model
             </span>
             <h1 className={styles.pageTitle}>
-              AI Automation Pricing
+              AI Automation &amp; WhatsApp Pricing
             </h1>
             <p className={styles.pageSubtitle}>
-              Predictable setup investment plus transparent monthly operational upkeep for autonomous AI sales agents, WhatsApp bots, and CRM sync pipelines.
+              Transparent annual subscription plans for official WhatsApp Business platform, autonomous AI sales agents, and custom workflow orchestrations.
             </p>
           </div>
         </header>
@@ -158,7 +161,7 @@ const AIAutomationPricingPage = () => {
           <div className={styles.mandatoryNoticeBox}>
             <Info size={20} className={styles.noticeIcon} />
             <div className={styles.noticeText}>
-              <strong>Customizable Workflow Pricing:</strong> All tiers represent starting estimates. Final pricing depends on the specific workflow requirements, integration depth, AI token consumption, and business complexity.
+              <strong>Bring Your Own Key (BYOK) Architecture:</strong> Subscriptions cover software platform access, webhook infrastructure, and system engineering. LLM API usage is paid directly to your chosen provider (OpenAI, Anthropic) at actual cost with zero agency markup or reply caps.
             </div>
           </div>
         </div>
@@ -174,7 +177,7 @@ const AIAutomationPricingPage = () => {
                 >
                   {tier.popular && (
                     <div className={styles.popularBadge}>
-                      <Sparkles size={12} /> Most Popular
+                      <Sparkles size={12} /> Best Value
                     </div>
                   )}
 
@@ -182,8 +185,11 @@ const AIAutomationPricingPage = () => {
                     <div className={styles.tierModelBadge}>{tier.model}</div>
                     <h2 className={styles.tierName}>{tier.name}</h2>
                     <div className={styles.priceWrap}>
-                      <span className={styles.setupPrice}>{tier.setup}</span>
-                      <span className={styles.monthlyPrice}>{tier.monthly}</span>
+                      <span className={styles.annualPrice}>
+                        {tier.price}
+                        {tier.period && <span className={styles.pricePeriod}>{tier.period}</span>}
+                      </span>
+                      {tier.note && <span className={styles.tierNote}>{tier.note}</span>}
                     </div>
                     <p className={styles.tierTagline}>{tier.tagline}</p>
                   </div>
@@ -202,7 +208,7 @@ const AIAutomationPricingPage = () => {
 
                   <div className={styles.tierFooter}>
                     <a
-                      href="/#audit"
+                      href={tier.cta || "/#audit"}
                       className={`btn ${tier.popular ? 'btn-primary' : 'btn-outline'} ${styles.cardBtn}`}
                     >
                       <span>{tier.ctaText}</span>
@@ -211,6 +217,43 @@ const AIAutomationPricingPage = () => {
                   </div>
                 </div>
               ))}
+            </div>
+
+            {/* Bring Your Own API Key (BYOK) Model & Commercial Terms */}
+            <div className={styles.byokSection}>
+              <div className={styles.byokHeader}>
+                <ShieldCheck size={22} color="#1d4ed8" />
+                <h3 className={styles.byokTitle}>Bring Your Own Key (BYOK) Model &amp; Commercial Terms</h3>
+              </div>
+              <div className={styles.byokGrid}>
+                <div className={styles.byokCard}>
+                  <div className={styles.byokCardTitle}>Bring Your Own Key (BYOK) Model</div>
+                  <p className={styles.byokCardDesc}>
+                    You connect your chosen LLM provider (OpenAI, Anthropic, etc.) directly. You pay your provider directly at actual cost with zero agency markup, zero artificial reply caps, and no inflated add-ons.
+                  </p>
+                </div>
+
+                <div className={styles.byokCard}>
+                  <div className={styles.byokCardTitle}>Annual Subscription Billing &amp; Manual Renewal</div>
+                  <p className={styles.byokCardDesc}>
+                    All software plans are billed annually. Renewals are manual—we do not auto-debit your payment methods. Plan pricing covers software maintenance, webhook reliability, and workflow updates.
+                  </p>
+                </div>
+
+                <div className={styles.byokCard}>
+                  <div className={styles.byokCardTitle}>Meta WhatsApp Conversation Charges</div>
+                  <p className={styles.byokCardDesc}>
+                    WhatsApp API conversation charges are billed directly by Meta based on official category rates (Marketing, Utility, Service). Bluetick Digital passes these through at exact actuals with zero markup.
+                  </p>
+                </div>
+
+                <div className={styles.byokCard}>
+                  <div className={styles.byokCardTitle}>Independent Website &amp; Automation Scopes</div>
+                  <p className={styles.byokCardDesc}>
+                    Power Combo and automation subscriptions do not include website development. Websites and custom automations are distinct standalone scopes that can be purchased separately.
+                  </p>
+                </div>
+              </div>
             </div>
 
             {/* ==================================================
@@ -244,7 +287,7 @@ const AIAutomationPricingPage = () => {
               {/* Tools & Verification Links */}
               <div className={styles.whatsappToolsBar}>
                 <div className={styles.toolsBarText}>
-                  <strong>Official Meta Verification &amp; Calculators:</strong> WABA onboarding, phone number migration, and Green Tick assistance are bundled into our Business and Advanced Automation setups.
+                  <strong>Official Meta Verification &amp; Calculators:</strong> WABA onboarding, phone number migration, and Green Tick assistance are included in our Growth Plan and Power Combo annual offerings.
                 </div>
                 <div className={styles.toolsBarActions}>
                   <Link to="/whatsapp-api-pricing-india" className={styles.toolBtn}>

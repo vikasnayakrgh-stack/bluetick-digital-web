@@ -10,8 +10,8 @@ export const WORKFLOWS = [
     {
         id: 'broadcast',
         title: 'Mass Broadcasting',
-        description: 'Send high-conversion templates with ROI tracking. 98% open rates guaranteed.',
-        impact: 'ROI 15x',
+        description: 'Send targeted templates with delivery tracking and high open rates.',
+        impact: 'High Reach',
         icon: 'Radio',
         badge: 'Official API'
     },

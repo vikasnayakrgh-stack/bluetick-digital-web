@@ -10,6 +10,7 @@ const SubPagePricing = ({
   title = "Transparent Investment Tiers",
   subtitle = "Clear, milestone-based pricing framed around your exact growth requirements.",
   tiers = [],
+  ctaHref = "/#audit",
   disclaimer = "Final investment depends on exact feature scope, integration depth, custom design requirements, and monthly volume."
 }) => {
   return (
@@ -37,7 +38,9 @@ const SubPagePricing = ({
                   )}
                   <h3 className={styles.tierName}>{tier.name}</h3>
                   <div className={styles.priceWrap}>
-                    <span className={styles.priceLabel}>Starting from</span>
+                    <span className={styles.priceLabel}>
+                      {tier.priceLabel || (tier.price?.toLowerCase().includes('custom') ? 'Investment Model' : (tier.price?.includes('/ year') ? 'Annual Subscription' : 'Starting from'))}
+                    </span>
                     <span className={styles.priceValue}>{tier.price}</span>
                   </div>
                   <p className={styles.tierDesc}>{tier.description}</p>
@@ -54,10 +57,10 @@ const SubPagePricing = ({
                   </ul>
 
                   <a
-                    href="/#audit"
+                    href={tier.ctaHref || ctaHref}
                     className={`btn ${isFeatured ? 'btn-primary' : 'btn-outline'} ${styles.tierBtn}`}
                   >
-                    <span>Request Architecture Proposal</span>
+                    <span>{tier.ctaText || "Request Architecture Proposal"}</span>
                     <ArrowRight size={15} />
                   </a>
                 </div>

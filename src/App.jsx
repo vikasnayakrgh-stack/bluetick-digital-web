@@ -66,7 +66,7 @@ const HOME_STRUCTURED_DATA = {
       "url": SITE_CONFIG.siteUrl,
       "logo": SITE_CONFIG.assets.logo,
       "description": SITE_CONFIG.defaultDescription,
-      "priceRange": "₹10,000 - ₹1,00,000+",
+      "priceRange": "₹9,999 - ₹1,00,000+",
       "founder": {
         "@type": "Person",
         "@id": `${SITE_CONFIG.siteUrl}/#founder`,

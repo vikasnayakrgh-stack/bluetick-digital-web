@@ -11,7 +11,7 @@ import styles from './Header.module.css';
  */
 const SOLUTIONS_DATA = [
   {
-    category: 'WEBSITES',
+    category: 'WEBSITES & E-COMMERCE',
     items: [
       {
         title: 'Business Websites',
@@ -19,7 +19,7 @@ const SOLUTIONS_DATA = [
         to: '/solutions/websites',
       },
       {
-        title: 'E-commerce',
+        title: 'E-commerce Websites',
         desc: 'Custom storefronts, automated COD verification & cart recovery',
         to: '/solutions/ecommerce',
       },
@@ -60,7 +60,7 @@ const SOLUTIONS_DATA = [
     category: 'WHATSAPP',
     items: [
       {
-        title: 'WhatsApp API',
+        title: 'WhatsApp Business API',
         desc: 'Official Meta WABA onboarding, team inbox & broadcasts',
         to: '/solutions/whatsapp-automation',
       },
@@ -103,14 +103,14 @@ const INDUSTRIES_DATA = [
  * Flattened lists for Mobile Accordions
  */
 const MOBILE_SOLUTIONS = [
-  { title: 'Websites', to: '/solutions/websites' },
-  { title: 'E-commerce', to: '/solutions/ecommerce' },
+  { title: 'Business Websites', to: '/solutions/websites' },
+  { title: 'E-commerce Websites', to: '/solutions/ecommerce' },
   { title: 'AI Automation', to: '/solutions/ai-automation' },
   { title: 'AI Sales Agent', to: '/solutions/ai-automation', action: 'open_ai_chat' },
   { title: 'AI Customer Support', to: '/solutions/ai-automation' },
   { title: 'Lead Qualification', to: '/blog/automate-lead-qualification-whatsapp-ai-chatbot' },
   { title: 'Automated Follow-ups', to: '/solutions/whatsapp-automation' },
-  { title: 'WhatsApp API', to: '/solutions/whatsapp-automation' },
+  { title: 'WhatsApp Business API', to: '/solutions/whatsapp-automation' },
   { title: 'WhatsApp Automation', to: '/solutions/whatsapp-automation' },
 ];
 
@@ -131,7 +131,7 @@ const PRICING_DROPDOWN_DATA = [
     items: [
       {
         title: 'Website & E-commerce Pricing',
-        desc: 'Clear pricing for business websites, premium websites and e-commerce.',
+        desc: 'Starting from ₹9,999. Clear project tiers for business and e-commerce.',
         to: '/pricing/websites',
       },
     ],
@@ -141,12 +141,12 @@ const PRICING_DROPDOWN_DATA = [
     items: [
       {
         title: 'AI Automation Pricing',
-        desc: 'Automation systems, AI agents and business workflows.',
+        desc: 'Annual software subscriptions & bespoke workflows from ₹11,999/yr.',
         to: '/pricing/ai-automation',
       },
       {
         title: 'WhatsApp Automation Pricing',
-        desc: 'WhatsApp API and automation pricing.',
+        desc: 'Official WhatsApp API & automated broadcast flows.',
         to: '/pricing/ai-automation#whatsapp',
         isSubItem: true,
       },
@@ -158,7 +158,6 @@ const MOBILE_PRICING = [
   { title: 'Website & E-commerce Pricing', to: '/pricing/websites' },
   { title: 'AI Automation Pricing', to: '/pricing/ai-automation' },
   { title: 'WhatsApp Automation Pricing', to: '/pricing/ai-automation#whatsapp' },
-  { title: 'View All Pricing →', to: '/pricing' },
 ];
 
 const Header = () => {
@@ -533,18 +532,6 @@ const Header = () => {
                     </div>
                   </div>
                 ))}
-
-                <div className={styles.pricingDivider} />
-
-                <Link
-                  to="/pricing"
-                  role="menuitem"
-                  className={styles.pricingViewAll}
-                  onClick={closeAll}
-                >
-                  <span>View All Pricing</span>
-                  <ArrowRight size={14} className={styles.pricingArrow} />
-                </Link>
               </div>
             </div>
           </div>
@@ -574,7 +561,7 @@ const Header = () => {
             type="button"
             className={styles.primaryCta}
             onClick={handleTryAIClick}
-            aria-label="Try AI Sales Agent Demo"
+            aria-label="Try AI Sales Agent"
           >
             <span>Try AI Sales Agent</span>
             <ArrowRight size={15} className={styles.ctaArrow} />
@@ -814,13 +801,26 @@ const Header = () => {
 
                 {/* Primary CTA Button */}
                 <div className={styles.mobileCtaWrapper}>
+                  <a
+                    href="/#audit"
+                    className={styles.mobilePrimaryCta}
+                    onClick={() => {
+                      closeAll();
+                      trackCtaClick('mobile_nav_discuss_project', '/#audit');
+                    }}
+                  >
+                    <span>Discuss Your Project</span>
+                    <ArrowRight size={16} />
+                  </a>
                   <button
                     type="button"
-                    className={styles.mobilePrimaryCta}
-                    onClick={handleTryAIClick}
+                    className={styles.mobileSecondaryCta}
+                    onClick={() => {
+                      closeAll();
+                      handleTryAIClick();
+                    }}
                   >
-                    <span>Try AI Sales Agent</span>
-                    <ArrowRight size={16} />
+                    <span>Try AI Priya Sales Demo →</span>
                   </button>
                 </div>
               </motion.div>

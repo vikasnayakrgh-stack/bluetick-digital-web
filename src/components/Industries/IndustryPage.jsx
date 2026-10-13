@@ -102,41 +102,29 @@ const INDUSTRY_DATA = {
     ],
     pricing: [
       {
-        name: "D2C Starter Package",
-        price: "₹30,000",
-        description: "Ideal for emerging D2C brands launching up to 50 product SKUs.",
+        name: "E-commerce Website",
+        price: "Starting from ₹29,999",
+        description: "Ideal for emerging D2C brands selling products online with modern checkout.",
         features: [
-          "Up to 50 product catalog setup",
+          "Product catalog architecture & category browsing",
           "UPI, Card & COD payment integrations",
           "WhatsApp order status updates",
           "Mobile-optimized checkout funnel",
-          "Standard 7-day delivery sprint"
+          "Standard delivery sprint"
         ]
       },
       {
-        name: "Growth Commerce Engine",
-        price: "₹50,000",
+        name: "Custom / Enterprise Commerce",
+        price: "Custom quote",
         featured: true,
-        description: "High-scale commerce engine with automated COD verification and WhatsApp cart recovery.",
+        description: "Tailored architecture for large catalogues, complex integrations, and specialized workflows.",
         features: [
-          "Unlimited catalog & variant engine",
-          "Automated WhatsApp COD verification bot",
+          "Large catalog & dynamic variant engine",
+          "Automated WhatsApp COD verification workflow",
           "Abandoned cart recovery sequences",
           "24/7 AI customer support integration",
           "Supabase customer purchase database",
-          "Dedicated 14-day engineering sprint"
-        ]
-      },
-      {
-        name: "Enterprise Multi-Brand Store",
-        price: "Custom Scoped",
-        description: "Custom multi-warehouse inventory routing and high-volume ERP integrations.",
-        features: [
-          "Multi-warehouse & logistics API sync",
-          "High volume scaling (10,000+ orders/mo)",
-          "Custom ERP & accounting webhooks",
-          "Priority 24/7 SLA engineering support",
-          "Dedicated growth architect"
+          "Dedicated engineering sprint"
         ]
       }
     ],
@@ -243,41 +231,29 @@ const INDUSTRY_DATA = {
     ],
     pricing: [
       {
-        name: "B2B Corporate Platform",
-        price: "₹25,000",
-        description: "Professional industrial website with digital product catalog and WhatsApp inquiry capture.",
+        name: "B2B Corporate Website",
+        price: "Starting from ₹19,999",
+        description: "Professional industrial website with technical product showcase and WhatsApp inquiry capture.",
         features: [
           "Comprehensive technical product showcase",
           "Specifications download & inquiry forms",
-          "Basic WhatsApp auto-response bot",
+          "Direct WhatsApp inquiry routing",
           "Google search structured data indexing",
-          "Standard 7-day delivery sprint"
+          "Standard delivery sprint"
         ]
       },
       {
-        name: "Connected B2B Engine",
-        price: "₹45,000",
+        name: "Custom / Enterprise Industrial Matrix",
+        price: "Custom quote",
         featured: true,
-        description: "Complete B2B web platform connected with automated AI RFQ qualification and instant PDF catalog delivery.",
+        description: "Complete B2B web platform connected with automated AI RFQ qualification and custom ERP integrations.",
         features: [
           "Full digital product catalog with technical filters",
           "AI RFQ qualification agent on Web & WhatsApp",
           "Instant automated PDF spec sheet distribution",
           "Supabase B2B corporate lead CRM database",
-          "Regional sales team routing triggers",
-          "Dedicated 14-day engineering sprint"
-        ]
-      },
-      {
-        name: "Enterprise Industrial Matrix",
-        price: "Custom Scoped",
-        description: "Multi-plant corporate portals, custom ERP sync (SAP / Tally), and high-volume RFQ automation.",
-        features: [
           "Custom ERP & accounting system webhooks",
-          "Multi-plant & distributor portal architecture",
-          "Custom distributor pricing & login tiers",
-          "Dedicated SLA monitoring & priority support",
-          "Executive reporting dashboard"
+          "Dedicated engineering sprint"
         ]
       }
     ],
@@ -385,19 +361,19 @@ const INDUSTRY_DATA = {
     pricing: [
       {
         name: "Startup Launchpad",
-        price: "₹20,000",
+        price: "Starting from ₹19,999",
         description: "High-speed product landing page with embedded calendar scheduling and WhatsApp inquiry widget.",
         features: [
           "High-converting single-page product showcase",
           "Direct calendar integration (Google Meet / Calendly)",
           "Mobile-first responsive architecture",
           "SEO structured metadata setup",
-          "Standard 5-day delivery sprint"
+          "Standard delivery sprint"
         ]
       },
       {
         name: "Growth Demo Engine",
-        price: "₹40,000",
+        price: "Custom quote",
         featured: true,
         description: "Complete product platform with AI qualification bot, automated WhatsApp reminders, and CRM sync.",
         features: [
@@ -406,19 +382,7 @@ const INDUSTRY_DATA = {
           "Automated 24h/1h WhatsApp reminder sequences",
           "Supabase CRM database & Slack instant alerts",
           "Conversion tracking & analytics integration",
-          "Dedicated 10-day engineering sprint"
-        ]
-      },
-      {
-        name: "Custom Tech Architecture",
-        price: "Custom Scoped",
-        description: "Custom web app frontend, user onboarding pipelines, and deep product API integrations.",
-        features: [
-          "Custom React dashboard & web app features",
-          "Automated user KYC & onboarding workflows",
-          "Multi-channel webhook pipeline integrations",
-          "Dedicated sprint cycles & priority SLA",
-          "Technical co-architect support"
+          "Dedicated engineering sprint"
         ]
       }
     ],
@@ -525,41 +489,28 @@ const INDUSTRY_DATA = {
     ],
     pricing: [
       {
-        name: "Local Presence Package",
-        price: "₹15,000",
+        name: "Local Business Website",
+        price: "Starting from ₹9,999",
         description: "Modern local business website with Google Maps integration and direct WhatsApp lead capture.",
         features: [
           "High-converting local business website",
           "Google Maps & Local SEO schema integration",
           "Direct WhatsApp 1-click inquiry buttons",
           "Mobile-first responsive architecture",
-          "Standard 5-day delivery sprint"
+          "Standard delivery sprint"
         ]
       },
       {
-        name: "Connected Local Engine",
-        price: "₹35,000",
+        name: "Custom / Connected Local Engine",
+        price: "Custom quote",
         featured: true,
-        description: "Complete local platform connected with automated WhatsApp brochure delivery and site visit booking.",
+        description: "Complete local platform connected with automated WhatsApp brochure delivery, CRM logging, and site visit booking.",
         features: [
           "Multi-page property/service showcase",
           "Automated WhatsApp brochure delivery bot",
           "Site visit appointment booking flow",
           "Supabase local lead tracking database",
-          "Google review automation flow",
-          "Dedicated 10-day engineering sprint"
-        ]
-      },
-      {
-        name: "Enterprise Multi-Location System",
-        price: "Custom Scoped",
-        description: "Multi-branch corporate real estate portals, agent routing, and high-volume local ad capture.",
-        features: [
-          "Multi-location branch inquiry routing",
-          "Agent commission & lead assignment system",
-          "Custom CRM & lead management integration",
-          "Dedicated SLA monitoring & priority support",
-          "Monthly growth strategy sessions"
+          "Dedicated engineering sprint"
         ]
       }
     ],

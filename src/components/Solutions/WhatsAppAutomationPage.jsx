@@ -75,34 +75,53 @@ const WA_DELIVERABLES = [
 
 const WA_PRICING_TIERS = [
   {
-    name: "Starter WhatsApp API Engine",
-    price: "₹12,000",
-    description: "Official Meta WABA API onboarding, essential automated welcome flow, and basic website lead notification triggers.",
+    name: "Growth Plan",
+    price: "₹11,999 / year",
+    description: "Official Meta WhatsApp Business API platform foundation for team messaging, broadcasts, and shared inbox.",
     features: [
-      "Official Meta WABA API setup & phone number onboarding",
-      "Up to 5 approved interactive templates",
-      "Automated welcome & FAQ auto-reply flow",
-      "Website 1-click WhatsApp widget connection",
-      "Standard 5-day setup sprint"
-    ]
+      "Official Meta WABA API onboarding & panel access",
+      "Shared team multi-agent chat inbox",
+      "Unlimited broadcast campaigns (Meta conversation charges apply)",
+      "Template message management & approval assistance",
+      "Green Tick verification guidance & phone migration",
+      "Annual billing with manual renewal (no auto-debit)"
+    ],
+    ctaHref: "/#audit?req=whatsapp_waba",
+    ctaText: "Get Growth Plan"
   },
   {
-    name: "Growth WhatsApp Automation Suite",
-    price: "₹28,000",
+    name: "AI Growth Engine",
+    price: "₹14,999 / year",
+    description: "Autonomous 24/7 conversational sales & support agent deployed over your WhatsApp Business platform. (*Requires active Growth Plan at ₹11,999/yr, or get both in Power Combo at ₹25,000/yr)",
+    features: [
+      "Autonomous 24/7 AI conversational responses",
+      "Sub-30 second lead qualification & intent triage",
+      "Conversation memory & context-aware answering",
+      "Supabase / CRM bidirectional database synchronization",
+      "Automated follow-up scheduling & manager handoff alerts",
+      "BYOK model: Direct LLM billing with zero agency markup"
+    ],
+    ctaHref: "/#audit?req=ai_automation",
+    ctaText: "Deploy AI Engine"
+  },
+  {
+    name: "Power Combo",
+    price: "₹25,000 / year",
     featured: true,
-    description: "Complete conversational workflow engine with multi-agent team inbox, AI qualification bot, and automated broadcast campaigns.",
+    description: "Best value unified offering combining the official WhatsApp platform and autonomous AI engine. (Does not include website development)",
     features: [
-      "Full 24/7 AI conversational agent integration",
-      "Multi-agent shared team inbox (unlimited agents)",
-      "Automated appointment booking & reminder sequences",
-      "Broadcast messaging & campaign analytics dashboard",
-      "Atomic Supabase CRM transaction sync",
-      "Dedicated 10-day engineering sprint"
-    ]
+      "Everything in Growth Plan (WhatsApp API & Multi-Agent Inbox)",
+      "Everything in AI Growth Engine (24/7 Sales Agent & CRM Sync)",
+      "Priority onboarding & unified workflow configuration",
+      "BYOK model: Direct LLM provider billing with zero markup",
+      "Annual billing with manual renewal (no auto-debit)"
+    ],
+    ctaHref: "/#audit?req=website_plus_automation",
+    ctaText: "Choose Power Combo"
   },
   {
-    name: "Enterprise Multi-Channel Pipeline",
-    price: "Custom Scoped",
+    name: "Custom Enterprise Messaging",
+    price: "Custom quote",
     description: "Custom enterprise messaging architecture, high-volume broadcasting, dedicated webhooks, and custom ERP integration.",
     features: [
       "High volume messaging infrastructure (50,000+ msgs/mo)",
@@ -110,7 +129,9 @@ const WA_PRICING_TIERS = [
       "Dedicated account manager & 24/7 priority SLA",
       "Custom analytics & automated executive reports",
       "Full Green Tick verification management"
-    ]
+    ],
+    ctaHref: "/#audit?req=whatsapp_automation",
+    ctaText: "Contact Us for a Custom Quote"
   }
 ];
 
@@ -198,7 +219,7 @@ const WhatsAppAutomationPage = () => {
           "Green Tick Application Support"
         ]}
         primaryCtaText="Get Your Free WhatsApp Audit"
-        primaryCtaHref="/#audit"
+        primaryCtaHref="/#audit?req=whatsapp_automation"
         secondaryCtaText="Explore API Workflow"
         secondaryCtaHref="#workflow"
       />
@@ -256,6 +277,7 @@ const WhatsAppAutomationPage = () => {
         title="Transparent WhatsApp Packages"
         subtitle="Milestone-based setup scopes with transparent Meta messaging fees."
         tiers={WA_PRICING_TIERS}
+        ctaHref="/#audit?req=whatsapp_automation"
         disclaimer="Starting from prices indicate baseline setup and engineering packages. Meta official conversation messaging fees are billed directly at cost based on your actual monthly conversation volume."
       />
 
@@ -272,7 +294,7 @@ const WhatsAppAutomationPage = () => {
         title="Ready to Automate Your Customer Communication?"
         subtitle="We will audit your customer inquiry volume, design your custom WhatsApp conversation flow, and provide a working prototype in 24 hours."
         ctaText="Get Your Free WhatsApp Audit"
-        ctaHref="/#audit"
+        ctaHref="/#audit?req=whatsapp_automation"
       />
     </>
   );

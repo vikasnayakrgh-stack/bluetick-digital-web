@@ -43,17 +43,17 @@ export const automateLeadQualificationArticle = {
             {
                 type: 'text',
                 title: 'E-commerce (D2C Brands)',
-                body: '<strong>Problem</strong>: 70% of cart abandoners never return. Manual follow-up is impossible at scale.\n\n<strong>AI Chatbot Solution</strong>:\n- Captures email and phone when visitor lands on checkout page\n- Sends WhatsApp message within 5 minutes: "Hey! Noticed you left something in your cart. Need help?"\n- Qualifies: Is it price? Shipping? Payment issue?\n- Routes: Price objection → discount offer. Shipping concern → delivery timeline. Technical issue → support handover\n\n<strong>Real Result</strong>: Bluetick Digital client achieved <strong>25% cart recovery rate</strong> and <strong>40% reduction in cost per lead</strong>.'
+                body: '<strong>Problem</strong>: 70% of cart abandoners never return. Manual follow-up is impossible at scale.\n\n<strong>AI Chatbot Solution</strong>:\n- Captures email and phone when visitor lands on checkout page\n- Sends WhatsApp message within 5 minutes: "Hey! Noticed you left something in your cart. Need help?"\n- Qualifies: Is it price? Shipping? Payment issue?\n- Routes: Price objection → discount offer. Shipping concern → delivery timeline. Technical issue → support handover\n\n<strong>Modeled Workflow Impact</strong>: Industry benchmarks show automated recovery workflows can recapture up to <strong>20–25% of abandoned carts</strong> while reducing cost per qualified lead.'
             },
             {
                 type: 'text',
                 title: 'Real Estate (Brokers & Developers)',
-                body: '<strong>Problem</strong>: Agents spend 70% of their time on low-intent inquiries like "What\'s the price?" from people who can\'t afford the property.\n\n<strong>AI Chatbot Solution</strong>:\n- First question: "What\'s your budget range for the property?"\n- Second: "Which localities are you considering?"\n- Third: "When are you planning to move in?"\n- If budget < minimum → auto-reply with affordable options + nurture sequence\n- If budget aligns → send property list + book site visit → alert agent\n\n<strong>Real Result</strong>: Bluetick Digital client saw <strong>40% reduction in cost per qualified lead</strong>.'
+                body: '<strong>Problem</strong>: Agents spend 70% of their time on low-intent inquiries like "What\'s the price?" from people who can\'t afford the property.\n\n<strong>AI Chatbot Solution</strong>:\n- First question: "What\'s your budget range for the property?"\n- Second: "Which localities are you considering?"\n- Third: "When are you planning to move in?"\n- If budget < minimum → auto-reply with affordable options + nurture sequence\n- If budget aligns → send property list + book site visit → alert agent\n\n<strong>Modeled Workflow Impact</strong>: Automated budget and timeline qualification systematically frees up agent hours and reduces cost per qualified lead.'
             },
             {
                 type: 'text',
                 title: 'Education & EdTech',
-                body: '<strong>Problem</strong>: Enquiry volume spikes during exam season. Admissions team can\'t handle 500+ enquiries/day.\n\n<strong>AI Chatbot Solution</strong>:\n- Captures: Course interest, city, budget, timeline\n- Qualifies: Immediate enrollment vs exploring (3-6 months)\n- Routes: Immediate → book free counselling call. Exploring → send course brochure + 7-day email sequence\n\n<strong>Real Result</strong>: Bluetick Digital client achieved <strong>3x lesson completion rates</strong> with automated engagement.'
+                body: '<strong>Problem</strong>: Enquiry volume spikes during exam season. Admissions team can\'t handle 500+ enquiries/day.\n\n<strong>AI Chatbot Solution</strong>:\n- Captures: Course interest, city, budget, timeline\n- Qualifies: Immediate enrollment vs exploring (3-6 months)\n- Routes: Immediate → book free counselling call. Exploring → send course brochure + 7-day email sequence\n\n<strong>Modeled Workflow Impact</strong>: Rapid automated response during peak inquiry cycles delivers significantly higher engagement and student booking rates.'
             },
             {
                 type: 'text',
@@ -125,15 +125,14 @@ export const automateLeadQualificationArticle = {
                     ['AI WhatsApp Reply Bot', '—', '✅', '✅'],
                     ['Lead Qualification', '—', '✅', '✅'],
                     ['CRM Integration', '—', '✅', '✅'],
-                    ['AI Replies/Month', '—', '10,000', '10,000 + extra'],
-                    ['Monthly Price', '₹1,199', '₹1,999', '₹2,999'],
-                    ['Annual Price', '₹11,999 (₹999/mo)', '₹14,999 (₹1,249/mo)', '₹25,000 (₹2,083/mo)']
+                    ['AI Usage Model', '—', 'BYOK (Direct Provider)', 'BYOK (Direct Provider)'],
+                    ['Annual Plan Investment', '₹11,999/year', '₹14,999/year*', '₹25,000/year']
                 ]
             },
             {
                 type: 'text',
                 title: 'Best Plan for Lead Qualification',
-                body: '<strong>AI Growth Engine (₹1,999/mo)</strong> or <strong>Power Combo (₹2,999/mo)</strong> — both include AI-powered lead qualification, CRM integration, and 10,000 AI replies/month.'
+                body: '<strong>AI Growth Engine (₹14,999/year)</strong> or <strong>Power Combo (₹25,000/year)</strong> — both include autonomous AI-powered lead qualification, CRM integration, and the transparent BYOK model with direct LLM provider billing and zero agency markup.'
             }
         ],
         faqs: [

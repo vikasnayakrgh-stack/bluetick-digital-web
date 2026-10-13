@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Check, ArrowRight, Info, Sparkles, ChevronRight, Globe, Layers, ArrowLeft } from 'lucide-react';
+import { Check, ArrowRight, Info, Sparkles, ChevronRight, Globe, Layers, ArrowLeft, ShieldCheck } from 'lucide-react';
 import SEO from '../Common/SEO';
 import styles from './WebsitePricingPage.module.css';
 
@@ -11,8 +11,8 @@ const WEBSITE_PRICING_SCHEMA = {
       "@type": "WebPage",
       "@id": "https://bluetickdigital.in/pricing/websites#webpage",
       "url": "https://bluetickdigital.in/pricing/websites",
-      "name": "Website & E-commerce Pricing | Transparent Investment Starting ₹10K | Bluetick Digital",
-      "description": "Transparent project-based pricing for high-performance React business websites and custom D2C e-commerce stores in India. Starting from ₹10,000.",
+      "name": "Website & E-commerce Pricing | Transparent Investment Starting ₹9,999 | Bluetick Digital",
+      "description": "Transparent project-based pricing for high-performance React business websites and custom D2C e-commerce stores in India. Starting from ₹9,999.",
       "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [
@@ -28,86 +28,67 @@ const WEBSITE_PRICING_SCHEMA = {
 const WEBSITE_TIERS = [
   {
     name: "Business Website",
-    price: "From ₹10,000",
+    price: "Starting from ₹9,999",
     model: "Project-Based",
-    tagline: "Essential high-speed digital presence built for credibility and inbound inquiry capture.",
+    tagline: "Essential high-speed digital presence built for credibility, brand visibility, and inbound inquiry capture.",
     features: [
-      "Custom responsive design (Mobile, Tablet, Desktop)",
+      "Custom responsive design (mobile, tablet, desktop)",
       "Sub-second page speeds (<1.2s LCP on mobile)",
       "Essential SEO meta tags & OpenGraph cards",
-      "Integrated 1-click WhatsApp inquiry capture",
-      "SSL certificate & high-performance static hosting",
-      "Fast 7 to 10 days deployment timeline"
+      "Integrated WhatsApp inquiry capture & lead routing",
+      "Production-ready codebase & high-performance static hosting"
     ],
     popular: false,
-    ctaText: "Start Business Website"
+    ctaText: "Start Business Website",
+    cta: "/#audit?req=new_website"
   },
   {
-    name: "Premium Profile Website",
-    price: "From ₹20,000",
+    name: "Premium Website",
+    price: "Starting from ₹19,999",
     model: "Project-Based",
-    tagline: "Bespoke Swiss architectural design for established firms, consultancies & corporate brands.",
+    tagline: "Tailored website experience for established businesses, corporate firms, and growing consultancies.",
     features: [
       "Everything in Business Website tier",
-      "Multi-page corporate information architecture",
-      "Custom Swiss-style typography & visual design",
-      "Interactive micro-animations with Framer Motion",
+      "Multi-section corporate information architecture",
+      "Custom Swiss-style typography & editorial visual design",
       "Full JSON-LD Schema structured data for Google",
-      "Google Maps local optimization & inquiry analytics",
-      "14 to 18 days structured sprint delivery"
+      "Interactive micro-animations & conversion touchpoints"
     ],
     popular: true,
-    ctaText: "Choose Premium Profile"
+    ctaText: "Choose Premium Website",
+    cta: "/#audit?req=new_website"
   },
   {
-    name: "Small E-commerce",
-    price: "From ₹30,000",
+    name: "E-commerce Website",
+    price: "Starting from ₹29,999",
     model: "Project-Based",
-    tagline: "High-conversion D2C storefront with automated checkout & WhatsApp cart recovery.",
+    tagline: "Conversion-focused online storefront engineered for businesses selling products online.",
     features: [
-      "Custom D2C storefront with up to 100 product catalog",
-      "Dynamic variant selector (sizes, weights, materials)",
-      "Integrated Razorpay & 1-click UPI checkout",
-      "Automated WhatsApp COD order verification bot",
-      "Automated 1-click WhatsApp cart recovery workflow",
-      "Supabase order database & customer ledger",
-      "18 to 21 days turnkey deployment"
+      "Product catalog architecture & category browsing",
+      "Dynamic product variant selector (sizes, weights, materials)",
+      "Online checkout & integrated UPI / payment workflow",
+      "Order inquiry & customer notification flow",
+      "Mobile-first shopping funnel & fast catalog load speeds"
     ],
     popular: false,
-    ctaText: "Launch Small Store"
+    ctaText: "Launch E-commerce Store",
+    cta: "/#audit?req=ecommerce_store"
   },
   {
-    name: "Large Catalog E-commerce",
-    price: "From ₹50,000",
-    model: "Project-Based",
-    tagline: "Enterprise-grade digital commerce platform engineered for large catalogs and high volume.",
+    name: "Custom / Enterprise Website",
+    price: "Custom quote",
+    model: "Tailored Scope",
+    tagline: "Tailored architecture for large catalogues, complex integrations, and specialized digital workflows.",
     features: [
-      "Everything in Small E-commerce tier",
-      "Large catalog architecture (1,000+ SKUs & categories)",
-      "Faceted multi-filter search & instant category triage",
-      "Automated courier & shipping tracking integrations",
-      "Multi-agent team order management panel",
-      "Customer accounts, wishlists & repeat order history",
-      "Dedicated staging server & thorough load-testing"
+      "Large product catalogues & complex e-commerce requirements",
+      "Advanced workflows, customer portals & bespoke web logic",
+      "Custom integrations (ERPs, proprietary APIs, CRMs)",
+      "Specialized database architecture & role-based authentication",
+      "Dedicated technical architecture roadmap & weekly milestones"
     ],
     popular: false,
-    ctaText: "Scale Catalog Store"
-  },
-  {
-    name: "Custom Website",
-    price: "Custom Pricing",
-    model: "Scoped Architecture",
-    tagline: "Tailored web applications, client portals, and bespoke database platforms.",
-    features: [
-      "Bespoke system architecture & database schema design",
-      "Client portals, booking engines & custom dashboards",
-      "Third-party API & proprietary ERP integrations",
-      "Role-based access control (RBAC) & authentication",
-      "Dedicated sprint roadmap with weekly demo milestones",
-      "Custom SLA, source code handover & team training"
-    ],
-    popular: false,
-    ctaText: "Request Custom Scope"
+    ctaText: "Discuss Your Project",
+    cta: "/#audit?req=website_plus_automation"
   }
 ];
 
@@ -115,8 +96,8 @@ const WebsitePricingPage = () => {
   return (
     <>
       <SEO
-        title="Website & E-commerce Pricing | Transparent Investment Starting ₹10K | Bluetick Digital"
-        description="Clear, milestone-based investment tiers for business websites and D2C stores in India. From ₹10K for standard business sites, ₹30K for e-commerce. Transparent starting points."
+        title="Website & E-commerce Pricing | Transparent Investment Starting ₹9,999 | Bluetick Digital"
+        description="Clear, milestone-based investment tiers for business websites and D2C stores in India. From ₹9,999 for standard business sites, ₹29,999 for e-commerce. Transparent starting points."
         keywords="Website Development Cost India 2026, E-commerce Website Pricing India, React Website Cost, Bluetick Digital Website Pricing"
         canonical="https://bluetickdigital.in/pricing/websites"
         structuredData={WEBSITE_PRICING_SCHEMA}
@@ -207,7 +188,7 @@ const WebsitePricingPage = () => {
 
                   <div className={styles.tierFooter}>
                     <a
-                      href="/#audit"
+                      href={tier.cta || "/#audit"}
                       className={`btn ${tier.popular ? 'btn-primary' : 'btn-outline'} ${styles.cardBtn}`}
                     >
                       <span>{tier.ctaText}</span>
@@ -216,6 +197,51 @@ const WebsitePricingPage = () => {
                   </div>
                 </div>
               ))}
+            </div>
+
+            {/* Payment Terms & Commercial Guidelines */}
+            <div className={styles.paymentTermsSection}>
+              <div className={styles.paymentTermsHeader}>
+                <ShieldCheck size={22} color="#1d4ed8" />
+                <h3 className={styles.paymentTermsTitle}>Payment Terms &amp; Commercial Guidelines</h3>
+              </div>
+              <div className={styles.paymentTermsGrid}>
+                <div className={styles.paymentTermCard}>
+                  <div className={styles.termTitle}>
+                    <span>50% Advance &amp; 50% Pre-Launch Handover</span>
+                  </div>
+                  <p className={styles.termDesc}>
+                    50% advance invoice before architectural sprint kickoff. The remaining 50% balance is cleared upon sprint completion, prior to live domain launch and code handover.
+                  </p>
+                </div>
+
+                <div className={styles.paymentTermCard}>
+                  <div className={styles.termTitle}>
+                    <span>100% Standalone Website Purchase</span>
+                  </div>
+                  <p className={styles.termDesc}>
+                    Website development is an independent, one-time project service. You are never required to purchase or subscribe to any recurring AI or WhatsApp automation plan to build a website.
+                  </p>
+                </div>
+
+                <div className={styles.paymentTermCard}>
+                  <div className={styles.termTitle}>
+                    <span>Transparent Cost Demarcation</span>
+                  </div>
+                  <p className={styles.termDesc}>
+                    Project fees strictly cover bespoke design, clean code engineering, and testing. Domain registration, cloud hosting, and third-party payment gateway transaction fees are paid directly to your chosen providers.
+                  </p>
+                </div>
+
+                <div className={styles.paymentTermCard}>
+                  <div className={styles.termTitle}>
+                    <span>Full Source Code Ownership</span>
+                  </div>
+                  <p className={styles.termDesc}>
+                    Upon final project handover, 100% source code repository access and deployment configurations are transferred directly to your organization with zero vendor lock-in.
+                  </p>
+                </div>
+              </div>
             </div>
 
             {/* Bottom Architecture Advisory */}

@@ -76,42 +76,47 @@ const WEBSITES_DELIVERABLES = [
 
 const WEBSITES_PRICING_TIERS = [
   {
-    name: "Starter Business Website",
-    price: "₹10,000",
+    name: "Business Website",
+    price: "₹9,999",
     description: "Essential digital presence for growing businesses looking to establish credibility and capture inbound leads.",
     features: [
-      "Up to 3 high-converting landing pages",
-      "Mobile-first responsive architecture",
-      "WhatsApp inquiry chat integration",
-      "SEO meta tags & fast hosting setup",
-      "Standard 5-day delivery sprint"
-    ]
+      "Custom responsive design (mobile, tablet, desktop)",
+      "Sub-second page speeds (<1.2s LCP on mobile)",
+      "Integrated WhatsApp inquiry capture & lead routing",
+      "Essential SEO meta tags & fast hosting setup",
+      "Production-ready codebase & clean architecture"
+    ],
+    ctaHref: "/#audit?req=new_website",
+    ctaText: "Start Business Website"
   },
   {
-    name: "Premium Growth Web Platform",
-    price: "₹20,000",
+    name: "Premium Website",
+    price: "₹19,999",
     featured: true,
-    description: "Multi-page interactive showcase built for high conversions, search engine dominance, and automated lead capture.",
+    description: "Tailored multi-page interactive showcase built for high conversions, search engine visibility, and corporate credibility.",
     features: [
-      "Up to 8 custom designed pages & sections",
-      "Advanced motion & interactive components",
+      "Multi-section corporate information architecture",
+      "Custom Swiss-style typography & editorial visual design",
       "Supabase CRM database lead logging",
       "Full JSON-LD schema markup for Google SEO",
-      "Custom contact & audit form multi-step wizard",
-      "Dedicated 10-day engineering sprint"
-    ]
+      "Interactive micro-animations & conversion touchpoints"
+    ],
+    ctaHref: "/#audit?req=new_website",
+    ctaText: "Choose Premium Website"
   },
   {
-    name: "Custom Enterprise Web System",
-    price: "Custom Scoped",
-    description: "Bespoke digital architecture, custom web applications, client portals, and deep multi-channel CRM integrations.",
+    name: "Custom / Enterprise Website",
+    price: "Custom quote",
+    description: "Bespoke digital architecture, large catalogues, custom web applications, client portals, and deep multi-channel CRM integrations.",
     features: [
-      "Unlimited custom pages & dynamic routes",
-      "Custom web application features & dashboards",
-      "Full AI Agent & WhatsApp API integration",
-      "Multi-region deployment & 99.9% uptime SLA",
-      "Dedicated account manager & sprint cycles"
-    ]
+      "Large product catalogues & complex e-commerce requirements",
+      "Advanced workflows, customer portals & bespoke web logic",
+      "Custom integrations (ERPs, proprietary APIs, CRMs)",
+      "Specialized database architecture & role-based authentication",
+      "Dedicated technical architecture roadmap & weekly milestones"
+    ],
+    ctaHref: "/#audit?req=website_plus_automation",
+    ctaText: "Discuss Your Project"
   }
 ];
 
@@ -122,7 +127,7 @@ const WEBSITES_FAQS = [
   },
   {
     q: "Will our website load fast on mobile devices?",
-    a: "Yes. Every website we build is engineered with modern React/Vite architecture, zero heavy bloatware, and optimized assets, guaranteeing 90+ Google Core Web Vitals scores and sub-second load times on mobile 4G/5G."
+    a: "Yes. Every website we build is engineered with modern React/Vite architecture, zero heavy bloatware, and optimized assets, targeting 90+ Google Core Web Vitals performance benchmarks and sub-second load times on mobile 4G/5G."
   },
   {
     q: "Can we connect our website forms to WhatsApp and our CRM?",
@@ -198,7 +203,7 @@ const WebsitesPage = () => {
           "95+ Google Core Web Vitals"
         ]}
         primaryCtaText="Get Your Free Web Audit"
-        primaryCtaHref="/#audit"
+        primaryCtaHref="/#audit?req=new_website"
         secondaryCtaText="Explore System Workflow"
         secondaryCtaHref="#workflow"
       />
@@ -235,7 +240,7 @@ const WebsitesPage = () => {
         sectionNumber="02 /"
         sectionBadge="Engineering Sprint Cycle"
         title="From Architecture Blueprint to Production Launch"
-        subtitle="A disciplined 4-stage sprint process guaranteeing clarity, precision, and on-time delivery."
+        subtitle="A disciplined 4-stage sprint process designed for clarity, precision, and on-time delivery."
         steps={WEBSITES_WORKFLOW}
       />
 
@@ -265,6 +270,7 @@ const WebsitesPage = () => {
           title="Transparent Website Packages"
           subtitle="No hidden agency retainers. Clear milestone-based scopes framed around your business stage."
           tiers={WEBSITES_PRICING_TIERS}
+          ctaHref="/#audit?req=new_website"
           disclaimer={
             <>
               Starting from prices indicate standard baseline packages. Final investment is scoped transparently during your free audit based on custom pages, integrations, and specific feature requirements. For detailed industry pricing benchmarks, see our <a href="/blog/website-development-cost-in-india-2026" style={{ color: 'var(--color-brand)', textDecoration: 'underline', fontWeight: 600 }}>2026 website development cost guide</a>.
@@ -288,7 +294,7 @@ const WebsitesPage = () => {
         title="Ready to Build a High-Performance Digital Platform?"
         subtitle="We will analyze your current digital presence, provide a clear technical roadmap, and give you an exact milestone quote in 24 hours."
         ctaText="Get Your Free Web Audit"
-        ctaHref="/#audit"
+        ctaHref="/#audit?req=new_website"
       />
     </>
   );

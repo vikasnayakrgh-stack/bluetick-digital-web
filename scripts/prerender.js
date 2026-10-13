@@ -605,7 +605,7 @@ const STATIC_ROUTES = [
   {
     route: '/pricing',
     title: 'Pricing Hub | Website & AI Automation Investment | Bluetick Digital',
-    description: 'Select your solution: Project-based website & e-commerce pricing from ₹10K, or setup + monthly AI automation & WhatsApp workflows from ₹5K.',
+    description: 'Select your solution: Project-based website & e-commerce pricing starting from ₹9,999, or annual WhatsApp & AI automation suites starting from ₹11,999/yr.',
     keywords: 'Bluetick Digital Pricing, Website Development Cost India, AI Automation Pricing, WhatsApp Bot Pricing',
     canonical: 'https://bluetickdigital.in/pricing',
     ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
@@ -620,12 +620,12 @@ const STATIC_ROUTES = [
         </header>
         <section>
           <h2>Websites &amp; E-Commerce</h2>
-          <p>Project-based investment starting from ₹10,000. Custom React platforms, sub-second speed, and D2C stores.</p>
+          <p>Project-based investment starting from ₹9,999. Custom React platforms, sub-second speed, and D2C stores.</p>
           <a href="/pricing/websites">View Website Pricing →</a>
         </section>
         <section>
           <h2>AI Automation &amp; Workflows</h2>
-          <p>Setup + monthly operations starting from ₹5,000 setup + ₹1,000/month. 24/7 AI sales agents, WhatsApp bots, and CRM sync.</p>
+          <p>Annual software suites starting from ₹11,999/year. 24/7 AI sales agents, official WhatsApp platform, and CRM sync.</p>
           <a href="/pricing/ai-automation">View Automation Pricing →</a>
         </section>
       </main>
@@ -633,8 +633,8 @@ const STATIC_ROUTES = [
   },
   {
     route: '/pricing/websites',
-    title: 'Website & E-commerce Pricing | Transparent Investment Starting ₹10K | Bluetick Digital',
-    description: 'Transparent project-based pricing for high-performance React business websites and custom D2C e-commerce stores in India. Starting from ₹10,000.',
+    title: 'Website & E-commerce Pricing | Transparent Investment Starting ₹9,999 | Bluetick Digital',
+    description: 'Transparent project-based pricing for high-performance React business websites and custom D2C e-commerce stores in India. Starting from ₹9,999.',
     keywords: 'Website Development Cost India 2026, E-commerce Website Pricing India, React Website Cost, Bluetick Digital Website Pricing',
     canonical: 'https://bluetickdigital.in/pricing/websites',
     ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
@@ -652,31 +652,31 @@ const STATIC_ROUTES = [
         </div>
         <section>
           <h2>Business Website</h2>
-          <p>From ₹10,000 (Project-Based). Custom responsive design, sub-second page speeds, essential SEO, and 1-click WhatsApp inquiry integration.</p>
+          <p>Starting from ₹9,999 (Project-Based). Custom responsive design, sub-second page speeds, essential SEO, and 1-click WhatsApp inquiry integration.</p>
         </section>
         <section>
-          <h2>Premium Profile Website</h2>
-          <p>From ₹20,000 (Project-Based). Bespoke Swiss design, multi-page corporate structure, interactive motion, full Schema, and Google Maps local SEO.</p>
+          <h2>Premium Website</h2>
+          <p>Starting from ₹19,999 (Project-Based). Bespoke Swiss design, multi-page corporate structure, interactive motion, full Schema, and Google Maps local SEO.</p>
         </section>
         <section>
-          <h2>Small E-commerce</h2>
-          <p>From ₹30,000 (Project-Based). Custom D2C storefront, variant matrix, Razorpay/UPI checkout, automated WhatsApp COD verification, and cart recovery.</p>
+          <h2>E-commerce Website</h2>
+          <p>Starting from ₹29,999 (Project-Based). Custom D2C storefront, variant matrix, Razorpay/UPI checkout, automated WhatsApp COD verification, and cart recovery.</p>
         </section>
         <section>
-          <h2>Large Catalog E-commerce</h2>
-          <p>From ₹50,000 (Project-Based). 1,000+ SKUs, faceted search, Supabase order ledger, multi-agent dashboard, and automated shipping tracking.</p>
+          <h2>Custom / Enterprise Website</h2>
+          <p>Custom Quote. Bespoke web applications, client portals, complex database systems, large product catalogs, and custom API integrations.</p>
         </section>
         <section>
-          <h2>Custom Website</h2>
-          <p>Custom Pricing. Bespoke web applications, client portals, complex database systems, and custom API integrations.</p>
+          <h2>Website Payment Terms</h2>
+          <p>50% advance before project work begins. Remaining 50% before website launch or final handover. Full source code ownership included. Standalone purchase (no mandatory AI subscription).</p>
         </section>
       </main>
     `
   },
   {
     route: '/pricing/ai-automation',
-    title: 'AI Automation Pricing | Setup + Monthly Operations Starting ₹5K | Bluetick Digital',
-    description: 'Transparent setup and monthly pricing for AI sales agents, WhatsApp business automation, and CRM integrations in India. Starting from ₹5,000 setup + ₹1,000/month.',
+    title: 'AI Automation & WhatsApp Pricing | Annual Plans Starting ₹11,999/yr | Bluetick Digital',
+    description: 'Transparent annual subscription plans for official WhatsApp Business platform, 24/7 AI conversational sales agents, and custom workflow automations. BYOK model with direct provider billing.',
     keywords: 'AI Automation Pricing, WhatsApp Bot Cost India, AI Sales Agent Pricing, n8n Automation Pricing, Bluetick Digital',
     canonical: 'https://bluetickdigital.in/pricing/ai-automation',
     ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
@@ -687,28 +687,28 @@ const STATIC_ROUTES = [
       <main id="main-content">
         <header>
           <h1>AI Automation Pricing</h1>
-          <p>Predictable setup investment plus transparent monthly operational upkeep for autonomous AI sales agents, WhatsApp bots, and CRM sync pipelines.</p>
+          <p>Predictable annual subscription plans for official Meta WhatsApp Business API platform, 24/7 AI conversational sales agents, and custom workflow automations. BYOK model with direct provider billing.</p>
         </header>
         <div>
-          <p><strong>Customizable Workflow Pricing:</strong> All tiers represent starting estimates. Final pricing depends on the specific workflow requirements, integration depth, AI token consumption, and business complexity.</p>
+          <p><strong>Transparent Annual Plans:</strong> Software upkeep, webhook reliability, and workflow updates billed annually with manual renewal (no auto-debit).</p>
         </div>
         <section>
-          <h2>Starter Automation</h2>
-          <p>From ₹5,000 setup + ₹1,000/month. 1 core automated workflow, webhook listener, instant email/WhatsApp alerts, cloud execution monitoring.</p>
+          <h2>Growth Plan</h2>
+          <p>₹11,999 / year. Official Meta WABA API onboarding &amp; panel access, shared team multi-agent chat inbox, unlimited broadcast campaigns, Green Tick guidance, manual annual renewal.</p>
         </section>
         <section>
-          <h2>Business Automation</h2>
-          <p>From ₹10,000 setup + ₹2,000/month. AI Sales/Support Agent, WhatsApp API integration, sub-30s qualification, Supabase CRM sync, monthly prompt tuning.</p>
+          <h2>AI Growth Engine</h2>
+          <p>₹14,999 / year (*Requires active Growth Plan at ₹11,999/yr or choose Power Combo at ₹25,000/yr). Autonomous 24/7 AI conversational responses, sub-30s lead qualification, conversation memory, Supabase CRM sync, BYOK direct LLM billing.</p>
         </section>
         <section>
-          <h2>Advanced Automation</h2>
-          <p>From ₹20,000 setup + ₹5,000/month. Multi-agent orchestration, dynamic catalog lookup, self-hosted n8n workflows, follow-up cadences, weekly audits.</p>
+          <h2>Power Combo</h2>
+          <p>₹25,000 / year (Best Value Suite). Combines full WhatsApp Business API platform and autonomous AI Growth Engine. Note: Does not include website development (standalone service).</p>
         </section>
         <section>
-          <h2>Custom AI Systems</h2>
-          <p>Custom Pricing. Custom fine-tuned LLMs, proprietary ERP/database integrations, dedicated SLA, and VPC on-premise deployments.</p>
+          <h2>Custom Automation Projects</h2>
+          <p>Custom Quote. Discussion-led engineering for bespoke multi-agent workflows, legacy ERP integrations, custom database pipelines, and dedicated SLAs.</p>
         </section>
-        <section>
+        <section id="whatsapp">
           <h2>WhatsApp Business API (Official Meta Pass-Through)</h2>
           <p>Meta conversation charges passed through at exact actuals: Marketing (~₹0.863), Utility (~₹0.115), Authentication (~₹0.115), Service (24h free window).</p>
           <a href="/whatsapp-api-pricing-india">Open WhatsApp Cost Calculator →</a>

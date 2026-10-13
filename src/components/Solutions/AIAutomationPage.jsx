@@ -75,42 +75,61 @@ const AI_DELIVERABLES = [
 
 const AI_PRICING_TIERS = [
   {
-    name: "Starter AI Qualification Engine",
-    price: "₹15,000",
-    description: "Essential AI lead capture and instant qualification bot for emerging businesses managing up to 300 inquiries/month.",
+    name: "Growth Plan",
+    price: "₹11,999 / year",
+    description: "Official Meta WhatsApp Business API platform foundation for team messaging, broadcasts, and shared inbox.",
     features: [
-      "Custom business FAQ & lead qualification bot",
-      "Natural English & Hindi conversation support",
-      "Direct WhatsApp & Website Webhook integration",
-      "Google Sheets & email alert sync",
-      "Standard 5-day deployment sprint"
-    ]
+      "Official Meta WABA API onboarding & panel access",
+      "Shared team multi-agent chat inbox",
+      "Unlimited broadcast campaigns (Meta charges apply)",
+      "Template message management & approval assistance",
+      "Annual billing with manual renewal"
+    ],
+    ctaHref: "/#audit?req=whatsapp_waba",
+    ctaText: "Get Growth Plan"
   },
   {
-    name: "Growth AI Sales & Support Engine",
-    price: "₹35,000",
+    name: "AI Growth Engine",
+    price: "₹14,999 / year",
+    description: "Autonomous 24/7 conversational sales & support agent deployed over your WhatsApp Business platform. (*Requires active Growth Plan at ₹11,999/yr, or get both in Power Combo at ₹25,000/yr)",
+    features: [
+      "Autonomous 24/7 AI conversational responses",
+      "Sub-30 second lead qualification & intent triage",
+      "Conversation memory & context-aware answering",
+      "Atomic Supabase / CRM transaction logging",
+      "BYOK model: Direct LLM billing with zero agency markup"
+    ],
+    ctaHref: "/#audit?req=ai_automation",
+    ctaText: "Deploy AI Engine"
+  },
+  {
+    name: "Power Combo",
+    price: "₹25,000 / year",
     featured: true,
-    description: "Complete autonomous AI agent with dynamic lead scoring, automated calendar booking, and deep Supabase CRM synchronization.",
+    description: "Best value unified offering combining the official WhatsApp platform and autonomous AI engine. (Does not include website development)",
     features: [
-      "Advanced GPT-4o custom knowledge base engine",
-      "Automated demo & site visit calendar scheduling",
-      "Dynamic lead scoring & VIP sales team escalation",
-      "Automated multi-touch WhatsApp nurturing sequences",
-      "Atomic Supabase CRM transaction logging",
-      "Dedicated 10-day engineering sprint"
-    ]
+      "Everything in Growth Plan (WABA & Multi-Agent Inbox)",
+      "Everything in AI Growth Engine (24/7 Sales Agent & CRM Sync)",
+      "Priority onboarding & unified workflow configuration",
+      "BYOK model: Direct LLM billing with zero markup",
+      "Annual billing with manual renewal"
+    ],
+    ctaHref: "/#audit?req=website_plus_automation",
+    ctaText: "Choose Power Combo"
   },
   {
-    name: "Enterprise Custom Workflow Matrix",
-    price: "Custom Scoped",
-    description: "Bespoke multi-agent system, multi-channel support pipelines, custom ERP integrations, and high-volume inquiry handling.",
+    name: "Custom Automation Projects",
+    price: "Custom quote",
+    description: "Discussion-led engineering for bespoke multi-agent workflows, legacy ERP integrations, and custom logic.",
     features: [
-      "Multi-agent architecture (Support, Sales, Booking sub-agents)",
-      "High volume inquiry scaling (10,000+ chats/month)",
-      "Custom REST API & legacy CRM integrations",
+      "Custom multi-step business logic & agentic pipelines",
+      "Proprietary ERP, CRM, or database integrations",
+      "Private vector knowledge bases (RAG) & document search",
       "Dedicated prompt engineering & weekly accuracy tuning",
-      "Strict SLA uptime & priority engineering support"
-    ]
+      "Quotation tailored to integrations & workflow depth"
+    ],
+    ctaHref: "/#audit?req=ai_automation",
+    ctaText: "Contact Us for a Custom Quote"
   }
 ];
 
@@ -190,13 +209,13 @@ const AIAutomationPage = () => {
         gradientWord="24/7 Scaling."
         subtitle="Eliminate slow response times, unqualified inquiries, and manual data entry. We engineer custom AI agents that qualify buyer intent in sub-30 seconds, deliver instant quotes, and sync directly with your CRM."
         metrics={[
-          "Sub-30s Lead Qualification",
-          "98.8% Intent Classification Accuracy",
-          "-75% Manual Sales Overhead",
-          "24/7/365 Zero-Downtime Availability"
+          "Sub-30s Response SLA",
+          "Direct WhatsApp CRM Sync",
+          "Automated Meeting Booking",
+          "24/7 Multi-Channel Handling"
         ]}
         primaryCtaText="Get Your Free AI Audit"
-        primaryCtaHref="/#audit"
+        primaryCtaHref="/#audit?req=ai_automation"
         secondaryCtaText="Explore AI Workflow"
         secondaryCtaHref="#workflow"
       />
@@ -208,11 +227,11 @@ const AIAutomationPage = () => {
         subtitle="The difference between slow human follow-up and instant autonomous conversion."
         traditionalTitle="Manual Human Follow-Up"
         traditionalItems={[
-          "Average response time of 2-4 hours; prospects buy elsewhere.",
-          "Sales team spends 70% of time filtering cold, unqualified leads.",
+          "Average response time of hours; prospects buy elsewhere.",
+          "Sales team spends extensive time filtering cold, unqualified leads.",
           "Zero customer support during evening and weekend off-hours.",
           "Forgotten follow-ups and unrecorded lead data.",
-          "High recurring monthly payroll cost for basic repetitive chats."
+          "High recurring overhead for repetitive, basic questions."
         ]}
         bluetickTitle="Bluetick Autonomous AI Engine"
         bluetickItems={[
@@ -254,6 +273,7 @@ const AIAutomationPage = () => {
         title="Transparent AI Automation Packages"
         subtitle="Milestone-based pricing with transparent scope. No long-term restrictive locks."
         tiers={AI_PRICING_TIERS}
+        ctaHref="/#audit?req=ai_automation"
         disclaimer="Starting from prices indicate standard baseline automation engines. Final investment is scoped based on monthly chat volume, custom API integrations, and workflow complexity."
       />
 
@@ -270,7 +290,7 @@ const AIAutomationPage = () => {
         title="Ready to Automate Your Business Inquiries?"
         subtitle="We will review your inquiry volume, map out your AI decision flow, and demonstrate a working prototype within 24 hours."
         ctaText="Get Your Free AI Audit"
-        ctaHref="/#audit"
+        ctaHref="/#audit?req=ai_automation"
       />
     </>
   );

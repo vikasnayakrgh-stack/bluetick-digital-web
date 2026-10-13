@@ -59,7 +59,7 @@ const NavratriWebsiteCampaign = () => {
             </motion.a>
 
             <a href="#packages" className={styles.packagesAnchor} aria-label="Explore website packages below">
-              <span>Packages from ₹10k</span>
+              <span>Packages from ₹9,999</span>
               <ArrowDown size={13} aria-hidden="true" />
             </a>
           </div>

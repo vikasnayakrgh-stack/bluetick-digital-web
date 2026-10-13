@@ -309,3 +309,83 @@ Whenever commercial models differ in billing cadence (project-based vs recurring
 - [x] Do all project tiers use explicit "From" starting indicators rather than deceptive fixed packages?
 - [x] Are third-party pass-through costs (Meta WhatsApp conversation charges) explicitly isolated from core service fees?
 - [x] Are all pricing sub-routes pre-rendered statically with zero 404s?
+
+---
+
+### [BLT-009] URL Fragment Query Parsing Failure and Fixed Header Scroll Clipping in Single-Page Navigation
+
+**Date:** 2026-10-10  
+**Category:** Bug / UI / UX / Navigation / Mobile  
+**Severity:** High  
+**Status:** Resolved  
+
+### Problem
+When visitors clicked service-specific call-to-action buttons (or followed external ad/campaign links) formatted with query parameters attached to hash fragments (e.g., `/#audit?req=new_website`), the page failed to scroll smoothly to the target form, threw a JavaScript `DOMException`, failed to pre-select the relevant service requirement in the form, and if scrolled manually, the target heading was hidden behind the fixed navigation bar.
+
+### Immediate Cause
+`document.querySelector(hash)` was called directly with the raw `window.location.hash`. Because `?` is not a valid character in standard CSS ID selectors, `querySelector` crashed. Furthermore, `scrollIntoView()` aligned elements to the top of the browser window (`y = 0`), which positioned the section title directly underneath the fixed 72px header.
+
+### Root Cause
+1. **Selector Syntax Incompatibility:** In hybrid hash/query URLs like `/#audit?req=new_website`, the query string is part of the hash string in browser DOM APIs (`location.hash`). Passing this directly into `document.querySelector` treats `?` as an invalid pseudo-class or attribute selector.
+2. **Fixed Header Geometry:** Fixed elements (`position: fixed; height: 72px;`) are removed from document flow. Standard `scrollIntoView({ behavior: 'smooth' })` does not calculate offset coordinates, causing fixed header overlap unless `scroll-margin-top` or manual coordinate calculation is applied.
+3. **Single-Source Intent Parsing:** The enquiry form only checked `window.location.search`, ignoring requirements passed in `window.location.hash`.
+
+### Why We Missed It
+Simple in-page anchor links without query parameters (`/#audit`) worked without throwing syntax errors. The issue only manifested when combining deep links with attribution/preselection query parameters (`/#audit?req=...`).
+
+### Fix
+1. **Safe Fragment Parsing:** Implemented `resolveTargetElement` which strips any leading `#` and trailing `?query` string, querying elements strictly via `document.getElementById(cleanId)`.
+2. **Header-Offset Scrolling:** Implemented `scrollToElementWithOffset` with an 84px offset (72px header + 12px breathing room) using `window.scrollTo({ top: targetY, behavior: 'smooth' })`.
+3. **Multi-Stage Retry Schedule:** Added staggered retry timers (60ms, 180ms, 400ms) to ensure targets are resolved even during client-side route transitions and animation mounts.
+4. **Dual-Source Intent Parsing:** Updated `AuditForm.jsx` to parse requirements from both `location.search` and `location.hash`, with live listeners for `hashchange` and `popstate`.
+5. **Initial-View Requirement Selector:** Exposed requirement options directly on the initial view of the enquiry form so users see and can adjust preselected requirements with a single tap.
+
+### What We Learned
+Never pass `window.location.hash` directly into `document.querySelector`. Always sanitize fragment identifiers and compute scroll positions relative to fixed layout headers. Deep-link query parameters should be parsed from both search and hash strings to support modern marketing campaigns.
+
+### Prevention Rule
+Whenever building anchor navigation or intent-preselected forms, use `document.getElementById` with sanitized IDs, apply fixed-header scroll offsets, and check both `location.search` and `location.hash` for parameter passing.
+
+### Future Checklist
+- [x] Does `resolveTargetElement` safely handle URLs with both search and hash query parameters?
+- [x] Does smooth scrolling stop with adequate clearance below fixed headers on both desktop and mobile?
+- [x] Does the form react dynamically to in-page hash changes (`hashchange` event)?
+- [x] Are service-specific CTAs preselecting the appropriate requirement on initial form load?
+
+---
+
+### [BLT-010] Static HTML Prerender Out-of-Sync with React Pricing Components & CTA Intent Aliases
+
+**Date:** 2026-10-11  
+**Category:** Architecture / SEO / Process  
+**Severity:** High  
+**Status:** Resolved  
+
+### Problem
+During the release-readiness QA audit, static pre-rendered HTML templates in `scripts/prerender.js` were discovered still containing obsolete pricing references (`₹10K`, `₹5K setup + ₹1K/mo`), despite all client React components being upgraded to the approved pricing models (`₹9,999`, `₹11,999/yr`). Additionally, specific CTA parameter aliases (`?req=whatsapp_waba`) failed to preselect the WhatsApp service in `AuditForm.jsx`.
+
+### Immediate Cause
+`scripts/prerender.js` maintains hardcoded static HTML representations of key routes for SEO crawler ingestion that must be updated manually in lockstep with React route components. In addition, the alias dictionary in `AuditForm.jsx` omitted `whatsapp_waba` and `waba`.
+
+### Root Cause
+1. **Decoupled Prerender Script:** In static pre-rendering setups where route HTML is constructed outside of SSR/React rendering passes, any modification to pricing or copy in React components must have a matching update in the static generator.
+2. **CTA Alias Incompleteness:** Different subpage CTAs used varying semantic parameter names (`req=whatsapp_waba` vs `req=whatsapp_automation`), requiring full coverage in the form's normalization map.
+
+### Why We Missed It
+`npm run build` compiled without warnings because both the client bundle and `scripts/prerender.js` were syntactically valid. The discrepancy was only caught through systematic ripgrep auditing across the entire repo prior to release.
+
+### Fix
+1. Synchronized all pricing figures, descriptions, and terms in `scripts/prerender.js` for `/pricing`, `/pricing/websites`, and `/pricing/ai-automation`.
+2. Expanded `aliasMap` in `src/components/Home/AuditForm.jsx` to map `whatsapp_waba` and `waba` to `whatsapp_automation`.
+
+### What We Learned
+Whenever updating public commercial terms, prices, or CTAs in a static pre-rendered SPA, static prerender scripts must be audited alongside client components to prevent crawler/user hydration divergences.
+
+### Prevention Rule
+Always execute repo-wide searches for obsolete pricing tokens across both `src/` and `scripts/` before certifying any release build.
+
+### Future Checklist
+- [x] Are prerender route definitions in `scripts/prerender.js` updated whenever React page copy changes?
+- [x] Are all query parameter variants in subpage CTAs registered in `AuditForm.jsx`'s alias dictionary?
+- [x] Does `dist/` static output match client-rendered text exactly?
+

@@ -346,15 +346,14 @@
 
 /* WhatsApp Automation as supporting capability under AI Automation */
 .pricingSubItem {
-  margin-left: 0.65rem;
+  margin-left: 0.85rem;
   padding-left: 0.85rem;
-  border-left: 2px solid rgba(15, 23, 42, 0.08);
-  border-radius: 0 8px 8px 0;
-  transition: background-color 0.18s ease, border-left-color 0.18s ease;
+  border-radius: 8px;
+  background: transparent;
+  transition: background-color 0.18s ease;
 }
 
 .pricingSubItem:hover {
-  border-left-color: #1d4ed8;
   background-color: #f8fafc;
 }
 
@@ -394,37 +393,6 @@
   color: #64748b;
   line-height: 1.35;
   margin: 0.2rem 0 0 0;
-}
-
-.pricingDivider {
-  height: 1px;
-  background: rgba(15, 23, 42, 0.07);
-  margin: 0.65rem 0.5rem 0.4rem;
-}
-
-.pricingViewAll {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.6rem 0.75rem;
-  border-radius: 8px;
-  text-decoration: none;
-  font-family: var(--font-body, 'Inter', sans-serif);
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #1d4ed8;
-  background: transparent;
-  transition: background-color 0.18s ease, color 0.18s ease;
-}
-
-.pricingViewAll:hover {
-  background-color: #eff6ff;
-  color: #1e40af;
-}
-
-.pricingViewAll:hover .pricingArrow {
-  transform: translateX(3px);
-  color: #1e40af;
 }
 
 /* ============================================
@@ -667,4 +635,31 @@
 .mobilePrimaryCta:hover,
 .mobilePrimaryCta:active {
   background: #1e40af;
+}
+
+.mobileSecondaryCta {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: #1d4ed8;
+  min-height: 44px;
+  margin-top: 0.65rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: 8px;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 1px solid rgba(29, 78, 216, 0.22);
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.mobileSecondaryCta:hover,
+.mobileSecondaryCta:active {
+  background: rgba(29, 78, 216, 0.06);
+  border-color: rgba(29, 78, 216, 0.4);
 }

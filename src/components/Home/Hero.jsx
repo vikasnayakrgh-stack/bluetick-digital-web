@@ -3,6 +3,8 @@ import { ArrowRight, ShieldCheck, Bot, Globe, MessageSquare, Terminal } from 'lu
 import { trackCtaClick } from '../../utils/analytics';
 import styles from './Hero.module.css';
 
+import { resolveTargetElement, scrollToElementWithOffset } from '../Common/ScrollToTop';
+
 const VIDEO_URL = "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260622_204221_5339e40b-e73d-4ab0-9c65-79c18c66fd50.mp4";
 
 const TELEMETRY_CHIPS = [
@@ -32,9 +34,9 @@ const Hero = () => {
 
   const handleNavClick = (href) => {
     if (href.startsWith('#')) {
-      const el = document.querySelector(href);
+      const el = resolveTargetElement(href);
       if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
+        scrollToElementWithOffset(el);
       }
     }
   };
@@ -77,44 +79,42 @@ const Hero = () => {
 
           {/* Display Headline */}
           <h1 className={styles.heroHeading}>
-            We build connected <br className={styles.responsiveBreak} />
-            business engines <br className={styles.responsiveBreak} />
-            for ambitious brands.
+            Websites that win enquiries. <br className={styles.responsiveBreak} />
+            Automation that handles <br className={styles.responsiveBreak} />
+            the follow-up.
           </h1>
         </div>
 
         {/* Bottom Section */}
         <div className={styles.bottomSection}>
           <p className={styles.heroParagraph}>
-            Official Meta WhatsApp Business API. 2-person senior team engineering high-speed websites, official WhatsApp Business API workflows, and 24/7 custom AI chatbots. Selective capacity with direct founder access throughout.
+            Bluetick Digital builds business websites, WhatsApp automation, and AI-powered workflows for growing businesses in Raipur and across India. Start with one service or connect them into a complete system.
           </p>
 
           {/* Actions & Proof */}
           <div className={styles.actionRow}>
-            <button
-              type="button"
+            <a
+              href="#audit"
               className={styles.exploreBtn}
               onClick={(e) => {
-                e.preventDefault();
-                trackCtaClick('hero_try_ai_sales_agent', 'ai_chat_modal');
-                if (window.openAIPriyaChat) {
-                  window.openAIPriyaChat();
-                } else {
-                  window.dispatchEvent(new CustomEvent('bluetick:open-ai-chat'));
-                }
+                handleNavClick('#audit');
+                trackCtaClick('hero_primary_discuss_project', '#audit');
               }}
             >
-              <span>Try AI Sales Agent →</span>
-            </button>
+              <span>Discuss Your Project</span>
+              <ArrowRight size={16} className={styles.btnArrow} />
+            </a>
 
             <a
-              href="/whatsapp-api-cost-calculator"
+              href="#showcase"
               className={styles.secondaryBtn}
-              onClick={() => {
-                trackCtaClick('hero_calculate_whatsapp_cost', '/whatsapp-api-cost-calculator');
+              onClick={(e) => {
+                handleNavClick('#showcase');
+                trackCtaClick('hero_secondary_view_demos', '#showcase');
               }}
             >
-              <span>Calculate WhatsApp API Cost →</span>
+              <span>View Our Demos</span>
+              <ArrowRight size={15} className={styles.btnArrow} />
             </a>
           </div>
 
