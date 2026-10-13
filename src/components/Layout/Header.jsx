@@ -298,7 +298,9 @@ const Header = () => {
 
   // Launch AI Priya Chat
   const handleTryAIClick = (e) => {
-    e.preventDefault();
+    if (e && typeof e.preventDefault === 'function') {
+      e.preventDefault();
+    }
     trackCtaClick('navbar_try_ai_sales_agent', 'ai_chat_modal');
     if (typeof window !== 'undefined') {
       if (window.openAIPriyaChat) {
