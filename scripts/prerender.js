@@ -634,7 +634,7 @@ const STATIC_ROUTES = [
   {
     route: '/pricing/websites',
     title: 'Website & E-commerce Pricing | Transparent Investment Starting ₹9,999 | Bluetick Digital',
-    description: 'Transparent project-based pricing for high-performance React business websites and custom D2C e-commerce stores in India. Starting from ₹9,999.',
+    description: 'Clear, milestone-based investment tiers for business websites and D2C stores in India. From ₹9,999 for standard business sites, ₹29,999 for e-commerce. Transparent starting points.',
     keywords: 'Website Development Cost India 2026, E-commerce Website Pricing India, React Website Cost, Bluetick Digital Website Pricing',
     canonical: 'https://bluetickdigital.in/pricing/websites',
     ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
@@ -644,31 +644,110 @@ const STATIC_ROUTES = [
     bodyHtml: `
       <main id="main-content">
         <header>
-          <h1>Website &amp; E-commerce Pricing</h1>
-          <p>Milestone-based, fixed-scope engineering for high-speed React websites and custom D2C stores. All tiers include clean code, SEO metadata, and mobile optimization.</p>
+          <p>WEBSITE DEVELOPMENT</p>
+          <h1>A Better Website Starts Here.</h1>
+          <p>Build a professional online presence, attract enquiries, or start selling online—with a website designed around your business.</p>
+          <a href="#packages">Explore Packages</a>
+          <a href="/#audit?req=new_website">Discuss Your Project</a>
         </header>
+
         <div>
-          <p><strong>Starting Points, Not Fixed Packages:</strong> All prices shown below are starting estimates based on standard feature scopes. Final pricing depends on scope, features, integrations, design requirements, and project complexity.</p>
+          <p><strong>Pricing Transparency:</strong> All prices are starting prices. Final pricing depends on the agreed project scope and requirements. Payment terms: 50% advance and 50% before launch/handover. Any separate domain, hosting, payment gateway or recurring third-party charges will be specified in the final quotation.</p>
         </div>
-        <section>
-          <h2>Business Website</h2>
-          <p>Starting from ₹9,999 (Project-Based). Custom responsive design, sub-second page speeds, essential SEO, and 1-click WhatsApp inquiry integration.</p>
+
+        <section id="packages">
+          <h2>Website Engineering Packages</h2>
+
+          <article>
+            <h3>Business Website</h3>
+            <p>Starting price: ₹9,999 (5 website pages)</p>
+            <p>For startups, local service providers, and emerging firms building a credible online footprint.</p>
+            <ul>
+              <li>5 website pages</li>
+              <li>Custom responsive design</li>
+              <li>Mobile, tablet and desktop support</li>
+              <li>Essential SEO metadata and social-sharing previews</li>
+              <li>WhatsApp enquiry capture and lead routing</li>
+              <li>Performance-focused implementation and launch setup</li>
+            </ul>
+            <p><strong>Business Outcome:</strong> Build immediate credibility, rank cleanly on search, and capture visitor enquiries directly to WhatsApp.</p>
+            <a href="/#audit?req=new_website">Get Business Website</a>
+          </article>
+
+          <article>
+            <h3>Premium Website</h3>
+            <p>Starting price: ₹19,999 (10 website pages)</p>
+            <p>For established businesses, consulting firms, and growing brands requiring a bespoke corporate profile.</p>
+            <ul>
+              <li>10 website pages</li>
+              <li>Includes all approved Business Website features</li>
+              <li>Tailored corporate design and information architecture</li>
+              <li>Structured data for Google (JSON-LD Schema)</li>
+              <li>Interactive micro-animations and conversion touchpoints</li>
+            </ul>
+            <p><strong>Business Outcome:</strong> Elevate your brand perception with tailored aesthetics, deeper content structure, and rich search snippets.</p>
+            <a href="/#audit?req=new_website">Get Premium Website</a>
+          </article>
+
+          <article>
+            <h3>E-commerce Website</h3>
+            <p>Starting price: ₹29,999 (Agreed project scope)</p>
+            <p>For retailers, D2C brands, and product businesses ready to showcase catalogs and sell online.</p>
+            <ul>
+              <li>Page count according to agreed scope</li>
+              <li>Product catalogue and category browsing</li>
+              <li>Product variants (sizes, colors, materials)</li>
+              <li>Cart, checkout and agreed payment integration, including UPI where supported</li>
+              <li>Order enquiries and customer notifications</li>
+              <li>Mobile-friendly shopping experience</li>
+            </ul>
+            <p><strong>Business Outcome:</strong> Turn visitors into paying customers with fast browsing, frictionless UPI checkout, and automated order alerts.</p>
+            <a href="/#audit?req=ecommerce_store">Start Selling Online</a>
+          </article>
+
+          <article>
+            <h3>Custom / Enterprise Website</h3>
+            <p>Custom quotation (Custom architecture)</p>
+            <p>For enterprises with large product catalogs, specialized workflows, customer portals, or deep integrations.</p>
+            <ul>
+              <li>Large catalogues and specialized requirements</li>
+              <li>Custom workflows, portals and business logic</li>
+              <li>CRM, ERP and API integrations where agreed</li>
+              <li>Specialized database and role-based access where required</li>
+              <li>Technical roadmap and milestones according to agreed scope</li>
+            </ul>
+            <p><strong>Business Outcome:</strong> A bespoke web platform engineered specifically for your operational workflows, integrations, and scale.</p>
+            <a href="/#audit?req=website_plus_automation">Discuss Your Project</a>
+          </article>
         </section>
+
         <section>
-          <h2>Premium Website</h2>
-          <p>Starting from ₹19,999 (Project-Based). Bespoke Swiss design, multi-page corporate structure, interactive motion, full Schema, and Google Maps local SEO.</p>
-        </section>
-        <section>
-          <h2>E-commerce Website</h2>
-          <p>Starting from ₹29,999 (Project-Based). Custom D2C storefront, variant matrix, Razorpay/UPI checkout, automated WhatsApp COD verification, and cart recovery.</p>
-        </section>
-        <section>
-          <h2>Custom / Enterprise Website</h2>
-          <p>Custom Quote. Bespoke web applications, client portals, complex database systems, large product catalogs, and custom API integrations.</p>
-        </section>
-        <section>
-          <h2>Website Payment Terms</h2>
+          <h2>Payment Terms &amp; Commercial Guidelines</h2>
           <p>50% advance before project work begins. Remaining 50% before website launch or final handover. Full source code ownership included. Standalone purchase (no mandatory AI subscription).</p>
+        </section>
+
+        <section>
+          <h2>Frequently Asked Questions</h2>
+          <dl>
+            <dt>What is included in the starting price?</dt>
+            <dd>The starting price covers complete bespoke frontend and responsive web development according to the package scope, including mobile optimization, essential SEO metadata, WhatsApp enquiry integration, cross-browser testing, and production launch setup.</dd>
+            <dt>How many pages are included?</dt>
+            <dd>The Business Website package includes 5 website pages. The Premium Website includes 10 website pages. E-commerce and Custom / Enterprise websites are scoped according to agreed project requirements.</dd>
+            <dt>What are the payment terms?</dt>
+            <dd>We work on a transparent milestone basis: 50% advance before the engineering sprint begins, and the remaining 50% balance upon final review, prior to live domain launch and repository handover.</dd>
+            <dt>Are domain, hosting and third-party charges included?</dt>
+            <dd>No. Domain registration, hosting, and third-party services are billed directly by your chosen providers to ensure 100% asset ownership with zero vendor lock-in.</dd>
+            <dt>Can you build custom functionality?</dt>
+            <dd>Yes. Through our Custom / Enterprise tier, we build tailored web applications, client portals, custom calculators, dynamic databases, CRM/ERP webhooks, and private API integrations.</dd>
+            <dt>Which package should I choose?</dt>
+            <dd>Choose the Business Website (₹9,999) for a clean 5-page digital presence. Choose the Premium Website (₹19,999) for up to 10 pages with structured data and tailored corporate presentation. Choose the E-commerce Website (₹29,999) to sell online with cart and UPI checkout. For specialized workflows or large catalogues, request a custom quote.</dd>
+          </dl>
+        </section>
+
+        <section>
+          <h2>Not Sure Which Website Is Right for You?</h2>
+          <p>Tell us about your business and goals. We'll help you identify the right package and clarify the project scope before you commit.</p>
+          <a href="/#audit?req=new_website">Discuss Your Project</a>
         </section>
       </main>
     `
