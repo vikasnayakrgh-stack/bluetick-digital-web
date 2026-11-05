@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Linkedin, ShieldCheck } from 'lucide-react';
 import logo from '../../assets/logo-icon.png';
 import { useCookieConsent } from '../../context/CookieConsentContext';
-import { SITE_CONFIG } from '../../config/siteConfig';
+import { SITE_CONFIG, FEATURE_FLAGS } from '../../config/siteConfig';
 import styles from './Footer.module.css';
 
 const Footer = () => {
@@ -64,21 +64,23 @@ const Footer = () => {
                             <li><Link to="/pricing">Pricing Hub</Link></li>
                             <li><a href="/#showcase">Projects &amp; Showcase</a></li>
                             <li><a href="/#audit">Request Architecture Proposal</a></li>
-                            <li>
-                                <button 
-                                    type="button" 
-                                    onClick={() => {
-                                        if (window.openAIPriyaChat) {
-                                            window.openAIPriyaChat();
-                                        } else {
-                                            window.dispatchEvent(new CustomEvent('bluetick:open-ai-chat'));
-                                        }
-                                    }}
-                                    style={{ background: 'none', border: 'none', padding: 0, font: 'inherit', color: 'inherit', cursor: 'pointer', textAlign: 'left' }}
-                                >
-                                    Try AI Sales Agent (Live)
-                                </button>
-                            </li>
+                            {FEATURE_FLAGS.showAISalesAgent && (
+                                <li>
+                                    <button 
+                                        type="button" 
+                                        onClick={() => {
+                                            if (window.openAIPriyaChat) {
+                                                window.openAIPriyaChat();
+                                            } else {
+                                                window.dispatchEvent(new CustomEvent('bluetick:open-ai-chat'));
+                                            }
+                                        }}
+                                        style={{ background: 'none', border: 'none', padding: 0, font: 'inherit', color: 'inherit', cursor: 'pointer', textAlign: 'left' }}
+                                    >
+                                        Try AI Sales Agent (Live)
+                                    </button>
+                                </li>
+                            )}
                         </ul>
                     </div>
                 </div>

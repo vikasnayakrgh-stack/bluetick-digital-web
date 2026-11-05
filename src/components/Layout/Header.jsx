@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
 import { trackCtaClick } from '../../utils/analytics';
+import { FEATURE_FLAGS } from '../../config/siteConfig';
 import styles from './Header.module.css';
 
 /**
@@ -377,6 +378,7 @@ const Header = () => {
                     <div className={styles.columnItems}>
                       {group.items.map((item, iIdx) => {
                         if (item.action === 'open_ai_chat') {
+                          if (!FEATURE_FLAGS.showAISalesAgent) return null;
                           return (
                             <button
                               key={iIdx}
@@ -559,15 +561,27 @@ const Header = () => {
 
         {/* Right CTA - Desktop */}
         <div className={styles.actions}>
-          <button
-            type="button"
-            className={styles.primaryCta}
-            onClick={handleTryAIClick}
-            aria-label="Try AI Sales Agent"
-          >
-            <span>Try AI Sales Agent</span>
-            <ArrowRight size={15} className={styles.ctaArrow} />
-          </button>
+          {FEATURE_FLAGS.showAISalesAgent ? (
+            <button
+              type="button"
+              className={styles.primaryCta}
+              onClick={handleTryAIClick}
+              aria-label="Try AI Sales Agent"
+            >
+              <span>Try AI Sales Agent</span>
+              <ArrowRight size={15} className={styles.ctaArrow} />
+            </button>
+          ) : (
+            <a
+              href="/#audit"
+              className={styles.primaryCta}
+              aria-label="Get a Website Quote"
+              onClick={() => trackCtaClick('header_primary_get_quote', '/#audit')}
+            >
+              <span>Get a Website Quote</span>
+              <ArrowRight size={15} className={styles.ctaArrow} />
+            </a>
+          )}
 
           {/* Mobile Hamburger Button */}
           <button
@@ -643,6 +657,7 @@ const Header = () => {
                         >
                           {MOBILE_SOLUTIONS.map((item, idx) => {
                             if (item.action === 'open_ai_chat') {
+                              if (!FEATURE_FLAGS.showAISalesAgent) return null;
                               return (
                                 <button
                                   key={idx}
@@ -808,22 +823,35 @@ const Header = () => {
                     className={styles.mobilePrimaryCta}
                     onClick={() => {
                       closeAll();
-                      trackCtaClick('mobile_nav_discuss_project', '/#audit');
+                      trackCtaClick('mobile_nav_get_quote', '/#audit');
                     }}
                   >
-                    <span>Discuss Your Project</span>
+                    <span>Get a Website Quote</span>
                     <ArrowRight size={16} />
                   </a>
-                  <button
-                    type="button"
-                    className={styles.mobileSecondaryCta}
-                    onClick={() => {
-                      closeAll();
-                      handleTryAIClick();
-                    }}
-                  >
-                    <span>Try AI Priya Sales Demo →</span>
-                  </button>
+                  {FEATURE_FLAGS.showAISalesAgent ? (
+                    <button
+                      type="button"
+                      className={styles.mobileSecondaryCta}
+                      onClick={() => {
+                        closeAll();
+                        handleTryAIClick();
+                      }}
+                    >
+                      <span>Try AI Priya Sales Demo →</span>
+                    </button>
+                  ) : (
+                    <Link
+                      to="/pricing/websites"
+                      className={styles.mobileSecondaryCta}
+                      onClick={() => {
+                        closeAll();
+                        trackCtaClick('mobile_nav_explore_packages', '/pricing/websites');
+                      }}
+                    >
+                      <span>Explore Website Packages →</span>
+                    </Link>
+                  )}
                 </div>
               </motion.div>
             </>

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Check, ArrowRight, Info, Sparkles, ChevronRight, Bot, MessageSquare, Calculator, ShieldCheck, ArrowLeft, Zap } from 'lucide-react';
 import SEO from '../Common/SEO';
+import { FEATURE_FLAGS } from '../../config/siteConfig';
 import styles from './AIAutomationPricingPage.module.css';
 
 const AI_PRICING_SCHEMA = {
@@ -303,30 +304,32 @@ const AIAutomationPricingPage = () => {
             </div>
 
             {/* Bottom Live Demo Callout */}
-            <div className={styles.bottomDemoCallout}>
-              <div className={styles.demoCalloutContent}>
-                <div className={styles.demoCalloutText}>
-                  <h3 className={styles.demoCalloutTitle}>Experience our AI Sales Agent in action</h3>
-                  <p className={styles.demoCalloutDesc}>
-                    Try AI Priya right now on this website. See how an autonomous agent qualifies business needs, recommends plans, and answers sales inquiries in real-time.
-                  </p>
+            {FEATURE_FLAGS.showAISalesAgent && (
+              <div className={styles.bottomDemoCallout}>
+                <div className={styles.demoCalloutContent}>
+                  <div className={styles.demoCalloutText}>
+                    <h3 className={styles.demoCalloutTitle}>Experience our AI Sales Agent in action</h3>
+                    <p className={styles.demoCalloutDesc}>
+                      Try AI Priya right now on this website. See how an autonomous agent qualifies business needs, recommends plans, and answers sales inquiries in real-time.
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    className={styles.demoCalloutBtn}
+                    onClick={() => {
+                      if (window.openAIPriyaChat) {
+                        window.openAIPriyaChat();
+                      } else {
+                        window.dispatchEvent(new CustomEvent('bluetick:open-ai-chat'));
+                      }
+                    }}
+                  >
+                    <Zap size={16} />
+                    <span>Launch Live Priya Demo</span>
+                  </button>
                 </div>
-                <button
-                  type="button"
-                  className={styles.demoCalloutBtn}
-                  onClick={() => {
-                    if (window.openAIPriyaChat) {
-                      window.openAIPriyaChat();
-                    } else {
-                      window.dispatchEvent(new CustomEvent('bluetick:open-ai-chat'));
-                    }
-                  }}
-                >
-                  <Zap size={16} />
-                  <span>Launch Live Priya Demo</span>
-                </button>
               </div>
-            </div>
+            )}
           </div>
         </section>
       </div>

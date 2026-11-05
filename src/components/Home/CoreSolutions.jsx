@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Globe, Bot, MessageCircle, ArrowRight, Check, Info, Cpu, Layers } from 'lucide-react';
 import FloemaReveal from '../Common/FloemaReveal';
 import { MOTION_TOKENS } from '../../constants/motionTokens';
+import { FEATURE_FLAGS } from '../../config/siteConfig';
 import styles from './CoreSolutions.module.css';
 
 const SYSTEM_MODES = [
@@ -34,7 +35,7 @@ const SYSTEM_MODES = [
 ];
 
 const CoreSolutions = () => {
-    const [activeMode, setActiveMode] = useState('full-engine');
+    const [activeMode, setActiveMode] = useState(FEATURE_FLAGS.showAISalesAgent ? 'full-engine' : 'web-platform');
 
     const handleMouseMove = (e) => {
         const rect = e.currentTarget.getBoundingClientRect();

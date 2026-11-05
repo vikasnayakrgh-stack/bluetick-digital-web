@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { HelmetProvider } from 'react-helmet-async'
 import { MotionConfig } from 'framer-motion'
 import { initScrollReveal } from './utils/scrollReveal'
-import { SITE_CONFIG } from './config/siteConfig'
+import { SITE_CONFIG, FEATURE_FLAGS } from './config/siteConfig'
 
 // Layout
 import Header from './components/Layout/Header'
@@ -138,7 +138,7 @@ const Home = () => (
     <TrustBar />
     <CoreSolutions />
     <BusinessSystem />
-    <AutomationDemo />
+    {FEATURE_FLAGS.showAISalesAgent && <AutomationDemo />}
     <ProjectsShowcase />
     <IndustrySolutions />
     <HowItWorks />
@@ -216,7 +216,7 @@ function App() {
 
               <Footer />
               <FloatingActions />
-              <AIPriyaChat />
+              {FEATURE_FLAGS.showAISalesAgent && <AIPriyaChat />}
               <CookieConsentBanner />
             </div>
           </Router>

@@ -20,6 +20,7 @@ import {
   MessageSquare
 } from 'lucide-react';
 import SEO from '../Common/SEO';
+import { FEATURE_FLAGS } from '../../config/siteConfig';
 import styles from './WebsitePricingPage.module.css';
 
 const WEBSITE_PRICING_SCHEMA = {
@@ -749,23 +750,25 @@ const WebsitePricingPage = () => {
                     href="/#audit?req=new_website" 
                     className={styles.finalPrimaryBtn}
                   >
-                    <span>Discuss Your Project</span>
+                    <span>Get a Website Quote</span>
                     <ArrowRight size={16} />
                   </a>
-                  <button
-                    type="button"
-                    className={styles.finalSecondaryBtn}
-                    onClick={() => {
-                      if (window.openAIPriyaChat) {
-                        window.openAIPriyaChat();
-                      } else {
-                        window.dispatchEvent(new CustomEvent('bluetick:open-ai-chat'));
-                      }
-                    }}
-                  >
-                    <MessageSquare size={16} />
-                    <span>Consult AI Priya (Instant)</span>
-                  </button>
+                  {FEATURE_FLAGS.showAISalesAgent && (
+                    <button
+                      type="button"
+                      className={styles.finalSecondaryBtn}
+                      onClick={() => {
+                        if (window.openAIPriyaChat) {
+                          window.openAIPriyaChat();
+                        } else {
+                          window.dispatchEvent(new CustomEvent('bluetick:open-ai-chat'));
+                        }
+                      }}
+                    >
+                      <MessageSquare size={16} />
+                      <span>Consult AI Priya (Instant)</span>
+                    </button>
+                  )}
                 </div>
               </div>
             </div>

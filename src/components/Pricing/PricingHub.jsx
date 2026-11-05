@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Globe, Bot, ArrowRight, CheckCircle2, ShieldCheck, Sparkles, MessageSquare, ChevronRight } from 'lucide-react';
 import SEO from '../Common/SEO';
+import { FEATURE_FLAGS } from '../../config/siteConfig';
 import styles from './PricingHub.module.css';
 
 const PRICING_HUB_SCHEMA = {
@@ -177,24 +178,29 @@ const PricingHub = () => {
                 <div className={styles.needHelpText}>
                   <h3 className={styles.needHelpTitle}>Unsure which solution fits your exact business stage?</h3>
                   <p className={styles.needHelpDesc}>
-                    Our AI Sales Consultant Priya can analyze your requirements in under 2 minutes, or our engineering team can provide a custom architecture proposal.
+                    {FEATURE_FLAGS.showAISalesAgent 
+                      ? "Our AI Sales Consultant Priya can analyze your requirements in under 2 minutes, or our engineering team can provide a custom architecture proposal."
+                      : "Our engineering team will analyze your requirements and provide a customized website architecture and pricing proposal."
+                    }
                   </p>
                 </div>
                 <div className={styles.needHelpActions}>
-                  <button
-                    type="button"
-                    className={styles.consultPriyaBtn}
-                    onClick={() => {
-                      if (window.openAIPriyaChat) {
-                        window.openAIPriyaChat();
-                      } else {
-                        window.dispatchEvent(new CustomEvent('bluetick:open-ai-chat'));
-                      }
-                    }}
-                  >
-                    <MessageSquare size={16} />
-                    <span>Ask AI Priya</span>
-                  </button>
+                  {FEATURE_FLAGS.showAISalesAgent && (
+                    <button
+                      type="button"
+                      className={styles.consultPriyaBtn}
+                      onClick={() => {
+                        if (window.openAIPriyaChat) {
+                          window.openAIPriyaChat();
+                        } else {
+                          window.dispatchEvent(new CustomEvent('bluetick:open-ai-chat'));
+                        }
+                      }}
+                    >
+                      <MessageSquare size={16} />
+                      <span>Ask AI Priya</span>
+                    </button>
+                  )}
                   <a href="/#audit" className={styles.consultAuditBtn}>
                     <span>Request Proposal</span>
                     <ArrowRight size={14} />

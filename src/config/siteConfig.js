@@ -55,4 +55,13 @@ export const SITE_CONFIG = {
   ],
 };
 
+/**
+ * FEATURE FLAGS (Centralized Visibility Switches)
+ * Set showAISalesAgent to false to temporarily hide all AI Sales Agent promotional entry points
+ * for website-focused marketing campaigns. Set back to true to instantly re-enable.
+ */
+export const FEATURE_FLAGS = {
+  showAISalesAgent: false,
+};
+
 export default SITE_CONFIG;

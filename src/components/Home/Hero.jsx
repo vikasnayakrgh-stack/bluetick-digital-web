@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, ShieldCheck, Bot, Globe, MessageSquare, Terminal } from 'lucide-react';
 import { trackCtaClick } from '../../utils/analytics';
+import { FEATURE_FLAGS } from '../../config/siteConfig';
 import styles from './Hero.module.css';
 
 import { resolveTargetElement, scrollToElementWithOffset } from '../Common/ScrollToTop';
 
 const VIDEO_URL = "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260622_204221_5339e40b-e73d-4ab0-9c65-79c18c66fd50.mp4";
 
-const TELEMETRY_CHIPS = [
+const getTelemetryChips = (showAI) => [
   { icon: ShieldCheck, label: "Official Meta WhatsApp Business API" },
-  { icon: Bot, label: "24/7 Custom AI Chatbots" },
+  showAI 
+    ? { icon: Bot, label: "24/7 Custom AI Chatbots" }
+    : { icon: Terminal, label: "Custom Full-Stack Engineering" },
   { icon: Globe, label: "Sub-1.2s React Web Engine" },
   { icon: Terminal, label: "4 Engagements / Quarter" }
 ];
@@ -98,29 +101,28 @@ const Hero = () => {
               className={styles.exploreBtn}
               onClick={(e) => {
                 handleNavClick('#audit');
-                trackCtaClick('hero_primary_discuss_project', '#audit');
+                trackCtaClick('hero_primary_get_quote', '#audit');
               }}
             >
-              <span>Discuss Your Project</span>
+              <span>Get a Website Quote</span>
               <ArrowRight size={16} className={styles.btnArrow} />
             </a>
 
             <a
-              href="#showcase"
+              href="/pricing/websites"
               className={styles.secondaryBtn}
-              onClick={(e) => {
-                handleNavClick('#showcase');
-                trackCtaClick('hero_secondary_view_demos', '#showcase');
+              onClick={() => {
+                trackCtaClick('hero_secondary_explore_packages', '/pricing/websites');
               }}
             >
-              <span>View Our Demos</span>
+              <span>Explore Website Packages</span>
               <ArrowRight size={15} className={styles.btnArrow} />
             </a>
           </div>
 
           {/* Micro Telemetry Chips */}
           <div className={styles.telemetryRow}>
-            {TELEMETRY_CHIPS.map((chip, idx) => {
+            {getTelemetryChips(FEATURE_FLAGS.showAISalesAgent).map((chip, idx) => {
               const Icon = chip.icon;
               return (
                 <div key={idx} className={styles.telemetryChip}>
