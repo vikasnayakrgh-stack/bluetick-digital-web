@@ -1,0 +1,201 @@
+.portfolioGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 900px) {
+  .portfolioGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.portfolioCard {
+  background: var(--color-white, #ffffff);
+  border: 1px solid var(--color-border-light, rgba(15, 23, 42, 0.08));
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.portfolioCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(29, 78, 216, 0.3);
+  box-shadow: 0 16px 35px rgba(15, 23, 42, 0.08);
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #0f172a;
+}
+
+.projectImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.4s ease;
+  display: block;
+}
+
+.portfolioCard:hover .projectImage {
+  transform: scale(1.03);
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.4) 100%);
+  pointer-events: none;
+}
+
+/* Mandatory Concept / Demo System Badge */
+.conceptBadge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  color: #38bdf8;
+  font-family: var(--font-heading, "Plus Jakarta Sans", sans-serif);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 0.28rem 0.65rem;
+  border-radius: 4px;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+.stepBadge {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  color: #e2e8f0;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.725rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  z-index: 2;
+}
+
+.cardContent {
+  padding: 1.75rem 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.cardMetaRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.categoryTag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-brand, #1d4ed8);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.projectTitle {
+  font-family: var(--font-heading, "Plus Jakarta Sans", sans-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-slate-900, #0f172a);
+  margin: 0 0 0.65rem 0;
+  line-height: 1.3;
+}
+
+.projectDesc {
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--color-slate-600, #475569);
+  margin: 0 0 1.25rem 0;
+}
+
+.deliverablesList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  border-top: 1px solid var(--color-border-light, rgba(15, 23, 42, 0.08));
+  padding-top: 1rem;
+}
+
+.deliverableItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: var(--color-slate-700, #334155);
+}
+
+.checkIcon {
+  color: #10b981;
+  flex-shrink: 0;
+}
+
+.cardFooter {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border-light, rgba(15, 23, 42, 0.08));
+}
+
+.liveDemoBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  background: var(--color-slate-900, #0f172a);
+  color: #ffffff;
+  border-radius: var(--radius-full, 9999px);
+  font-family: var(--font-heading, "Plus Jakarta Sans", sans-serif);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.liveDemoBtn:hover {
+  background: var(--color-brand, #1d4ed8);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(29, 78, 216, 0.3);
+  color: #ffffff;
+}
+
+@media (max-width: 640px) {
+  .cardContent {
+    padding: 1.25rem 1.25rem 1.25rem;
+  }
+
+  .projectTitle {
+    font-size: 1.15rem;
+  }
+
+  .projectDesc {
+    font-size: 0.85rem;
+  }
+}
+

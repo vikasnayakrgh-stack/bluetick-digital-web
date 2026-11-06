@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Globe, Layout, Smartphone, Search, Zap, Code2, Database, ShieldCheck, Clock, CheckCircle2 } from 'lucide-react';
 import SEO from '../Common/SEO';
 import SubPageHero from '../Common/SubPageHero';
@@ -8,36 +8,53 @@ import SubPageDeliverables from '../Common/SubPageDeliverables';
 import SubPagePricing from '../Common/SubPagePricing';
 import SubPageFaq from '../Common/SubPageFaq';
 import SubPageCta from '../Common/SubPageCta';
-import NavratriWebsiteCampaign from './NavratriWebsiteCampaign';
+import WebsitesPortfolio from './WebsitesPortfolio';
+import { SITE_CONFIG } from '../../config/siteConfig';
+import { trackWhatsAppClick, trackCtaClick } from '../../utils/analytics';
+import { captureUtmParams } from '../../utils/utm';
+
+const WHATSAPP_RAW = SITE_CONFIG.contact.whatsappRaw || '916261003050';
+
+const HERO_WA_URL = `https://wa.me/${WHATSAPP_RAW}?text=${encodeURIComponent(
+  'Hi Bluetick Digital! I’m interested in the ₹9,999 Complete Business Website package (10 pages + Domain + Hosting + Maintenance). Please share more details.'
+)}`;
+
+const PRICING_WA_URL = `https://wa.me/${WHATSAPP_RAW}?text=${encodeURIComponent(
+  'Hi Bluetick Digital! I want to start my Business Website for ₹9,999. Can you guide me on the next steps?'
+)}`;
+
+const FINAL_CTA_WA_URL = `https://wa.me/${WHATSAPP_RAW}?text=${encodeURIComponent(
+  'Hi Bluetick Digital! I\'m planning to build a business website. Can we discuss requirements and timelines?'
+)}`;
 
 const WEBSITES_WORKFLOW = [
   {
     icon: Search,
     duration: "Stage 01",
     title: "Discovery & User Journey Blueprint",
-    description: "We analyze your audience, competitors, and conversion pathways to design an architecture that captures intent.",
-    deliverable: "Wireframes & Information Architecture"
+    description: "We analyze your audience, target search terms, and conversion pathways to design a clear information architecture.",
+    deliverable: "10-Page Wireframe & Content Blueprint"
   },
   {
     icon: Layout,
     duration: "Stage 02",
     title: "Custom Swiss-Style UI/UX Design",
-    description: "High-contrast visual design, custom typography, micro-interactions, and mobile-first responsive layouts.",
-    deliverable: "Figma High-Fidelity Interactive Prototype"
+    description: "High-contrast visual design, brand-tailored typography, clean mobile layouts, and conversion-focused CTAs.",
+    deliverable: "Figma High-Fidelity Prototype"
   },
   {
     icon: Code2,
     duration: "Stage 03",
     title: "Production Frontend Engineering",
-    description: "Engineered in React 18 & Vite for lightning-fast sub-second TTFB, SEO structured data, and 95+ Core Web Vitals.",
-    deliverable: "Clean Git Repository & Static Build"
+    description: "Built on React 18 & Vite for lightning-fast sub-second TTFB, SEO structured data, and 95+ Core Web Vitals.",
+    deliverable: "Clean Production Codebase & Domain/Hosting Setup"
   },
   {
     icon: Database,
     duration: "Stage 04",
-    title: "AI Chat & CRM Pipeline Integration",
-    description: "Connecting your inquiry forms directly to WhatsApp Meta API and Supabase CRM for automated lead capture.",
-    deliverable: "Live Deployed Production Web Platform"
+    title: "WhatsApp & CRM Pipeline Integration",
+    description: "Connecting your inquiry forms directly to WhatsApp Meta API and database for instant zero-loss lead routing.",
+    deliverable: "Live Deployed Web Platform & Milestone Handover"
   }
 ];
 
@@ -46,10 +63,10 @@ const WEBSITES_DELIVERABLES = [
     icon: Globe,
     title: "Performance & UX Engineering",
     items: [
-      "Custom responsive design (Mobile, Tablet, Desktop)",
-      "Sub-second page load times (<1.2s LCP)",
+      "Up to 10 custom responsive pages (Mobile, Tablet, Desktop)",
+      "Sub-second page load times (<1.2s LCP on mobile)",
       "Interactive micro-animations with Framer Motion",
-      "Accessibility & WCAG AA standard compliance"
+      "Full cross-browser & mobile viewport optimization"
     ]
   },
   {
@@ -57,19 +74,19 @@ const WEBSITES_DELIVERABLES = [
     title: "Search & Visibility (SEO & GEO)",
     items: [
       "Full JSON-LD Schema structured data markup",
-      "OpenGraph social preview cards & meta tags",
-      "Dynamic XML sitemap & robots.txt indexing",
+      "OpenGraph social preview cards & meta descriptions",
+      "Dynamic XML sitemap & search console indexing",
       "Generative Engine Optimization (ChatGPT & Perplexity ready)"
     ]
   },
   {
     icon: Zap,
-    title: "Connected Lead Automation",
+    title: "Connected Inclusions & Maintenance",
     items: [
-      "Integrated WhatsApp 1-click lead capture widget",
-      "Atomic Supabase database inquiry recording",
-      "Instant email notifications to your sales team",
-      "Custom analytics & conversion tracking events"
+      "1 year of domain registration (.com, .in, .co.in)",
+      "1 year of high-speed cloud hosting with global CDN & SSL",
+      "12 months of technical maintenance & uptime monitoring",
+      "Instant WhatsApp 1-click lead capture routing"
     ]
   }
 ];
@@ -78,35 +95,49 @@ const WEBSITES_PRICING_TIERS = [
   {
     name: "Business Website",
     price: "₹9,999",
-    description: "Essential digital presence for growing businesses looking to establish credibility and capture inbound leads.",
+    priceLabel: "Confirmed All-Inclusive Package",
+    paymentTerms: "50% Advance · 50% on Launch",
+    description: "Complete 10-page business web engine designed to establish instant market credibility and convert search & ad traffic into WhatsApp enquiries.",
     features: [
-      "Custom responsive design (mobile, tablet, desktop)",
-      "Sub-second page speeds (<1.2s LCP on mobile)",
-      "Integrated WhatsApp inquiry capture & lead routing",
-      "Essential SEO meta tags & fast hosting setup",
-      "Production-ready codebase & clean architecture"
+      "Up to 10 custom-designed website pages",
+      "Domain registration included for 1 year (.com / .in / .co.in)",
+      "High-speed cloud hosting included for 1 year (SSL + CDN)",
+      "12 months of technical maintenance & uptime monitoring",
+      "100% mobile-responsive design (<1.2s load speeds)",
+      "Instant WhatsApp enquiry integration & lead routing",
+      "Clean modern React 18 / Vite frontend architecture",
+      "Turnaround time: 5 to 7 business days"
     ],
+    renewalInfo: "Domain & hosting renew annually at actual provider rates (~₹2,500–₹3,500/year). 100% ownership of your code, domain, and data with zero vendor lock-in.",
     ctaHref: "/#audit?req=new_website",
-    ctaText: "Start Business Website"
+    ctaText: "Get My Business Website",
+    whatsappHref: PRICING_WA_URL,
+    whatsappText: "Enquire via WhatsApp",
+    onCtaClick: () => trackCtaClick('pricing_business_website_get_quote', '/#audit?req=new_website'),
+    onWhatsAppClick: () => trackWhatsAppClick('pricing_card_9999')
   },
   {
     name: "Premium Website",
     price: "₹19,999",
     featured: true,
-    description: "Tailored multi-page interactive showcase built for high conversions, search engine visibility, and corporate credibility.",
+    priceLabel: "Growth Architecture",
+    description: "Tailored multi-page interactive showcase built for high conversions, search engine prominence, and corporate credibility.",
     features: [
       "Multi-section corporate information architecture",
       "Custom Swiss-style typography & editorial visual design",
       "Supabase CRM database lead logging",
       "Full JSON-LD schema markup for Google SEO",
-      "Interactive micro-animations & conversion touchpoints"
+      "Interactive micro-animations & conversion touchpoints",
+      "Priority milestone sprint delivery"
     ],
     ctaHref: "/#audit?req=new_website",
-    ctaText: "Choose Premium Website"
+    ctaText: "Choose Premium Website",
+    onCtaClick: () => trackCtaClick('pricing_premium_website_choose', '/#audit?req=new_website')
   },
   {
     name: "Custom / Enterprise Website",
     price: "Custom quote",
+    priceLabel: "Bespoke Digital Systems",
     description: "Bespoke digital architecture, large catalogues, custom web applications, client portals, and deep multi-channel CRM integrations.",
     features: [
       "Large product catalogues & complex e-commerce requirements",
@@ -116,26 +147,43 @@ const WEBSITES_PRICING_TIERS = [
       "Dedicated technical architecture roadmap & weekly milestones"
     ],
     ctaHref: "/#audit?req=website_plus_automation",
-    ctaText: "Discuss Your Project"
+    ctaText: "Discuss Your Project",
+    onCtaClick: () => trackCtaClick('pricing_custom_enterprise_discuss', '/#audit?req=website_plus_automation')
   }
 ];
 
 const WEBSITES_FAQS = [
   {
-    q: "How long does it take to design and launch our website?",
-    a: "Standard business websites are delivered within 5 to 7 business days. Larger multi-page platforms and custom web applications typically take 10 to 14 business days from discovery kickoff to production launch."
+    q: "What is included in the ₹9,999 package?",
+    a: "The ₹9,999 Business Website package is an all-inclusive launch solution for growing businesses. It includes up to 10 custom-designed website pages, 1 year of domain registration (.com, .in, or .co.in), 1 year of high-speed cloud hosting with global CDN, 12 months of technical maintenance, mobile-first responsive architecture, an SSL security certificate, and 1-click WhatsApp enquiry integration."
   },
   {
-    q: "Will our website load fast on mobile devices?",
-    a: "Yes. Every website we build is engineered with modern React/Vite architecture, zero heavy bloatware, and optimized assets, targeting 90+ Google Core Web Vitals performance benchmarks and sub-second load times on mobile 4G/5G."
+    q: "How many pages are included?",
+    a: "Up to 10 website pages are included in the baseline package. A standard 10-page structure typically covers Home, About Us, Services/Products, Pricing/Packages, Portfolio/Showcase, Contact Us, Privacy Policy, Terms & Conditions, and up to 2 custom landing or conversion sections. Additional pages can be added as needed based on your scope."
   },
   {
-    q: "Can we connect our website forms to WhatsApp and our CRM?",
-    a: "Absolutely. All Bluetick websites are pre-architected to connect with our official WhatsApp Meta API bots and Supabase PostgreSQL databases, ensuring zero dropped inquiries and instant lead routing."
+    q: "Is domain included?",
+    a: "Yes. Standard 1-year domain registration (.com, .in, or .co.in) is fully included. If your business already owns a domain, we configure DNS records and connect it securely to your new site at no extra charge. Premium or auctioned domains are excluded from the bundled offer and billed at actual registrar cost."
   },
   {
-    q: "Do you handle domain setup and hosting?",
-    a: "Yes, we handle complete DNS configuration, SSL security certificate provisioning, and high-speed global CDN deployment (Vercel / Cloudflare) as part of our sprint handover."
+    q: "Is hosting included?",
+    a: "Yes. 1 full year of high-speed cloud hosting on global edge CDN (Vercel / Cloudflare) with automated SSL security certificates (HTTPS) is fully included. This architecture guarantees sub-second page loads (<1.2s LCP) and 99.9% uptime."
+  },
+  {
+    q: "What does 12-month maintenance cover?",
+    a: "12 months of technical maintenance includes: (1) Core technical health: continuous uptime monitoring, SSL security checks, monthly cloud backups, and framework security patches; (2) Minor content updates: updating phone numbers, contact info, business hours, text tweaks, or image replacements. Excluded from standard maintenance: major redesigns, new page additions, custom software features, and third-party subscription costs (e.g. paid CRM accounts, Meta conversation fees). Support is available via WhatsApp and email during standard business hours (Mon–Sat)."
+  },
+  {
+    q: "What happens after domain and hosting expire?",
+    a: "After the initial 12-month period, your domain registration and cloud hosting renew annually at actual standard provider cost (typically ₹2,500 to ₹3,500/year depending on your domain extension and traffic scale). You retain 100% ownership of your domain name, code repository, and assets with zero vendor lock-in. Technical maintenance continuation is available through an optional annual support retainer."
+  },
+  {
+    q: "What are the payment terms?",
+    a: "Our milestone payment terms are clear and transparent: 50% advance upon project kickoff to reserve engineering sprint bandwidth, and the remaining 50% upon final milestone approval before the live production DNS launch and ownership handover."
+  },
+  {
+    q: "What is the expected delivery timeline?",
+    a: "The standard delivery timeline for a complete 10-page Business Website is 5 to 7 business days from the receipt of your text content, brand assets, and initial brief."
   }
 ];
 
@@ -145,14 +193,22 @@ const WEBSITES_SCHEMA = {
     {
       "@type": "Service",
       "@id": "https://bluetickdigital.in/solutions/websites#service",
-      "name": "Business Website Design & Web Platform Engineering",
+      "name": "Complete 10-Page Business Website Package",
       "provider": {
         "@type": "Organization",
         "@id": "https://bluetickdigital.in/#organization",
-        "name": "Bluetick Digital"
+        "name": "Bluetick Digital",
+        "url": "https://bluetickdigital.in"
       },
       "serviceType": "High-Performance Business Web Platforms",
-      "description": "High-converting, sub-second business websites designed to attract, engage, and convert customers. Engineered with modern React tech and connected AI lead pipelines.",
+      "description": "Get your complete 10-page business website at just ₹9,999. Includes 1-yr domain, 1-yr hosting, 12 months maintenance, mobile-first responsive layout, and instant WhatsApp enquiry integration.",
+      "offers": {
+        "@type": "Offer",
+        "price": "9999",
+        "priceCurrency": "INR",
+        "availability": "https://schema.org/InStock",
+        "url": "https://bluetickdigital.in/solutions/websites"
+      },
       "areaServed": { "@type": "Country", "name": "India" }
     },
     {
@@ -179,39 +235,48 @@ const WEBSITES_SCHEMA = {
 };
 
 const WebsitesPage = () => {
+  useEffect(() => {
+    // Capture and persist UTM parameters for Meta Ads attribution
+    captureUtmParams();
+  }, []);
+
   return (
     <>
       <SEO
-        title="Business Website Design & Web Platform Engineering"
-        description="High-converting, sub-second business websites designed to attract, engage, and convert customers. Engineered with modern React tech and connected AI lead pipelines."
-        keywords="Business Website Design, Lead Generation Websites, Modern Web Development, React 18, Bluetick Digital"
+        title="Get Your Complete 10-Page Business Website at Just ₹9,999 | Bluetick Digital"
+        description="Get your complete 10-page business website at just ₹9,999. Includes 1-yr domain registration, 1-yr cloud hosting, 12 months maintenance, mobile-responsive design, and WhatsApp lead integration. Launched in 5–7 days."
+        keywords="Business Website ₹9999, 10 Page Website Development, Lead Generation Websites, Mobile Responsive Website India, React 18, Bluetick Digital"
         canonical="https://bluetickdigital.in/solutions/websites"
         structuredData={WEBSITES_SCHEMA}
       />
 
-      {/* Hero Section */}
+      {/* Hero Section: Optimized for Meta Ads Traffic & Instant Conversion */}
       <SubPageHero
         badgeIcon={Globe}
-        badgeText="Digital Platform Engineering"
-        title="High-Speed Business Websites Engineered for"
-        gradientWord="Measurable Growth."
-        subtitle="Don't settle for a slow, static digital brochure. We build ultra-fast, mobile-first business web platforms that capture intent, rank on search engines, and connect directly to automated sales pipelines."
+        badgeText="Confirmed Business Package · 5–7 Day Sprint"
+        title="Get Your Complete 10-Page Business Website at Just"
+        gradientWord="₹9,999"
+        priceBadge={{
+          amount: "₹9,999 All-Inclusive",
+          label: "10 Pages · Domain · Hosting · 12 Mo Maintenance"
+        }}
+        subtitle="Launch your high-performance business web engine with everything included: up to 10 custom pages, 1 year of domain registration (.com/.in), 1 year of high-speed cloud hosting (SSL + global CDN), 12 months of technical maintenance, and instant WhatsApp enquiry integration. 50% advance to start, delivered in 5–7 business days."
         metrics={[
-          "Sub-1.2s LCP Load Speed",
-          "100% Mobile Responsive",
-          "Instant WhatsApp Lead Routing",
-          "95+ Google Core Web Vitals"
+          "Up to 10 Custom Pages",
+          "1-Yr Domain & Hosting Included",
+          "12 Months Technical Maintenance",
+          "Instant WhatsApp Lead Routing"
         ]}
-        primaryCtaText="Get Your Free Web Audit"
+        primaryCtaText="Get My Business Website"
         primaryCtaHref="/#audit?req=new_website"
-        secondaryCtaText="Explore System Workflow"
-        secondaryCtaHref="#workflow"
+        onPrimaryClick={() => trackCtaClick('hero_get_my_business_website', '/#audit?req=new_website')}
+        secondaryCtaText="Enquire on WhatsApp"
+        secondaryCtaHref={HERO_WA_URL}
+        secondaryIsWhatsApp={true}
+        secondaryOnClick={() => trackWhatsAppClick('hero_secondary')}
       />
 
-      {/* Navratri Website Campaign Spotlight */}
-      <NavratriWebsiteCampaign />
-
-      {/* The Strategic Shift */}
+      {/* Section 01 / — The Strategic Shift */}
       <SubPageShift
         sectionNumber="01 /"
         sectionBadge="The Strategic Shift"
@@ -235,16 +300,16 @@ const WebsitesPage = () => {
         ]}
       />
 
-      {/* 4-Step Engineering Workflow */}
+      {/* Section 02 / — 4-Step Engineering Sprint Cycle */}
       <SubPageWorkflow
         sectionNumber="02 /"
         sectionBadge="Engineering Sprint Cycle"
         title="From Architecture Blueprint to Production Launch"
-        subtitle="A disciplined 4-stage sprint process designed for clarity, precision, and on-time delivery."
+        subtitle="A disciplined 4-stage sprint process designed for clarity, precision, and on-time delivery in 5 to 7 days."
         steps={WEBSITES_WORKFLOW}
       />
 
-      {/* Deliverables Checklist */}
+      {/* Section 03 / — Deliverables Architecture */}
       <SubPageDeliverables
         sectionNumber="03 /"
         sectionBadge="Included Architecture"
@@ -262,39 +327,51 @@ const WebsitesPage = () => {
         ]}
       />
 
-      {/* Pricing Tiers */}
+      {/* Section 04 / — Portfolio & Trust: Verified Work & Demo Systems */}
+      <WebsitesPortfolio
+        sectionNumber="04 /"
+        sectionBadge="Verified Work & Demo Systems"
+        title="Live Production & Interactive Demo Systems"
+        subtitle="Inspect real digital platforms engineered by Bluetick Digital. Test sub-second load speeds, mobile layouts, and connected WhatsApp enquiry workflows."
+      />
+
+      {/* Section 05 / — Transparent Pricing Tiers */}
       <div id="packages">
         <SubPagePricing
-          sectionNumber="04 /"
+          sectionNumber="05 /"
           sectionBadge="Transparent Investment"
           title="Transparent Website Packages"
           subtitle="No hidden agency retainers. Clear milestone-based scopes framed around your business stage."
           tiers={WEBSITES_PRICING_TIERS}
           ctaHref="/#audit?req=new_website"
           disclaimer={
-            <>
-              Starting from prices indicate standard baseline packages. Final investment is scoped transparently during your free audit based on custom pages, integrations, and specific feature requirements. For detailed industry pricing benchmarks, see our <a href="/blog/website-development-cost-in-india-2026" style={{ color: 'var(--color-brand)', textDecoration: 'underline', fontWeight: 600 }}>2026 website development cost guide</a>.
-            </>
+            <span>
+              Starting from prices indicate standard baseline packages. The ₹9,999 Business Website package includes up to 10 pages, 1 year domain, 1 year hosting, and 12 months maintenance with 50% advance and 50% on final launch approval. Domain &amp; hosting renew annually at standard provider cost (~₹2,500–₹3,500/yr). For detailed industry pricing benchmarks, see our <a href="/blog/website-development-cost-in-india-2026" style={{ color: 'var(--color-brand)', textDecoration: 'underline', fontWeight: 600 }}>2026 website development cost guide</a>.
+            </span>
           }
         />
       </div>
 
-      {/* FAQ Section */}
+      {/* Section 06 / — FAQ Section */}
       <SubPageFaq
-        sectionNumber="05 /"
+        sectionNumber="06 /"
         sectionBadge="Frequently Asked Questions"
         title="Common Questions About Our Web Platforms"
-        subtitle="Clear answers on tech stack, delivery timelines, and maintenance."
+        subtitle="Clear answers on tech stack, inclusions, delivery timelines, payment terms, and maintenance."
         faqs={WEBSITES_FAQS}
       />
 
-      {/* Bottom CTA Banner */}
+      {/* Section 07 / — Bottom CTA Banner */}
       <SubPageCta
-        badge="Free 30-Minute Web Architecture Audit"
-        title="Ready to Build a High-Performance Digital Platform?"
-        subtitle="We will analyze your current digital presence, provide a clear technical roadmap, and give you an exact milestone quote in 24 hours."
-        ctaText="Get Your Free Web Audit"
+        badge="Verified ₹9,999 Package · 5–7 Day Sprint"
+        title="Ready to Launch Your 10-Page Business Website for ₹9,999?"
+        subtitle="Get up to 10 custom pages, 1 year domain registration, 1 year cloud hosting, and 12 months maintenance with 50% advance. Connect directly with our engineering team."
+        ctaText="Get My Business Website"
         ctaHref="/#audit?req=new_website"
+        onCtaClick={() => trackCtaClick('bottom_cta_get_my_business_website', '/#audit?req=new_website')}
+        whatsappHref={FINAL_CTA_WA_URL}
+        whatsappText="Chat on WhatsApp"
+        onWhatsAppClick={() => trackWhatsAppClick('final_cta')}
       />
     </>
   );

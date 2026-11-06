@@ -389,3 +389,43 @@ Always execute repo-wide searches for obsolete pricing tokens across both `src/`
 - [x] Are all query parameter variants in subpage CTAs registered in `AuditForm.jsx`'s alias dictionary?
 - [x] Does `dist/` static output match client-rendered text exactly?
 
+---
+
+### [BLT-011] Accidental Double Meta Pixel PageView Dispatch on Initial SPA Load via Multi-Effect Hooks
+
+**Date:** 2026-11-06  
+**Category:** Technical / Process / Architecture  
+**Severity:** High  
+**Status:** Resolved  
+
+### Problem
+During the pre-deployment tracking audit for the Website CRO landing page (`/solutions/websites`), Meta Pixel was at risk of firing duplicate `PageView` events on the very first page load when cookie consent was already granted or dynamically accepted.
+
+### Immediate Cause
+`FacebookPixel.jsx` utilized two separate `useEffect` hooks: Effect 1 initialized `window.fbq` and fired the initial `PageView`, setting `initialLoadRef.current = false`. Effect 2 watched `[location.pathname, location.search, consent?.marketing]`. When `consent?.marketing` updated from `false` to `true`, Effect 1 executed first, setting `initialLoadRef.current` to `false`. Effect 2 then executed in the same render pass, saw `initialLoadRef.current` as `false`, and dispatched a second `PageView` event.
+
+### Root Cause
+Decoupling script initialization and location tracking into two independent `useEffect` hooks using a simple boolean flag (`initialLoadRef`) creates a race condition upon consent changes where both effects dispatch `PageView` in succession for the identical URL.
+
+### Why We Missed It
+In static environments or when navigating between pages post-hydration, each navigation fired only once. The double firing only manifested on initial cold load or immediate cookie consent acceptance.
+
+### Fix
+Replaced the boolean `initialLoadRef` with a path-tracking reference: `lastTrackedPathRef = useRef(null)`.
+1. When Effect 1 initializes `window.fbq` and tracks the initial `PageView`, it immediately records `lastTrackedPathRef.current = location.pathname + location.search`.
+2. When Effect 2 executes, it checks `if (lastTrackedPathRef.current === currentPath) return;`. Because the path was already tracked in Effect 1, Effect 2 aborts immediately.
+3. On subsequent SPA client-side navigations (e.g., navigating to `/pricing`), `currentPath` differs from `lastTrackedPathRef.current`, so Effect 2 records the new path and dispatches exactly one virtual `PageView`.
+
+### What We Learned
+In React SPAs, tracking virtual pageviews across client-side router transitions must never rely on boolean "initial render" flags. Instead, store the last tracked path string (`pathname + search`) and guard against duplicate dispatches for the exact same path.
+
+### Prevention Rule
+Always guard SPA virtual pageviews using `lastTrackedPathRef.current === currentPath` rather than boolean lifecycle flags, and verify event counts with browser automation network interception before certifying ad campaigns.
+
+### Future Checklist
+- [x] Does initial page load fire exactly 1 `PageView` event in Meta Pixel?
+- [x] Does client-side SPA navigation fire exactly 1 virtual `PageView` per route transition?
+- [x] Does rejecting marketing cookies block all `fbq` script injection and event dispatching?
+- [x] Does clicking WhatsApp CTAs fire only `Contact` (and strictly never `Lead` or `Purchase`)?
+
+

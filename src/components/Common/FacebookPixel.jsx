@@ -1,19 +1,21 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import { useCookieConsent } from '../../context/CookieConsentContext';
 
 const PIXEL_ID = '1411505880771110';
 
 /**
- * FacebookPixel: Loads Meta Pixel only if the user has explicitly consented to Marketing / Advertising cookies.
+ * FacebookPixel: Loads Meta Pixel only if the user has explicitly consented to Marketing / Advertising cookies,
+ * and tracks virtual pageviews across client-side route transitions.
  */
 const FacebookPixel = () => {
     const { consent } = useCookieConsent();
+    const location = useLocation();
+    const lastTrackedPathRef = useRef(null);
 
+    // 1. Initialize Meta Pixel script upon marketing consent
     useEffect(() => {
-        // Only load if user granted Marketing consent
         if (!consent?.marketing) return;
-
-        // Prevent duplicate initialization
         if (window.fbq) return;
 
         // Initialize Facebook Pixel
@@ -34,10 +36,25 @@ const FacebookPixel = () => {
             s.parentNode.insertBefore(t, s);
         })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
 
-        // Initialize and track PageView
+        // Initialize Pixel ID and track first PageView
         window.fbq('init', PIXEL_ID);
         window.fbq('track', 'PageView');
-    }, [consent?.marketing]);
+        lastTrackedPathRef.current = location.pathname + location.search;
+    }, [consent?.marketing, location.pathname, location.search]);
+
+    // 2. Track virtual PageView on React Router route changes
+    useEffect(() => {
+        if (!consent?.marketing || !window.fbq) return;
+
+        const currentPath = location.pathname + location.search;
+        // Skip if this path has already been tracked (avoids duplicate initial PageView)
+        if (lastTrackedPathRef.current === currentPath) {
+            return;
+        }
+
+        lastTrackedPathRef.current = currentPath;
+        window.fbq('track', 'PageView');
+    }, [location.pathname, location.search, consent?.marketing]);
 
     if (!consent?.marketing) return null;
 

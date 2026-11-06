@@ -13,13 +13,13 @@
 }
 
 .tierCard {
-  background: var(--color-white);
-  border: 1px solid var(--color-border-light);
+  background: var(--color-white, #ffffff);
+  border: 1px solid var(--color-border-light, rgba(15, 23, 42, 0.08));
   border-radius: 20px;
   padding: 2.25rem 2rem;
   display: flex;
   flex-direction: column;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.05));
   position: relative;
   transition: all 0.2s ease;
 }
@@ -30,7 +30,7 @@
 }
 
 .tierCardFeatured {
-  border: 2px solid var(--color-brand);
+  border: 2px solid var(--color-brand, #1d4ed8);
   box-shadow: 0 12px 40px rgba(29, 78, 216, 0.12);
 }
 
@@ -39,26 +39,46 @@
   top: -12px;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--color-brand);
+  background: var(--color-brand, #1d4ed8);
   color: #ffffff;
-  font-family: var(--font-heading);
+  font-family: var(--font-heading, "Plus Jakarta Sans", sans-serif);
   font-size: 0.725rem;
   font-weight: 800;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   padding: 0.25rem 0.85rem;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-full, 9999px);
   display: inline-flex;
   align-items: center;
   gap: 4px;
 }
 
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
 .tierName {
-  font-family: var(--font-heading);
+  font-family: var(--font-heading, "Plus Jakarta Sans", sans-serif);
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--color-slate-900);
-  margin: 0 0 0.75rem 0;
+  color: var(--color-slate-900, #0f172a);
+  margin: 0;
+}
+
+.paymentTermsBadge {
+  font-size: 0.725rem;
+  font-weight: 700;
+  color: #059669;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-full, 9999px);
+  white-space: nowrap;
 }
 
 .priceWrap {
@@ -76,30 +96,30 @@
 }
 
 .priceValue {
-  font-family: var(--font-heading);
+  font-family: var(--font-heading, "Plus Jakarta Sans", sans-serif);
   font-size: 1.75rem;
   font-weight: 800;
-  color: var(--color-brand);
+  color: var(--color-brand, #1d4ed8);
   line-height: 1.2;
 }
 
 .tierDesc {
   font-size: 0.875rem;
   line-height: 1.5;
-  color: var(--color-slate-600);
+  color: var(--color-slate-600, #475569);
   margin: 0 0 1.5rem 0;
 }
 
 .tierDivider {
   height: 1px;
-  background: var(--color-border-light);
+  background: var(--color-border-light, rgba(15, 23, 42, 0.08));
   margin-bottom: 1.5rem;
 }
 
 .tierFeaturesList {
   list-style: none;
   padding: 0;
-  margin: 0 0 2rem 0;
+  margin: 0 0 1.5rem 0;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -111,29 +131,93 @@
   align-items: flex-start;
   gap: 0.6rem;
   font-size: 0.85rem;
-  color: var(--color-slate-700);
+  color: var(--color-slate-700, #334155);
   line-height: 1.45;
 }
 
 .tierCheckIcon {
-  color: var(--color-brand);
+  color: var(--color-brand, #1d4ed8);
   flex-shrink: 0;
   margin-top: 2px;
 }
 
+.tierRenewalBox {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 0.65rem 0.75rem;
+  font-size: 0.775rem;
+  line-height: 1.4;
+  color: #64748b;
+  margin-bottom: 1.5rem;
+}
+
+.renewalIcon {
+  color: #0284c7;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.tierActions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: auto;
+}
+
 .tierBtn {
   width: 100%;
-  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 46px;
+  text-decoration: none;
+}
+
+.tierWhatsAppBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #25D366;
+  color: #ffffff;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-full, 9999px);
+  font-family: var(--font-heading, "Plus Jakarta Sans", sans-serif);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  min-height: 46px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 10px rgba(37, 211, 102, 0.25);
+}
+
+.tierWhatsAppBtn:hover {
+  background: #1eb956;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35);
+  color: #ffffff;
+}
+
+.whatsappSvg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
 }
 
 /* Disclaimer Box */
 .disclaimerBox {
-  background: var(--color-slate-50);
-  border: 1px solid var(--color-border-light);
+  background: var(--color-slate-50, #f8fafc);
+  border: 1px solid var(--color-border-light, rgba(15, 23, 42, 0.08));
   border-radius: 12px;
   padding: 1rem 1.25rem;
   font-size: 0.825rem;
-  color: var(--color-slate-600);
+  color: var(--color-slate-600, #475569);
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -142,6 +226,6 @@
 }
 
 .disclaimerIcon {
-  color: var(--color-brand);
+  color: var(--color-brand, #1d4ed8);
   flex-shrink: 0;
 }

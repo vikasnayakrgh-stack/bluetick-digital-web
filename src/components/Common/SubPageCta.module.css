@@ -1,7 +1,7 @@
 .ctaSection {
   position: relative;
-  padding: calc(var(--section-padding-y) + 1rem) 1.5rem var(--section-padding-y);
-  background: var(--color-bg-body);
+  padding: calc(var(--section-padding-y, 5rem) + 1rem) 1.5rem var(--section-padding-y, 5rem);
+  background: var(--color-bg-body, #ffffff);
   overflow: hidden;
 }
 
@@ -40,8 +40,8 @@
   border: 1px solid rgba(56, 189, 248, 0.3);
   color: #38bdf8;
   padding: 0.35rem 0.95rem;
-  border-radius: var(--radius-full);
-  font-family: var(--font-heading);
+  border-radius: var(--radius-full, 9999px);
+  font-family: var(--font-heading, "Plus Jakarta Sans", sans-serif);
   font-size: 0.775rem;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -49,14 +49,14 @@
 }
 
 .ctaTitle {
-  font-family: var(--font-heading);
+  font-family: var(--font-heading, "Plus Jakarta Sans", sans-serif);
   font-size: clamp(2rem, 3.5vw, 2.85rem);
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -0.03em;
   color: #ffffff;
   margin: 0 auto 1rem auto;
-  max-width: 22ch;
+  max-width: 24ch;
 }
 
 .ctaSubtitle {
@@ -70,18 +70,21 @@
 .ctaActionRow {
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 1rem;
   margin-bottom: 2rem;
+  flex-wrap: wrap;
 }
 
 .ctaPrimaryBtn {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  background: var(--color-brand);
+  background: var(--color-brand, #1d4ed8);
   color: #ffffff;
-  padding: 1rem 2.25rem;
-  border-radius: var(--radius-full);
-  font-family: var(--font-heading);
+  padding: 0.95rem 2.25rem;
+  border-radius: var(--radius-full, 9999px);
+  font-family: var(--font-heading, "Plus Jakarta Sans", sans-serif);
   font-size: 1rem;
   font-weight: 700;
   text-decoration: none;
@@ -93,6 +96,36 @@
 .ctaPrimaryBtn:hover {
   background: var(--color-brand-hover, #1e40af);
   box-shadow: 0 8px 30px rgba(29, 78, 216, 0.6);
+  color: #ffffff;
+}
+
+.ctaWhatsAppBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: #25D366;
+  color: #ffffff;
+  padding: 0.95rem 1.85rem;
+  border-radius: var(--radius-full, 9999px);
+  font-family: var(--font-heading, "Plus Jakarta Sans", sans-serif);
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.2s ease;
+}
+
+.ctaWhatsAppBtn:hover {
+  background: #1eb956;
+  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45);
+  color: #ffffff;
+}
+
+.whatsappSvg {
+  width: 19px;
+  height: 19px;
+  flex-shrink: 0;
 }
 
 .trustFooterRow {
@@ -131,8 +164,15 @@
     padding: 2rem 1.25rem;
     border-radius: 20px;
   }
+
+  .ctaActionRow {
+    flex-direction: column;
+    width: 100%;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
   
-  .ctaPrimaryBtn {
+  .ctaPrimaryBtn, .ctaWhatsAppBtn {
     width: 100%;
     justify-content: center;
     min-height: 48px;

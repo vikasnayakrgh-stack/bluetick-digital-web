@@ -349,29 +349,29 @@ const STATIC_ROUTES = [
   },
   {
     route: '/solutions/websites',
-    title: 'Business Website Design & Web Platform Engineering | Bluetick Digital',
-    description: 'High-converting, sub-second business websites designed to attract, engage, and convert customers. Engineered with modern React tech and connected AI lead pipelines.',
-    keywords: 'Business Website Design, Lead Generation Websites, Modern Web Development, React 18, Bluetick Digital',
+    title: 'Get Your Complete 10-Page Business Website at Just ₹9,999 | Bluetick Digital',
+    description: 'Get your complete 10-page business website at just ₹9,999. Includes 1-yr domain registration, 1-yr cloud hosting, 12 months maintenance, mobile-responsive design, and WhatsApp lead integration. Launched in 5–7 days.',
+    keywords: 'Business Website ₹9999, 10 Page Website Development, Lead Generation Websites, Mobile Responsive Website India, React 18, Bluetick Digital',
     canonical: 'https://bluetickdigital.in/solutions/websites',
     ogImage: 'https://bluetickdigital.in/images/og-default.jpg',
-    lastmod: '2026-02-18',
+    lastmod: '2026-11-06',
     changefreq: 'weekly',
     priority: '0.8',
     schema: {
       "@context": "https://schema.org",
       "@type": "Service",
-      "name": "Business Website Design & Web Platform Engineering",
+      "name": "Complete 10-Page Business Website Package",
       "provider": { "@type": "Organization", "name": "Bluetick Digital", "url": "https://bluetickdigital.in" },
       "serviceType": "High-Performance Business Web Platforms"
     },
     bodyHtml: `
       <header>
-        <h1>High-Speed Business Websites Engineered for Measurable Growth</h1>
-        <p>We build ultra-fast, mobile-first business web platforms that capture intent, rank on search engines, and connect directly to automated sales pipelines.</p>
+        <h1>Get Your Complete 10-Page Business Website at Just ₹9,999</h1>
+        <p>Everything your business needs to launch and grow online: up to 10 custom pages, 1 year domain registration, 1 year cloud hosting, 12 months maintenance, and instant WhatsApp enquiry integration. 50% advance to start, delivered in 5–7 days.</p>
       </header>
       <section>
         <h2>Transparent Website Packages</h2>
-        <p>Starter business websites starting from ₹10,000, growth corporate platforms from ₹20,000, and bespoke enterprise systems.</p>
+        <p>Business Website confirmed package at ₹9,999, Premium corporate platform at ₹19,999, and bespoke enterprise systems.</p>
         <p>Planning your budget? See our comprehensive <a href="/blog/website-development-cost-in-india-2026">2026 website development cost guide</a> for pricing benchmarks across freelancers, boutique agencies, and modern tech stacks.</p>
       </section>
     `

@@ -6,6 +6,7 @@ import { Link, useLocation } from 'react-router-dom';
 import styles from './AuditForm.module.css';
 import { supabase } from '../../supabaseClient';
 import { trackFormSubmission } from '../../utils/analytics';
+import { captureUtmParams, getStoredUtmParams } from '../../utils/utm';
 
 const REQUIREMENT_OPTIONS = [
     { value: 'new_website', label: 'New Website' },
@@ -46,6 +47,7 @@ const AuditForm = () => {
 
     useEffect(() => {
         const parseIntent = () => {
+            captureUtmParams();
             // 1. Check standard URL search query (?req=...)
             const searchParams = new URLSearchParams(location.search || window.location.search);
             let rawReq = searchParams.get('req');
@@ -192,10 +194,14 @@ const AuditForm = () => {
                 console.error('Supabase Insert Error:', error);
                 throw error;
             }
+            const utms = getStoredUtmParams();
             trackFormSubmission('free_growth_audit', {
                 requirement: formData.requirement,
                 business_type: formData.business_type || 'other',
-                monthly_leads: formData.monthly_leads
+                monthly_leads: formData.monthly_leads,
+                ...(utms.utm_source && { utm_source: utms.utm_source }),
+                ...(utms.utm_medium && { utm_medium: utms.utm_medium }),
+                ...(utms.utm_campaign && { utm_campaign: utms.utm_campaign }),
             });
             setStatus('success');
         } catch (err) {
